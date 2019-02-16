@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.FlFollowMedicineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.FlFollowMedicine">
+        <id column="id" property="id" />
+        <result column="fl_code" property="flCode" />
+        <result column="crowno" property="crowno" />
+        <result column="hid" property="hid" />
+        <result column="regulardose" property="regulardose" />
+        <result column="expenses" property="expenses" />
+        <result column="untowardeffect" property="untowardeffect" />
+        <result column="curativeeffect" property="curativeeffect" />
+        <result column="othersereason" property="othersereason" />
+        <result column="xdnf" property="xdnf" />
+        <result column="xdnf_dosage" property="xdnfDosage" />
+        <result column="tdnf" property="tdnf" />
+        <result column="tdnf_dosage" property="tdnfDosage" />
+        <result column="facered1" property="facered1" />
+        <result column="headache1" property="headache1" />
+        <result column="stuffynose1" property="stuffynose1" />
+        <result column="musclepain1" property="musclepain1" />
+        <result column="dizziness1" property="dizziness1" />
+        <result column="blurredvision1" property="blurredvision1" />
+        <result column="hypotension1" property="hypotension1" />
+        <result column="menstrualdisorder1" property="menstrualdisorder1" />
+        <result column="other1" property="other1" />
+        <result column="bst" property="bst" />
+        <result column="bst_dosage" property="bstDosage" />
+        <result column="alst" property="alst" />
+        <result column="alst_dosage" property="alstDosage" />
+        <result column="mxtt" property="mxtt" />
+        <result column="mxtt_dosage" property="mxttDosage" />
+        <result column="facered2" property="facered2" />
+        <result column="headache2" property="headache2" />
+        <result column="stuffynose2" property="stuffynose2" />
+        <result column="musclepain2" property="musclepain2" />
+        <result column="dizziness2" property="dizziness2" />
+        <result column="transaminaseraise2" property="transaminaseraise2" />
+        <result column="anemia2" property="anemia2" />
+        <result column="peripheraledema2" property="peripheraledema2" />
+        <result column="hypotension2" property="hypotension2" />
+        <result column="menstrualdisorder2" property="menstrualdisorder2" />
+        <result column="other2" property="other2" />
+        <result column="bqls" property="bqls" />
+        <result column="bqls_dosage" property="bqlsDosage" />
+        <result column="rmdl" property="rmdl" />
+        <result column="rmdl_dosage" property="rmdlDosage" />
+        <result column="facered3" property="facered3" />
+        <result column="headache3" property="headache3" />
+        <result column="stuffynose3" property="stuffynose3" />
+        <result column="musclepain3" property="musclepain3" />
+        <result column="diarrhea3" property="diarrhea3" />
+        <result column="localpain3" property="localpain3" />
+        <result column="hypotension3" property="hypotension3" />
+        <result column="other3" property="other3" />
+        <result column="laxg" property="laxg" />
+        <result column="laxg_dosage" property="laxgDosage" />
+        <result column="facered4" property="facered4" />
+        <result column="headache4" property="headache4" />
+        <result column="stuffynose4" property="stuffynose4" />
+        <result column="dizziness4" property="dizziness4" />
+        <result column="diarrhea4" property="diarrhea4" />
+        <result column="hypotension4" property="hypotension4" />
+        <result column="other4" property="other4" />
+        <result column="creationtime" property="creationtime" />
+        <result column="creator" property="creator" />
+        <result column="modifiedtime" property="modifiedtime" />
+        <result column="modifier" property="modifier" />
+        <result column="ts" property="ts" />
+        <result column="dr" property="dr" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, fl_code, crowno, hid, regulardose, expenses, untowardeffect, curativeeffect, othersereason, xdnf, xdnf_dosage, tdnf, tdnf_dosage, facered1, headache1, stuffynose1, musclepain1, dizziness1, blurredvision1, hypotension1, menstrualdisorder1, other1, bst, bst_dosage, alst, alst_dosage, mxtt, mxtt_dosage, facered2, headache2, stuffynose2, musclepain2, dizziness2, transaminaseraise2, anemia2, peripheraledema2, hypotension2, menstrualdisorder2, other2, bqls, bqls_dosage, rmdl, rmdl_dosage, facered3, headache3, stuffynose3, musclepain3, diarrhea3, localpain3, hypotension3, other3, laxg, laxg_dosage, facered4, headache4, stuffynose4, dizziness4, diarrhea4, hypotension4, other4, creationtime, creator, modifiedtime, modifier, ts, dr
+    </sql>
+
+</mapper>

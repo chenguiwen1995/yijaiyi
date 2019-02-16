@@ -1,0 +1,53 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" value="${item.id}" underline="true"/>
+                            <#input id="hid" name="" value="${item.hid}" underline="true"/>
+                            <#input id="flCode" name="" value="${item.flCode}" underline="true"/>
+                            <#input id="deteriorate" name="" value="${item.deteriorate}" underline="true"/>
+                            <#input id="hospitalization" name="" value="${item.hospitalization}" underline="true"/>
+                            <#input id="number" name="" value="${item.number}" underline="true"/>
+                            <#input id="pulmonary" name="" value="${item.pulmonary}" underline="true"/>
+                            <#input id="rightheartfailure" name="" value="${item.rightheartfailure}" underline="true"/>
+                            <#input id="hemoptysis" name="" value="${item.hemoptysis}" underline="true"/>
+                            <#input id="other" name="" value="${item.other}" underline="true"/>
+                            <#input id="pulmonaryembolism" name="" value="${item.pulmonaryembolism}" underline="true"/>
+                            <#input id="lowervein" name="" value="${item.lowervein}" underline="true"/>
+                            <#input id="arrhythmia" name="" value="${item.arrhythmia}" underline="true"/>
+                            <#input id="death" name="" value="${item.death}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="deathdate" name="" value="${item.deathdate}" underline="true"/>
+                            <#input id="nonpertension" name="" value="${item.nonpertension}" underline="true"/>
+                            <#input id="specific" name="" value="${item.specific}" underline="true"/>
+                            <#input id="review" name="" value="${item.review}" underline="true"/>
+                            <#input id="hospitalizationdate1" name="" value="${item.hospitalizationdate1}" underline="true"/>
+                            <#input id="hospitalizationdate2" name="" value="${item.hospitalizationdate2}" underline="true"/>
+                            <#input id="hospitalizationdate3" name="" value="${item.hospitalizationdate3}" underline="true"/>
+                            <#input id="deterioratespecific" name="" value="${item.deterioratespecific}" underline="true"/>
+                            <#input id="creationtime" name="" value="${item.creationtime}" underline="true"/>
+                            <#input id="creator" name="" value="${item.creator}" underline="true"/>
+                            <#input id="modifiedtime" name="" value="${item.modifiedtime}" underline="true"/>
+                            <#input id="modifier" name="" value="${item.modifier}" underline="true"/>
+                            <#input id="ts" name="" value="${item.ts}" underline="true"/>
+                            <#input id="dr" name="" value="${item.dr}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="FlFollowEventInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="FlFollowEventInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/fl/flFollowEvent/flFollowEvent_info.js"></script>
+@}
