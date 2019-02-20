@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.DoctorMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.Doctor">
+        <result column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="ranks" property="ranks" />
+        <result column="sex" property="sex" />
+        <result column="creationTime" property="creationTime" />
+        <result column="modifiedTime" property="modifiedTime" />
+        <result column="ts" property="ts" />
+        <result column="dr" property="dr" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, ranks, sex, creationTime, modifiedTime, ts, dr
+    </sql>
+
+    <select id="queryDoctor" resultType="com.stylefeng.guns.modular.system.model.Doctor">
+        SELECT id,code,name,ranks,sex,creationTime,modifiedTime,ts,dr FROM yjy_doctor WHERE dr = 0 ORDER BY ts
+    </select>
+
+    <select id="queryDoctorById" resultType="com.stylefeng.guns.modular.system.model.Doctor">
+        SELECT id,code,name,ranks,sex,creationTime,modifiedTime,ts,dr FROM yjy_doctor WHERE id = #{id} AND dr = 0
+    </select>
+
+    <insert id="insertDoctor" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="com.stylefeng.guns.modular.system.model.Doctor">
+        INSERT INTO yjy_doctor(code,name,ranks,sex,creationTime,modifiedTime,ts,dr)
+        VALUES (#{code},#{name},#{ranks},#{sex},#{creationTime},#{modifiedTime},#{ts},0)
+    </insert>
+
+    <update id="updateDoctor" parameterType="com.stylefeng.guns.modular.system.model.Doctor">
+        UPDATE yjy_doctor
+        <set>
+            <if test="code != null">code=#{code},</if>
+            <if test="name != null">name=#{name},</if>
+            <if test="ranks != null">ranks=#{ranks},</if>
+            <if test="sex != null">sex=#{sex},</if>
+            <if test="modifiedTime != null">modifiedTime=#{modifiedTime},</if>
+            <if test="ts != null">ts=#{ts},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteDoctor">
+        UPDATE yjy_doctor SET dr = 1 WHERE id = #{id}
+    </delete>
+
+
+
+    <select id="selectDoctors" resultType="map">
+        select
+        <include refid="Base_Column_List" />
+        from yjy_doctor
+        where 1=1
+        <if test="code != null and code !=''">
+            and (code like CONCAT('%', #{code}, '%')
+            or name like CONCAT('%',#{code},'%'))
+        </if>
+
+    </select>
+
+
+
+</mapper>

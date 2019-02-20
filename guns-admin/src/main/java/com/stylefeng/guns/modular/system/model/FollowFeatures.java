@@ -43,7 +43,7 @@ public class FollowFeatures extends Model<FollowFeatures> {
     private Integer swollen;
     private String others;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField("creationtime")
+    @TableField("creation_time")
     private Date creationTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField("modifiedtime")

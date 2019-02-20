@@ -1,0 +1,47 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" underline="true"/>
+                            <#input id="flCode" name="" underline="true"/>
+                            <#input id="crowno" name="" underline="true"/>
+                            <#input id="hid" name="" underline="true"/>
+                            <#input id="routineblood" name="" underline="true"/>
+                            <#input id="bloodbiochemistry" name="" underline="true"/>
+                            <#input id="nt" name="" underline="true"/>
+                            <#input id="ntnumber" name="" underline="true"/>
+                            <#input id="sexhormone" name="" underline="true"/>
+                            <#input id="ironmetabolism" name="" underline="true"/>
+                            <#input id="walk" name=""/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="walkdistance" name="" underline="true"/>
+                            <#input id="ct" name="" underline="true"/>
+                            <#input id="cprt" name="" underline="true"/>
+                            <#input id="mri" name="" underline="true"/>
+                            <#input id="othercheck" name="" underline="true"/>
+                            <#input id="creationTime" name="" underline="true"/>
+                            <#input id="creator" name="" underline="true"/>
+                            <#input id="modifiedTime" name="" underline="true"/>
+                            <#input id="modifier" name="" underline="true"/>
+                            <#input id="ts" name="" underline="true"/>
+                            <#input id="dr" name="" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="FlFollowResultInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="FlFollowResultInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/fl/flFollowResult/flFollowResult_info.js"></script>
+@}
