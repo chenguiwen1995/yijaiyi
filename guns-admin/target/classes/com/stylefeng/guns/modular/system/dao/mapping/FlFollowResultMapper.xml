@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.FlFollowResultMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.FlFollowResult">
+        <id column="id" property="id" />
+        <result column="fl_code" property="flCode" />
+        <result column="crowno" property="crowno" />
+        <result column="hid" property="hid" />
+        <result column="routineblood" property="routineblood" />
+        <result column="bloodbiochemistry" property="bloodbiochemistry" />
+        <result column="nt" property="nt" />
+        <result column="ntnumber" property="ntnumber" />
+        <result column="sexhormone" property="sexhormone" />
+        <result column="ironmetabolism" property="ironmetabolism" />
+        <result column="walk" property="walk" />
+        <result column="walkdistance" property="walkdistance" />
+        <result column="ct" property="ct" />
+        <result column="cprt" property="cprt" />
+        <result column="mri" property="mri" />
+        <result column="othercheck" property="othercheck" />
+        <result column="creationTime" property="creationTime" />
+        <result column="creator" property="creator" />
+        <result column="modifiedTime" property="modifiedTime" />
+        <result column="modifier" property="modifier" />
+        <result column="ts" property="ts" />
+        <result column="dr" property="dr" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, fl_code AS flCode, crowno, hid, routineblood, bloodbiochemistry, nt, ntnumber, sexhormone, ironmetabolism, walk, walkdistance, ct, cprt, mri, othercheck, creationTime, creator, modifiedTime, modifier, ts, dr
+    </sql>
+
+    <select id="selectByPId" resultType="com.stylefeng.guns.modular.system.model.FlFollowResult" parameterType="Integer">
+        select
+        <include refid="Base_Column_List" />
+        from fl_follow_result
+        where 1 = 1
+
+        <if test="followId != null and followId !=''">
+            and  hid = #{followId}
+        </if>
+
+    </select>
+</mapper>

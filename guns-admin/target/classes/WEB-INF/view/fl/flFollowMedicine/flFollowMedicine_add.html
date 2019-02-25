@@ -1,0 +1,86 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" underline="true"/>
+                            <#input id="flCode" name="" underline="true"/>
+                            <#input id="crowno" name="" underline="true"/>
+                            <#input id="hid" name="" underline="true"/>
+                            <#input id="regulardose" name="" underline="true"/>
+                            <#input id="othersereason" name="" underline="true"/>
+                            <#input id="xdnf" name="" underline="true"/>
+                            <#input id="xdnfDosage" name="" underline="true"/>
+                            <#input id="tdnf" name="" underline="true"/>
+                            <#input id="tdnfDosage" name="" underline="true"/>
+                            <#input id="facered1" name="" underline="true"/>
+                            <#input id="headache1" name="" underline="true"/>
+                            <#input id="stuffynose1" name="" underline="true"/>
+                            <#input id="musclepain1" name="" underline="true"/>
+                            <#input id="dizziness1" name="" underline="true"/>
+                            <#input id="blurredvision1" name="" underline="true"/>
+                            <#input id="hypotension1" name="" underline="true"/>
+                            <#input id="menstrualdisorder1" name="" underline="true"/>
+                            <#input id="other1" name="" underline="true"/>
+                            <#input id="bst" name="" underline="true"/>
+                            <#input id="bstDosage" name="" underline="true"/>
+                            <#input id="mxtt" name="" underline="true"/>
+                            <#input id="mxttDosage" name="" underline="true"/>
+                            <#input id="facered2" name="" underline="true"/>
+                            <#input id="headache2" name="" underline="true"/>
+                            <#input id="stuffynose2" name="" underline="true"/>
+                            <#input id="musclepain2" name="" underline="true"/>
+                            <#input id="dizziness2" name="" underline="true"/>
+                            <#input id="transaminaseraise2" name="" underline="true"/>
+                            <#input id="anemia2" name="" underline="true"/>
+                            <#input id="peripheraledema2" name=""/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="hypotension2" name="" underline="true"/>
+                            <#input id="menstrualdisorder2" name="" underline="true"/>
+                            <#input id="other2" name="" underline="true"/>
+                            <#input id="bqls" name="" underline="true"/>
+                            <#input id="bqlsDosage" name="" underline="true"/>
+                            <#input id="rmdl" name="" underline="true"/>
+                            <#input id="rmdlDosage" name="" underline="true"/>
+                            <#input id="facered3" name="" underline="true"/>
+                            <#input id="headache3" name="" underline="true"/>
+                            <#input id="stuffynose3" name="" underline="true"/>
+                            <#input id="musclepain3" name="" underline="true"/>
+                            <#input id="diarrhea3" name="" underline="true"/>
+                            <#input id="localpain3" name="" underline="true"/>
+                            <#input id="hypotension3" name="" underline="true"/>
+                            <#input id="other3" name="" underline="true"/>
+                            <#input id="laxg" name="" underline="true"/>
+                            <#input id="laxgDosage" name="" underline="true"/>
+                            <#input id="facered4" name="" underline="true"/>
+                            <#input id="headache4" name="" underline="true"/>
+                            <#input id="stuffynose4" name="" underline="true"/>
+                            <#input id="dizziness4" name="" underline="true"/>
+                            <#input id="diarrhea4" name="" underline="true"/>
+                            <#input id="hypotension4" name="" underline="true"/>
+                            <#input id="other4" name="" underline="true"/>
+                            <#input id="creationTime" name="" underline="true"/>
+                            <#input id="creator" name="" underline="true"/>
+                            <#input id="modifiedTime" name="" underline="true"/>
+                            <#input id="modifier" name="" underline="true"/>
+                            <#input id="ts" name="" underline="true"/>
+                            <#input id="dr" name="" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="FlFollowMedicineInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="FlFollowMedicineInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/fl/flFollowMedicine/flFollowMedicine_info.js"></script>
+@}

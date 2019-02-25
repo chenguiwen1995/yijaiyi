@@ -1,0 +1,866 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content" style="padding: 5px 20px 5px 20px;">
+
+        <input type="hidden" id="sexValue" value="${item.followH.patientSex}">
+
+
+        <!--患者基本信息-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>基本信息</h2>
+        </div>
+        <div class="ibox-content">
+            <div class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <#input id="code" name="随访编码" value="${item.followH.code}" disabled="disabled"/>
+                        <#input id="patientName" name="患者姓名" value="${item.followH.patientName}" disabled="disabled"/>
+                        <#select id="patientSex" name="患者性别" disabled="disabled" >
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </#select>
+                        <#input id="doctor" name="随访医生" value="${item.followH.doctor}" disabled="disabled"/>
+                        <#input id="patientPhone" name="患者电话" value="${item.followH.patientPhone}"  disabled="disabled"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <#input id="patientMedno" name="病案号" value="${item.followH.patientMedno}" disabled="disabled"/>
+                        <#input id="patientAge" name="患者年龄" value="${item.followH.patientAge}" disabled="disabled"/>
+                        <#input id="patientWechat" name="患者微信" value="${item.followH.patientWechat}" disabled="disabled"/>
+                        <#input id="department" name="科室" value="${item.followH.department}" disabled="disabled"/>
+                        <#input id="familyPhone" name="家属电话" value="${item.followH.familyPhone}" disabled="disabled"/>
+                    </div>
+                    <div class="col-sm-12">
+                        <#input id="patientAddress" name="患者地址" value="${item.followH.patientAddress}" disabled="disabled"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--患者基本信息结束-->
+
+
+        <!--临床恶化事件-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>临床恶化事件</h2>
+        </div>
+        <div class="ibox-content">
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">发生临床恶化事件:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="deteriorate" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="deteriorate" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">住院:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hospitalization" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hospitalization" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+
+            <div style="word-spacing: 20px;">
+                <label><h3 style="padding-left: 20px; font-weight: 500">次数:</h3></label>
+                <label class="radio-inline">
+                    <input type="radio" name="hospitalizationnumber" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hospitalizationnumber" value="2"
+                            style="margin-top: 4px; height: 13px; width: 13px" />2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hospitalizationnumber" value="3"
+                            style="margin-top: 4px; height: 13px; width: 13px" />3
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hospitalizationnumber" value="4"
+                            style="margin-top: 4px; height: 13px; width: 13px" />大于3次
+                </label>
+            </div>
+
+            <div class="checkbox" style="word-spacing: 40px; line-height: 200%;">
+                <label><h3 style="padding-left:15px; font-weight: 500">原因:</h3></label>
+                <label>
+                    <input name="fl_follow_event_pulmonary" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>肺部感染
+                </label>
+                <label>
+                    <input name="fl_follow_event_rightheartfailure" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>右心衰加重
+                </label>
+                <label>
+                    <input name="fl_follow_event_hemoptysis" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>咯血
+                </label>
+                <label>
+                    <input name="fl_follow_event_other" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px" />其他出血情况
+                </label><br>
+                <label style="margin-left: 100px;">
+                    <input name="fl_follow_event_pulmonaryembolism" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>再发肺栓塞
+                </label>
+                <label>
+                    <input name="fl_follow_event_lowervein" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>下肢深静脉血栓
+                </label>
+                <label>
+                    <input name="fl_follow_event_arrhythmia" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>心律失常
+                </label><br>
+
+                <form class="form-inline" role="form">
+                <div class="form-group">
+                    <label style="margin-left: 100px;">
+                        <input name="fl_follow_event_death" type="checkbox" value="1"
+                               style="margin-top: 6px; height: 13px; width: 13px"/>死亡
+                    </label>
+                    死亡时间<#input id="deathdate" name="" value="${item.flFollowEvent.deathdate}" disabled="disabled"/>
+                </div>
+                </form>
+                <form class="form-inline" role="form">
+                    <div class="form-group" style="margin-left: 85px">
+                        非肺高压原因:<textarea id="fl_follow_event_specific" rows="3" class="form-control" oninput="autoTextHeight(this)">
+                        </textarea>
+                    </div>
+                </form>
+                <label style="margin-left: 100px;">
+                    <input name="fl_follow_event_review" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>常规复查
+                </label><br>
+            </div>
+                <form class="form-inline" role="form" style="margin-top: 5px; word-spacing: 15px;">
+                    <h3><span class="glyphicon glyphicon-check" style="font-weight: 600">住院时间:</span></h3>
+                    1<#input id="hospitalizationdate1" name="" value="${item.flFollowEvent.hospitalizationdate1}" disabled="disabled"/>
+                    2<#input id="hospitalizationdate2" name="" value="${item.flFollowEvent.hospitalizationdate2}" disabled="disabled"/>
+                    3<#input id="hospitalizationdate3" name="" value="${item.flFollowEvent.hospitalizationdate3}" disabled="disabled"/>
+                </form>
+
+        </div>
+        <div class="ibox-content">
+            <h3><span class="glyphicon glyphicon-check" style="font-weight: 600">重要恶化事件请详述:</span></h3>
+            <textarea id="fl_follow_features_deterioratespecific" rows="3" class="form-control" oninput="autoTextHeight(this)">
+            </textarea>
+        </div>
+        <!--临床恶化事件结束-->
+
+
+        <!--临床症状和体征-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>临床症状和体征</h2>
+        </div>
+        <div class="ibox-content">
+            <h3><span class="glyphicon glyphicon-check" style="font-weight: 600">现存症状:</span></h3>
+            <div style="word-spacing: 20px;">
+                <label><h3 style="padding-left: 20px; font-weight: 600">活动后气短:</h3></label>
+                <label class="radio-inline">
+                    <input type="radio" name="breathShort" value="1"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>新发
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="breathShort" value="2"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>缓解
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="breathShort" value="3"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>不变
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="breathShort" value="4"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>加重
+                </label>
+            </div>
+            <div style="word-spacing: 20px;">
+                <label><h3 style="padding-left: 20px; font-weight: 600">晕厥:</h3></label>
+                <label class="radio-inline">
+                    <input type="radio" name="syncope" value="1"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>新发
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="syncope" value="2"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>缓解
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="syncope" value="3"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>不变
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="syncope" value="4"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>加重
+                </label>
+                <form class="form-inline" role="form">
+                    <div class="form-group" style="padding-left: 60px; font-size: 14px; word-spacing: 20px;">
+                        发生次数<#input id="syncopeTimes" name="" value="${item.followFeatures.syncopeTimes}" disabled="disabled"/>
+                        发生时间<#input id="syncopeTime" name="" value="${item.followFeatures.syncopeTime}" disabled="disabled"/>
+                    </div>
+                </form>
+            </div>
+            <div style="word-spacing: 20px; margin-top: 10px;">
+                <label><h3 style="padding-left: 20px; font-weight: 600">咯血:</h3></label>
+                <label class="radio-inline">
+                    <input type="radio" name="hemoptysis" value="1"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>新发
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hemoptysis" value="2"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>缓解
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hemoptysis" value="3"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>不变
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hemoptysis" value="4"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>加重
+                </label>
+                <form class="form-inline" role="form">
+                    <div class="form-group" style="padding-left: 60px; font-size: 14px; word-spacing: 20px;">
+                        发生次数<#input id="hemoptysisTimes" name="" value="${item.followFeatures.hemoptysisTimes}" disabled="disabled"/>
+                        最大量<#input id="hemoptysisMax" name="" value="${item.followFeatures.hemoptysisMax}" disabled="disabled"/>mL
+                    </div>
+                </form>
+            </div>
+            <div style="word-spacing: 20px; margin-top: 10px;">
+                <label><h3 style="padding-left: 20px; font-weight: 600">外周浮肿:</h3></label>
+                <label class="radio-inline">
+                    <input type="radio" name="swollen" value="1"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>新发
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="swollen" value="2"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>缓解
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="swollen" value="3"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>不变
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="swollen" value="4"
+                           style="margin-top: 4px; height: 13px; width: 13px"/>加重
+                </label>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <h3><span class="glyphicon glyphicon-check" style="font-weight: 600">其他重要症状:</span></h3>
+            <textarea id="fl_follow_features_others" rows="3" class="form-control" oninput="autoTextHeight(this)">
+            </textarea>
+        </div>
+        <!--临床症状和体征结束-->
+
+
+        <!--随访时服药情况-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>随访时服药情况</h2>
+        </div>
+        <div class="ibox-content">
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否规律服药:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_medicine_regulardose" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_medicine_regulardose" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+            <div class="checkbox" style="word-spacing: 40px;">
+                <form class="form-inline" role="form">
+                    <div class="form-group" style="padding-top: -5px;">
+                        <label><h3 style="padding-left: 20px; font-weight: 500">不规律原因:</h3></label>
+                        <label>
+                            <input name="fl_follow_medicine_expenses" type="checkbox" value="1"
+                                    style="margin-top: 3px; height: 13px; width: 13px"/>费用
+                        </label>
+                        <label>
+                            <input name="fl_follow_medicine_untowardeffect" type="checkbox" value="1"
+                                    style="margin-top: 3px; height: 13px; width: 13px"/>不良反应
+                        </label>
+                        <label>
+                            <input name="fl_follow_medicine_curativeeffect" type="checkbox" value="1"
+                                    style="margin-top: 3px; height: 13px; width: 13px"/>疗效
+                        </label>
+                        其他原因:<textarea id="fl_follow_medicine_othersereason" class="form-control" rows="3" oninput="autoTextHeight(this)">
+                    </textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--此次复查靶向治疗-->
+        <div class="ibox-content">
+            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">此次复查靶向治疗:</span></h3>
+            </label>
+            <!--5型磷酸二酯酶抑制剂-->
+            <h4 style="font-weight: 600">5型磷酸二酯酶抑制剂:</h4>
+            <form class="form-inline" role="form">
+                <div class="form-group" style="padding-left: 15px; font-size: 14px; word-spacing: 20px;">
+                    西地那非剂量<#input id="xdnf_dosage" name="" value="${item.flFollowMedicine.xdnfDosage}" disabled="disabled"/>
+                    他达那非剂量<#input id="tdnf_dosage" name="" value="${item.flFollowMedicine.tdnfDosage}" disabled="disabled"/>
+                </div>
+            </form>
+            <div class="checkbox" style="word-spacing: 30px; margin-left:30px; padding-top: 10px; padding-bottom: 10px;">
+                <label>
+                    <input name="facered1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>面色潮红
+                </label>
+                <label>
+                    <input name="headache1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>头痛
+                </label>
+                <label>
+                    <input name="stuffynose1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>鼻塞
+                </label>
+                <label>
+                    <input name="musclepain1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>肌肉疼痛
+                </label>
+                <label>
+                    <input name="dizziness1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>头晕
+                </label>
+                <label>
+                    <input name="blurredvision1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>视线模糊
+                </label>
+                <label>
+                    <input name="hypotension1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>低血压
+                </label>
+                <label>
+                    <input name="menstrualdisorder1" type="checkbox" value="1"
+                            style="margin-top: 3px; height: 13px; width: 13px"/>月经紊乱
+                </label><br>
+            </div>
+            <div class="form-group" style="margin-left: 15px">
+                <textarea id="fl_follow_medicine_other1" class="form-control" rows="3" oninput="autoTextHeight(this)" placeholder="其他...">
+                </textarea>
+            </div>
+
+
+            <!--5型磷酸二酯酶抑制剂结束-->
+
+            <!--内皮素受体拮抗剂-->
+            <h4 style="margin-top: 10px; font-weight: 600">内皮素受体拮抗剂:</h4>
+            <form class="form-inline" role="form">
+                <div class="form-group" style="padding-left: 15px; font-size: 14px; word-spacing: 20px;">
+                    波生坦剂量<#input id="bst_dosage" name="" value="${item.flFollowMedicine.bstDosage}" disabled="disabled"/>
+                    安立生坦剂量<#input id="alst_dosage" name="" value="${item.flFollowMedicine.alstDosage}" disabled="disabled"/>
+                    <br>
+                    马昔腾坦剂量<#input id="mxtt_dosage" name="" value="${item.flFollowMedicine.mxttDosage}" disabled="disabled"/>
+                </div>
+            </form>
+            <div class="checkbox" style="word-spacing: 40px; line-height: 200%; margin-left:30px; padding-top: 5px; padding-bottom: 5px;">
+                <label>
+                    <input name="facered2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>面色潮红
+                </label>
+                <label>
+                    <input name="headache2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>头痛
+                </label>
+                <label>
+                    <input name="stuffynose2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>鼻塞
+                </label>
+                <label>
+                    <input name="musclepain2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>肌肉疼痛
+                </label>
+                <label>
+                    <input name="dizziness2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>头晕
+                </label>
+                <label>
+                    <input name="transaminaseraise2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>转氨酶增高
+                </label>
+                <label>
+                    <input name="anemia2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>贫血
+                </label>
+                <label>
+                    <input name="peripheraledema2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>外周浮肿
+                </label>
+                <label>
+                    <input name="hypotension2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>低血压
+                </label>
+                <label>
+                    <input name="menstrualdisorder2" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>月经紊乱
+                </label><br>
+            </div>
+            <div class="form-group" style="margin-left: 15px">
+            <textarea id="fl_follow_medicine_other2" class="form-control" rows="3" oninput="autoTextHeight(this)"
+                      placeholder="其他..."></textarea>
+            </div>
+            <!--内皮素受体拮抗剂结束-->
+
+            <!--前列环素药物-->
+            <h4 style="margin-top: 10px; font-weight: 600">前列环素药物:</h4>
+            <form class="form-inline" role="form">
+                <div class="form-group" style="padding-left: 15px; font-size: 14px; word-spacing: 20px;">
+                    贝前列素剂量<#input id="bqls_dosage" name=""  value="${item.flFollowMedicine.bqlsDosage}" disabled="disabled"/>
+                    瑞莫杜林剂量<#input id="rmdl_dosage" name=""  value="${item.flFollowMedicine.rmdlDosage}" disabled="disabled"/>
+                </div><br>
+            </form>
+            <div class="checkbox" style="word-spacing: 30px; margin-left:30px; line-height: 200%; padding-top: 5px; padding-bottom: 5px;">
+                <label>
+                    <input name="facered3" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>面色潮红
+                </label>
+                <label>
+                    <input name="headache3" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>头痛
+                </label>
+                <label>
+                    <input name="stuffynose3" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>鼻塞
+                </label>
+                <label>
+                    <input name="musclepain3" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>肌肉疼痛
+                </label>
+                <label>
+                    <input name="diarrhea3" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>腹泻
+                </label>
+                <label>
+                    <input name="localpain3" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>局部疼痛
+                </label>
+                <label>
+                    <input name="hypotension3" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>低血压
+                </label><br>
+            </div>
+            <div class="form-group" style="margin-left: 15px">
+                <textarea id="fl_follow_medicine_other3" class="form-control" rows="3" oninput="autoTextHeight(this)"
+                      placeholder="其他..."></textarea>
+            </div>
+            <!--前列环素药物结束-->
+
+            <!--sGC激动剂-->
+            <h4 style="margin-top: 10px; font-weight: 600">sGC激动剂:</h4>
+            <form class="form-inline" role="form">
+                <div class="form-group" style="padding-left: 15px; font-size: 14px; word-spacing: 20px;">
+                    利奥西呱剂量<#input id="laxg_dosage" name="" value="${item.flFollowMedicine.laxgDosage}" disabled="disabled"/>
+                </div>
+            </form>
+            <div class="checkbox" style="word-spacing: 30px; margin-left:30px; line-height: 200%; padding-top: 5px; padding-bottom: 5px;">
+                <label>
+                    <input name="facered4" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>面色潮红
+                </label>
+                <label>
+                    <input name="headache4" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>头痛
+                </label>
+                <label>
+                    <input name="stuffynose4" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>鼻塞
+                </label>
+                <label>
+                    <input name="dizziness4" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>头晕
+                </label>
+                <label>
+                    <input name="diarrhea4" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>腹泻
+                </label>
+                <label>
+                    <input name="hypotension4" type="checkbox" value="1"
+                            style="margin-top: 6px; height: 13px; width: 13px"/>低血压
+                </label><br>
+            </div>
+            <div class="form-group" style="margin-left: 15px">
+                <textarea id="fl_follow_medicine_other4" class="form-control" rows="3" oninput="autoTextHeight(this)"
+                      placeholder="其他..."></textarea>
+            </div>
+            <!--sGC激动剂结束-->
+
+        </div>
+        <!--此次复查靶向治疗结束-->
+        <!--随访时服药情况结束-->
+
+
+        <!--本次门诊复查重要结果-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>本次门诊复查重要结果</h2>
+        </div>
+        <div class="ibox-content">
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">血常规:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_routineblood" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_routineblood" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">血生化:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_bloodbiochemistry" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_bloodbiochemistry" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+            <div style="word-spacing: 20px;">
+                <form class="form-inline" role="form">
+                    <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">NT-proBNP:</span></h3>
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="fl_follow_result_nt" value="1"
+                                style="margin-top: 4px; height: 13px; width: 13px" />是
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="fl_follow_result_nt" value="0"
+                                style="margin-top: 4px; height: 13px; width: 13px" />否
+                    </label>
+                    <div class="form-group" style="font-size: 14px; word-spacing: 20px;">
+                        数值<#input id="fl_follow_result.ntnumber" name="" value="${item.flFollowResult.ntnumber}" disabled="disabled"/>
+                    </div>
+                </form>
+            </div>
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">性激素:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_sexhormone" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_sexhormone" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">铁代谢:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_ironmetabolism" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_ironmetabolism" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+            <div style="word-spacing: 20px;">
+                <form class="form-inline" role="form">
+                    <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">6分钟步行距离:</span></h3>
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="fl_follow_result_walk" value="1"
+                                style="margin-top: 4px; height: 13px; width: 13px" />是
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="fl_follow_result_walk" value="0"
+                                style="margin-top: 4px; height: 13px; width: 13px" />否
+                    </label>
+                    <div class="form-group" style="font-size: 14px; word-spacing: 20px;">
+                        数值<#input id="fl_follow_result.walkdistance" name="" value="${item.flFollowResult.walkdistance}" disabled="disabled"/>
+                    </div>
+                </form>
+            </div>
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">CT:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_ct" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_ct" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">CPET:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_cprt" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_cprt" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+            <div style="word-spacing: 20px;">
+                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">MRI:</span></h3>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_mri" value="1"
+                            style="margin-top: 4px; height: 13px; width: 13px" />是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fl_follow_result_mri" value="0"
+                            style="margin-top: 4px; height: 13px; width: 13px" />否
+                </label>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <h3><span class="glyphicon glyphicon-check" style="font-weight: 600">其他检查:</span></h3>
+            <textarea id="fl_follow_result_othercheck" rows="3" class="form-control" oninput="autoTextHeight(this)">
+            </textarea>
+        </div>
+        <!--本次门诊复查重要结果结束-->
+
+    </div>
+</div>
+
+<script src="${ctxPath}/static/modular/fl/followH/followH_info.js"></script>
+<!--自动调整文本高度-->
+<script type="text/javascript">
+    function autoTextHeight(o) {
+        o.style.height = o.scrollTop + o.scrollHeight + "px";
+    }
+    $(function () {
+        var fl_follow_features_others = document.getElementById("fl_follow_features_others").value = "${item.followFeatures.others}";
+        var fl_follow_event_specific = document.getElementById("fl_follow_event_specific").value = "${item.flFollowEvent.specific}";
+        var fl_follow_features_deterioratespecific = document.getElementById("fl_follow_features_deterioratespecific").value = "${item.flFollowEvent.deterioratespecific}";
+        var fl_follow_medicine_othersereason = document.getElementById("fl_follow_medicine_othersereason").value = "${item.flFollowMedicine.othersereason}";
+        var fl_follow_medicine_other1 = document.getElementById("fl_follow_medicine_other1").value = "${item.flFollowMedicine.other1}";
+        var fl_follow_medicine_other2 = document.getElementById("fl_follow_medicine_other2").value = "${item.flFollowMedicine.other2}";
+        var fl_follow_medicine_other3 = document.getElementById("fl_follow_medicine_other3").value = "${item.flFollowMedicine.other3}";
+        var fl_follow_medicine_other4 = document.getElementById("fl_follow_medicine_other4").value = "${item.flFollowMedicine.other4}";
+        var fl_follow_result_othercheck = document.getElementById("fl_follow_result_othercheck").value = "${item.flFollowResult.othercheck}";
+
+        if (fl_follow_features_others != null) {
+            autoTextHeight(fl_follow_features_others);
+        }
+        if (fl_follow_event_specific != null) {
+            autoTextHeight(fl_follow_event_specific);
+        }
+        if (fl_follow_features_deterioratespecific != null) {
+            autoTextHeight(fl_follow_features_deterioratespecific);
+        }
+        if (fl_follow_medicine_othersereason != null) {
+            autoTextHeight(fl_follow_medicine_othersereason);
+        }
+        if (fl_follow_medicine_other1 != null) {
+            autoTextHeight(fl_follow_medicine_other1);
+        }
+        if (fl_follow_medicine_other2 != null) {
+            autoTextHeight(fl_follow_medicine_other2);
+        }
+        if (fl_follow_medicine_other3 != null) {
+            autoTextHeight(fl_follow_medicine_other3);
+        }
+        if (fl_follow_medicine_other4 != null) {
+            autoTextHeight(fl_follow_medicine_other4);
+        }
+        if (fl_follow_result_othercheck != null) {
+            autoTextHeight(fl_follow_result_othercheck);
+        }
+    })
+</script>
+
+
+<!--单选框被后台数据赋值选中-->
+<script>
+    $("input[name=deteriorate][value=${item.flFollowEvent.deteriorate}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=hospitalization][value=${item.flFollowEvent.hospitalization}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=hospitalizationnumber][value=${item.flFollowEvent.number}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=breathShort][value=${item.followFeatures.breathShort}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=syncope][value=${item.followFeatures.syncope}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=hemoptysis][value=${item.followFeatures.hemoptysis}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=swollen][value=${item.followFeatures.swollen}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_medicine_regulardose][value=${item.flFollowMedicine.regulardose}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_routineblood][value=${item.flFollowResult.routineblood}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_bloodbiochemistry][value=${item.flFollowResult.bloodbiochemistry}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_nt][value=${item.flFollowResult.nt}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_sexhormone][value=${item.flFollowResult.sexhormone}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_ironmetabolism][value=${item.flFollowResult.ironmetabolism}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_walk][value=${item.flFollowResult.walk}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_ct][value=${item.flFollowResult.ct}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_cprt][value=${item.flFollowResult.cprt}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_result_mri][value=${item.flFollowResult.mri}]").prop("checked", true);
+</script>
+
+
+<!--多选框被后台数据赋值选中-->
+<script>
+    $("input[name=fl_follow_event_pulmonary][value=${item.flFollowEvent.pulmonary}]").prop("checked", true);
+    $("input[name=fl_follow_event_rightheartfailure][value=${item.flFollowEvent.rightheartfailure}]").prop("checked", true);
+    $("input[name=fl_follow_event_hemoptysis][value=${item.flFollowEvent.hemoptysis}]").prop("checked", true);
+    $("input[name=fl_follow_event_other][value=${item.flFollowEvent.other}]").prop("checked", true);
+    $("input[name=fl_follow_event_pulmonaryembolism][value=${item.flFollowEvent.pulmonaryembolism}]").prop("checked", true);
+    $("input[name=fl_follow_event_lowervein][value=${item.flFollowEvent.lowervein}]").prop("checked", true);
+    $("input[name=fl_follow_event_arrhythmia][value=${item.flFollowEvent.arrhythmia}]").prop("checked", true);
+    $("input[name=fl_follow_event_death][value=${item.flFollowEvent.death}]").prop("checked", true);
+    $("input[name=fl_follow_event_review][value=${item.flFollowEvent.review}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=fl_follow_medicine_expenses][value=${item.flFollowMedicine.expenses}]").prop("checked", true);
+    $("input[name=fl_follow_medicine_untowardeffect][value=${item.flFollowMedicine.untowardeffect}]").prop("checked", true);
+    $("input[name=fl_follow_medicine_curativeeffect][value=${item.flFollowMedicine.curativeeffect}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=facered1][value=${item.flFollowMedicine.facered1}]").prop("checked", true);
+    $("input[name=headache1][value=${item.flFollowMedicine.headache1}]").prop("checked", true);
+    $("input[name=stuffynose1][value=${item.flFollowMedicine.stuffynose1}]").prop("checked", true);
+    $("input[name=musclepain1][value=${item.flFollowMedicine.musclepain1}]").prop("checked", true);
+    $("input[name=dizziness1][value=${item.flFollowMedicine.dizziness1}]").prop("checked", true);
+    $("input[name=blurredvision1][value=${item.flFollowMedicine.blurredvision1}]").prop("checked", true);
+    $("input[name=hypotension1][value=${item.flFollowMedicine.hypotension1}]").prop("checked", true);
+    $("input[name=menstrualdisorder1][value=${item.flFollowMedicine.menstrualdisorder1}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=facered2][value=${item.flFollowMedicine.facered2}]").prop("checked", true);
+    $("input[name=headache2][value=${item.flFollowMedicine.headache2}]").prop("checked", true);
+    $("input[name=stuffynose2][value=${item.flFollowMedicine.stuffynose2}]").prop("checked", true);
+    $("input[name=musclepain2][value=${item.flFollowMedicine.musclepain2}]").prop("checked", true);
+    $("input[name=dizziness2][value=${item.flFollowMedicine.dizziness2}]").prop("checked", true);
+    $("input[name=transaminaseraise2][value=${item.flFollowMedicine.transaminaseraise2}]").prop("checked", true);
+    $("input[name=anemia2][value=${item.flFollowMedicine.anemia2}]").prop("checked", true);
+    $("input[name=peripheraledema2][value=${item.flFollowMedicine.peripheraledema2}]").prop("checked", true);
+    $("input[name=hypotension2][value=${item.flFollowMedicine.hypotension2}]").prop("checked", true);
+    $("input[name=menstrualdisorder2][value=${item.flFollowMedicine.menstrualdisorder2}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=facered3][value=${item.flFollowMedicine.facered3}]").prop("checked", true);
+    $("input[name=headache3][value=${item.flFollowMedicine.headache3}]").prop("checked", true);
+    $("input[name=stuffynose3][value=${item.flFollowMedicine.stuffynose3}]").prop("checked", true);
+    $("input[name=musclepain3][value=${item.flFollowMedicine.musclepain3}]").prop("checked", true);
+    $("input[name=diarrhea3][value=${item.flFollowMedicine.diarrhea3}]").prop("checked", true);
+    $("input[name=localpain3][value=${item.flFollowMedicine.localpain3}]").prop("checked", true);
+    $("input[name=hypotension3][value=${item.flFollowMedicine.hypotension3}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=facered4][value=${item.flFollowMedicine.facered4}]").prop("checked", true);
+    $("input[name=headache4][value=${item.flFollowMedicine.headache4}]").prop("checked", true);
+    $("input[name=stuffynose4][value=${item.flFollowMedicine.stuffynose4}]").prop("checked", true);
+    $("input[name=dizziness4][value=${item.flFollowMedicine.dizziness4}]").prop("checked", true);
+    $("input[name=diarrhea4][value=${item.flFollowMedicine.diarrhea4}]").prop("checked", true);
+    $("input[name=hypotension4][value=${item.flFollowMedicine.hypotension4}]").prop("checked", true);
+</script>
+
+<style type="text/css">
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 4px;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3 {
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        font-size: 14px;
+        font-weight: normal;
+        word-spacing: 25px;
+        margin: 8px 0px 8px 0px;
+        padding: 0px;
+        vertical-align: middle;
+    }
+
+    label {
+        font-weight: normal;
+    }
+
+    .radio-inline {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .col-sm-3 {
+        font-weight: 500;
+        word-spacing: 20px;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-left: 5px;
+        width: auto;
+    }
+
+    .col-sm-9 {
+        padding: 0px;
+    }
+
+    .checkbox {
+        padding: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .radio {
+        margin-top: 0px;
+    }
+
+    .checkbox label, .radio label {
+        word-spacing: 20px;
+        padding-left: 5px;
+    }
+
+    .form-group {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+
+</style>
+@}

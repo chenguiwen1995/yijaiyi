@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.FlFollowEventMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.FlFollowEvent">
+        <id column="id" property="id" />
+        <result column="hid" property="hid" />
+        <result column="fl_code" property="flCode" />
+        <result column="deteriorate" property="deteriorate" />
+        <result column="hospitalization" property="hospitalization" />
+        <result column="number" property="number" />
+        <result column="pulmonary" property="pulmonary" />
+        <result column="rightheartfailure" property="rightheartfailure" />
+        <result column="hemoptysis" property="hemoptysis" />
+        <result column="other" property="other" />
+        <result column="pulmonaryembolism" property="pulmonaryembolism" />
+        <result column="lowervein" property="lowervein" />
+        <result column="arrhythmia" property="arrhythmia" />
+        <result column="death" property="death" />
+        <result column="deathdate" property="deathdate" />
+        <result column="nonpertension" property="nonpertension" />
+        <result column="specific" property="specific" />
+        <result column="review" property="review" />
+        <result column="hospitalizationdate1" property="hospitalizationdate1" />
+        <result column="hospitalizationdate2" property="hospitalizationdate2" />
+        <result column="hospitalizationdate3" property="hospitalizationdate3" />
+        <result column="deterioratespecific" property="deterioratespecific" />
+        <result column="creationtime" property="creationtime" />
+        <result column="creator" property="creator" />
+        <result column="modifiedtime" property="modifiedtime" />
+        <result column="modifier" property="modifier" />
+        <result column="ts" property="ts" />
+        <result column="dr" property="dr" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, hid, fl_code AS flCode, deteriorate, hospitalization, number, pulmonary, rightheartfailure, hemoptysis, other, pulmonaryembolism, lowervein, arrhythmia, death, deathdate, nonpertension, specific, review, hospitalizationdate1, hospitalizationdate2, hospitalizationdate3, deterioratespecific, creationtime, creator, modifiedtime, modifier, ts, dr
+    </sql>
+
+    <select id="selectByPId" resultType="com.stylefeng.guns.modular.system.model.FlFollowEvent" parameterType="Integer">
+        select
+        <include refid="Base_Column_List" />
+        from fl_follow_event
+        where 1 = 1
+
+        <if test="followId != null and followId !=''">
+            and  hid = #{followId}
+        </if>
+
+    </select>
+
+
+</mapper>
