@@ -383,29 +383,3 @@ CREATE TABLE `test` (
 
 SET FOREIGN_KEY_CHECKS = 1;
 
-
--- ----------------------------
--- Table structure for sys_user
--- ----------------------------
-DROP TABLE IF EXISTS `yjy_patient`;
-CREATE TABLE `yjy_patient` (
-  `id` int NOT NULL AUTO_INCREMENT COMMENT '主键id',
-  `code` varchar(40) NOT NULL COMMENT '病历号',
-  `name` varchar(45) NOT NULL COMMENT '名字',
-  `sex` int(1) NOT NULL COMMENT '性别（1：男 2：女）',
-  `age` int NOT NULL COMMENT '年龄',
-  `tel` varchar(45) NOT NULL COMMENT '手机号',
-  `home_tel` varchar(45) DEFAULT '' COMMENT '家庭电话',
-  `wechat` varchar(100) NOT NULL COMMENT '微信',
-  `address` varchar(200) NOT NULL COMMENT '地址',
-  `dr` int(1) NOT NULL COMMENT '删除标记',
-  `creation_time` datetime NOT NULL COMMENT '创建时间',
-  `modified_time` datetime NOT NULL COMMENT '修改时间',
-  `addition1` varchar(200) DEFAULT '' COMMENT '附加项1',
-  `addition2` varchar(200) DEFAULT '' COMMENT '附加项2',
-  `addition3` varchar(200) DEFAULT '' COMMENT '附加项3',
-  PRIMARY KEY (`id`),
-  UNIQUE(`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='患者管理表';
-
-

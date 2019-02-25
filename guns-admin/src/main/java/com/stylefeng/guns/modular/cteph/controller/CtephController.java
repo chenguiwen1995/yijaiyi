@@ -1,6 +1,7 @@
 package com.stylefeng.guns.modular.cteph.controller;
 
 import com.stylefeng.guns.core.base.controller.BaseController;
+import com.stylefeng.guns.core.common.billcode.IGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,6 +27,9 @@ public class CtephController extends BaseController {
 
     @Autowired
     private ICtephService ctephService;
+
+    @Autowired
+    private IGenerator iGenerator;
 
     /**
      * 跳转到CTEPH调查表首页
@@ -69,6 +73,10 @@ public class CtephController extends BaseController {
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object add(Cteph cteph) {
+        if(null != cteph){
+            String code = iGenerator.getCode();
+            cteph.setCode(code);
+        }
         ctephService.insert(cteph);
         return SUCCESS_TIP;
     }
