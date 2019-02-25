@@ -62,7 +62,7 @@ public class CtephController extends BaseController {
     }
 
     /**
-     * 跳转到查看详情CTEPH调查表
+     * 跳转到查看详情CTEPH调查表 [likang 2019-2-25]
      */
     @RequestMapping("/cteph_view/{ctephId}")
     public String ctephView(@PathVariable Integer ctephId, Model model) {
