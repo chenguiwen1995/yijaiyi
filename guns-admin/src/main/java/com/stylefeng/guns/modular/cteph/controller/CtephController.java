@@ -59,6 +59,19 @@ public class CtephController extends BaseController {
     }
 
     /**
+     * 跳转到查看详情CTEPH调查表
+     */
+    @RequestMapping("/cteph_view/{ctephId}")
+    public String ctephView(@PathVariable Integer ctephId, Model model) {
+        Cteph cteph = ctephService.selectById(ctephId);
+        model.addAttribute("item",cteph);
+        LogObjectHolder.me().set(cteph);
+        return PREFIX + "cteph_view.html";
+    }
+
+
+
+    /**
      * 获取CTEPH调查表列表
      */
     @RequestMapping(value = "/list")

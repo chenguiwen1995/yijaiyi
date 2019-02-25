@@ -188,7 +188,7 @@ Cteph.openAddCteph = function () {
 };
 
 /**
- * 打开查看CTEPH调查表详情
+ * 修改CTEPH调查表详情
  */
 Cteph.openCtephDetail = function () {
     if (this.check()) {
@@ -203,6 +203,25 @@ Cteph.openCtephDetail = function () {
         this.layerIndex = index;
     }
 };
+
+
+/**
+ * 打开查看CTEPH调查表详情
+ */
+Cteph.viewCtephDetail = function () {
+    if (this.check()) {
+        var index = layer.open({
+            type: 2,
+            title: 'CTEPH调查表详情',
+            area: ['800px', '420px'], //宽高
+            fix: false, //不固定
+            maxmin: true,
+            content: Feng.ctxPath + '/cteph/cteph_view/' + Cteph.seItem.id
+        });
+        this.layerIndex = index;
+    }
+};
+
 
 /**
  * 删除CTEPH调查表
