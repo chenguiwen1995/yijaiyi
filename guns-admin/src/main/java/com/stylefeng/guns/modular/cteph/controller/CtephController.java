@@ -1,7 +1,10 @@
 package com.stylefeng.guns.modular.cteph.controller;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.stylefeng.guns.core.base.controller.BaseController;
 import com.stylefeng.guns.core.common.billcode.IGenerator;
+import com.stylefeng.guns.core.util.ToolUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -72,12 +75,20 @@ public class CtephController extends BaseController {
 
 
     /**
-     * 获取CTEPH调查表列表
+     * 获取CTEPH调查表列表 [wumeiqi 2019-2-25]
      */
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(String condition) {
-        return ctephService.selectList(null);
+        //判断condition的值是否为空，非空时按照患者姓名查询
+        if(ToolUtil.isEmpty(condition)){
+            return ctephService.selectList(null);
+        }else {
+            //如果condition非空，按照患者姓名进行模糊查询
+            EntityWrapper<Cteph> entityWrapper = new EntityWrapper<>();
+            Wrapper wrapper = entityWrapper.like("patient_name",condition);
+            return ctephService.selectList(wrapper);
+        }
     }
 
     /**
