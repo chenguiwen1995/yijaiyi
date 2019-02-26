@@ -39,20 +39,20 @@ public class Generator {
         if (lastBillCode == null) {
             logger.info("之前没有单据号，从1开始生成！");
             billcode += formatter.format(date) + "0001";
+            return billcode;
         } else {
-            if (!formatter.format(date).equals(lastBillCode.substring(2, 10))) {//按日流水，所以截取8个字符串
+            boolean contains = lastBillCode.contains(formatter.format(date));//按日流水，判断是否存在今日的单据
+            if (!contains) {
                 logger.info("今日不存在单据，从1开始生成！");
-                billcode = formatter.format(date) + "0001";
+                billcode = billcode + formatter.format(date) + "0001";
                 return billcode;
             }
             logger.info("已经存在该类型单据，顺位生成单据号！");
             DecimalFormat df = new DecimalFormat("0000");
             try {
-                billcode += formatter.format(date)
-                        + df.format(1 + Integer.parseInt(lastBillCode.substring(11, 14)));
-            } catch (ClassCastException e) {
-                e.printStackTrace();
-                billcode = "00000000";
+                String serial = lastBillCode.substring(lastBillCode.length()-4, lastBillCode.length());
+                int endnumber = Integer.parseInt(serial);
+                billcode += formatter.format(date) + df.format(1 + endnumber);
             } catch (Exception e) {
                 e.printStackTrace();
                 billcode = "00000000";

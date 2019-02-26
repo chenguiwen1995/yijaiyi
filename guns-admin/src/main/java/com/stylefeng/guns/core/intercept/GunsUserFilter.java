@@ -92,7 +92,7 @@ public class GunsUserFilter extends AccessControlFilter {
                  * 从别的页面跳转过来的
                  */
                 if (ShiroKit.getSession().getAttribute("sessionFlag") == null) {
-                    httpServletRequest.setAttribute("tips", "session超时");
+                    httpServletRequest.setAttribute("tips", "对话超时，请重新登录");
                     httpServletRequest.getRequestDispatcher("/login").forward(request, response);
                     return false;
                 } else {
