@@ -8,6 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * @author chenguiwen
+ * */
+
 @Component
 public class CTEPHGeneratorImpl extends Generator {
 

@@ -8,6 +8,10 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author chenguiwen
+ * */
+
 @Component
 public class Generator {
 
