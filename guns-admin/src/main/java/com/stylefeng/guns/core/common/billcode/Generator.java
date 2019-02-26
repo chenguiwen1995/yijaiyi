@@ -32,8 +32,8 @@ public class Generator {
     /**
      * 生成下一个编号,若没有则返回字母标识+年份+0001
      */
-    public synchronized String generaterNextNumber(String lastBillCode) {
-        String billcode = "SF";
+    public synchronized String generaterNextNumber(String lastBillCode,String startCharactor) {
+        String billcode = startCharactor;
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         if (lastBillCode == null) {

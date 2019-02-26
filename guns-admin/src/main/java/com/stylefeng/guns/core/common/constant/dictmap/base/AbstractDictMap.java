@@ -22,7 +22,7 @@ public abstract class AbstractDictMap {
     /**
      * 初始化字段英文名称和中文名称对应的字典
      *
-     * @author stylefeng
+     * @author yijiayi team
      * @Date 2017/5/9 19:39
      */
     public abstract void init();

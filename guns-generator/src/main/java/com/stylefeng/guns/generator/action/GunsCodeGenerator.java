@@ -6,7 +6,7 @@ import com.stylefeng.guns.generator.action.config.GunsGeneratorConfig;
 /**
  * 代码生成器,可以生成实体,dao,service,controller,html,js
  *
- * @author stylefeng
+ * @author yijiayi team
  * @Date 2017/5/21 12:38
  */
 public class GunsCodeGenerator {

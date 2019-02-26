@@ -19,6 +19,5 @@ import java.util.Map;
 public interface IYjyPatientService extends IService<YjyPatient> {
     void deleteById(@Param("id") Integer yjyPatientId);
     List<Map<String, Object>> selectPatients(@Param("code") String code, @Param("name") String name);
-    String getCode();
     //List selectList(Wrapper wrapper);
 }

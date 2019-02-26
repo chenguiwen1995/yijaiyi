@@ -1,9 +1,5 @@
 package com.stylefeng.guns.modular.patient.service.impl;
 
-import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.stylefeng.guns.core.common.billcode.Generator;
-import com.stylefeng.guns.core.datascope.DataScope;
-import com.stylefeng.guns.modular.system.model.FollowH;
 import com.stylefeng.guns.modular.system.model.YjyPatient;
 import com.stylefeng.guns.modular.system.dao.YjyPatientMapper;
 import com.stylefeng.guns.modular.patient.service.IYjyPatientService;
@@ -27,15 +23,6 @@ public class YjyPatientServiceImpl extends ServiceImpl<YjyPatientMapper, YjyPati
 
     @Resource
     private YjyPatientMapper YjyPatientMapper;
-
-    @Override
-    public String getCode() {
-        List<YjyPatient> list = super.selectList(null);
-        String lastCode;
-        if(list==null||list.size()<1) lastCode=null;
-        else lastCode = list.get(list.size()-1).getCode();
-        return Generator.getInstance().generaterNextNumber(lastCode);
-    }
 
     @Override
     public void deleteById(Integer yjyPatientId){

@@ -1,7 +1,7 @@
 package com.stylefeng.guns.modular.fl.service.impl;
 
 import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.stylefeng.guns.core.common.billcode.Generator;
+import com.stylefeng.guns.core.common.billcode.impl.FollowGeneratorImpl;
 import com.stylefeng.guns.modular.system.model.FollowH;
 import com.stylefeng.guns.modular.system.dao.FollowHMapper;
 import com.stylefeng.guns.modular.fl.service.IFollowHService;
@@ -9,11 +9,8 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * <p>
@@ -26,6 +23,8 @@ import java.util.logging.Logger;
 @Service
 public class FollowHServiceImpl extends ServiceImpl<FollowHMapper, FollowH> implements IFollowHService {
 
+    @Autowired
+    private FollowGeneratorImpl followGenerator;
     @Override
     public List<FollowH> selectList(Wrapper<FollowH> wrapper) {
         return this.baseMapper.selectList(wrapper);
@@ -36,22 +35,11 @@ public class FollowHServiceImpl extends ServiceImpl<FollowHMapper, FollowH> impl
         if (null == entity){
             return false;
         }
-        entity.setCode(this.getCode());
+        entity.setCode(this.followGenerator.getCode());
         entity.setCreationTime(new Date());
         entity.setTs(new Date());
         entity.setDr(0);//0表示未删除，1表示删除
         return super.insert(entity);
-    }
-
-    public String getCode() {
-        List<FollowH> list = super.selectList(null);
-        String lastCode = null;
-        if (null == list || 0 == list.size()){
-            lastCode = null;
-        }else {
-            lastCode = list.get(list.size()-1).getCode();
-        }
-        return Generator.getInstance().generaterNextNumber(lastCode);
     }
 
     @Override

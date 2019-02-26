@@ -3,7 +3,7 @@ package com.stylefeng.guns.modular.cteph.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.stylefeng.guns.core.base.controller.BaseController;
-import com.stylefeng.guns.core.common.billcode.IGenerator;
+import com.stylefeng.guns.core.common.billcode.impl.CTEPHGeneratorImpl;
 import com.stylefeng.guns.core.util.ToolUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +32,7 @@ public class CtephController extends BaseController {
     private ICtephService ctephService;
 
     @Autowired
-    private IGenerator iGenerator;
+    private CTEPHGeneratorImpl ctephGenerator;
 
     /**
      * 跳转到CTEPH调查表首页
@@ -98,7 +98,7 @@ public class CtephController extends BaseController {
     @ResponseBody
     public Object add(Cteph cteph) {
         if(null != cteph){
-            String code = iGenerator.getCode();
+            String code = ctephGenerator.getCode();
             cteph.setCode(code);
         }
         ctephService.insert(cteph);
