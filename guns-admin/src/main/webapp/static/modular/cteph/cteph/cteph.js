@@ -255,7 +255,7 @@ Cteph.delete = function () {
             ajax.start();
         };
 
-        Feng.confirm("是否刪除该随访单?", operation);
+        Feng.confirm("是否刪除该CTEPH调查表?", operation);
     }
 };
 
