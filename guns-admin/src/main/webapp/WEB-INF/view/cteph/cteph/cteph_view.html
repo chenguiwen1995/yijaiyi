@@ -1456,8 +1456,11 @@
                                        style="margin-top: 4px; height: 13px; width: 13px" />其他药物
                             </label>
                             <label id="hidden-otherdrug" hidden="hidden">
-                                药物具体名称：
-                                <input type="text" id="otherdrug" />
+                                <form></form>
+                                <form class="form-inline" role="form">
+                                    药物具体名称：
+                                    <#input id="otherdrug" name="" value="${item.otherdrug}" disabled="disabled"/>
+                                </form>
                             </label>
                         </div>
                     </div>
@@ -1944,6 +1947,146 @@
         elem: '#firstcatheter'
     });
 
+</script>
+
+<!--js函数自动执行-->
+<script type="text/javascript">
+    value1 = ${item.vtehistory}
+        value2 = ${item.ibd}
+            value3 = ${item.coronaryheart}
+                value4 = ${item.congenitalheart}
+                    value5 = ${item.connectivetissue}
+                        value6 = ${item.sixmwd}
+                            value7 = ${item.rap}
+                                value8 = ${item.pap}
+                                    value9 = ${item.pawp}
+                                        value10 = ${item.hcy}
+                                            value11 = ${item.nt}
+                                                value12 = ${item.aa}
+                                                    value13 = ${item.threeitems}
+                                                        value14 = ${item.bloodgas}
+                                                            value15 = ${item.anticoagulant}
+                                                                value16 = ${item.drug1}
+                                                                    value17 = ${item.targeting}
+                                                                        value18 = ${item.death}
+
+                                                                            function MyAutoRun(){
+                                                                                if(value1==1) {
+                                                                                    document.getElementById("hidden-ape").hidden=false;
+                                                                                    document.getElementById("hidden-firstvtetime").hidden=false;
+                                                                                    document.getElementById("hidden-vterelapse").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-ape").hidden=true;
+                                                                                    document.getElementById("hidden-firstvtetime").hidden=true;
+                                                                                    document.getElementById("hidden-vterelapse").hidden=true;
+                                                                                }
+                                                                                if(value2==1) {
+                                                                                    document.getElementById("hidden-ibdspecific").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-ibdspecific").hidden=true;
+                                                                                }
+                                                                                if(value3==1) {
+                                                                                    document.getElementById("hidden-revascularization").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-revascularization").hidden=true;
+                                                                                }
+                                                                                if(value4==1) {
+                                                                                    document.getElementById("hidden-chdspecific").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-chdspecific").hidden=true;
+                                                                                }
+                                                                                if(value5==1) {
+                                                                                    document.getElementById("hidden-ctdspecific").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-ctdspecific").hidden=true;
+                                                                                }
+                                                                                if(value6==1) {
+                                                                                    document.getElementById("hidden-walking").hidden=false;
+                                                                                    document.getElementById("hidden-noreason1").hidden=true;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-walking").hidden=true;
+                                                                                    document.getElementById("hidden-noreason1").hidden=false;
+                                                                                }
+                                                                                if(value7==1) {
+                                                                                    document.getElementById("hidden-rap").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-rap").hidden=true;
+                                                                                }
+                                                                                if(value8==1) {
+                                                                                    document.getElementById("hidden-pap").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-pap").hidden=true;
+                                                                                }
+                                                                                if(value9==1) {
+                                                                                    document.getElementById("hidden-pawp").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-pawp").hidden=true;
+                                                                                }
+                                                                                if(value10==1) {
+                                                                                    document.getElementById("hidden-hcynumber").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-hcynumber").hidden=true;
+                                                                                }
+                                                                                if(value11==1) {
+                                                                                    document.getElementById("hidden-ntnumber").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-ntnumber").hidden=true;
+                                                                                }
+                                                                                if(value12==1) {
+                                                                                    document.getElementById("hidden-la").hidden=false;
+                                                                                    document.getElementById("hidden-acllgg").hidden=false;
+                                                                                    document.getElementById("hidden-acllgm").hidden=false;
+                                                                                    document.getElementById("hidden-lgg").hidden=false;
+                                                                                    document.getElementById("hidden-lgm").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-la").hidden=true;
+                                                                                    document.getElementById("hidden-acllgg").hidden=true;
+                                                                                    document.getElementById("hidden-acllgm").hidden=true;
+                                                                                    document.getElementById("hidden-lgg").hidden=true;
+                                                                                    document.getElementById("hidden-lgm").hidden=true;
+                                                                                }
+                                                                                if(value13==1) {
+                                                                                    document.getElementById("hidden-threeitems").hidden=false;
+                                                                                    document.getElementById("hidden-hat").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-threeitems").hidden=true;
+                                                                                    document.getElementById("hidden-hat").hidden=true;
+                                                                                }
+                                                                                if(value14==1) {
+                                                                                    document.getElementById("hidden-ph-pco").hidden=false;
+                                                                                    document.getElementById("hidden-po-sao").hidden=false;
+                                                                                    document.getElementById("hidden-paa").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-ph-pco").hidden=true;
+                                                                                    document.getElementById("hidden-po-sao").hidden=true;
+                                                                                    document.getElementById("hidden-paa").hidden=true;
+                                                                                }
+                                                                                if(value15==1) {
+                                                                                    document.getElementById("hidden-drug1").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-drug1").hidden=true;
+                                                                                }
+                                                                                if(value16==4) {
+                                                                                    document.getElementById("hidden-otherdrug").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-otherdrug").hidden=true;
+                                                                                }
+                                                                                if(value17==1) {
+                                                                                    document.getElementById("hidden-laxg").hidden=false;
+                                                                                    document.getElementById("hidden-fivepi").hidden=false;
+                                                                                    document.getElementById("hidden-drug2").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-laxg").hidden=true;
+                                                                                    document.getElementById("hidden-fivepi").hidden=true;
+                                                                                    document.getElementById("hidden-drug2").hidden=true;
+                                                                                }
+                                                                                if(value18==1) {
+                                                                                    document.getElementById("hidden-deathreason").hidden=false;
+                                                                                } else {
+                                                                                    document.getElementById("hidden-deathreason").hidden=true;
+                                                                                }
+                                                                            }
+    window.onload=MyAutoRun();
 </script>
 
 <style type="text/css">
