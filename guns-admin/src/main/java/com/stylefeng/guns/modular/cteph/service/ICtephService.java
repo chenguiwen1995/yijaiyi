@@ -2,6 +2,10 @@ package com.stylefeng.guns.modular.cteph.service;
 
 import com.stylefeng.guns.modular.system.model.Cteph;
 import com.baomidou.mybatisplus.service.IService;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -12,5 +16,5 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2019-02-23
  */
 public interface ICtephService extends IService<Cteph> {
-
+    List<Map<String, Object>> selectCtephs(@Param("patient_name") String patient_name);
 }

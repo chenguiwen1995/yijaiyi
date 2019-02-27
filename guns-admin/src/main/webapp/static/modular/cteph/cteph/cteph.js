@@ -18,9 +18,9 @@ Cteph.initColumn = function () {
         {title: '编号', field: 'code', visible: true, align: 'center', valign: 'middle', sortable: true},
         {title: '参与中心', field: 'department', visible: true, align: 'center', valign: 'middle', sortable: true},
         {title: '填表人', field: 'fillingperson', visible: true, align: 'center', valign: 'middle', sortable: true},
-        {title: '患者姓名', field: 'patientName', visible: true, align: 'center', valign: 'middle', sortable: true},
-        {title: '患者性别', field: 'patientSex', visible: true, align: 'center', valign: 'middle', sortable: true},
-        {title: '患者年龄', field: 'patientAge', visible: true, align: 'center', valign: 'middle', sortable: true},
+        {title: '患者姓名', field: 'patient_name', visible: true, align: 'center', valign: 'middle', sortable: true},
+        {title: '患者性别', field: 'sexName', visible: true, align: 'center', valign: 'middle', sortable: true},
+        {title: '患者年龄', field: 'patient_age', visible: true, align: 'center', valign: 'middle', sortable: true},
         // {title: '', field: 'patientAddress', visible: true, align: 'center', valign: 'middle'},
         // {title: '', field: 'birthday', visible: true, align: 'center', valign: 'middle'},
         // {title: '', field: 'height', visible: true, align: 'center', valign: 'middle'},
@@ -265,6 +265,7 @@ Cteph.delete = function () {
 Cteph.search = function () {
     var queryData = {};
     queryData['condition'] = $("#condition").val();
+    console.log($("#condition").val());
     Cteph.table.refresh({query: queryData});
 };
 

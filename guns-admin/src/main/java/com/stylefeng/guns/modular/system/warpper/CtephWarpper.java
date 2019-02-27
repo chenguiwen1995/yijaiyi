@@ -6,16 +6,13 @@ import com.stylefeng.guns.core.common.constant.factory.ConstantFactory;
 import java.util.List;
 import java.util.Map;
 
-
-public class PatientWarpper extends BaseControllerWarpper {
-
-    public PatientWarpper(List<Map<String, Object>> list) {
+public class CtephWarpper extends BaseControllerWarpper {
+    public CtephWarpper(List<Map<String, Object>> list) {
         super(list);
     }
 
     @Override
     public void warpTheMap(Map<String, Object> map) {
-        map.put("sexName", ConstantFactory.me().getSexName((Integer) map.get("sex")));//likang+
+        map.put("sexName", ConstantFactory.me().getSexName((Integer) map.get("patient_sex")));//likang+
     }
-
 }

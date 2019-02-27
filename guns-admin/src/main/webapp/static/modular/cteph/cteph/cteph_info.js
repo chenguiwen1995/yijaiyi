@@ -203,6 +203,22 @@ CtephInfoDlg.collectData = function() {
 CtephInfoDlg.addSubmit = function() {
     this.clearData();
     this.collectData();
+
+    var mapString = { //必填项
+        "department" : "参与中心",
+        "fillingperson":"填表人",
+        "patientName" : "患者姓名",
+        "patientSex":"患者性别"
+    };
+
+    for (var key in mapString) { //必填项提醒
+        if(this.ctephInfoData[key]==null||this.ctephInfoData[key]==""){
+            alert("请填写"+mapString[key]+"!");
+            return;
+            //Feng.error("添加失败!");
+        }
+    }
+
     this.ctephInfoData['creationtime'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(); //创建时间为当前时间,需要转化格式
     this.ctephInfoData['modifiedtime'] = this.ctephInfoData['creationtime']; //添加时修改时间与创建时间一致
     this.ctephInfoData['ts'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(); //时间戳
