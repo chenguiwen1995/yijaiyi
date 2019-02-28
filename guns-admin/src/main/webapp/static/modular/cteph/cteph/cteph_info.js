@@ -208,7 +208,11 @@ CtephInfoDlg.addSubmit = function() {
         "department" : "参与中心",
         "fillingperson":"填表人",
         "patientName" : "患者姓名",
-        "patientSex":"患者性别"
+        "patientSex":"患者性别",
+        "patientAge":"患者年龄",
+        "birthday":"患者出生日期",
+        "height":"患者身高",
+        "weight":"患者体重"
     };
 
     for (var key in mapString) { //必填项提醒
