@@ -5,6 +5,7 @@ import com.stylefeng.guns.core.datascope.DataScope;
 import com.stylefeng.guns.modular.system.model.User;
 import org.apache.ibatis.annotations.Param;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -43,4 +44,8 @@ public interface IUserService extends IService<User> {
      */
     User getByAccount(@Param("account") String account);
 
+    /**
+     * 获取当前用户名
+     * */
+    String getCurrentUserName(HttpServletRequest request);
 }

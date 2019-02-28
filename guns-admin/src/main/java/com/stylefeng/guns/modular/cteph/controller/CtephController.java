@@ -83,15 +83,14 @@ public class CtephController extends BaseController {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(@RequestParam(required = false) String condition) {
-        System.out.println("条件"+condition);
         List<Map<String, Object>> ctephs = ctephService.selectCtephs(condition);
         for(Map<String,Object> map:ctephs){
             System.out.println("likang"+map);
         }
         List<Map<String, Object>> ctephs_new = ( List<Map<String, Object>>)new CtephWarpper(ctephs).warp();//多加了一个sexName
-        for(Map<String,Object> map:ctephs_new){
-            System.out.println("李康"+map);
-        }
+//        for(Map<String,Object> map:ctephs_new){
+//            System.out.println("李康"+map);
+//        }
         return ctephs_new;
 
     }
