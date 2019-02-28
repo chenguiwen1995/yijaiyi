@@ -66,7 +66,23 @@
                         toggle: 'glyphicon-list-alt',
                         columns: 'glyphicon-list'
                     },
-                    iconSize: 'outline'
+                    iconSize: 'outline',
+
+                    //数据导出设置
+                    showExport: true,            //是否显示导出按钮
+                    exportDataType: "all",       //basic', 'all', 'selected'
+                    buttonsAlign:"right",        //按钮位置
+                    Icons:'glyphicon-export',
+                    exportTypes: ['xlsx', 'excel', 'csv', 'txt'],	    //导出类型
+                    exportOptions: {
+                        // ignoreColumn: [0, 2],            //忽略某一列的索引
+                        fileName: "数据导出",              //文件名称设置
+                        worksheetName: "Sheet1",          //表格工作区名称
+                        // tableName: "",
+                        excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+                        //onMsoNumberFormat: DoOnMsoNumberFormat
+                    }
+
                 });
             return this;
         },
