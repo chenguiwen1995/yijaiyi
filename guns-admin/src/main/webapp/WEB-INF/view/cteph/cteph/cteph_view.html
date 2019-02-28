@@ -135,20 +135,20 @@
 
                         <label><h3>首发VTE事件类型</h3></label>
                         <label class="radio-inline">
-                            <input type="radio" name="ape" value="1"
+                            <input onclick='hiddenElement("hidden-otherthrombus")' type="radio" name="ape" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>急性肺栓塞
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="ape" value="2"
+                            <input onclick='hiddenElement("hidden-otherthrombus")' type="radio" name="ape" value="2"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>下肢深静脉血栓
                         </label>
                         <form></form>
                         <label class="radio-inline">
-                            <input type="radio" name="ape" value="3"
+                            <input onclick='displayElement("hidden-otherthrombus")' type="radio" name="ape" value="3"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>其他部位深静脉血栓
                         </label>
-                        <form class="form-inline" role="form">
-                            <label style="padding-left: 20px">请具体其他部位深静脉血栓：</label>
+                        <form id="hidden-otherthrombus" hidden="hidden" class="form-inline" role="form">
+                            <label style="padding-left: 20px">请具体：</label>
                             <#input id="otherthrombus" name="" value="${item.otherthrombus}" disabled="disabled"/>
                         </form>
                     </div>
@@ -911,7 +911,7 @@
                         <div style="word-spacing: 20px;">
                             <form></form>
                             <form class="form-inline" role="form">
-                                <lable style="font-weight: 600">HR,bpm</lable>
+                                <lable style="font-weight: 600;word-spacing: 0px">HR,bpm</lable>
                                 <#input id="hr" name="" value="${item.hr}" disabled="disabled"/>
                             </form>
                         </div>
@@ -920,7 +920,7 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label>
-                                <span style="font-weight: 600">BP,<span style="word-spacing:0px"><span style="word-spacing:0px">mm Hg</span></span></span>
+                                <span style="font-weight: 600;word-spacing: 0px">BP,mm Hg</span>
                             </label>
                             <br>
                             <div class="row" style="padding-left: 20px;">
@@ -940,7 +940,7 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <div style="word-spacing: 20px;">
-                                <label><h3><span style="font-weight: 600">RAP,<span style="word-spacing:0px"><span style="word-spacing:0px">mm Hg</span></span><sup>*</sup></span></h3>
+                                <label><h3><span style="font-weight: 600;word-spacing: 0px"><sup>*</sup>RAP,mm Hg</span></h3>
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick='displayElement("hidden-rap")' type="radio" name="rap" value="1"
@@ -973,7 +973,7 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <div style="word-spacing: 20px;">
-                                <label><h3><span style="font-weight: 600">PAP,<span style="word-spacing:0px"><span style="word-spacing:0px">mm Hg</span></span><sup>*</sup></span></h3>
+                                <label><h3><span style="font-weight: 600;word-spacing: 0px"><sup>*</sup>PAP,mm Hg</span></h3>
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick='displayElement("hidden-pap")' type="radio" name="pap" value="1"
@@ -1007,7 +1007,7 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <div style="word-spacing: 20px;">
-                                <label><h3><span style="font-weight: 600">PAWP,<span style="word-spacing:0px"><span style="word-spacing:0px">mm Hg</span></span><sup>*</sup></span></h3>
+                                <label><h3><span style="font-weight: 600;word-spacing: 0px"><sup>*</sup>PAWP,mm Hg</span></h3>
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick="displayElement('hidden-pawp')" type="radio" name="pawp" value="1"
@@ -1041,7 +1041,7 @@
                         <div style="word-spacing: 20px;">
                             <form></form>
                             <form class="form-inline" role="form">
-                                <lable style="font-weight: 600"><sup>*</sup>CO (Qp), L/min</lable>
+                                <lable style="font-weight: 600;word-spacing: 0px"><sup>*</sup>CO (Qp), L/min</lable>
                                 <#input id="co" name="" value="${item.co}" disabled="disabled"/>
                             </form>
                         </div>
@@ -1067,7 +1067,7 @@
                         <div style="word-spacing: 20px;">
                             <form></form>
                             <form class="form-inline" role="form">
-                                <lable style="font-weight: 600">CI, L/min/m<sup>2</sup></lable>
+                                <lable style="font-weight: 600;word-spacing: 0px">CI, L/min/m<sup>2</sup></lable>
                                 <#input id="ci" name="" value="${item.ci}" disabled="disabled"/>
                             </form>
                         </div>
@@ -1077,7 +1077,7 @@
                         <div style="word-spacing: 20px;">
                             <form></form>
                             <form class="form-inline" role="form">
-                                <lable style="font-weight: 600"><sup>*</sup>PVR, Wood U</lable>
+                                <lable style="font-weight: 600;word-spacing: 0px"><sup>*</sup>PVR, Wood U</lable>
                                 <#input id="pvr" name="" value="${item.pvr}" disabled="disabled"/>
                             </form>
                         </div>
@@ -1094,7 +1094,7 @@
                         <div style="word-spacing: 20px;">
                             <form></form>
                             <form class="form-inline" role="form">
-                                <lable style="font-weight: 600">SvO2 (肺动脉氧饱和度), %</lable>
+                                <lable style="font-weight: 600;word-spacing: 0px">SvO2 (肺动脉氧饱和度), %</lable>
                                 <#input id="svo2" name="" value="${item.svo2}" disabled="disabled"/>
                             </form>
                         </div>
@@ -1116,21 +1116,21 @@
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
-                            <lable style="font-weight: 600">左室舒张末内径LVEDD (mm)</lable>
+                            <lable style="font-weight: 600;word-spacing: 0px">左室舒张末内径LVEDD (mm)</lable>
                             <#input id="lvedd" name="" value="${item.lvedd}" disabled="disabled"/>
                         </form>
                     </div>
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
-                            <lable style="font-weight: 600">左室射血分数LVEF (%)</lable>
+                            <lable style="font-weight: 600;word-spacing: 0px">左室射血分数LVEF (%)</lable>
                             <#input id="lvef" name="" value="${item.lvef}" disabled="disabled"/>
                         </form>
                     </div>
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
-                            <lable style="font-weight: 600">超声估测肺动脉收缩压PASP(<span style="word-spacing:0px">mm Hg</span>)</lable>
+                            <lable style="font-weight: 600;word-spacing: 0px">超声估测肺动脉收缩压PASP(<span style="word-spacing:0px">mm Hg</span>)</lable>
                             <#input id="pasp" name="" value="${item.pasp}" disabled="disabled"/>
                         </form>
                     </div>
@@ -1481,7 +1481,7 @@
                     </div>
                     <div class="form-group" id="hidden-drug1" hidden="hidden">
                         <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">药物</span></h3>
+                            <label><h3><span style="font-weight: 600;padding-left:20px">药物</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1" value="1"
@@ -1514,12 +1514,12 @@
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">靶向治疗</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-laxg','hidden-fivepi','hidden-drug2');displayElement('hidden-era','hidden-drug3','hidden-prostacyclin');displayElement('hidden-drug4')"
+                                <input onclick="displayElement('hidden-laxg','hidden-fivepi');displayElement('hidden-era','hidden-prostacyclin');"
                                        type="radio" name="targeting" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-laxg','hidden-fivepi','hidden-drug2');hiddenElement('hidden-era','hidden-drug3','hidden-prostacyclin');hiddenElement('hidden-drug4')"
+                                <input onclick="hiddenElement('hidden-laxg','hidden-fivepi');hiddenElement('hidden-era','hidden-prostacyclin');"
                                        type="radio" name="targeting" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -1545,11 +1545,11 @@
                             </h3>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="fivepi" value="1"
+                                <input onclick="displayElement('hidden-drug2')" type="radio" name="fivepi" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="fivepi" value="0"
+                                <input onclick="hiddenElement('hidden-drug2')" type="radio" name="fivepi" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
@@ -1557,7 +1557,7 @@
 
                     <div class="form-group" hidden="hidden" id="hidden-drug2">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">药物</span></h3>
+                            <label><h3><span style="font-weight: 600;padding-left:20px">药物</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="drug2" value="1"
@@ -1579,18 +1579,18 @@
                             </h3>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="era" value="1"
+                                <input onclick="displayElement('hidden-drug3')" type="radio" name="era" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="era" value="0"
+                                <input onclick="hiddenElement('hidden-drug3')" type="radio" name="era" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
                     </div>
                     <div class="form-group" hidden="hidden" id="hidden-drug3">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">药物</span></h3>
+                            <label><h3><span style="font-weight: 600;padding-left:20px">药物</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="drug3" value="1"
@@ -1611,18 +1611,18 @@
                             <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">前列环素</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="prostacyclin" value="1"
+                                <input onclick="displayElement('hidden-drug4')" type="radio" name="prostacyclin" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="prostacyclin" value="0"
+                                <input onclick="hiddenElement('hidden-drug4')" type="radio" name="prostacyclin" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
                     </div>
                     <div class="form-group" hidden="hidden" id="hidden-drug4">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">药物</span></h3>
+                            <label><h3><span style="font-weight: 600;padding-left:20px">药物</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="drug4" value="1"
@@ -2203,11 +2203,13 @@
             if (value17 == 1) {
                 document.getElementById("hidden-laxg").hidden = false;
                 document.getElementById("hidden-fivepi").hidden = false;
-                document.getElementById("hidden-drug2").hidden = false;
+                document.getElementById("hidden-era").hidden = false;
+                document.getElementById("hidden-prostacyclin").hidden = false;
             } else {
                 document.getElementById("hidden-laxg").hidden = true;
                 document.getElementById("hidden-fivepi").hidden = true;
-                document.getElementById("hidden-drug2").hidden = true;
+                document.getElementById("hidden-era").hidden = true;
+                document.getElementById("hidden-prostacyclin").hidden = true;
             }
         }
     window.onload = MyAutoRun17();
@@ -2222,6 +2224,50 @@
             }
         }
     window.onload = MyAutoRun18();
+</script>
+<script type="text/javascript">
+    var value19 = ${item.ape}
+        function MyAutoRun19() {
+            if (value19 == 3) {
+                document.getElementById("hidden-otherthrombus").hidden = false;
+            } else {
+                document.getElementById("hidden-otherthrombus").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun19();
+</script>
+<script type="text/javascript">
+    var value20 = ${item.fivepi}
+        function MyAutoRun20() {
+            if (value20 == 1) {
+                document.getElementById("hidden-drug2").hidden = false;
+            } else {
+                document.getElementById("hidden-drug2").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun20();
+</script>
+<script type="text/javascript">
+    var value21 = ${item.era}
+        function MyAutoRun21() {
+            if (value21 == 1) {
+                document.getElementById("hidden-drug3").hidden = false;
+            } else {
+                document.getElementById("hidden-drug3").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun21();
+</script>
+<script type="text/javascript">
+    var value22 = ${item.prostacyclin}
+        function MyAutoRun22() {
+            if (value22 == 1) {
+                document.getElementById("hidden-drug4").hidden = false;
+            } else {
+                document.getElementById("hidden-drug4").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun22();
 </script>
 <!--<script type="text/javascript">-->
 <!--value1 = ${item.vtehistory}-->

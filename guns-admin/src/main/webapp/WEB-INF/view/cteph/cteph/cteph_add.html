@@ -155,11 +155,9 @@
                     </div>
                 </div>
                 <div id="hidden-ape" class="form-group" hidden="hidden">
-                    <div style="word-spacing: 20px;">
+                    <div style="word-spacing: 20px; padding-left: 15px;">
 
-                        <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">首发VTE事件类型</span>
-                        </h3>
-                        </label>
+                        <label><h3>首发VTE事件类型</h3></label>
                         <label class="radio-inline">
                             <input onclick='hiddenElement("hidden-otherthrombus")' type="radio" name="ape" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>急性肺栓塞
@@ -172,29 +170,26 @@
                             <input onclick='displayElement("hidden-otherthrombus")' type="radio" name="ape" value="3"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>其他部位深静脉血栓
                         </label>
-                        <label id="hidden-otherthrombus" hidden="hidden">
+                        <label id="hidden-otherthrombus" hidden="hidden" style="padding-left: 20px">
                             请具体：
-                            <input type="text" id="otherthrombus"/>
+                            <input type="text" id="otherthrombus"/>3
                         </label>
                     </div>
                 </div>
 
 
-                <div id="hidden-firstvtetime" class="form-group" hidden="hidden">
-                    <div style="word-spacing: 40px; line-height: 200%;">
-                        <label>
-                            <span style="padding-left:20px; font-weight: 500">首发VTE事件时间</span>
-                            <input type="text" id="firstvtetime"/>
-                        </label>
-                    </div>
+                <div id="hidden-firstvtetime" hidden="hidden">
+                    <form></form>
+                    <form class="form-inline" role="form" style="margin-bottom: 10px;">
+                        <label><h3>首发VTE事件时间</h3></label>
+                        <input type="text" id="firstvtetime"/>
+                    </form>
                 </div>
 
                 <div id="hidden-vterelapse" class="form-group" hidden="hidden">
-                    <div style="word-spacing: 20px;">
+                    <div style="word-spacing: 20px; padding-left: 20px;">
 
-                        <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否有VTE事件复发(病史中至少发生两次急性VTE事件)</span>
-                        </h3>
-                        </label>
+                        <label><h3>是否有VTE事件复发(病史中至少发生两次急性VTE事件)</h3></label>
                         <label class="radio-inline">
                             <input type="radio" name="vterelapse" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
@@ -1159,19 +1154,19 @@
                     <!-- 每个form-group是一行 -->
                     <div class="form-group">
                         <label>
-                            <span style="font-weight: 600">左室舒张末内径LVEDD (mm)</span>
+                            <span style="font-weight: 600;word-spacing: 0px">左室舒张末内径LVEDD (mm)</span>
                             <input type="text" id="lvedd"/>
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <span style="font-weight: 600">左室射血分数LVEF (%)</span>
+                            <span style="font-weight: 600;word-spacing: 0px">左室射血分数LVEF (%)</span>
                             <input type="text" id="lvef"/>
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <span style="font-weight: 600">超声估测肺动脉收缩压PASP (<span style="word-spacing:0px">mm Hg</span>)</span>
+                            <span style="font-weight: 600;word-spacing: 0px">超声估测肺动脉收缩压PASP (<span style="word-spacing:0px">mm Hg</span>)</span>
                             <input type="text" id="pasp"/>
                         </label>
                     </div>
@@ -1435,7 +1430,7 @@
                                 <input type="text" id="ph"/>
                             </label>
                             <label>
-                                <span class="glyphicon glyphicon-stop" style="font-weight: 600">PCO2(<span style="word-spacing:0px">mm Hg</span>)</span>
+                                <span class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PCO2(mm Hg)</span>
                                 <input type="text" id="pco"/>
                             </label>
 
@@ -1444,7 +1439,7 @@
                     <div class="form-group" id="hidden-po-sao" hidden="hidden">
                         <div style="word-spacing: 20px;padding-left: 10px;">
                             <label>
-                                <span class="glyphicon glyphicon-stop" style="font-weight: 600">PO2(<span style="word-spacing:0px">mm Hg</span>)</span>
+                                <span class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PO2(mm Hg)</span>
                                 <input type="text" id="po"/>
                             </label>
                             <label>
@@ -1458,7 +1453,7 @@
                         <div style="word-spacing: 20px;padding-left: 10px;">
 
                             <label>
-                                <span class="glyphicon glyphicon-stop" style="font-weight: 600">P(A-a)(<span style="word-spacing:0px">mm Hg</span>)</span>
+                                <span class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">P(A-a)(mm Hg)</span>
                                 <input type="text" id="paa"/>
                             </label>
 
