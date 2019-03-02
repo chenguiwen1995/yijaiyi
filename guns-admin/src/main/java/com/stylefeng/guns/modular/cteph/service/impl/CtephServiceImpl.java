@@ -1,14 +1,23 @@
 package com.stylefeng.guns.modular.cteph.service.impl;
 
 import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.modular.system.dao.YjyPatientMapper;
 import com.stylefeng.guns.modular.system.model.Cteph;
 import com.stylefeng.guns.modular.system.dao.CtephMapper;
 import com.stylefeng.guns.modular.cteph.service.ICtephService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.stylefeng.guns.modular.system.model.User;
+import com.stylefeng.guns.modular.system.service.IUserService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import springfox.documentation.spi.service.contexts.SecurityContext;
 
 import javax.annotation.Resource;
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -22,16 +31,18 @@ import java.util.Map;
  */
 @Service
 public class CtephServiceImpl extends ServiceImpl<CtephMapper, Cteph> implements ICtephService {
-//    /* [wumeiqi 2019-02-25]
-//     */
-//    @Override
-//    public List<Cteph> selectList(Wrapper<Cteph> wrapper) {
-//        return this.baseMapper.selectList(wrapper);
-//    }
+
+    @Autowired
+    private IUserService userService;
+
     @Resource
     private com.stylefeng.guns.modular.system.dao.CtephMapper CtephMapper;
+
     @Override
     public List<Map<String, Object>> selectCtephs(String name) {
+        //获取部门信息
+        ShiroUser principal = userService.getCurrentUser();
+        Integer dept = principal.deptId;
         return CtephMapper.selectCtephs(name);
     }
 }

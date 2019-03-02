@@ -2,9 +2,12 @@ package com.stylefeng.guns.modular.system.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.stylefeng.guns.core.datascope.DataScope;
+import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.modular.system.dao.UserMapper;
 import com.stylefeng.guns.modular.system.model.User;
 import com.stylefeng.guns.modular.system.service.IUserService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,9 +55,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    public String getCurrentUserName(HttpServletRequest request) {
-        Principal principal = request.getUserPrincipal();
-        return principal.getName();
+    public ShiroUser getCurrentUser() {
+        Subject subject = SecurityUtils.getSubject();
+        ShiroUser principal = (ShiroUser) subject.getPrincipal();
+        return principal;
     }
 
 }
