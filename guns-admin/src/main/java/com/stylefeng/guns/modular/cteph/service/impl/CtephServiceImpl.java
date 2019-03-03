@@ -40,9 +40,6 @@ public class CtephServiceImpl extends ServiceImpl<CtephMapper, Cteph> implements
 
     @Override
     public List<Map<String, Object>> selectCtephs(String name) {
-        //获取部门信息
-        ShiroUser principal = userService.getCurrentUser();
-        Integer dept = principal.deptId;
         return CtephMapper.selectCtephs(name);
     }
 }

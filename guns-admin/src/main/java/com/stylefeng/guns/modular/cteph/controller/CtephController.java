@@ -1,12 +1,18 @@
 package com.stylefeng.guns.modular.cteph.controller;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.stylefeng.guns.core.base.controller.BaseController;
 import com.stylefeng.guns.core.common.billcode.impl.CTEPHGeneratorImpl;
-import com.stylefeng.guns.core.util.ToolUtil;
-import com.stylefeng.guns.modular.system.warpper.CtephWarpper;
+import com.stylefeng.guns.core.common.constant.factory.ConstantFactory;
+import com.stylefeng.guns.core.common.exception.BizExceptionEnum;
+import com.stylefeng.guns.core.exception.GunsException;
+import com.stylefeng.guns.core.shiro.ShiroKit;
+import com.stylefeng.guns.core.shiro.ShiroUser;
+import com.stylefeng.guns.modular.cteph.factory.CtephFactory;
+import com.stylefeng.guns.modular.cteph.transfer.CtephDto;
+import com.stylefeng.guns.modular.cteph.warpper.CtephWarpper;
+import com.stylefeng.guns.modular.system.transfer.UserDto;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.Model;
@@ -17,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.stylefeng.guns.modular.system.model.Cteph;
 import com.stylefeng.guns.modular.cteph.service.ICtephService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -50,7 +57,13 @@ public class CtephController extends BaseController {
      * 跳转到添加CTEPH调查表
      */
     @RequestMapping("/cteph_add")
-    public String ctephAdd() {
+    public String ctephAdd(Model model) {
+        ShiroUser user = ShiroKit.getUser();
+        Cteph cteph = new Cteph();
+        cteph.setDepartment(user.deptId);
+        cteph.setFillingperson(user.id);
+        model.addAttribute("item",cteph);
+        LogObjectHolder.me().set(cteph);
         return PREFIX + "cteph_add.html";
     }
 
@@ -72,6 +85,9 @@ public class CtephController extends BaseController {
     public String ctephView(@PathVariable Integer ctephId, Model model) {
         Cteph cteph = ctephService.selectById(ctephId);
         model.addAttribute("item",cteph);
+        model.addAttribute("sexName", ConstantFactory.me().getSexName(cteph.getPatientSex()));
+        model.addAttribute("departmentName", ConstantFactory.me().getDeptName(cteph.getDepartment()));
+        model.addAttribute("fillingpersonName", ConstantFactory.me().getUserNameById(cteph.getFillingperson()));
         LogObjectHolder.me().set(cteph);
         return PREFIX + "cteph_view.html";
     }
@@ -94,12 +110,15 @@ public class CtephController extends BaseController {
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public Object add(Cteph cteph) {
-        if(null != cteph){
-            String code = ctephGenerator.getCode();
-            cteph.setCode(code);
+    public Object add(@Valid CtephDto ctephDto, BindingResult result) {
+        if (result.hasErrors()) {
+            throw new GunsException(BizExceptionEnum.REQUEST_NULL);
         }
-        ctephService.insert(cteph);
+        if(null != ctephDto){
+            String code = ctephGenerator.getCode();
+            ctephDto.setCode(code);
+        }
+        ctephService.insert(CtephFactory.createCteph(ctephDto));
         return SUCCESS_TIP;
     }
 

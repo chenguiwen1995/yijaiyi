@@ -7,10 +7,10 @@
             <form class="form-inline" role="form">
                 <div class="form-group" style="font-weight: bold; font-size: 15px; word-spacing: 20px">
                     参加中心
-                    <#input id="department" name="" value="${item.department}" disabled="disabled"/>
+                    <#input id="department" name="" value="${departmentName}" disabled="disabled"/>
                     <!--<#input id="fl_follow_h.patientName" name="姓名:" />-->
                     填表人
-                    <#input id="fillingperson" name="" value="${item.fillingperson}" disabled="disabled"/>
+                    <#input id="fillingperson" name="" value="${fillingpersonName}" disabled="disabled"/>
                     <!--<#input id="fl_follow_event.hospitalizationdate1" name="" type="datetime-local" />-->
                     <!--填表时间自动填入-->
                 </div>
@@ -32,14 +32,9 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <input type="hidden" id="sexValue" value="${item.patientSex}">
                         <label class="col-sm-3" style="font-weight: 600">性别</label>
                         <div class="col-sm-9">
-                            <#select id="patientSex" name="" value="${item.patientSex}" disabled="disabled">
-                                <option value="1">男</option>
-                                <option value="2">女</option>
-                            </#select>
-                            <!--<#input id="patientSex" name="" value="${item.patientSex}" disabled="disabled"/>-->
+                            <#input id="sexName" name="" value="${sexName}" disabled="disabled" />
                         </div>
                     </div>
                 </div>

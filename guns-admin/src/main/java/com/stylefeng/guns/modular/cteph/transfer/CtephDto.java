@@ -1,48 +1,37 @@
-package com.stylefeng.guns.modular.system.model;
+package com.stylefeng.guns.modular.cteph.transfer;
 
-import com.baomidou.mybatisplus.enums.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author chenguiwen
- * @since 2019-02-23
+ * Created by chenguiwen on 2019.03.03
  */
-@TableName("cteph")
-public class Cteph extends Model<Cteph> {
+public class CtephDto {
 
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     private String code;
     private Integer department;
     private Integer fillingperson;
-    @TableField("patient_name")
     private String patientName;
-    @TableField("patient_sex")
     private Integer patientSex;
-    @TableField("patient_age")
     private Integer patientAge;
-    @TableField("patient_address")
     private String patientAddress;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private Float height;
     private Float weight;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date firsttime;
     private Integer specialsigns;
     private Integer vtehistory;
     private Integer ape;
     private Integer ledvt;
     private String otherthrombus;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date firstvtetime;
     private Integer vterelapse;
     private Integer malignanttumor;
@@ -88,6 +77,7 @@ public class Cteph extends Model<Cteph> {
     private Integer noreason2;
     private String otherreason;
     private Integer pa;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date firstcatheter;
     private Float hr;
     private Float bpshrink;
@@ -162,9 +152,12 @@ public class Cteph extends Model<Cteph> {
     private String addition9;
     private String addition10;
     private String creator;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date creationtime;
     private String modifier;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date modifiedtime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date ts;
     private Integer dr;
 
@@ -1297,155 +1290,5 @@ public class Cteph extends Model<Cteph> {
         this.dr = dr;
     }
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 
-    @Override
-    public String toString() {
-        return "Cteph{" +
-        "id=" + id +
-        ", code=" + code +
-        ", department=" + department +
-        ", fillingperson=" + fillingperson +
-        ", patientName=" + patientName +
-        ", patientSex=" + patientSex +
-        ", patientAge=" + patientAge +
-        ", patientAddress=" + patientAddress +
-        ", birthday=" + birthday +
-        ", height=" + height +
-        ", weight=" + weight +
-        ", firsttime=" + firsttime +
-        ", specialsigns=" + specialsigns +
-        ", vtehistory=" + vtehistory +
-        ", ape=" + ape +
-        ", ledvt=" + ledvt +
-        ", otherthrombus=" + otherthrombus +
-        ", firstvtetime=" + firstvtetime +
-        ", vterelapse=" + vterelapse +
-        ", malignanttumor=" + malignanttumor +
-        ", splenectomy=" + splenectomy +
-        ", pacemaker=" + pacemaker +
-        ", atrialhistory=" + atrialhistory +
-        ", aas=" + aas +
-        ", hps=" + hps +
-        ", cdeficiency=" + cdeficiency +
-        ", sdeficiency=" + sdeficiency +
-        ", atdeficiency=" + atdeficiency +
-        ", levv=" + levv +
-        ", ibd=" + ibd +
-        ", ibdspecific=" + ibdspecific +
-        ", otherrisk=" + otherrisk +
-        ", hypertension=" + hypertension +
-        ", coronaryheart=" + coronaryheart +
-        ", revascularization=" + revascularization +
-        ", diabetes=" + diabetes +
-        ", renalinsufficiency=" + renalinsufficiency +
-        ", cerebralinfarction=" + cerebralinfarction +
-        ", copd=" + copd +
-        ", congenitalheart=" + congenitalheart +
-        ", chdspecific=" + chdspecific +
-        ", connectivetissue=" + connectivetissue +
-        ", ctdspecific=" + ctdspecific +
-        ", hypothyroidism=" + hypothyroidism +
-        ", hyperthyroidism=" + hyperthyroidism +
-        ", anemia=" + anemia +
-        ", polycythemia=" + polycythemia +
-        ", plateletlower=" + plateletlower +
-        ", plateletup=" + plateletup +
-        ", othercomplications=" + othercomplications +
-        ", cteph=" + cteph +
-        ", sixmwd=" + sixmwd +
-        ", noreason1=" + noreason1 +
-        ", walking=" + walking +
-        ", ppi=" + ppi +
-        ", ctpat=" + ctpat +
-        ", mripae=" + mripae +
-        ", cmri=" + cmri +
-        ", rhc=" + rhc +
-        ", noreason2=" + noreason2 +
-        ", otherreason=" + otherreason +
-        ", pa=" + pa +
-        ", firstcatheter=" + firstcatheter +
-        ", hr=" + hr +
-        ", bpshrink=" + bpshrink +
-        ", bprelaxation=" + bprelaxation +
-        ", bpave=" + bpave +
-        ", rap=" + rap +
-        ", rapshrink=" + rapshrink +
-        ", raprelaxation1=" + raprelaxation1 +
-        ", rapave=" + rapave +
-        ", pap=" + pap +
-        ", papshrink=" + papshrink +
-        ", raprelaxation2=" + raprelaxation2 +
-        ", papave=" + papave +
-        ", pawp=" + pawp +
-        ", pawpshrink=" + pawpshrink +
-        ", pawprelaxation=" + pawprelaxation +
-        ", pawpave=" + pawpave +
-        ", co=" + co +
-        ", comethod=" + comethod +
-        ", ci=" + ci +
-        ", pvr=" + pvr +
-        ", svo2=" + svo2 +
-        ", lvedd=" + lvedd +
-        ", lvef=" + lvef +
-        ", pasp=" + pasp +
-        ", pe=" + pe +
-        ", bloodgroup=" + bloodgroup +
-        ", hcy=" + hcy +
-        ", hcynumber=" + hcynumber +
-        ", nt=" + nt +
-        ", ntnumber=" + ntnumber +
-        ", aa=" + aa +
-        ", la=" + la +
-        ", acllgg=" + acllgg +
-        ", acllgm=" + acllgm +
-        ", lgg=" + lgg +
-        ", lgm=" + lgm +
-        ", threeitems=" + threeitems +
-        ", ats=" + ats +
-        ", proteins=" + proteins +
-        ", proteinc=" + proteinc +
-        ", hat=" + hat +
-        ", bloodgas=" + bloodgas +
-        ", ph=" + ph +
-        ", pco=" + pco +
-        ", po=" + po +
-        ", sao=" + sao +
-        ", paa=" + paa +
-        ", anticoagulant=" + anticoagulant +
-        ", drug1=" + drug1 +
-        ", otherdrug=" + otherdrug +
-        ", targeting=" + targeting +
-        ", laxg=" + laxg +
-        ", fivepi=" + fivepi +
-        ", drug2=" + drug2 +
-        ", era=" + era +
-        ", drug3=" + drug3 +
-        ", prostacyclin=" + prostacyclin +
-        ", drug4=" + drug4 +
-        ", exfoliation=" + exfoliation +
-        ", angioplasty=" + angioplasty +
-        ", death=" + death +
-        ", deathreason=" + deathreason +
-        ", addition1=" + addition1 +
-        ", addition2=" + addition2 +
-        ", addition3=" + addition3 +
-        ", addition4=" + addition4 +
-        ", addition5=" + addition5 +
-        ", addition6=" + addition6 +
-        ", addition7=" + addition7 +
-        ", addition8=" + addition8 +
-        ", addition9=" + addition9 +
-        ", addition10=" + addition10 +
-        ", creator=" + creator +
-        ", creationtime=" + creationtime +
-        ", modifier=" + modifier +
-        ", modifiedtime=" + modifiedtime +
-        ", ts=" + ts +
-        ", dr=" + dr +
-        "}";
-    }
 }
