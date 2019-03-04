@@ -207,7 +207,7 @@ CREATE TABLE `sys_notice` (
 -- ----------------------------
 -- Records of sys_notice
 -- ----------------------------
-INSERT INTO `sys_notice` VALUES ('6', '世界', '10', '欢迎使用Guns管理系统', '2017-01-11 08:53:20', '1');
+-- INSERT INTO `sys_notice` VALUES ('6', '世界', '10', '欢迎使用管理系统', '2017-01-11 08:53:20', '1');
 INSERT INTO `sys_notice` VALUES ('8', '你好', null, '你好', '2017-05-10 19:28:57', '1');
 
 -- ----------------------------
@@ -339,8 +339,10 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('1', '1', '0', '超级管理员', '24', 'administrator', '1');
-INSERT INTO `sys_role` VALUES ('5', '2', '1', '临时', '26', 'temp', null);
+INSERT INTO `sys_role` VALUES (1,1,0,'超级管理员',24,'administrator',1),(6,2,1,'系统管理员',24,'系统管理员',NULL),(7,3,6,'参与中心管理员',24,'参与中心管理员',NULL),(8,4,7,'业务员',24,'业务员',NULL);
+
+-- INSERT INTO `sys_role` VALUES ('1', '1', '0', '超级管理员', '24', 'administrator', '1');
+-- INSERT INTO `sys_role` VALUES ('5', '2', '1', '临时', '26', 'temp', null);
 
 -- ----------------------------
 -- Table structure for sys_user
