@@ -59,11 +59,8 @@ public class CtephController extends BaseController {
     @RequestMapping("/cteph_add")
     public String ctephAdd(Model model) {
         ShiroUser user = ShiroKit.getUser();
-        Cteph cteph = new Cteph();
-        cteph.setDepartment(user.deptId);
-        cteph.setFillingperson(user.id);
-        model.addAttribute("item",cteph);
-        LogObjectHolder.me().set(cteph);
+        model.addAttribute("departmentName", ConstantFactory.me().getDeptName(user.deptId));
+        model.addAttribute("fillingpersonName", ConstantFactory.me().getUserNameById(user.id));
         return PREFIX + "cteph_add.html";
     }
 
@@ -73,7 +70,8 @@ public class CtephController extends BaseController {
     @RequestMapping("/cteph_update/{ctephId}")
     public String ctephUpdate(@PathVariable Integer ctephId, Model model) {
         Cteph cteph = ctephService.selectById(ctephId);
-        model.addAttribute("item",cteph);
+        model.addAttribute("departmentName", ConstantFactory.me().getDeptName(cteph.getDepartment()));
+        model.addAttribute("fillingpersonName", ConstantFactory.me().getUserNameById(cteph.getFillingperson()));
         LogObjectHolder.me().set(cteph);
         return PREFIX + "cteph_edit.html";
     }
