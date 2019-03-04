@@ -39,7 +39,8 @@ public class CtephServiceImpl extends ServiceImpl<CtephMapper, Cteph> implements
     private com.stylefeng.guns.modular.system.dao.CtephMapper CtephMapper;
 
     @Override
-    public List<Map<String, Object>> selectCtephs(String name) {
-        return CtephMapper.selectCtephs(name);
+    public List<Map<String, Object>> selectCtephs(Integer ctephId , String name) {
+        //System.out.println("ctephServiceImpl.java: ctepmId:"+ctephId);
+        return CtephMapper.selectCtephs(ctephId,name);
     }
 }

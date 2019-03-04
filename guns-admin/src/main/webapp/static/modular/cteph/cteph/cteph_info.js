@@ -56,8 +56,8 @@ CtephInfoDlg.collectData = function() {
     this
         .set('id')
         .set('code')
-        .set('department')
-        .set('fillingperson')
+        //.set('department')
+        //.set('fillingperson')
         .set('patientName')
         .set('patientSex')
         .set('patientAge')
@@ -205,8 +205,8 @@ CtephInfoDlg.addSubmit = function() {
     this.collectData();
 
     var mapString = { //必填项
-        "department" : "参与中心",
-        "fillingperson":"填表人",
+        // "department" : "参与中心",
+        // "fillingperson":"填表人",
         "patientName" : "患者姓名",
         "patientSex":"患者性别",
         "patientAge":"患者年龄",

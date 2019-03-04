@@ -103,7 +103,9 @@ public class CtephController extends BaseController {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(@RequestParam(required = false) String condition) {
-        List<Map<String, Object>> ctephs = ctephService.selectCtephs(condition);
+        ShiroUser user = ShiroKit.getUser();
+        int ctephId = user.deptId;
+        List<Map<String, Object>> ctephs = ctephService.selectCtephs(ctephId,condition);
         List<Map<String, Object>> ctephs_new = ( List<Map<String, Object>>)new CtephWarpper(ctephs).warp();//多加了一个sexName
         return ctephs_new;
     }

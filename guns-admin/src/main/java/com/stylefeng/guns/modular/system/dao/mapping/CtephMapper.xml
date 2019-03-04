@@ -157,7 +157,7 @@
         select
         <include refid="Base_Column_List" />
         from cteph
-        where dr != 1
+        where dr != 1 and department = #{department}
         <if test="patient_name != null and patient_name != ''">
         and  patient_name like CONCAT('%',#{patient_name},'%')
         </if>

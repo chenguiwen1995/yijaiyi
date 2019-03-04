@@ -16,5 +16,5 @@ import java.util.Map;
  * @since 2019-02-23
  */
 public interface ICtephService extends IService<Cteph> {
-    List<Map<String, Object>> selectCtephs(@Param("patient_name") String patient_name);
+    List<Map<String, Object>> selectCtephs(@Param("department") Integer department,@Param("patient_name") String patient_name);
 }
