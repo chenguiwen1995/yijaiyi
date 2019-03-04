@@ -149,7 +149,7 @@ Cteph.initColumn = function () {
         // {title: '', field: 'addition8', visible: false, align: 'center', valign: 'middle', sortable: true},
         // {title: '', field: 'addition9', visible: false, align: 'center', valign: 'middle', sortable: true},
         // {title: '', field: 'addition10', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '创建人', field: 'creator', visible: true, align: 'center', valign: 'middle', sortable: true},
+        {title: '创建人', field: 'creator', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '创建时间', field: 'creationtime', visible: true, align: 'center', valign: 'middle', sortable: true},
         {title: '最近修改者', field: 'modifier', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '最近修改时间', field: 'modifiedtime', visible: false, align: 'center', valign: 'middle', sortable: true},
