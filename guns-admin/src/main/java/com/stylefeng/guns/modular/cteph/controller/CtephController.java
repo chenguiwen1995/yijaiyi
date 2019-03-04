@@ -74,6 +74,8 @@ public class CtephController extends BaseController {
     @RequestMapping("/cteph_update/{ctephId}")
     public String ctephUpdate(@PathVariable Integer ctephId, Model model) {
         Cteph cteph = ctephService.selectById(ctephId);
+        model.addAttribute("item",cteph);
+        model.addAttribute("sexName", ConstantFactory.me().getSexName(cteph.getPatientSex()));
         model.addAttribute("departmentName", ConstantFactory.me().getDeptName(cteph.getDepartment()));
         model.addAttribute("fillingpersonName", ConstantFactory.me().getUserNameById(cteph.getFillingperson()));
         LogObjectHolder.me().set(cteph);
