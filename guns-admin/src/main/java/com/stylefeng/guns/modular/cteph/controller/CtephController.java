@@ -10,6 +10,7 @@ import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.modular.cteph.factory.CtephFactory;
 import com.stylefeng.guns.modular.cteph.transfer.CtephDto;
 import com.stylefeng.guns.modular.cteph.warpper.CtephWarpper;
+import com.stylefeng.guns.modular.system.service.IUserService;
 import com.stylefeng.guns.modular.system.transfer.UserDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -44,6 +45,9 @@ public class CtephController extends BaseController {
 
     @Autowired
     private CTEPHGeneratorImpl ctephGenerator;
+
+    @Autowired
+    private IUserService iUserService;
 
     /**
      * 跳转到CTEPH调查表首页
@@ -100,7 +104,6 @@ public class CtephController extends BaseController {
         List<Map<String, Object>> ctephs = ctephService.selectCtephs(condition);
         List<Map<String, Object>> ctephs_new = ( List<Map<String, Object>>)new CtephWarpper(ctephs).warp();//多加了一个sexName
         return ctephs_new;
-
     }
 
     /**
@@ -109,12 +112,12 @@ public class CtephController extends BaseController {
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object add(@Valid CtephDto ctephDto, BindingResult result) {
-        if (result.hasErrors()) {
-            throw new GunsException(BizExceptionEnum.REQUEST_NULL);
-        }
         if(null != ctephDto){
             String code = ctephGenerator.getCode();
             ctephDto.setCode(code);
+            ShiroUser user = iUserService.getCurrentUser();
+            ctephDto.setDepartment(user.deptId);
+            ctephDto.setFillingperson(user.id);
         }
         ctephService.insert(CtephFactory.createCteph(ctephDto));
         return SUCCESS_TIP;
