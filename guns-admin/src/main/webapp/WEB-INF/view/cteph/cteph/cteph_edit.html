@@ -8,10 +8,10 @@
             <form class="form-inline" role="form">
                 <div class="form-group" style="font-weight: bold; font-size: 15px; word-spacing: 20px">
                     参加中心
-                    <input id="department" name="" value="${departmentName}"/>
+                    <#input id="department" name="" value="${departmentName}"/>
                     <!--<#input id="fl_follow_h.patientName" name="姓名:" />-->
                     填表人
-                    <input id="fillingperson" name="" value="${fillingpersonName}"/>
+                    <#input id="fillingperson" name="" value="${fillingpersonName}"/>
                     <!--<#input id="fl_follow_event.hospitalizationdate1" name="" type="datetime-local" />-->
                     <!--填表时间自动填入-->
                 </div>
@@ -29,7 +29,7 @@
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">名字</label>
                         <div class="col-sm-9">
-                            <input id="patientName" name="" value="${item.patientName}"/>
+                            <#input id="patientName" name="" value="${item.patientName}"/>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -46,13 +46,13 @@
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">年龄</label>
                         <div class="col-sm-9">
-                            <input id="patientAge" name="" value="${item.patientAge}"/>
+                            <#input id="patientAge" name="" value="${item.patientAge}"/>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">居住地(省份)</label>
                         <div class="col-sm-8">
-                            <input id="patientAddress" name="" value="${item.patientAddress}"/>
+                            <#input id="patientAddress" name="" value="${item.patientAddress}"/>
                         </div>
                     </div>
                 </div>
@@ -60,13 +60,13 @@
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">出生日期</label>
                         <div class="col-sm-8">
-                            <input id="birthday" name="" value="${item.birthday}"/>
+                            <#input id="birthday" name="" value="${item.birthday}"/>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">身高(cm)</label>
                         <div class="col-sm-9">
-                            <input id="height" name="" value="${item.height}"/>
+                            <#input id="height" name="" value="${item.height}"/>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">体重(kg)</label>
                         <div class="col-sm-9">
-                            <input id="weight" name="" value="${item.weight}"/>
+                            <#input id="weight" name="" value="${item.weight}"/>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -93,7 +93,7 @@
             <form class="form-inline" role="form" style="margin-bottom: 10px">
                 <label class="glyphicon glyphicon-check"
                        style="padding-left: 5px; letter-spacing: 2px; font-weight: 600; font-size: 14px;">首发症状时间</label>
-                <input id="firsttime" name="" value="${item.firsttime}"/>
+                <#input id="firsttime" name="" value="${item.firsttime}"/>
             </form>
             <form class="form-horizontal" role="form" style="padding-left: 20px;">
                 <div class="form-group">
@@ -157,7 +157,7 @@
                     <form></form>
                     <form class="form-inline" role="form" style="margin-bottom: 10px; padding-left: 20px;">
                         <label><h3>首发VTE事件时间</h3></label>
-                        <input id="firstvtetime" name="" value="${item.firstvtetime}"/>
+                        <#input id="firstvtetime" name="" value="${item.firstvtetime}"/>
                     </form>
                 </div>
 
@@ -356,7 +356,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 请具体：
-                                <input id="ibdspecific" name="" value="${item.ibdspecific}"/>
+                                <#input id="ibdspecific" name="" value="${item.ibdspecific}"/>
                             </form>
                         </label>
                         <label class="radio-inline">
@@ -371,7 +371,7 @@
                         <form></form>
                         <form class="form-inline" role="form">
                             <lable style="font-weight: 600; font-size: 14px; padding-left: 5px;">其他危险因素：</lable>
-                            <input id="otherrisk" name="" value="${item.otherrisk}"/>
+                            <#input id="otherrisk" name="" value="${item.otherrisk}"/>
                         </form>
                     </div>
                 </div>
@@ -510,7 +510,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 请具体：
-                                <input id="chdspecific" name="" value="${item.chdspecific}"/>
+                                <#input id="chdspecific" name="" value="${item.chdspecific}"/>
                             </form>
                         </label>
                         <label class="radio-inline">
@@ -534,7 +534,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 请具体：
-                                <input id="ctdspecific" name="" value="${item.ctdspecific}"/>
+                                <#input id="ctdspecific" name="" value="${item.ctdspecific}"/>
                             </form>
                         </label>
                         <label class="radio-inline">
@@ -721,7 +721,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <label class="glyphicon glyphicon-stop" style="font-weight: 600">步行距离（m）</label>
-                                <input id="walking" name="" value="${item.walking}"/>
+                                <#input id="walking" name="" value="${item.walking}"/>
                             </form>
                         </div>
                     </div>
@@ -860,7 +860,7 @@
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     请具体描述：
-                                    <input id="otherreason" name="" value="${item.otherreason}"/>
+                                    <#input id="otherreason" name="" value="${item.otherreason}"/>
                                 </form>
                             </label>
                         </div>
@@ -894,7 +894,7 @@
             <form class="form-inline" role="form" style="margin-bottom: 10px">
                 <label class="glyphicon glyphicon-check"
                        style="padding-left: 5px; font-weight: 600; letter-spacing: 2px; font-size: 14px;">首次导管时间</label>
-                <input id="firstcatheter" name="" value="${item.firstcatheter}"/>
+                <#input id="firstcatheter" name="" value="${item.firstcatheter}"/>
             </form>
             <form class="form-horizontal" role="form">
                 <div style="word-spacing: 20px; padding-left:20px;">
@@ -911,7 +911,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <lable style="font-weight: 600">HR,bpm</lable>
-                                <input id="hr" name="" value="${item.hr}"/>
+                                <#input id="hr" name="" value="${item.hr}"/>
                             </form>
                         </div>
                     </div>
@@ -924,13 +924,13 @@
                             <br>
                             <div class="row" style="padding-left: 20px;">
                                 <div class="col-sm-4">
-                                    <input id="bpshrink" name="收缩" value="${item.bpshrink}"/>
+                                    <#input id="bpshrink" name="收缩" value="${item.bpshrink}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="raprelaxation1" name="舒张" value="${item.raprelaxation1}"/>
+                                    <#input id="raprelaxation1" name="舒张" value="${item.raprelaxation1}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="rapave" name="平均" value="${item.rapave}"/>
+                                    <#input id="rapave" name="平均" value="${item.rapave}"/>
                                 </div>
                             </div>
                         </div>
@@ -957,13 +957,13 @@
                         <div style="word-spacing: 20px;">
                             <div class="row" style="padding-left: 20px;">
                                 <div class="col-sm-4">
-                                    <input id="rapshrink" name="收缩" value="${item.rapshrink}"/>
+                                    <#input id="rapshrink" name="收缩" value="${item.rapshrink}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="bprelaxation" name="舒张" value="${item.bprelaxation}"/>
+                                    <#input id="bprelaxation" name="舒张" value="${item.bprelaxation}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="bpave" name="平均" value="${item.bpave}"/>
+                                    <#input id="bpave" name="平均" value="${item.bpave}"/>
                                 </div>
                             </div>
                         </div>
@@ -990,13 +990,13 @@
                         <div style="word-spacing: 20px;">
                             <div class="row" style="padding-left: 20px;">
                                 <div class="col-sm-4">
-                                    <input id="papshrink" name="收缩" value="${item.papshrink}"/>
+                                    <#input id="papshrink" name="收缩" value="${item.papshrink}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="raprelaxation2" name="舒张" value="${item.raprelaxation2}"/>
+                                    <#input id="raprelaxation2" name="舒张" value="${item.raprelaxation2}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="papave" name="平均" value="${item.papave}"/>
+                                    <#input id="papave" name="平均" value="${item.papave}"/>
                                 </div>
                             </div>
                         </div>
@@ -1024,13 +1024,13 @@
                         <div style="word-spacing: 20px;">
                             <div class="row" style="padding-left: 20px;">
                                 <div class="col-sm-4">
-                                    <input id="pawpshrink" name="收缩" value="${item.pawpshrink}"/>
+                                    <#input id="pawpshrink" name="收缩" value="${item.pawpshrink}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="pawprelaxation" name="舒张" value="${item.pawprelaxation}"/>
+                                    <#input id="pawprelaxation" name="舒张" value="${item.pawprelaxation}"/>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input id="pawpave" name="平均" value="${item.pawpave}"/>
+                                    <#input id="pawpave" name="平均" value="${item.pawpave}"/>
                                 </div>
                             </div>
                         </div>
@@ -1041,7 +1041,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <lable style="font-weight: 600;word-spacing: 0px"><sup>*</sup>CO (Qp), L/min</lable>
-                                <input id="co" name="" value="${item.co}"/>
+                                <#input id="co" name="" value="${item.co}"/>
                             </form>
                         </div>
                     </div>
@@ -1067,7 +1067,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <lable style="font-weight: 600;word-spacing: 0px">CI, L/min/m<sup>2</sup></lable>
-                                <input id="ci" name="" value="${item.ci}"/>
+                                <#input id="ci" name="" value="${item.ci}"/>
                             </form>
                         </div>
                     </div>
@@ -1077,7 +1077,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <lable style="font-weight: 600;word-spacing: 0px"><sup>*</sup>PVR, Wood U</lable>
-                                <input id="pvr" name="" value="${item.pvr}"/>
+                                <#input id="pvr" name="" value="${item.pvr}"/>
                             </form>
                         </div>
                     </div>
@@ -1094,7 +1094,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <lable style="font-weight: 600;word-spacing: 0px">SvO2 (肺动脉氧饱和度), %</lable>
-                                <input id="svo2" name="" value="${item.svo2}"/>
+                                <#input id="svo2" name="" value="${item.svo2}"/>
                             </form>
                         </div>
                     </div>
@@ -1116,21 +1116,21 @@
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
                             <lable style="font-weight: 600;word-spacing: 0px">左室舒张末内径LVEDD (mm)</lable>
-                            <input id="lvedd" name="" value="${item.lvedd}"/>
+                            <#input id="lvedd" name="" value="${item.lvedd}"/>
                         </form>
                     </div>
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
                             <lable style="font-weight: 600;word-spacing: 0px">左室射血分数LVEF (%)</lable>
-                            <input id="lvef" name="" value="${item.lvef}"/>
+                            <#input id="lvef" name="" value="${item.lvef}"/>
                         </form>
                     </div>
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
                             <lable style="font-weight: 600;word-spacing: 0px">超声估测肺动脉收缩压PASP(<span style="word-spacing:0px">mm Hg</span>)</lable>
-                            <input id="pasp" name="" value="${item.pasp}"/>
+                            <#input id="pasp" name="" value="${item.pasp}"/>
                         </form>
                     </div>
                     <div class="form-group">
@@ -1197,7 +1197,7 @@
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     请填具体数值(umol/L)：
-                                    <input id="hcynumber" name="" value="${item.hcynumber}"/>
+                                    <#input id="hcynumber" name="" value="${item.hcynumber}"/>
                                 </form>
                             </label>
                             <label class="radio-inline">
@@ -1219,7 +1219,7 @@
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     请填具体数值(pg/ml)：
-                                    <input id="ntnumber" name="" value="${item.ntnumber}"/>
+                                    <#input id="ntnumber" name="" value="${item.ntnumber}"/>
                                 </form>
                             </label>
                             <label class="radio-inline">
@@ -1345,21 +1345,21 @@
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600">ATIII(%)</lable>
-                                    <input id="ats" name="" value="${item.ats}"/>
+                                    <#input id="ats" name="" value="${item.ats}"/>
                                 </form>
                             </label>
                             <label>
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白S</lable>
-                                    <input id="proteins" name="" value="${item.proteins}"/>
+                                    <#input id="proteins" name="" value="${item.proteins}"/>
                                 </form>
                             </label>
                             <label>
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白C</lable>
-                                    <input id="proteinc" name="" value="${item.proteinc}"/>
+                                    <#input id="proteinc" name="" value="${item.proteinc}"/>
                                 </form>
                             </label>
 
@@ -1404,14 +1404,14 @@
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600">PH</lable>
-                                    <input id="ph" name="" value="${item.ph}"/>
+                                    <#input id="ph" name="" value="${item.ph}"/>
                                 </form>
                             </label>
                             <label>
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PCO2(mm Hg)</lable>
-                                    <input id="pco" name="" value="${item.pco}"/>
+                                    <#input id="pco" name="" value="${item.pco}"/>
                                 </form>
                             </label>
 
@@ -1423,14 +1423,14 @@
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PO2(mm Hg)</lable>
-                                    <input id="po" name="" value="${item.po}"/>
+                                    <#input id="po" name="" value="${item.po}"/>
                                 </form>
                             </label>
                             <label>
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600">SaO2(%)</lable>
-                                    <input id="sao" name="" value="${item.sao}"/>
+                                    <#input id="sao" name="" value="${item.sao}"/>
                                 </form>
                             </label>
 
@@ -1443,7 +1443,7 @@
                                 <form class="form-inline" role="form">
                                     <lable class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">P(A-a)(mm Hg)
                                     </lable>
-                                    <input id="paa" name="" value="${item.paa}"/>
+                                    <#input id="paa" name="" value="${item.paa}"/>
                                 </form>
                             </label>
 
@@ -1502,7 +1502,7 @@
                                 <form></form>
                                 <form class="form-inline" role="form">
                                     药物具体名称：
-                                    <input id="otherdrug" name="" value="${item.otherdrug}"/>
+                                    <#input id="otherdrug" name="" value="${item.otherdrug}"/>
                                 </form>
                             </label>
                         </div>
