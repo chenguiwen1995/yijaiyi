@@ -5,7 +5,6 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
@@ -13,10 +12,9 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author chenguiwen
- * @since 2019-02-23
+ * @author stylefeng
+ * @since 2019-03-05
  */
-@TableName("cteph")
 public class Cteph extends Model<Cteph> {
 
     private static final long serialVersionUID = 1L;
@@ -143,18 +141,13 @@ public class Cteph extends Model<Cteph> {
     private Date ts;
     private Integer dr;
     private String specifictumor;
-    private String ibddiagnosis;
-    private String octdspecific;
-    private String othercomplicationss;
-    private String otherdrug2;
     private Date malignanttumordate;
     private Date splenectormydate;
     private Date pacemakerdate;
     private Date atrialhistorydate;
     private Date levvdate;
+    private String ibddiagnosis;
     private Date ibddate;
-    private Date exfoliationdate;
-    private Date angioplastyfdate;
     private Integer sie;
     private Integer sjogrens;
     private Integer ssclerosis;
@@ -162,19 +155,16 @@ public class Cteph extends Model<Cteph> {
     private Integer rarthritis;
     private Integer uctd;
     private Integer octd;
+    private String octdspecific;
+    private Float hcylevel;
+    private Float maximum;
+    private Float at3;
     private Integer otherriskjudge;
     private Integer lhfailure;
     private Integer lhfailurespecific;
     private Integer eosinophilia;
+    private String othercomplicationss;
     private Integer respiratory;
-    private Integer cet;
-    private Integer heartmri;
-    private Integer abgt;
-    private Integer antiplatelet;
-    private Integer drug5;
-    private Float hcylevel;
-    private Float maximum;
-    private Float at3;
     private Float vcmax;
     private Float tlc;
     private Float rv;
@@ -184,12 +174,21 @@ public class Cteph extends Model<Cteph> {
     private Float fef;
     private Float tlcosb;
     private Float tlcova;
+    private Integer cet;
+    private Integer heartmri;
     private Float ddimer;
     private Float ast;
     private Float alt;
     private Float tbil;
     private Float dbil;
     private Float cr;
+    private Integer abgt;
+    private Integer antiplatelet;
+    private Integer drug5;
+    private String otherdrug2;
+    private Date exfoliationdate;
+    private Date angioplastyfdate;
+
 
     public Integer getId() {
         return id;
@@ -783,8 +782,6 @@ public class Cteph extends Model<Cteph> {
         this.pvr = pvr;
     }
 
-
-
     public Float getLvedd() {
         return lvedd;
     }
@@ -831,6 +828,14 @@ public class Cteph extends Model<Cteph> {
 
     public void setNt(Integer nt) {
         this.nt = nt;
+    }
+
+    public Float getNtnumber() {
+        return ntnumber;
+    }
+
+    public void setNtnumber(Float ntnumber) {
+        this.ntnumber = ntnumber;
     }
 
     public Integer getBloodgas() {
@@ -1121,45 +1126,12 @@ public class Cteph extends Model<Cteph> {
         this.dr = dr;
     }
 
-
     public String getSpecifictumor() {
         return specifictumor;
     }
 
     public void setSpecifictumor(String specifictumor) {
         this.specifictumor = specifictumor;
-    }
-
-    public String getIbddiagnosis() {
-        return ibddiagnosis;
-    }
-
-    public void setIbddiagnosis(String ibddiagnosis) {
-        this.ibddiagnosis = ibddiagnosis;
-    }
-
-    public String getOctdspecific() {
-        return octdspecific;
-    }
-
-    public void setOctdspecific(String octdspecific) {
-        this.octdspecific = octdspecific;
-    }
-
-    public String getOthercomplicationss() {
-        return othercomplicationss;
-    }
-
-    public void setOthercomplicationss(String othercomplicationss) {
-        this.othercomplicationss = othercomplicationss;
-    }
-
-    public String getOtherdrug2() {
-        return otherdrug2;
-    }
-
-    public void setOtherdrug2(String otherdrug2) {
-        this.otherdrug2 = otherdrug2;
     }
 
     public Date getMalignanttumordate() {
@@ -1202,28 +1174,20 @@ public class Cteph extends Model<Cteph> {
         this.levvdate = levvdate;
     }
 
+    public String getIbddiagnosis() {
+        return ibddiagnosis;
+    }
+
+    public void setIbddiagnosis(String ibddiagnosis) {
+        this.ibddiagnosis = ibddiagnosis;
+    }
+
     public Date getIbddate() {
         return ibddate;
     }
 
     public void setIbddate(Date ibddate) {
         this.ibddate = ibddate;
-    }
-
-    public Date getExfoliationdate() {
-        return exfoliationdate;
-    }
-
-    public void setExfoliationdate(Date exfoliationdate) {
-        this.exfoliationdate = exfoliationdate;
-    }
-
-    public Date getAngioplastyfdate() {
-        return angioplastyfdate;
-    }
-
-    public void setAngioplastyfdate(Date angioplastyfdate) {
-        this.angioplastyfdate = angioplastyfdate;
     }
 
     public Integer getSie() {
@@ -1282,6 +1246,38 @@ public class Cteph extends Model<Cteph> {
         this.octd = octd;
     }
 
+    public String getOctdspecific() {
+        return octdspecific;
+    }
+
+    public void setOctdspecific(String octdspecific) {
+        this.octdspecific = octdspecific;
+    }
+
+    public Float getHcylevel() {
+        return hcylevel;
+    }
+
+    public void setHcylevel(Float hcylevel) {
+        this.hcylevel = hcylevel;
+    }
+
+    public Float getMaximum() {
+        return maximum;
+    }
+
+    public void setMaximum(Float maximum) {
+        this.maximum = maximum;
+    }
+
+    public Float getAt3() {
+        return at3;
+    }
+
+    public void setAt3(Float at3) {
+        this.at3 = at3;
+    }
+
     public Integer getOtherriskjudge() {
         return otherriskjudge;
     }
@@ -1314,76 +1310,20 @@ public class Cteph extends Model<Cteph> {
         this.eosinophilia = eosinophilia;
     }
 
+    public String getOthercomplicationss() {
+        return othercomplicationss;
+    }
+
+    public void setOthercomplicationss(String othercomplicationss) {
+        this.othercomplicationss = othercomplicationss;
+    }
+
     public Integer getRespiratory() {
         return respiratory;
     }
 
     public void setRespiratory(Integer respiratory) {
         this.respiratory = respiratory;
-    }
-
-    public Integer getCet() {
-        return cet;
-    }
-
-    public void setCet(Integer cet) {
-        this.cet = cet;
-    }
-
-    public Integer getHeartmri() {
-        return heartmri;
-    }
-
-    public void setHeartmri(Integer heartmri) {
-        this.heartmri = heartmri;
-    }
-
-    public Integer getAbgt() {
-        return abgt;
-    }
-
-    public void setAbgt(Integer abgt) {
-        this.abgt = abgt;
-    }
-
-    public Integer getAntiplatelet() {
-        return antiplatelet;
-    }
-
-    public void setAntiplatelet(Integer antiplatelet) {
-        this.antiplatelet = antiplatelet;
-    }
-
-    public Integer getDrug5() {
-        return drug5;
-    }
-
-    public void setDrug5(Integer drug5) {
-        this.drug5 = drug5;
-    }
-
-    public Float getHcylevel() {
-        return hcylevel;
-    }
-
-    public void setHcylevel(Float hcylevel) {
-        this.hcylevel = hcylevel;
-    }
-
-    public Float getMaximum() {
-        return maximum;
-    }
-
-    public void setMaximum(Float maximum) {
-        this.maximum = maximum;
-    }
-
-    public Float getAt3() {
-        return at3;
-    }
-
-    public void setAt3(Float at3) {
-        this.at3 = at3;
     }
 
     public Float getVcmax() {
@@ -1458,6 +1398,22 @@ public class Cteph extends Model<Cteph> {
         this.tlcova = tlcova;
     }
 
+    public Integer getCet() {
+        return cet;
+    }
+
+    public void setCet(Integer cet) {
+        this.cet = cet;
+    }
+
+    public Integer getHeartmri() {
+        return heartmri;
+    }
+
+    public void setHeartmri(Integer heartmri) {
+        this.heartmri = heartmri;
+    }
+
     public Float getDdimer() {
         return ddimer;
     }
@@ -1504,6 +1460,54 @@ public class Cteph extends Model<Cteph> {
 
     public void setCr(Float cr) {
         this.cr = cr;
+    }
+
+    public Integer getAbgt() {
+        return abgt;
+    }
+
+    public void setAbgt(Integer abgt) {
+        this.abgt = abgt;
+    }
+
+    public Integer getAntiplatelet() {
+        return antiplatelet;
+    }
+
+    public void setAntiplatelet(Integer antiplatelet) {
+        this.antiplatelet = antiplatelet;
+    }
+
+    public Integer getDrug5() {
+        return drug5;
+    }
+
+    public void setDrug5(Integer drug5) {
+        this.drug5 = drug5;
+    }
+
+    public String getOtherdrug2() {
+        return otherdrug2;
+    }
+
+    public void setOtherdrug2(String otherdrug2) {
+        this.otherdrug2 = otherdrug2;
+    }
+
+    public Date getExfoliationdate() {
+        return exfoliationdate;
+    }
+
+    public void setExfoliationdate(Date exfoliationdate) {
+        this.exfoliationdate = exfoliationdate;
+    }
+
+    public Date getAngioplastyfdate() {
+        return angioplastyfdate;
+    }
+
+    public void setAngioplastyfdate(Date angioplastyfdate) {
+        this.angioplastyfdate = angioplastyfdate;
     }
 
     @Override
@@ -1654,39 +1658,31 @@ public class Cteph extends Model<Cteph> {
         ", lhfailure=" + lhfailure +
         ", lhfailurespecific=" + lhfailurespecific +
         ", eosinophilia=" + eosinophilia +
-                ", othercomplicationss=" + othercomplicationss +
-                ", respiratory=" + respiratory +
-                ", vcmax=" + vcmax +
-                ", tlc=" + tlc +
-                ", rv=" + rv +
-                ", rvtlc=" + rvtlc +
-                ", fev1=" + fev1 +
-                ", fev1fvc=" + fev1fvc +
-                ", fef=" + fef +
-                ", tlcosb=" + tlcosb +
-                ", tlcova=" + tlcova +
-                ", cet=" + cet +
-                ", heartmri=" + heartmri +
-                ", ddimer=" + ddimer +
-                ", ast=" + ast +
-                ", alt=" + alt +
-                ", tbil=" + tbil +
-                ", dbil=" + dbil +
-                ", cr=" + cr +
-                ", abgt=" + abgt +
-                ", antiplatelet=" + antiplatelet +
-                ", drug5=" + drug5 +
-                ", otherdrug2=" + otherdrug2 +
-                ", exfoliationdate=" + exfoliationdate +
-                ", angioplastyfdate=" + angioplastyfdate +
+        ", othercomplicationss=" + othercomplicationss +
+        ", respiratory=" + respiratory +
+        ", vcmax=" + vcmax +
+        ", tlc=" + tlc +
+        ", rv=" + rv +
+        ", rvtlc=" + rvtlc +
+        ", fev1=" + fev1 +
+        ", fev1fvc=" + fev1fvc +
+        ", fef=" + fef +
+        ", tlcosb=" + tlcosb +
+        ", tlcova=" + tlcova +
+        ", cet=" + cet +
+        ", heartmri=" + heartmri +
+        ", ddimer=" + ddimer +
+        ", ast=" + ast +
+        ", alt=" + alt +
+        ", tbil=" + tbil +
+        ", dbil=" + dbil +
+        ", cr=" + cr +
+        ", abgt=" + abgt +
+        ", antiplatelet=" + antiplatelet +
+        ", drug5=" + drug5 +
+        ", otherdrug2=" + otherdrug2 +
+        ", exfoliationdate=" + exfoliationdate +
+        ", angioplastyfdate=" + angioplastyfdate +
         "}";
-    }
-
-    public Float getNtnumber() {
-        return ntnumber;
-    }
-
-    public void setNtnumber(Float ntnumber) {
-        this.ntnumber = ntnumber;
     }
 }

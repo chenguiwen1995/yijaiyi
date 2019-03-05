@@ -1,6 +1,7 @@
 package com.stylefeng.guns.modular.cteph.controller;
 
 import com.stylefeng.guns.core.base.controller.BaseController;
+import com.stylefeng.guns.core.common.billcode.Generator;
 import com.stylefeng.guns.core.common.billcode.impl.CTEPHGeneratorImpl;
 import com.stylefeng.guns.core.common.constant.factory.ConstantFactory;
 import com.stylefeng.guns.core.common.exception.BizExceptionEnum;
@@ -10,8 +11,10 @@ import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.modular.cteph.factory.CtephFactory;
 import com.stylefeng.guns.modular.cteph.transfer.CtephDto;
 import com.stylefeng.guns.modular.cteph.warpper.CtephWarpper;
+import com.stylefeng.guns.modular.system.model.RoleEnum;
 import com.stylefeng.guns.modular.system.service.IUserService;
 import com.stylefeng.guns.modular.system.transfer.UserDto;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +30,7 @@ import com.stylefeng.guns.modular.cteph.service.ICtephService;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * CTEPH调查表控制器
@@ -48,6 +52,8 @@ public class CtephController extends BaseController {
 
     @Autowired
     private IUserService iUserService;
+
+    private final static org.slf4j.Logger logger = LoggerFactory.getLogger(CtephController.class);
 
     /**
      * 跳转到CTEPH调查表首页
@@ -104,8 +110,21 @@ public class CtephController extends BaseController {
     @ResponseBody
     public Object list(@RequestParam(required = false) String condition) {
         ShiroUser user = ShiroKit.getUser();
-        int ctephId = user.deptId;
-        List<Map<String, Object>> ctephs = ctephService.selectCtephs(ctephId,condition);
+        int department = user.deptId;
+        List<Integer> roleids = user.getRoleList();
+        Integer role = RoleEnum.BUSINESSMAN.getId();
+        for (Integer roleid : roleids){//得到最高权限
+            if (roleid.compareTo(role) < 0){
+                role = roleid;
+                logger.info("变更角色-roleid:"+roleid);
+            }
+        }
+        List<Map<String, Object>> ctephs = null;
+        if(role == RoleEnum.ADMINISTRATOR.getId() || role == RoleEnum.SYSTEM_MANAGER.getId()){
+            ctephs = ctephService.selectCtephs(null,condition);
+        }else{
+            ctephs = ctephService.selectCtephs(department,condition);
+        }
         List<Map<String, Object>> ctephs_new = ( List<Map<String, Object>>)new CtephWarpper(ctephs).warp();//多加了一个sexName
         return ctephs_new;
     }

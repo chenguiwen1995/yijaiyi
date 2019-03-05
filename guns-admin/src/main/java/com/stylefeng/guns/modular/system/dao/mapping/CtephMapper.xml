@@ -10,7 +10,6 @@
         <result column="fillingperson" property="fillingperson" />
         <result column="patient_name" property="patientName" />
         <result column="patient_sex" property="patientSex" />
-        <result column="patient_age" property="patientAge" />
         <result column="patient_address" property="patientAddress" />
         <result column="birthday" property="birthday" />
         <result column="height" property="height" />
@@ -27,14 +26,8 @@
         <result column="splenectomy" property="splenectomy" />
         <result column="pacemaker" property="pacemaker" />
         <result column="atrialhistory" property="atrialhistory" />
-        <result column="aas" property="aas" />
-        <result column="hps" property="hps" />
-        <result column="cdeficiency" property="cdeficiency" />
-        <result column="sdeficiency" property="sdeficiency" />
-        <result column="atdeficiency" property="atdeficiency" />
         <result column="levv" property="levv" />
         <result column="ibd" property="ibd" />
-        <result column="ibdspecific" property="ibdspecific" />
         <result column="otherrisk" property="otherrisk" />
         <result column="hypertension" property="hypertension" />
         <result column="coronaryheart" property="coronaryheart" />
@@ -45,8 +38,6 @@
         <result column="copd" property="copd" />
         <result column="congenitalheart" property="congenitalheart" />
         <result column="chdspecific" property="chdspecific" />
-        <result column="connectivetissue" property="connectivetissue" />
-        <result column="ctdspecific" property="ctdspecific" />
         <result column="hypothyroidism" property="hypothyroidism" />
         <result column="hyperthyroidism" property="hyperthyroidism" />
         <result column="anemia" property="anemia" />
@@ -87,29 +78,14 @@
         <result column="comethod" property="comethod" />
         <result column="ci" property="ci" />
         <result column="pvr" property="pvr" />
-        <result column="svo2" property="svo2" />
         <result column="lvedd" property="lvedd" />
         <result column="lvef" property="lvef" />
         <result column="pasp" property="pasp" />
         <result column="pe" property="pe" />
         <result column="bloodgroup" property="bloodgroup" />
-        <result column="hcy" property="hcy" />
-        <result column="hcynumber" property="hcynumber" />
         <result column="nt" property="nt" />
         <result column="ntnumber" property="ntnumber" />
-        <result column="aa" property="aa" />
-        <result column="la" property="la" />
-        <result column="acllgg" property="acllgg" />
-        <result column="acllgm" property="acllgm" />
-        <result column="lgg" property="lgg" />
-        <result column="lgm" property="lgm" />
-        <result column="threeitems" property="threeitems" />
-        <result column="ats" property="ats" />
-        <result column="proteins" property="proteins" />
-        <result column="proteinc" property="proteinc" />
-        <result column="hat" property="hat" />
         <result column="bloodgas" property="bloodgas" />
-        <result column="ph" property="ph" />
         <result column="pco" property="pco" />
         <result column="po" property="po" />
         <result column="sao" property="sao" />
@@ -145,11 +121,59 @@
         <result column="modifiedtime" property="modifiedtime" />
         <result column="ts" property="ts" />
         <result column="dr" property="dr" />
+        <result column="specifictumor" property="specifictumor" />
+        <result column="malignanttumordate" property="malignanttumordate" />
+        <result column="splenectormydate" property="splenectormydate" />
+        <result column="pacemakerdate" property="pacemakerdate" />
+        <result column="atrialhistorydate" property="atrialhistorydate" />
+        <result column="levvdate" property="levvdate" />
+        <result column="ibddiagnosis" property="ibddiagnosis" />
+        <result column="ibddate" property="ibddate" />
+        <result column="sie" property="sie" />
+        <result column="sjogrens" property="sjogrens" />
+        <result column="ssclerosis" property="ssclerosis" />
+        <result column="mctd" property="mctd" />
+        <result column="rarthritis" property="rarthritis" />
+        <result column="uctd" property="uctd" />
+        <result column="octd" property="octd" />
+        <result column="octdspecific" property="octdspecific" />
+        <result column="hcylevel" property="hcylevel" />
+        <result column="maximum" property="maximum" />
+        <result column="at3" property="at3" />
+        <result column="otherriskjudge" property="otherriskjudge" />
+        <result column="lhfailure" property="lhfailure" />
+        <result column="lhfailurespecific" property="lhfailurespecific" />
+        <result column="eosinophilia" property="eosinophilia" />
+        <result column="othercomplicationss" property="othercomplicationss" />
+        <result column="respiratory" property="respiratory" />
+        <result column="vcmax" property="vcmax" />
+        <result column="tlc" property="tlc" />
+        <result column="rv" property="rv" />
+        <result column="rvtlc" property="rvtlc" />
+        <result column="fev1" property="fev1" />
+        <result column="fev1fvc" property="fev1fvc" />
+        <result column="fef" property="fef" />
+        <result column="tlcosb" property="tlcosb" />
+        <result column="tlcova" property="tlcova" />
+        <result column="cet" property="cet" />
+        <result column="heartmri" property="heartmri" />
+        <result column="ddimer" property="ddimer" />
+        <result column="ast" property="ast" />
+        <result column="alt" property="alt" />
+        <result column="tbil" property="tbil" />
+        <result column="dbil" property="dbil" />
+        <result column="cr" property="cr" />
+        <result column="abgt" property="abgt" />
+        <result column="antiplatelet" property="antiplatelet" />
+        <result column="drug5" property="drug5" />
+        <result column="otherdrug2" property="otherdrug2" />
+        <result column="exfoliationdate" property="exfoliationdate" />
+        <result column="angioplastyfdate" property="angioplastyfdate" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, code, department, fillingperson, patient_name, patient_sex, patient_age, patient_address, birthday, height, weight, firsttime, specialsigns, vtehistory, ape, ledvt, otherthrombus, firstvtetime, vterelapse, malignanttumor, splenectomy, pacemaker, atrialhistory, aas, hps, cdeficiency, sdeficiency, atdeficiency, levv, ibd, ibdspecific, otherrisk, hypertension, coronaryheart, revascularization, diabetes, renalinsufficiency, cerebralinfarction, copd, congenitalheart, chdspecific, connectivetissue, ctdspecific, hypothyroidism, hyperthyroidism, anemia, polycythemia, plateletlower, plateletup, othercomplications, cteph, sixmwd, noreason1, walking, ppi, ctpat, mripae, cmri, rhc, noreason2, otherreason, pa, firstcatheter, hr, bpshrink, bprelaxation, bpave, rap, rapshrink, raprelaxation1, rapave, pap, papshrink, raprelaxation2, papave, pawp, pawpshrink, pawprelaxation, pawpave, co, comethod, ci, pvr, svo2, lvedd, lvef, pasp, pe, bloodgroup, hcy, hcynumber, nt, ntnumber, aa, la, acllgg, acllgm, lgg, lgm, threeitems, ats, proteins, proteinc, hat, bloodgas, ph, pco, po, sao, paa, anticoagulant, drug1, otherdrug, targeting, laxg, fivepi, drug2, era, drug3, prostacyclin, drug4, exfoliation, angioplasty, death, deathreason, addition1, addition2, addition3, addition4, addition5, addition6, addition7, addition8, addition9, addition10, creator, creationtime, modifier, modifiedtime, ts, dr
+        id, code, department, fillingperson, patient_name, patient_sex, patient_address, birthday, height, weight, firsttime, specialsigns, vtehistory, ape, ledvt, otherthrombus, firstvtetime, vterelapse, malignanttumor, splenectomy, pacemaker, atrialhistory, levv, ibd, otherrisk, hypertension, coronaryheart, revascularization, diabetes, renalinsufficiency, cerebralinfarction, copd, congenitalheart, chdspecific, hypothyroidism, hyperthyroidism, anemia, polycythemia, plateletlower, plateletup, othercomplications, cteph, sixmwd, noreason1, walking, ppi, ctpat, mripae, cmri, rhc, noreason2, otherreason, pa, firstcatheter, hr, bpshrink, bprelaxation, bpave, rap, rapshrink, raprelaxation1, rapave, pap, papshrink, raprelaxation2, papave, pawp, pawpshrink, pawprelaxation, pawpave, co, comethod, ci, pvr, lvedd, lvef, pasp, pe, bloodgroup, nt, ntnumber, bloodgas, pco, po, sao, paa, anticoagulant, drug1, otherdrug, targeting, laxg, fivepi, drug2, era, drug3, prostacyclin, drug4, exfoliation, angioplasty, death, deathreason, addition1, addition2, addition3, addition4, addition5, addition6, addition7, addition8, addition9, addition10, creator, creationtime, modifier, modifiedtime, ts, dr, specifictumor, malignanttumordate, splenectormydate, pacemakerdate, atrialhistorydate, levvdate, ibddiagnosis, ibddate, sie, sjogrens, ssclerosis, mctd, rarthritis, uctd, octd, octdspecific, hcylevel, maximum, at3, otherriskjudge, lhfailure, lhfailurespecific, eosinophilia, othercomplicationss, respiratory, vcmax, tlc, rv, rvtlc, fev1, fev1fvc, fef, tlcosb, tlcova, cet, heartmri, ddimer, ast, alt, tbil, dbil, cr, abgt, antiplatelet, drug5, otherdrug2, exfoliationdate, angioplastyfdate
     </sql>
 
 
@@ -157,17 +181,14 @@
         select
         <include refid="Base_Column_List" />
         from cteph
-        where dr != 1 and department = #{department}
-        <if test="patient_name != null and patient_name != ''">
-        and  patient_name like CONCAT('%',#{patient_name},'%')
+        where dr != 1
+        <if test="department != null and department != ''">
+           and department = #{department}
         </if>
-        <!--<if test="code != null and code !=''">-->
-            <!--and  (code like CONCAT('%', #{code}, '%')-->
-            <!--or name like CONCAT('%',#{code},'%'))-->
-        <!--</if>-->
-
+        <if test="patient_name != null and patient_name != ''">
+            and  patient_name like CONCAT('%',#{patient_name},'%')
+        </if>
     </select>
-
 
 
 </mapper>
