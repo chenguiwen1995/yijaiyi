@@ -1,0 +1,135 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="主键" value="${item.id}" underline="true"/>
+                            <#input id="code" name="随访编号" value="${item.code}" underline="true"/>
+                            <#input id="department" name="随访科室" value="${item.department}" underline="true"/>
+                            <#input id="doctor" name="医生" value="${item.doctor}" underline="true"/>
+                            <#input id="patientName" name="患者姓名" value="${item.patientName}" underline="true"/>
+                            <#input id="patientSex" name="患者性别" value="${item.patientSex}" underline="true"/>
+                            <#input id="patientBirth" name="患者出生日期" value="${item.patientBirth}" underline="true"/>
+                            <#input id="patientMedno" name="患者病历号" value="${item.patientMedno}" underline="true"/>
+                            <#input id="patientPhone" name="患者手机号码" value="${item.patientPhone}" underline="true"/>
+                            <#input id="patientPhone2" name="患者电话" value="${item.patientPhone2}" underline="true"/>
+                            <#input id="patientWechat" name="患者微信" value="${item.patientWechat}" underline="true"/>
+                            <#input id="patientAddress" name="患者地址" value="${item.patientAddress}" underline="true"/>
+                            <#input id="familyPhone" name="家人手机号码" value="${item.familyPhone}" underline="true"/>
+                            <#input id="pamilyPhone2" name="家人电话" value="${item.pamilyPhone2}" underline="true"/>
+                            <#input id="bdeteriorate" name="是否发生临床恶化时间" value="${item.bdeteriorate}" underline="true"/>
+                            <#input id="bhospitalization" name="是否住院" value="${item.bhospitalization}" underline="true"/>
+                            <#input id="nnumber" name="住院次数" value="${item.nnumber}" underline="true"/>
+                            <#input id="bpulmonary" name="是否肺部感染" value="${item.bpulmonary}" underline="true"/>
+                            <#input id="brightheartfailure" name="右心衰加重" value="${item.brightheartfailure}" underline="true"/>
+                            <#input id="bhemoptysis" name="咳血" value="${item.bhemoptysis}" underline="true"/>
+                            <#input id="other" name="其他出血情况" value="${item.other}" underline="true"/>
+                            <#input id="pulmonaryembolism" name="是否再发肺栓塞" value="${item.pulmonaryembolism}" underline="true"/>
+                            <#input id="lowervein" name="下肢深静脉血栓" value="${item.lowervein}" underline="true"/>
+                            <#input id="arrhythmia" name="是否心率失常" value="${item.arrhythmia}" underline="true"/>
+                            <#input id="death" name="是否死亡" value="${item.death}" underline="true"/>
+                            <#input id="deathdate" name="死亡日期" value="${item.deathdate}" underline="true"/>
+                            <#input id="nonpertension" name="非肺高压原因" value="${item.nonpertension}" underline="true"/>
+                            <#input id="vspecific" name="请具体" value="${item.vspecific}" underline="true"/>
+                            <#input id="hospitalizationdate1" name="住院时间" value="${item.hospitalizationdate1}" underline="true"/>
+                            <#input id="hospitalizationdate2" name="住院时间" value="${item.hospitalizationdate2}" underline="true"/>
+                            <#input id="hospitalizationdate3" name="住院时间" value="${item.hospitalizationdate3}" underline="true"/>
+                            <#input id="deterioratespecific" name="重要恶化时间详情" value="${item.deterioratespecific}" underline="true"/>
+                            <#input id="breathShort" name="气短" value="${item.breathShort}" underline="true"/>
+                            <#input id="syncope" name="晕厥" value="${item.syncope}" underline="true"/>
+                            <#input id="syncopeTimes" name="晕厥次数" value="${item.syncopeTimes}" underline="true"/>
+                            <#input id="syncopeTime" name="上次晕厥时间" value="${item.syncopeTime}" underline="true"/>
+                            <#input id="hemoptysis" name="咳血" value="${item.hemoptysis}" underline="true"/>
+                            <#input id="hemoptysisTimes" name="咳血次数" value="${item.hemoptysisTimes}" underline="true"/>
+                            <#input id="hemoptysisTime" name="上次咳血时间" value="${item.hemoptysisTime}" underline="true"/>
+                            <#input id="swollen" name="浮肿" value="${item.swollen}" underline="true"/>
+                            <#input id="otherfeatures" name="其他体征" value="${item.otherfeatures}" underline="true"/>
+                            <#input id="regularmedicine" name="是否规律服药" value="${item.regularmedicine}" underline="true"/>
+                            <#input id="irregularreason" name="不规律原因" value="${item.irregularreason}" underline="true"/>
+                            <#input id="xdnf" name="西地那非" value="${item.xdnf}" underline="true"/>
+                            <#input id="xdnfDosage" name="西地那非计量" value="${item.xdnfDosage}" underline="true"/>
+                            <#input id="tdnf" name="他达那非" value="${item.tdnf}" underline="true"/>
+                            <#input id="tdnfDosage" name="他达那非计量" value="${item.tdnfDosage}" underline="true"/>
+                            <#input id="facered1" name="面色潮红" value="${item.facered1}" underline="true"/>
+                            <#input id="headache1" name="头痛" value="${item.headache1}" underline="true"/>
+                            <#input id="stuffynose1" name="鼻塞" value="${item.stuffynose1}" underline="true"/>
+                            <#input id="musclepain1" name="肌肉疼痛" value="${item.musclepain1}" underline="true"/>
+                            <#input id="dizziness1" name="头晕" value="${item.dizziness1}" underline="true"/>
+                            <#input id="blurredvision1" name="视物模糊" value="${item.blurredvision1}" underline="true"/>
+                            <#input id="hypotension1" name="低血压" value="${item.hypotension1}" underline="true"/>
+                            <#input id="menstrualdisorder1" name="月经紊乱" value="${item.menstrualdisorder1}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="other1" name="其他" value="${item.other1}" underline="true"/>
+                            <#input id="bst" name="波生坦" value="${item.bst}" underline="true"/>
+                            <#input id="bstDosage" name="波生坦计量" value="${item.bstDosage}" underline="true"/>
+                            <#input id="mxtt" name="马昔腾坦" value="${item.mxtt}" underline="true"/>
+                            <#input id="mxttDosage" name="马昔腾坦计量" value="${item.mxttDosage}" underline="true"/>
+                            <#input id="facered2" name="面色潮红" value="${item.facered2}" underline="true"/>
+                            <#input id="headache2" name="头痛" value="${item.headache2}" underline="true"/>
+                            <#input id="stuffynose2" name="鼻塞" value="${item.stuffynose2}" underline="true"/>
+                            <#input id="musclepain2" name="肌肉疼痛" value="${item.musclepain2}" underline="true"/>
+                            <#input id="dizziness2" name="头晕" value="${item.dizziness2}" underline="true"/>
+                            <#input id="transaminaseraise2" name="转氨酶增高" value="${item.transaminaseraise2}" underline="true"/>
+                            <#input id="anemia2" name="贫血" value="${item.anemia2}" underline="true"/>
+                            <#input id="peripheraledema2" name="外周浮肿" value="${item.peripheraledema2}" underline="true"/>
+                            <#input id="hypotension2" name="低血压" value="${item.hypotension2}" underline="true"/>
+                            <#input id="menstrualdisorder2" name="月经紊乱" value="${item.menstrualdisorder2}" underline="true"/>
+                            <#input id="other2" name="其他" value="${item.other2}" underline="true"/>
+                            <#input id="bqls" name="贝前列素" value="${item.bqls}" underline="true"/>
+                            <#input id="bqlsDosage" name="贝前列素剂量" value="${item.bqlsDosage}" underline="true"/>
+                            <#input id="rmdl" name="瑞莫杜林" value="${item.rmdl}" underline="true"/>
+                            <#input id="rmdlDosage" name="瑞莫杜林剂量" value="${item.rmdlDosage}" underline="true"/>
+                            <#input id="facered3" name="面色潮红" value="${item.facered3}" underline="true"/>
+                            <#input id="headache3" name="头痛" value="${item.headache3}" underline="true"/>
+                            <#input id="stuffynose3" name="鼻塞" value="${item.stuffynose3}" underline="true"/>
+                            <#input id="musclepain3" name="肌肉疼痛" value="${item.musclepain3}" underline="true"/>
+                            <#input id="diarrhea3" name="腹泻" value="${item.diarrhea3}" underline="true"/>
+                            <#input id="localpain3" name="局部疼痛" value="${item.localpain3}" underline="true"/>
+                            <#input id="hypotension3" name="低血压" value="${item.hypotension3}" underline="true"/>
+                            <#input id="other3" name="其他" value="${item.other3}" underline="true"/>
+                            <#input id="laxg" name="利奥西呱" value="${item.laxg}" underline="true"/>
+                            <#input id="laxgDosage" name="利奥西呱计量" value="${item.laxgDosage}" underline="true"/>
+                            <#input id="facered4" name="面色潮红" value="${item.facered4}" underline="true"/>
+                            <#input id="headache4" name="头痛" value="${item.headache4}" underline="true"/>
+                            <#input id="stuffynose4" name="鼻塞" value="${item.stuffynose4}" underline="true"/>
+                            <#input id="dizziness4" name="头晕" value="${item.dizziness4}" underline="true"/>
+                            <#input id="diarrhea4" name="腹泻" value="${item.diarrhea4}" underline="true"/>
+                            <#input id="hypotension4" name="低血压" value="${item.hypotension4}" underline="true"/>
+                            <#input id="other4" name="其他" value="${item.other4}" underline="true"/>
+                            <#input id="routineblood" name="血常规" value="${item.routineblood}" underline="true"/>
+                            <#input id="bloodbiochemistry" name="血生化" value="${item.bloodbiochemistry}" underline="true"/>
+                            <#input id="nt" name="NT-PROBNP" value="${item.nt}" underline="true"/>
+                            <#input id="ntnumber" name="NT-PROBNP数值" value="${item.ntnumber}" underline="true"/>
+                            <#input id="sexhormone" name="性激素" value="${item.sexhormone}" underline="true"/>
+                            <#input id="ironmetabolism" name="铁代谢" value="${item.ironmetabolism}" underline="true"/>
+                            <#input id="walk" name="六分钟步行" value="${item.walk}" underline="true"/>
+                            <#input id="walkdistance" name="六分钟步行距离" value="${item.walkdistance}" underline="true"/>
+                            <#input id="ct" name="CT" value="${item.ct}" underline="true"/>
+                            <#input id="cpet" name="CPET" value="${item.cpet}" underline="true"/>
+                            <#input id="mri" name="MRI" value="${item.mri}" underline="true"/>
+                            <#input id="othercheck" name="其他检查" value="${item.othercheck}" underline="true"/>
+                            <#input id="creator" name="创建人" value="${item.creator}" underline="true"/>
+                            <#input id="creationtime" name="创建时间" value="${item.creationtime}" underline="true"/>
+                            <#input id="modifier" name="修改人" value="${item.modifier}" underline="true"/>
+                            <#input id="modifiedtime" name="修改时间" value="${item.modifiedtime}" underline="true"/>
+                            <#input id="ts" name="时间戳" value="${item.ts}" underline="true"/>
+                            <#input id="dr" name="删除标记" value="${item.dr}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="PulhyfollowInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="PulhyfollowInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/follow/pulhyfollow/pulhyfollow_info.js"></script>
+@}
