@@ -60,7 +60,7 @@ CtephInfoDlg.collectData = function() {
         //.set('fillingperson')
         .set('patientName')
         .set('patientSex')
-        .set('patientAge')
+      //  .set('patientAge')
         .set('patientAddress')
         .set('birthday')
         .set('height')
@@ -84,7 +84,7 @@ CtephInfoDlg.collectData = function() {
         .setByName('atdeficiency')
         .setByName('levv')
         .setByName('ibd')
-        .set('ibdspecific')
+     //   .set('ibdspecific')
         .set('otherrisk')
         .setByName('hypertension')
         .setByName('coronaryheart')
@@ -159,7 +159,7 @@ CtephInfoDlg.collectData = function() {
         .set('proteinc')
         .setByName('hat')
         .setByName('bloodgas')
-        .set('ph')
+    //    .set('ph')
         .set('pco')
         .set('po')
         .set('sao')
@@ -194,7 +194,70 @@ CtephInfoDlg.collectData = function() {
         .set('modifier')
         .set('modifiedtime')
         .set('ts')
-        .set('dr');
+        .set('dr')
+
+
+        //添加
+        .set('specifictumor')
+        .set('malignanttumordate')
+        .set('splenectomydate')
+
+        .setByName('atrialhistory')
+        .set('atrialhistorydate')
+        .set('levvdate')
+
+        .set('ibddiagnosis')
+        .set('ibddate')
+
+        .setByName('sjogrens')
+        .setByName('ssclerosis')
+        .setByName('mctd')
+        .setByName('rarthritis')
+        .setByName('uctd')
+        .setByName('octd')
+
+        .set('octdspecific')
+        .set('othercomplicationss')
+        .setByName('sjogrens')
+        .setByName('ssclerosis')
+        .setByName('eosinophilia')
+        .setByName('lhfailurespecific')
+        .setByName('lhfailure')
+        .setByName('otherriskjudge')
+
+
+
+        .set('vcmax')
+        .set('tlc')
+        .setByName('antiplatelet')
+
+        .setByName('abgt')
+        .setByName('cet')
+        .setByName('heartmri')
+
+        .set('rv')
+        .set('rvtlc')
+        .set('fev1')
+        .set('fev1fvc')
+        .set('fef')
+        .set('tlcosb')
+        .set('tlcova')
+        .set('modifiedtime')
+        .set('ddimer')
+        .set('ast')
+
+        .set('alt')
+        .set('fef')
+        .set('tbil')
+        .set('dbil')
+        .set('cr')
+
+        .setByName('drug5')
+        .set('otherdrug2')
+
+        .set('exfoliationdate')
+        .set('angioplastyfdate')
+
 }
 
 /**
@@ -209,7 +272,7 @@ CtephInfoDlg.addSubmit = function() {
         // "fillingperson":"填表人",
         "patientName" : "患者姓名",
         "patientSex":"患者性别",
-        "patientAge":"患者年龄",
+      //  "patientAge":"患者年龄",
         "birthday":"患者出生日期",
         "height":"患者身高",
         "weight":"患者体重"

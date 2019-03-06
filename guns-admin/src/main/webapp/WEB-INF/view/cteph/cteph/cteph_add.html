@@ -63,12 +63,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-6">
-                        <label for="patientAge" class="col-sm-3 control-label" style="font-weight: 600">年龄</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="patientAge" placeholder="必填项"/>
-                        </div>
-                    </div>
+                    <!--<div class="col-sm-6">-->
+                        <!--<label for="patientAge" class="col-sm-3 control-label" style="font-weight: 600">年龄</label>-->
+                        <!--<div class="col-sm-9">-->
+                            <!--<input type="text" class="form-control" id="patientAge" placeholder="必填项"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="col-sm-6">
                         <label for="patientAddress" class="col-sm-3 control-label"
                                style="font-weight: 600">居住地(省份)</label>
@@ -76,32 +76,28 @@
                             <input type="text" class="form-control" id="patientAddress" placeholder="">
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-sm-6">
                         <label for="birthday" class="col-sm-3 control-label" style="font-weight: 600">出生日期</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="birthday" placeholder="必填项"/>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-6">
                         <label for="height" class="col-sm-3 control-label" style="font-weight: 600">身高(cm)</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="height" placeholder="必填项">
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-sm-6">
                         <label for="weight" class="col-sm-3 control-label" style="font-weight: 600">体重(kg)</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="weight" placeholder="必填项"/>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-
-                    </div>
                 </div>
+
             </form>
 
         </div>
@@ -133,6 +129,10 @@
                         <label class="radio-inline">
                             <input type="radio" name="specialsigns" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>咯血
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="specialsigns" value="2"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>两者均无
                         </label>
                     </div>
                 </div>
@@ -209,7 +209,7 @@
         </div>
         <!--</form>-->
         <div class="ibox-content">
-            <form class="form-horizontal" role="form" style="padding-left: 20px;">
+            <div class="form-horizontal" role="form" style="padding-left: 20px;">
                 <!-- 每个form-group是一行 -->
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
@@ -223,27 +223,46 @@
                         <label><h3><span style="font-weight: 600">恶性肿瘤</span></h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="malignanttumor" value="1"
+                            <input onclick="displayElement('hidden-malignanttumor')" type="radio" name="malignanttumor" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="malignanttumor" value="0"
+                            <input onclick="hiddenElement('hidden-malignanttumor')" type="radio" name="malignanttumor" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+
+                    </div>
+                </div>
+
+                <div id="hidden-malignanttumor" class="form-group" hidden="hidden" style="padding-left: 15px">
+                    <div style="word-spacing: 20px;">
+                        <label>
+                            <span>具体肿瘤诊断</span>
+                            <input id="specifictumor" type="text"/>
+                        </label>
+                        <label>
+                            <span>诊断时间(年)</span>
+                            <input id="malignanttumordate" type="text"/>
                         </label>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
                         <label><h3><span style="font-weight: 600">脾切除</span></h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="splenectomy" value="1"
+                            <input onclick="displayElement('hidden-splenectomydate')" type="radio" name="splenectomy" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="splenectomy" value="0"
+                            <input onclick="hiddenElement('hidden-splenectomydate')" type="radio" name="splenectomy" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-splenectomydate" hidden="hidden">
+                            <span>脾切除手术时间(年)</span>
+                            <input id="splenectomydate" type="text"/>
                         </label>
                     </div>
                 </div>
@@ -253,118 +272,130 @@
                         <label><h3><span style="font-weight: 600">起搏器植入</span></h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="pacemaker" value="1"
+                            <input onclick="displayElement('hidden-pacemakerdate')" type="radio" name="pacemaker" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="pacemaker" value="0"
+                            <input onclick="hiddenElement('hidden-pacemakerdate')" type="radio" name="pacemaker" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-pacemakerdate" hidden="hidden">
+                            <span>起搏器植入时间(年)</span>
+                            <input id="pacemakerdate" type="text"/>
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">脑室心房分流手术病史</span></h3>
+                        <label><h3><span style="font-weight: 600">脑室心房分流手术</span></h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="atrialhistory" value="1"
+                            <input onclick="displayElement('hidden-atrialhistorydate')" type="radio" name="atrialhistory" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="atrialhistory" value="0"
+                            <input onclick="hiddenElement('hidden-atrialhistorydate')" type="radio" name="atrialhistory" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-atrialhistorydate" hidden="hidden">
+                            <span>手术时间(年)</span>
+                            <input id="atrialhistorydate" type="text"/>
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
+                <!--<div class="form-group">-->
+                    <!--<div style="word-spacing: 20px;">-->
 
-                        <label><h3><span style="font-weight: 600">抗磷脂抗体综合征</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="aas" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="aas" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
+                        <!--<label><h3><span style="font-weight: 600">抗磷脂抗体综合征</span></h3>-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="aas" value="1"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>是-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="aas" value="0"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>否-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div style="word-spacing: 20px;">-->
 
-                        <label><h3><span style="font-weight: 600">高同型半胱氨酸血症</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="hps" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="hps" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
+                        <!--<label><h3><span style="font-weight: 600">高同型半胱氨酸血症</span></h3>-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="hps" value="1"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>是-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="hps" value="0"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>否-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
 
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
+                <!--<div class="form-group">-->
+                    <!--<div style="word-spacing: 20px;">-->
 
-                        <label><h3><span style="font-weight: 600">蛋白C缺乏</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="cdeficiency" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="cdeficiency" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
+                        <!--<label><h3><span style="font-weight: 600">蛋白C缺乏</span></h3>-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="cdeficiency" value="1"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>是-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="cdeficiency" value="0"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>否-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div style="word-spacing: 20px;">-->
 
-                        <label><h3><span style="font-weight: 600">蛋白S缺乏</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sdeficiency" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sdeficiency" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
+                        <!--<label><h3><span style="font-weight: 600">蛋白S缺乏</span></h3>-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="sdeficiency" value="1"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>是-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="sdeficiency" value="0"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>否-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div style="word-spacing: 20px;">-->
 
-                        <label><h3><span style="font-weight: 600">ATIII缺乏</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="atdeficiency" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="atdeficiency" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
+                        <!--<label><h3><span style="font-weight: 600">ATIII缺乏</span></h3>-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="atdeficiency" value="1"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>是-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="atdeficiency" value="0"-->
+                                   <!--style="margin-top: 4px; height: 13px; width: 13px"/>否-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
                         <label><h3><span style="font-weight: 600">下肢静脉曲张</span></h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="levv" value="1"
+                            <input onclick="displayElement('hidden-levvdate')" type="radio" name="levv" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="levv" value="0"
+                            <input onclick="hiddenElement('hidden-levvdate')" type="radio" name="levv" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-levvdate" hidden="hidden">
+                            <span>诊断时间(年)</span>
+                            <input id="levvdate" type="text"/>
                         </label>
                     </div>
                 </div>
@@ -374,24 +405,276 @@
                         <label><h3><span style="font-weight: 600">炎症性肠病</span></h3>
                         </label>
                         <label class="radio-inline">
-                            <input onclick='displayElement("hidden-ibdspecific")' type="radio" name="ibd" value="1"
+                            <input onclick='displayElement("hidden-ibd")' type="radio" name="ibd" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
-                        <label id="hidden-ibdspecific" hidden="hidden">
-                            请具体：
-                            <input type="text" id="ibdspecific"/>
-                        </label>
+
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-ibdspecific")' type="radio" name="ibd" value="0"
+                            <input onclick='hiddenElement("hidden-ibd")' type="radio" name="ibd" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
 
                     </div>
                 </div>
+                <div id="hidden-ibd" class="form-group" style="padding-left: 15px;" hidden="hidden">
+                    <label>
+                        请具体：
+                        <input type="text" id="ibddiagnosis"/>
+                    </label>
+                    <label >
+                        诊断时间(年)：
+                        <input type="text" id="ibddate"/>
+                    </label>
+                </div>
+
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
+
+                        <label><h3><span style="font-weight: 600">结缔组织病</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick='displayElement("hidden-connectivetissue")' type="radio" name="connectivetissue" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+
+                        <label class="radio-inline">
+                            <input onclick='hiddenElement("hidden-connectivetissue")' type="radio" name="connectivetissue" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+
+                    </div>
+                </div>
+
+                <div id="hidden-connectivetissue" style="padding-left: 25px" class="form-group" hidden="hidden">
+                    <div class="checkbox" style="word-spacing: 40px; line-height: 200%;">
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input onclick="checkboxHidden('aas','hidden-aas')" name="aas" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>抗磷脂抗体综合征
+                        </label><br>
+                        <div id="hidden-aas" style="padding-left: 30px" hidden="hidden">
+                            <!--<div class="form-group" id="hidden-la" >-->
+                                <div style="word-spacing: 20px">
+                                    <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">狼疮抗凝物（LA）</span>
+                                    </h3>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="la" value="1"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="la" value="0"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                    </label>
+                                </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-acllgg" >-->
+                                <div style="word-spacing: 20px;">
+                                    <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">ACL IgG</span>
+                                    </h3>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="acllgg" value="1"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="acllgg" value="0"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                    </label>
+                                </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-acllgm" >-->
+                                <div style="word-spacing: 20px;">
+                                    <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">ACL IgM</span>
+                                    </h3>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="acllgm" value="1"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="acllgm" value="0"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                    </label>
+                                </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-lgg" >-->
+                                <div style="word-spacing: 20px;">
+                                    <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">β2GP1 IgG</span>
+                                    </h3>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="lgg" value="1"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="lgg" value="0"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                    </label>
+                                </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-lgm" >-->
+                                <div style="word-spacing: 20px;">
+                                    <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">β2GP1 IgM</span>
+                                    </h3>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="lgm" value="1"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="lgm" value="0"
+                                               style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                    </label>
+                                </div>
+                            <!--</div>-->
+                        </div>
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input name="sie" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>系统性红斑狼疮
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input name="sjogrens" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>干燥综合征
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input name="ssclerosis" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>系统性硬化症
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input name="mctd" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>混合性结缔组织病
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input name="rarthritis" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>类风湿性关节炎
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input name="uctd" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>未分化结缔组织病
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600">
+                            <input onclick="checkboxHidden('octd','hidden-octdspecific')" name="octd" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>其他结缔组织病
+                        </label>
+                        <label id="hidden-octdspecific" hidden="hidden">
+                            具体诊断
+                            <input id="octdspecific" type="text"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span style="font-weight: 600">高同型半胱氨酸(HCY)血症</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-hps')" type="radio" name="hps" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-hps')" type="radio" name="hps" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-hps')" type="radio" name="hps" value="2"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>未测
+                        </label>
+                    </div>
+                </div>
+                <div  class="form-group">
+                <div id="hidden-hps" style="word-spacing: 20px;" hidden="hidden">
+
+                    <label style="font-weight: 600">
+                        HCY水平
+                        <input type="text" id="hcylevel" />
+                    </label>
+                    <label style="font-weight: 600">
+                        参考值上限
+                        <input type="text" id="maximum" />
+                    </label>
+
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span style="font-weight: 600">易栓三项</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-threeitems','hidden-hat')"type="radio" name="threeitems" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat')" type="radio" name="threeitems" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat')" type="radio" name="threeitems" value="2"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>未测
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" id="hidden-threeitems" hidden="hidden">
+                    <div style="word-spacing: 20px;padding-left: 10px;">
+                        <!--<span class="glyphicon glyphicon-stop" ></span>-->
+
+                        <label>
+                            <span class="glyphicon glyphicon-stop" style="font-weight: 600">ATIII(%)</span>
+                            <input type="text" id="ats"/>
+                        </label>
+                        <label>
+                            <span class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白S</span>
+                            <input type="text" id="proteins"/>
+                        </label>
+                        <label>
+                            <span class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白C</span>
+                            <input type="text" id="proteinc"/>
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="form-group" id="hidden-hat" hidden="hidden">
+                    <div style="word-spacing: 20px;padding-left: 10px;">
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">易栓三项检测时或之前7日是否接受华发林抗凝治疗</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hat" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hat" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hat" value="2"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>不详
+                        </label>
+                    </div>
+                </div>
+
+                <div  class="form-group">
+                    <div style="word-spacing: 20px;padding-left: 10px;">
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">其他危险因素</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-otherrisk')" type="radio" name="otherriskjudge" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-otherrisk')" type="radio" name="otherriskjudge" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+
+                <div  id="hidden-otherrisk" class="form-group" hidden="hidden">
+                    <div style="word-spacing: 20px;">
                         <label style="font-weight: 600">
-                            其他危险因素：
+                            具体危险因素：
                             <input type="text" id="otherrisk"/>
                         </label>
                     </div>
@@ -470,10 +753,42 @@
                         </label>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">肾功能不全</span></h3>
+                        <label><h3><span style="font-weight: 600">左心衰竭</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-lhfailurespecific')" type="radio" name="lhfailure" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-lhfailurespecific')" type="radio" name="lhfailure" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+                <div id="hidden-lhfailurespecific" class="form-group" hidden="hidden">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span style="font-weight: 600">具体</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="lhfailurespecific" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>HFrEF
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="lhfailurespecific" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>HFpEF
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span style="font-weight: 600">慢性肾功能不全</span></h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="renalinsufficiency" value="1"
@@ -539,27 +854,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">结缔组织病</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input onclick="displayElement('hidden-ctdspecific')" type="radio" name="connectivetissue"
-                                   value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label id="hidden-ctdspecific" hidden="hidden">
-                            请具体：
-                            <input type="text" id="ctdspecific"/>
-                        </label>
-                        <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-ctdspecific')" type="radio" name="connectivetissue"
-                                   value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
 
 
                 <div class="form-group">
@@ -626,6 +921,22 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
+                        <label><h3><span style="font-weight: 600">嗜酸粒细胞增多增多症</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="eosinophilia" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="eosinophilia" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
                         <label><h3><span style="font-weight: 600">血小板减低</span></h3>
                         </label>
                         <label class="radio-inline">
@@ -660,11 +971,15 @@
                         <label><h3><span style="font-weight: 600">其他重要合并疾病</span></h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="othercomplications" value="1"
+                            <input onclick="displayElement('hidden-othercomplicationss')" type="radio" name="othercomplications" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
+                        <label id="hidden-othercomplicationss" hidden="hidden">
+                            具体疾病
+                            <input type="text" id="othercomplicationss" />
+                        </label>
                         <label class="radio-inline">
-                            <input type="radio" name="othercomplications" value="0"
+                            <input onclick="hiddenElement('hidden-othercomplicationss')" type="radio" name="othercomplications" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
                     </div>
@@ -777,7 +1092,179 @@
             </form>
         </div>
 
-        <!-- 诊断方法-->
+
+
+            <!--呼吸功能-->
+            <div class="ibox-title" style="color: #1E0FBE">
+                <h2>呼吸功能<sup>*</sup></h2>
+            </div>
+            <!--</form>-->
+            <div class="ibox-content">
+                <form class="form-horizontal" role="form">
+                    <div style="word-spacing: 20px;padding-left:20px;">
+                        <div class="form-group">
+                            <div style="word-spacing: 20px;">
+
+                                <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否进行</span></h3>
+                                </label>
+                                <label class="radio-inline">
+                                    <input onclick="displayElement('hidden-respiratory')"
+                                           type="radio" name="respiratory" value="1"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>是
+                                </label>
+                                <label class="radio-inline">
+                                    <input onclick="hiddenElement('hidden-respiratory')"
+                                           type="radio" name="respiratory" value="0"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>否
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id = "hidden-respiratory" hidden="hidden">
+                            <label><h3>肺通气功能</h3></label>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">VC MAX (%)</span>
+                                        <input type="text" id="vcmax"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">TLC (%)</span>
+                                        <input type="text" id="tlc"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">RV(%)</span>
+                                        <input type="text" id="rv"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">RV/TLC (%)</span>
+                                        <input type="text" id="rvtlc"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">FEV1 (%)实/预</span>
+                                        <input type="text" id="fev1"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">FEV1/FVC (%)实测</span>
+                                        <input type="text" id="fev1fvc"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">FEF25-75 (%)</span>
+                                        <input type="text" id="fef"/>
+                                    </label>
+                                </div>
+                            </div>
+
+
+
+                            <label><h3>弥散功能</h3></label>
+
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">TLCO SB (%)</span>
+                                        <input type="text" id="tlcosb"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="word-spacing: 20px;">
+                                    <label>
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">TLCO/VA (%)</span>
+                                        <input type="text" id="tlcova"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+            <!--*WHO心功能分级-->
+            <div class="ibox-title" style="color: #1E0FBE">
+                <h2>心肺运动试验<sup>*</sup></h2>
+            </div>
+            <!--</form>-->
+            <div class="ibox-content">
+                <form class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;padding-left:20px;">
+
+                            <label><h3><span style="font-weight: 600">是否进行</span></h3>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="cet" value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="cet" value="0"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                            </label>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <!--*WHO心功能分级-->
+            <div class="ibox-title" style="color: #1E0FBE">
+                <h2>心脏MRI<sup>*</sup></h2>
+            </div>
+            <!--</form>-->
+            <div class="ibox-content">
+                <form class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;padding-left:20px;">
+
+                            <label><h3><span style="font-weight: 600">是否进行</span></h3>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="heartmri" value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="heartmri" value="0"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                            </label>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+
+
+            <!-- 诊断方法-->
         <div class="ibox-title" style="color: #1E0FBE">
             <h2>诊断方法<sup>*</sup></h2>
         </div>
@@ -1222,27 +1709,27 @@
                                 <input type="radio" name="bloodgroup" value="4"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>AB
                             </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="bloodgroup" value="5"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>未做
+                            </label>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check"
-                                             style="font-weight: 600">HCY</span><sup>*</sup></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">D-二聚体(μg/mL)</span><sup>*</sup>
+                            </h3>
                             </label>
-                            <label class="radio-inline">
-                                <input onclick="displayElement('hidden-hcynumber')" type="radio" name="hcy" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label id="hidden-hcynumber" hidden="hidden">
-                                请填具体数值(umol/L)：
-                                <input type="text" id="hcynumber"/>
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-hcynumber')" type="radio" name="hcy" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
-                            </label>
+
+
+
+                            <input type="text" id="ddimer"/>
+
+
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">NT-proBNP</span><sup>*</sup>
@@ -1260,175 +1747,103 @@
                                 <input onclick="hiddenElement('hidden-ntnumber')" type="radio" name="nt" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-ntnumber')" type="radio" name="nt" value="2"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>未做
+                            </label>
+
                         </div>
                     </div>
+                    <label><h3>肝功能</h3></label>
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check"
-                                             style="font-weight: 600">抗磷脂抗体</span><sup>*</sup></h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick="displayElement('hidden-la','hidden-acllgg','hidden-acllgm');displayElement('hidden-lgg','hidden-lgm')"
-                                       type="radio" name="aa" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-la','hidden-acllgg','hidden-acllgm');hiddenElement('hidden-lgg','hidden-lgm')"
-                                       type="radio" name="aa" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                            <label>
+                                AST（IU/ml）
+                                <input type="text" id="ast"/>
                             </label>
                         </div>
                     </div>
-                    <div class="form-group" id="hidden-la" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">狼疮抗凝物（LA）</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="la" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="la" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-acllgg" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">ACL IgG</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgg" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgg" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-acllgm" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">ACL IgM</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgm" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgm" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-lgg" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">β2GP1 IgG</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgg" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgg" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-lgm" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">β2GP1 IgM</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgm" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgm" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <label>
+                                ALT（IU/ml）
+                                <input type="text" id="alt"/>
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">易栓三项</span><sup>*</sup>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick='displayElement("hidden-threeitems","hidden-hat")' type="radio"
-                                       name="threeitems" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick='hiddenElement("hidden-threeitems","hidden-hat")' type="radio"
-                                       name="threeitems" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                            <label>
+                                Tbil（μmol/L）
+                                <input type="text" id="tbil"/>
                             </label>
                         </div>
                     </div>
-                    <div class="form-group" id="hidden-threeitems" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <!--<span class="glyphicon glyphicon-stop" ></span>-->
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <label>
+                                Dbil（μmol/L）
+                                <input type="text" id="dbil"/>
+                            </label>
+                        </div>
+                    </div>
+                    <label><h3>肾功能</h3></label>
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <label>
+                                血Cr（μmol/L）
+                                <input type="text" id="cr"/>
+                            </label>
+                        </div>
+                    </div>
 
-                            <label>
-                                <span class="glyphicon glyphicon-stop" style="font-weight: 600">ATIII(%)</span>
-                                <input type="text" id="ats"/>
-                            </label>
-                            <label>
-                                <span class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白S</span>
-                                <input type="text" id="proteins"/>
-                            </label>
-                            <label>
-                                <span class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白C</span>
-                                <input type="text" id="proteinc"/>
-                            </label>
 
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-hat" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">易栓三项检测时或之前7日是否接受华发林抗凝治疗</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="hat" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="hat" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
-                            </label>
-                        </div>
-                    </div>
+
 
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-check"
-                                             style="font-weight: 600">血气</span><sup>*</sup></h3>
+                                             style="font-weight: 600">动脉血气</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-ph-pco','hidden-po-sao','hidden-paa')"
+                                <input onclick="displayElement('hidden-bloodgas')"
                                        type="radio" name="bloodgas" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-ph-pco','hidden-po-sao','hidden-paa')"
+                                <input onclick="hiddenElement('hidden-bloodgas')"
                                        type="radio" name="bloodgas" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-bloodgas')"
+                                       type="radio" name="bloodgas" value="2"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>未做
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group" id="hidden-ph-pco" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label>
-                                <span class="glyphicon glyphicon-stop" style="font-weight: 600">PH</span>
-                                <input type="text" id="ph"/>
+                    <div id="hidden-bloodgas" hidden="hidden">
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <label><h3><span class="glyphicon glyphicon-check"
+                                             style="font-weight: 600">类型</span><sup>*</sup></h3>
                             </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="abgt" value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>非吸氧状态测定
+                            </label>
+                            <label class="radio-inline">
+                                <input  type="radio" name="abgt" value="2"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>吸氧状态测定
+                            </label>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" >
+                        <div style="word-spacing: 20px;padding-left: 10px;">
                             <label>
                                 <span class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PCO2(mm Hg)</span>
                                 <input type="text" id="pco"/>
@@ -1436,7 +1851,7 @@
 
                         </div>
                     </div>
-                    <div class="form-group" id="hidden-po-sao" hidden="hidden">
+                    <div class="form-group">
                         <div style="word-spacing: 20px;padding-left: 10px;">
                             <label>
                                 <span class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PO2(mm Hg)</span>
@@ -1449,7 +1864,7 @@
 
                         </div>
                     </div>
-                    <div class="form-group" id="hidden-paa" hidden="hidden">
+                    <div class="form-group" >
                         <div style="word-spacing: 20px;padding-left: 10px;">
 
                             <label>
@@ -1458,6 +1873,7 @@
                             </label>
 
                         </div>
+                    </div>
                     </div>
                 </div>
             </form>
@@ -1516,6 +1932,49 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">抗凝治疗</span></h3>
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="displayElement('hidden-drug5')" type="radio" name="antiplatelet"
+                                       value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-drug5')" type="radio" name="antiplatelet"
+                                       value="0"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="hidden-drug5" hidden="hidden">
+                        <div style="word-spacing: 20px;padding-left: 10px;">
+                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">药物</span></h3>
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5" value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>阿司匹林
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5" value="2"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>氯吡格雷
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5" value="3"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>替格瑞洛
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="displayElement('hidden-otherdrug2')" type="radio" name="drug5" value="4"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>其他药物
+                            </label>
+                            <label id="hidden-otherdrug2" hidden="hidden">
+                                药物具体名称：
+                                <input type="text" id="otherdrug2"/>
+                            </label>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">靶向治疗</span></h3>
@@ -1662,6 +2121,12 @@
 
                         </div>
                     </div>
+                    <div id="hidden-exfoliationdate" class="form-group">
+                        <label  style="font-weight: 600">手术日期
+
+                             <input type="text" class="form-control" id="exfoliationdate" />
+                        </label>
+                    </div>
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">球囊肺动脉成形术</span>
@@ -1677,6 +2142,12 @@
                             </label>
 
                         </div>
+                    </div>
+                    <div id="hidden-angioplastyfdate" class="form-group">
+                        <label  style="font-weight: 600">首次手术日期
+
+                            <input type="text" class="form-control" id="angioplastyfdate" />
+                        </label>
                     </div>
                 </div>
             </form>
@@ -1782,6 +2253,17 @@
         }
     }
 
+    function checkboxHidden(id1,id2){//id1为复选框的name,id2为隐藏元素的id
+        obj = document.getElementsByName(id1);
+        if(obj[0].checked){
+            displayElement(id2);
+        } else{
+            hiddenElement(id2);
+        }
+    }
+
+
+
     laydate.render({
         elem: '#birthday'
     });
@@ -1793,6 +2275,14 @@
     });
     laydate.render({
         elem: '#firstcatheter'
+    });
+
+
+    laydate.render({
+        elem: '#exfoliationdate'
+    });
+    laydate.render({
+        elem: '#angioplastyfdate'
     });
 
 </script>
