@@ -111,7 +111,7 @@ CtephInfoDlg.collectData = function() {
         .setByName('ppi')
         .setByName('ctpat')
         .setByName('mripae')
-        .setByName('cmri')
+        // .setByName('cmri')
         .setByName('rhc')
         .setByName('noreason2')
         .set('otherreason')
@@ -195,20 +195,15 @@ CtephInfoDlg.collectData = function() {
         .set('modifiedtime')
         .set('ts')
         .set('dr')
-
-
         //添加
         .set('specifictumor')
         .set('malignanttumordate')
         .set('splenectomydate')
-
         .setByName('atrialhistory')
         .set('atrialhistorydate')
         .set('levvdate')
-
         .set('ibddiagnosis')
         .set('ibddate')
-
         .setByName('sie')
         .setByName('sjogrens')
         .setByName('ssclerosis')
@@ -216,7 +211,6 @@ CtephInfoDlg.collectData = function() {
         .setByName('rarthritis')
         .setByName('uctd')
         .setByName('octd')
-
         .set('octdspecific')
         .set('othercomplicationss')
         .setByName('sjogrens')
@@ -225,22 +219,15 @@ CtephInfoDlg.collectData = function() {
         .setByName('lhfailurespecific')
         .setByName('lhfailure')
         .setByName('otherriskjudge')
-
-
         .set('hcylevel')
         .set('maximum')
-
-
         .set('vcmax')
         .set('tlc')
         .setByName('antiplatelet')
-
         .setByName('respiratory')
-
         .setByName('abgt')
         .setByName('cet')
         .setByName('heartmri')
-
         .set('rv')
         .set('rvtlc')
         .set('fev1')
@@ -251,20 +238,16 @@ CtephInfoDlg.collectData = function() {
         .set('modifiedtime')
         .set('ddimer')
         .set('ast')
-
         .set('alt')
         .set('fef')
         .set('tbil')
         .set('dbil')
         .set('cr')
         .set('tapse')
-
         .setByName('drug5')
         .set('otherdrug2')
-
         .set('exfoliationdate')
         .set('angioplastyfdate')
-
 }
 
 /**

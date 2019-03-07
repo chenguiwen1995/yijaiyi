@@ -110,7 +110,7 @@ Cteph.initColumn = function () {
         {title: '', field: 'ppi', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'ctpat', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'mripae', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '', field: 'cmri', visible: false, align: 'center', valign: 'middle', sortable: true},
+        // {title: '', field: 'cmri', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'rhc', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'noreason2', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'otherreason', visible: false, align: 'center', valign: 'middle', sortable: true},
