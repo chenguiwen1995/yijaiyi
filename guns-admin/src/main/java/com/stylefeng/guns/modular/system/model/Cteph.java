@@ -1,11 +1,11 @@
 package com.stylefeng.guns.modular.system.model;
 
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
@@ -13,8 +13,8 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author stylefeng
- * @since 2019-03-05
+ * @author chenguiwen
+ * @since 2019-03-07
  */
 @TableName("cteph")
 public class Cteph extends Model<Cteph> {
@@ -44,16 +44,50 @@ public class Cteph extends Model<Cteph> {
     private Date firstvtetime;
     private Integer vterelapse;
     private Integer malignanttumor;
+    private String specifictumor;
+    private Date malignanttumordate;
     private Integer splenectomy;
+    private Date splenectormydate;
     private Integer pacemaker;
+    private Date pacemakerdate;
     private Integer atrialhistory;
+    private Date atrialhistorydate;
     private Integer levv;
+    private Date levvdate;
     private Integer ibd;
+    private String ibddiagnosis;
+    private Date ibddate;
+    private Integer connectivetissue;
+    private Integer aas;
+    private Integer la;
+    private Integer acllgg;
+    private Integer acllgm;
+    private Integer lgg;
+    private Integer lgm;
+    private Integer sie;
+    private Integer sjogrens;
+    private Integer ssclerosis;
+    private Integer mctd;
+    private Integer rarthritis;
+    private Integer uctd;
+    private Integer octd;
+    private String octdspecific;
+    private Integer hps;
+    private Float hcylevel;
+    private Float maximum;
+    private Integer threeitems;
+    private Float at;
+    private Float proteins;
+    private Float proteinc;
+    private Integer hat;
+    private Integer otherriskjudge;
     private String otherrisk;
     private Integer hypertension;
     private Integer coronaryheart;
     private Integer revascularization;
     private Integer diabetes;
+    private Integer lhfailure;
+    private Integer lhfailurespecific;
     private Integer renalinsufficiency;
     private Integer cerebralinfarction;
     private Integer copd;
@@ -63,13 +97,27 @@ public class Cteph extends Model<Cteph> {
     private Integer hyperthyroidism;
     private Integer anemia;
     private Integer polycythemia;
+    private Integer eosinophilia;
     private Integer plateletlower;
     private Integer plateletup;
     private Integer othercomplications;
+    private String othercomplicationss;
     private Integer cteph;
     private Integer sixmwd;
     private Integer noreason1;
     private Float walking;
+    private Integer respiratory;
+    private Float vcmax;
+    private Float tlc;
+    private Float rv;
+    private Float rvtlc;
+    private Float fev1;
+    private Float fev1fvc;
+    private Float fef;
+    private Float tlcosb;
+    private Float tlcova;
+    private Integer cet;
+    private Integer heartmri;
     private Integer ppi;
     private Integer ctpat;
     private Integer mripae;
@@ -102,11 +150,19 @@ public class Cteph extends Model<Cteph> {
     private Float lvedd;
     private Float lvef;
     private Float pasp;
+    private Float tapse;
     private Integer pe;
     private Integer bloodgroup;
+    private Float ddimer;
     private Integer nt;
     private Float ntnumber;
+    private Float ast;
+    private Float alt;
+    private Float tbil;
+    private Float dbil;
+    private Float cr;
     private Integer bloodgas;
+    private Integer abgt;
     private Float pco;
     private Float po;
     private Float sao;
@@ -114,6 +170,9 @@ public class Cteph extends Model<Cteph> {
     private Integer anticoagulant;
     private Integer drug1;
     private String otherdrug;
+    private Integer antiplatelet;
+    private Integer drug5;
+    private String otherdrug2;
     private Integer targeting;
     private Integer laxg;
     private Integer fivepi;
@@ -123,7 +182,9 @@ public class Cteph extends Model<Cteph> {
     private Integer prostacyclin;
     private Integer drug4;
     private Integer exfoliation;
+    private Date exfoliationdate;
     private Integer angioplasty;
+    private Date angioplastyfdate;
     private Integer death;
     private Integer deathreason;
     private String addition1;
@@ -142,54 +203,6 @@ public class Cteph extends Model<Cteph> {
     private Date modifiedtime;
     private Date ts;
     private Integer dr;
-    private String specifictumor;
-    private Date malignanttumordate;
-    private Date splenectormydate;
-    private Date pacemakerdate;
-    private Date atrialhistorydate;
-    private Date levvdate;
-    private String ibddiagnosis;
-    private Date ibddate;
-    private Integer sie;
-    private Integer sjogrens;
-    private Integer ssclerosis;
-    private Integer mctd;
-    private Integer rarthritis;
-    private Integer uctd;
-    private Integer octd;
-    private String octdspecific;
-    private Float hcylevel;
-    private Float maximum;
-    private Float at3;
-    private Integer otherriskjudge;
-    private Integer lhfailure;
-    private Integer lhfailurespecific;
-    private Integer eosinophilia;
-    private String othercomplicationss;
-    private Integer respiratory;
-    private Float vcmax;
-    private Float tlc;
-    private Float rv;
-    private Float rvtlc;
-    private Float fev1;
-    private Float fev1fvc;
-    private Float fef;
-    private Float tlcosb;
-    private Float tlcova;
-    private Integer cet;
-    private Integer heartmri;
-    private Float ddimer;
-    private Float ast;
-    private Float alt;
-    private Float tbil;
-    private Float dbil;
-    private Float cr;
-    private Integer abgt;
-    private Integer antiplatelet;
-    private Integer drug5;
-    private String otherdrug2;
-    private Date exfoliationdate;
-    private Date angioplastyfdate;
 
 
     public Integer getId() {
@@ -344,12 +357,36 @@ public class Cteph extends Model<Cteph> {
         this.malignanttumor = malignanttumor;
     }
 
+    public String getSpecifictumor() {
+        return specifictumor;
+    }
+
+    public void setSpecifictumor(String specifictumor) {
+        this.specifictumor = specifictumor;
+    }
+
+    public Date getMalignanttumordate() {
+        return malignanttumordate;
+    }
+
+    public void setMalignanttumordate(Date malignanttumordate) {
+        this.malignanttumordate = malignanttumordate;
+    }
+
     public Integer getSplenectomy() {
         return splenectomy;
     }
 
     public void setSplenectomy(Integer splenectomy) {
         this.splenectomy = splenectomy;
+    }
+
+    public Date getSplenectormydate() {
+        return splenectormydate;
+    }
+
+    public void setSplenectormydate(Date splenectormydate) {
+        this.splenectormydate = splenectormydate;
     }
 
     public Integer getPacemaker() {
@@ -360,12 +397,28 @@ public class Cteph extends Model<Cteph> {
         this.pacemaker = pacemaker;
     }
 
+    public Date getPacemakerdate() {
+        return pacemakerdate;
+    }
+
+    public void setPacemakerdate(Date pacemakerdate) {
+        this.pacemakerdate = pacemakerdate;
+    }
+
     public Integer getAtrialhistory() {
         return atrialhistory;
     }
 
     public void setAtrialhistory(Integer atrialhistory) {
         this.atrialhistory = atrialhistory;
+    }
+
+    public Date getAtrialhistorydate() {
+        return atrialhistorydate;
+    }
+
+    public void setAtrialhistorydate(Date atrialhistorydate) {
+        this.atrialhistorydate = atrialhistorydate;
     }
 
     public Integer getLevv() {
@@ -376,12 +429,228 @@ public class Cteph extends Model<Cteph> {
         this.levv = levv;
     }
 
+    public Date getLevvdate() {
+        return levvdate;
+    }
+
+    public void setLevvdate(Date levvdate) {
+        this.levvdate = levvdate;
+    }
+
     public Integer getIbd() {
         return ibd;
     }
 
     public void setIbd(Integer ibd) {
         this.ibd = ibd;
+    }
+
+    public String getIbddiagnosis() {
+        return ibddiagnosis;
+    }
+
+    public void setIbddiagnosis(String ibddiagnosis) {
+        this.ibddiagnosis = ibddiagnosis;
+    }
+
+    public Date getIbddate() {
+        return ibddate;
+    }
+
+    public void setIbddate(Date ibddate) {
+        this.ibddate = ibddate;
+    }
+
+    public Integer getConnectivetissue() {
+        return connectivetissue;
+    }
+
+    public void setConnectivetissue(Integer connectivetissue) {
+        this.connectivetissue = connectivetissue;
+    }
+
+    public Integer getAas() {
+        return aas;
+    }
+
+    public void setAas(Integer aas) {
+        this.aas = aas;
+    }
+
+    public Integer getLa() {
+        return la;
+    }
+
+    public void setLa(Integer la) {
+        this.la = la;
+    }
+
+    public Integer getAcllgg() {
+        return acllgg;
+    }
+
+    public void setAcllgg(Integer acllgg) {
+        this.acllgg = acllgg;
+    }
+
+    public Integer getAcllgm() {
+        return acllgm;
+    }
+
+    public void setAcllgm(Integer acllgm) {
+        this.acllgm = acllgm;
+    }
+
+    public Integer getLgg() {
+        return lgg;
+    }
+
+    public void setLgg(Integer lgg) {
+        this.lgg = lgg;
+    }
+
+    public Integer getLgm() {
+        return lgm;
+    }
+
+    public void setLgm(Integer lgm) {
+        this.lgm = lgm;
+    }
+
+    public Integer getSie() {
+        return sie;
+    }
+
+    public void setSie(Integer sie) {
+        this.sie = sie;
+    }
+
+    public Integer getSjogrens() {
+        return sjogrens;
+    }
+
+    public void setSjogrens(Integer sjogrens) {
+        this.sjogrens = sjogrens;
+    }
+
+    public Integer getSsclerosis() {
+        return ssclerosis;
+    }
+
+    public void setSsclerosis(Integer ssclerosis) {
+        this.ssclerosis = ssclerosis;
+    }
+
+    public Integer getMctd() {
+        return mctd;
+    }
+
+    public void setMctd(Integer mctd) {
+        this.mctd = mctd;
+    }
+
+    public Integer getRarthritis() {
+        return rarthritis;
+    }
+
+    public void setRarthritis(Integer rarthritis) {
+        this.rarthritis = rarthritis;
+    }
+
+    public Integer getUctd() {
+        return uctd;
+    }
+
+    public void setUctd(Integer uctd) {
+        this.uctd = uctd;
+    }
+
+    public Integer getOctd() {
+        return octd;
+    }
+
+    public void setOctd(Integer octd) {
+        this.octd = octd;
+    }
+
+    public String getOctdspecific() {
+        return octdspecific;
+    }
+
+    public void setOctdspecific(String octdspecific) {
+        this.octdspecific = octdspecific;
+    }
+
+    public Integer getHps() {
+        return hps;
+    }
+
+    public void setHps(Integer hps) {
+        this.hps = hps;
+    }
+
+    public Float getHcylevel() {
+        return hcylevel;
+    }
+
+    public void setHcylevel(Float hcylevel) {
+        this.hcylevel = hcylevel;
+    }
+
+    public Float getMaximum() {
+        return maximum;
+    }
+
+    public void setMaximum(Float maximum) {
+        this.maximum = maximum;
+    }
+
+    public Integer getThreeitems() {
+        return threeitems;
+    }
+
+    public void setThreeitems(Integer threeitems) {
+        this.threeitems = threeitems;
+    }
+
+    public Float getAt() {
+        return at;
+    }
+
+    public void setAt(Float at) {
+        this.at = at;
+    }
+
+    public Float getProteins() {
+        return proteins;
+    }
+
+    public void setProteins(Float proteins) {
+        this.proteins = proteins;
+    }
+
+    public Float getProteinc() {
+        return proteinc;
+    }
+
+    public void setProteinc(Float proteinc) {
+        this.proteinc = proteinc;
+    }
+
+    public Integer getHat() {
+        return hat;
+    }
+
+    public void setHat(Integer hat) {
+        this.hat = hat;
+    }
+
+    public Integer getOtherriskjudge() {
+        return otherriskjudge;
+    }
+
+    public void setOtherriskjudge(Integer otherriskjudge) {
+        this.otherriskjudge = otherriskjudge;
     }
 
     public String getOtherrisk() {
@@ -422,6 +691,22 @@ public class Cteph extends Model<Cteph> {
 
     public void setDiabetes(Integer diabetes) {
         this.diabetes = diabetes;
+    }
+
+    public Integer getLhfailure() {
+        return lhfailure;
+    }
+
+    public void setLhfailure(Integer lhfailure) {
+        this.lhfailure = lhfailure;
+    }
+
+    public Integer getLhfailurespecific() {
+        return lhfailurespecific;
+    }
+
+    public void setLhfailurespecific(Integer lhfailurespecific) {
+        this.lhfailurespecific = lhfailurespecific;
     }
 
     public Integer getRenalinsufficiency() {
@@ -496,6 +781,14 @@ public class Cteph extends Model<Cteph> {
         this.polycythemia = polycythemia;
     }
 
+    public Integer getEosinophilia() {
+        return eosinophilia;
+    }
+
+    public void setEosinophilia(Integer eosinophilia) {
+        this.eosinophilia = eosinophilia;
+    }
+
     public Integer getPlateletlower() {
         return plateletlower;
     }
@@ -518,6 +811,14 @@ public class Cteph extends Model<Cteph> {
 
     public void setOthercomplications(Integer othercomplications) {
         this.othercomplications = othercomplications;
+    }
+
+    public String getOthercomplicationss() {
+        return othercomplicationss;
+    }
+
+    public void setOthercomplicationss(String othercomplicationss) {
+        this.othercomplicationss = othercomplicationss;
     }
 
     public Integer getCteph() {
@@ -550,6 +851,102 @@ public class Cteph extends Model<Cteph> {
 
     public void setWalking(Float walking) {
         this.walking = walking;
+    }
+
+    public Integer getRespiratory() {
+        return respiratory;
+    }
+
+    public void setRespiratory(Integer respiratory) {
+        this.respiratory = respiratory;
+    }
+
+    public Float getVcmax() {
+        return vcmax;
+    }
+
+    public void setVcmax(Float vcmax) {
+        this.vcmax = vcmax;
+    }
+
+    public Float getTlc() {
+        return tlc;
+    }
+
+    public void setTlc(Float tlc) {
+        this.tlc = tlc;
+    }
+
+    public Float getRv() {
+        return rv;
+    }
+
+    public void setRv(Float rv) {
+        this.rv = rv;
+    }
+
+    public Float getRvtlc() {
+        return rvtlc;
+    }
+
+    public void setRvtlc(Float rvtlc) {
+        this.rvtlc = rvtlc;
+    }
+
+    public Float getFev1() {
+        return fev1;
+    }
+
+    public void setFev1(Float fev1) {
+        this.fev1 = fev1;
+    }
+
+    public Float getFev1fvc() {
+        return fev1fvc;
+    }
+
+    public void setFev1fvc(Float fev1fvc) {
+        this.fev1fvc = fev1fvc;
+    }
+
+    public Float getFef() {
+        return fef;
+    }
+
+    public void setFef(Float fef) {
+        this.fef = fef;
+    }
+
+    public Float getTlcosb() {
+        return tlcosb;
+    }
+
+    public void setTlcosb(Float tlcosb) {
+        this.tlcosb = tlcosb;
+    }
+
+    public Float getTlcova() {
+        return tlcova;
+    }
+
+    public void setTlcova(Float tlcova) {
+        this.tlcova = tlcova;
+    }
+
+    public Integer getCet() {
+        return cet;
+    }
+
+    public void setCet(Integer cet) {
+        this.cet = cet;
+    }
+
+    public Integer getHeartmri() {
+        return heartmri;
+    }
+
+    public void setHeartmri(Integer heartmri) {
+        this.heartmri = heartmri;
     }
 
     public Integer getPpi() {
@@ -808,6 +1205,14 @@ public class Cteph extends Model<Cteph> {
         this.pasp = pasp;
     }
 
+    public Float getTapse() {
+        return tapse;
+    }
+
+    public void setTapse(Float tapse) {
+        this.tapse = tapse;
+    }
+
     public Integer getPe() {
         return pe;
     }
@@ -822,6 +1227,14 @@ public class Cteph extends Model<Cteph> {
 
     public void setBloodgroup(Integer bloodgroup) {
         this.bloodgroup = bloodgroup;
+    }
+
+    public Float getDdimer() {
+        return ddimer;
+    }
+
+    public void setDdimer(Float ddimer) {
+        this.ddimer = ddimer;
     }
 
     public Integer getNt() {
@@ -840,12 +1253,60 @@ public class Cteph extends Model<Cteph> {
         this.ntnumber = ntnumber;
     }
 
+    public Float getAst() {
+        return ast;
+    }
+
+    public void setAst(Float ast) {
+        this.ast = ast;
+    }
+
+    public Float getAlt() {
+        return alt;
+    }
+
+    public void setAlt(Float alt) {
+        this.alt = alt;
+    }
+
+    public Float getTbil() {
+        return tbil;
+    }
+
+    public void setTbil(Float tbil) {
+        this.tbil = tbil;
+    }
+
+    public Float getDbil() {
+        return dbil;
+    }
+
+    public void setDbil(Float dbil) {
+        this.dbil = dbil;
+    }
+
+    public Float getCr() {
+        return cr;
+    }
+
+    public void setCr(Float cr) {
+        this.cr = cr;
+    }
+
     public Integer getBloodgas() {
         return bloodgas;
     }
 
     public void setBloodgas(Integer bloodgas) {
         this.bloodgas = bloodgas;
+    }
+
+    public Integer getAbgt() {
+        return abgt;
+    }
+
+    public void setAbgt(Integer abgt) {
+        this.abgt = abgt;
     }
 
     public Float getPco() {
@@ -902,6 +1363,30 @@ public class Cteph extends Model<Cteph> {
 
     public void setOtherdrug(String otherdrug) {
         this.otherdrug = otherdrug;
+    }
+
+    public Integer getAntiplatelet() {
+        return antiplatelet;
+    }
+
+    public void setAntiplatelet(Integer antiplatelet) {
+        this.antiplatelet = antiplatelet;
+    }
+
+    public Integer getDrug5() {
+        return drug5;
+    }
+
+    public void setDrug5(Integer drug5) {
+        this.drug5 = drug5;
+    }
+
+    public String getOtherdrug2() {
+        return otherdrug2;
+    }
+
+    public void setOtherdrug2(String otherdrug2) {
+        this.otherdrug2 = otherdrug2;
     }
 
     public Integer getTargeting() {
@@ -976,12 +1461,28 @@ public class Cteph extends Model<Cteph> {
         this.exfoliation = exfoliation;
     }
 
+    public Date getExfoliationdate() {
+        return exfoliationdate;
+    }
+
+    public void setExfoliationdate(Date exfoliationdate) {
+        this.exfoliationdate = exfoliationdate;
+    }
+
     public Integer getAngioplasty() {
         return angioplasty;
     }
 
     public void setAngioplasty(Integer angioplasty) {
         this.angioplasty = angioplasty;
+    }
+
+    public Date getAngioplastyfdate() {
+        return angioplastyfdate;
+    }
+
+    public void setAngioplastyfdate(Date angioplastyfdate) {
+        this.angioplastyfdate = angioplastyfdate;
     }
 
     public Integer getDeath() {
@@ -1128,390 +1629,6 @@ public class Cteph extends Model<Cteph> {
         this.dr = dr;
     }
 
-    public String getSpecifictumor() {
-        return specifictumor;
-    }
-
-    public void setSpecifictumor(String specifictumor) {
-        this.specifictumor = specifictumor;
-    }
-
-    public Date getMalignanttumordate() {
-        return malignanttumordate;
-    }
-
-    public void setMalignanttumordate(Date malignanttumordate) {
-        this.malignanttumordate = malignanttumordate;
-    }
-
-    public Date getSplenectormydate() {
-        return splenectormydate;
-    }
-
-    public void setSplenectormydate(Date splenectormydate) {
-        this.splenectormydate = splenectormydate;
-    }
-
-    public Date getPacemakerdate() {
-        return pacemakerdate;
-    }
-
-    public void setPacemakerdate(Date pacemakerdate) {
-        this.pacemakerdate = pacemakerdate;
-    }
-
-    public Date getAtrialhistorydate() {
-        return atrialhistorydate;
-    }
-
-    public void setAtrialhistorydate(Date atrialhistorydate) {
-        this.atrialhistorydate = atrialhistorydate;
-    }
-
-    public Date getLevvdate() {
-        return levvdate;
-    }
-
-    public void setLevvdate(Date levvdate) {
-        this.levvdate = levvdate;
-    }
-
-    public String getIbddiagnosis() {
-        return ibddiagnosis;
-    }
-
-    public void setIbddiagnosis(String ibddiagnosis) {
-        this.ibddiagnosis = ibddiagnosis;
-    }
-
-    public Date getIbddate() {
-        return ibddate;
-    }
-
-    public void setIbddate(Date ibddate) {
-        this.ibddate = ibddate;
-    }
-
-    public Integer getSie() {
-        return sie;
-    }
-
-    public void setSie(Integer sie) {
-        this.sie = sie;
-    }
-
-    public Integer getSjogrens() {
-        return sjogrens;
-    }
-
-    public void setSjogrens(Integer sjogrens) {
-        this.sjogrens = sjogrens;
-    }
-
-    public Integer getSsclerosis() {
-        return ssclerosis;
-    }
-
-    public void setSsclerosis(Integer ssclerosis) {
-        this.ssclerosis = ssclerosis;
-    }
-
-    public Integer getMctd() {
-        return mctd;
-    }
-
-    public void setMctd(Integer mctd) {
-        this.mctd = mctd;
-    }
-
-    public Integer getRarthritis() {
-        return rarthritis;
-    }
-
-    public void setRarthritis(Integer rarthritis) {
-        this.rarthritis = rarthritis;
-    }
-
-    public Integer getUctd() {
-        return uctd;
-    }
-
-    public void setUctd(Integer uctd) {
-        this.uctd = uctd;
-    }
-
-    public Integer getOctd() {
-        return octd;
-    }
-
-    public void setOctd(Integer octd) {
-        this.octd = octd;
-    }
-
-    public String getOctdspecific() {
-        return octdspecific;
-    }
-
-    public void setOctdspecific(String octdspecific) {
-        this.octdspecific = octdspecific;
-    }
-
-    public Float getHcylevel() {
-        return hcylevel;
-    }
-
-    public void setHcylevel(Float hcylevel) {
-        this.hcylevel = hcylevel;
-    }
-
-    public Float getMaximum() {
-        return maximum;
-    }
-
-    public void setMaximum(Float maximum) {
-        this.maximum = maximum;
-    }
-
-    public Float getAt3() {
-        return at3;
-    }
-
-    public void setAt3(Float at3) {
-        this.at3 = at3;
-    }
-
-    public Integer getOtherriskjudge() {
-        return otherriskjudge;
-    }
-
-    public void setOtherriskjudge(Integer otherriskjudge) {
-        this.otherriskjudge = otherriskjudge;
-    }
-
-    public Integer getLhfailure() {
-        return lhfailure;
-    }
-
-    public void setLhfailure(Integer lhfailure) {
-        this.lhfailure = lhfailure;
-    }
-
-    public Integer getLhfailurespecific() {
-        return lhfailurespecific;
-    }
-
-    public void setLhfailurespecific(Integer lhfailurespecific) {
-        this.lhfailurespecific = lhfailurespecific;
-    }
-
-    public Integer getEosinophilia() {
-        return eosinophilia;
-    }
-
-    public void setEosinophilia(Integer eosinophilia) {
-        this.eosinophilia = eosinophilia;
-    }
-
-    public String getOthercomplicationss() {
-        return othercomplicationss;
-    }
-
-    public void setOthercomplicationss(String othercomplicationss) {
-        this.othercomplicationss = othercomplicationss;
-    }
-
-    public Integer getRespiratory() {
-        return respiratory;
-    }
-
-    public void setRespiratory(Integer respiratory) {
-        this.respiratory = respiratory;
-    }
-
-    public Float getVcmax() {
-        return vcmax;
-    }
-
-    public void setVcmax(Float vcmax) {
-        this.vcmax = vcmax;
-    }
-
-    public Float getTlc() {
-        return tlc;
-    }
-
-    public void setTlc(Float tlc) {
-        this.tlc = tlc;
-    }
-
-    public Float getRv() {
-        return rv;
-    }
-
-    public void setRv(Float rv) {
-        this.rv = rv;
-    }
-
-    public Float getRvtlc() {
-        return rvtlc;
-    }
-
-    public void setRvtlc(Float rvtlc) {
-        this.rvtlc = rvtlc;
-    }
-
-    public Float getFev1() {
-        return fev1;
-    }
-
-    public void setFev1(Float fev1) {
-        this.fev1 = fev1;
-    }
-
-    public Float getFev1fvc() {
-        return fev1fvc;
-    }
-
-    public void setFev1fvc(Float fev1fvc) {
-        this.fev1fvc = fev1fvc;
-    }
-
-    public Float getFef() {
-        return fef;
-    }
-
-    public void setFef(Float fef) {
-        this.fef = fef;
-    }
-
-    public Float getTlcosb() {
-        return tlcosb;
-    }
-
-    public void setTlcosb(Float tlcosb) {
-        this.tlcosb = tlcosb;
-    }
-
-    public Float getTlcova() {
-        return tlcova;
-    }
-
-    public void setTlcova(Float tlcova) {
-        this.tlcova = tlcova;
-    }
-
-    public Integer getCet() {
-        return cet;
-    }
-
-    public void setCet(Integer cet) {
-        this.cet = cet;
-    }
-
-    public Integer getHeartmri() {
-        return heartmri;
-    }
-
-    public void setHeartmri(Integer heartmri) {
-        this.heartmri = heartmri;
-    }
-
-    public Float getDdimer() {
-        return ddimer;
-    }
-
-    public void setDdimer(Float ddimer) {
-        this.ddimer = ddimer;
-    }
-
-    public Float getAst() {
-        return ast;
-    }
-
-    public void setAst(Float ast) {
-        this.ast = ast;
-    }
-
-    public Float getAlt() {
-        return alt;
-    }
-
-    public void setAlt(Float alt) {
-        this.alt = alt;
-    }
-
-    public Float getTbil() {
-        return tbil;
-    }
-
-    public void setTbil(Float tbil) {
-        this.tbil = tbil;
-    }
-
-    public Float getDbil() {
-        return dbil;
-    }
-
-    public void setDbil(Float dbil) {
-        this.dbil = dbil;
-    }
-
-    public Float getCr() {
-        return cr;
-    }
-
-    public void setCr(Float cr) {
-        this.cr = cr;
-    }
-
-    public Integer getAbgt() {
-        return abgt;
-    }
-
-    public void setAbgt(Integer abgt) {
-        this.abgt = abgt;
-    }
-
-    public Integer getAntiplatelet() {
-        return antiplatelet;
-    }
-
-    public void setAntiplatelet(Integer antiplatelet) {
-        this.antiplatelet = antiplatelet;
-    }
-
-    public Integer getDrug5() {
-        return drug5;
-    }
-
-    public void setDrug5(Integer drug5) {
-        this.drug5 = drug5;
-    }
-
-    public String getOtherdrug2() {
-        return otherdrug2;
-    }
-
-    public void setOtherdrug2(String otherdrug2) {
-        this.otherdrug2 = otherdrug2;
-    }
-
-    public Date getExfoliationdate() {
-        return exfoliationdate;
-    }
-
-    public void setExfoliationdate(Date exfoliationdate) {
-        this.exfoliationdate = exfoliationdate;
-    }
-
-    public Date getAngioplastyfdate() {
-        return angioplastyfdate;
-    }
-
-    public void setAngioplastyfdate(Date angioplastyfdate) {
-        this.angioplastyfdate = angioplastyfdate;
-    }
-
     @Override
     protected Serializable pkVal() {
         return this.id;
@@ -1539,16 +1656,50 @@ public class Cteph extends Model<Cteph> {
         ", firstvtetime=" + firstvtetime +
         ", vterelapse=" + vterelapse +
         ", malignanttumor=" + malignanttumor +
+        ", specifictumor=" + specifictumor +
+        ", malignanttumordate=" + malignanttumordate +
         ", splenectomy=" + splenectomy +
+        ", splenectormydate=" + splenectormydate +
         ", pacemaker=" + pacemaker +
+        ", pacemakerdate=" + pacemakerdate +
         ", atrialhistory=" + atrialhistory +
+        ", atrialhistorydate=" + atrialhistorydate +
         ", levv=" + levv +
+        ", levvdate=" + levvdate +
         ", ibd=" + ibd +
+        ", ibddiagnosis=" + ibddiagnosis +
+        ", ibddate=" + ibddate +
+        ", connectivetissue=" + connectivetissue +
+        ", aas=" + aas +
+        ", la=" + la +
+        ", acllgg=" + acllgg +
+        ", acllgm=" + acllgm +
+        ", lgg=" + lgg +
+        ", lgm=" + lgm +
+        ", sie=" + sie +
+        ", sjogrens=" + sjogrens +
+        ", ssclerosis=" + ssclerosis +
+        ", mctd=" + mctd +
+        ", rarthritis=" + rarthritis +
+        ", uctd=" + uctd +
+        ", octd=" + octd +
+        ", octdspecific=" + octdspecific +
+        ", hps=" + hps +
+        ", hcylevel=" + hcylevel +
+        ", maximum=" + maximum +
+        ", threeitems=" + threeitems +
+        ", at=" + at +
+        ", proteins=" + proteins +
+        ", proteinc=" + proteinc +
+        ", hat=" + hat +
+        ", otherriskjudge=" + otherriskjudge +
         ", otherrisk=" + otherrisk +
         ", hypertension=" + hypertension +
         ", coronaryheart=" + coronaryheart +
         ", revascularization=" + revascularization +
         ", diabetes=" + diabetes +
+        ", lhfailure=" + lhfailure +
+        ", lhfailurespecific=" + lhfailurespecific +
         ", renalinsufficiency=" + renalinsufficiency +
         ", cerebralinfarction=" + cerebralinfarction +
         ", copd=" + copd +
@@ -1558,13 +1709,27 @@ public class Cteph extends Model<Cteph> {
         ", hyperthyroidism=" + hyperthyroidism +
         ", anemia=" + anemia +
         ", polycythemia=" + polycythemia +
+        ", eosinophilia=" + eosinophilia +
         ", plateletlower=" + plateletlower +
         ", plateletup=" + plateletup +
         ", othercomplications=" + othercomplications +
+        ", othercomplicationss=" + othercomplicationss +
         ", cteph=" + cteph +
         ", sixmwd=" + sixmwd +
         ", noreason1=" + noreason1 +
         ", walking=" + walking +
+        ", respiratory=" + respiratory +
+        ", vcmax=" + vcmax +
+        ", tlc=" + tlc +
+        ", rv=" + rv +
+        ", rvtlc=" + rvtlc +
+        ", fev1=" + fev1 +
+        ", fev1fvc=" + fev1fvc +
+        ", fef=" + fef +
+        ", tlcosb=" + tlcosb +
+        ", tlcova=" + tlcova +
+        ", cet=" + cet +
+        ", heartmri=" + heartmri +
         ", ppi=" + ppi +
         ", ctpat=" + ctpat +
         ", mripae=" + mripae +
@@ -1597,11 +1762,19 @@ public class Cteph extends Model<Cteph> {
         ", lvedd=" + lvedd +
         ", lvef=" + lvef +
         ", pasp=" + pasp +
+        ", tapse=" + tapse +
         ", pe=" + pe +
         ", bloodgroup=" + bloodgroup +
+        ", ddimer=" + ddimer +
         ", nt=" + nt +
         ", ntnumber=" + ntnumber +
+        ", ast=" + ast +
+        ", alt=" + alt +
+        ", tbil=" + tbil +
+        ", dbil=" + dbil +
+        ", cr=" + cr +
         ", bloodgas=" + bloodgas +
+        ", abgt=" + abgt +
         ", pco=" + pco +
         ", po=" + po +
         ", sao=" + sao +
@@ -1609,6 +1782,9 @@ public class Cteph extends Model<Cteph> {
         ", anticoagulant=" + anticoagulant +
         ", drug1=" + drug1 +
         ", otherdrug=" + otherdrug +
+        ", antiplatelet=" + antiplatelet +
+        ", drug5=" + drug5 +
+        ", otherdrug2=" + otherdrug2 +
         ", targeting=" + targeting +
         ", laxg=" + laxg +
         ", fivepi=" + fivepi +
@@ -1618,7 +1794,9 @@ public class Cteph extends Model<Cteph> {
         ", prostacyclin=" + prostacyclin +
         ", drug4=" + drug4 +
         ", exfoliation=" + exfoliation +
+        ", exfoliationdate=" + exfoliationdate +
         ", angioplasty=" + angioplasty +
+        ", angioplastyfdate=" + angioplastyfdate +
         ", death=" + death +
         ", deathreason=" + deathreason +
         ", addition1=" + addition1 +
@@ -1637,54 +1815,6 @@ public class Cteph extends Model<Cteph> {
         ", modifiedtime=" + modifiedtime +
         ", ts=" + ts +
         ", dr=" + dr +
-        ", specifictumor=" + specifictumor +
-        ", malignanttumordate=" + malignanttumordate +
-        ", splenectormydate=" + splenectormydate +
-        ", pacemakerdate=" + pacemakerdate +
-        ", atrialhistorydate=" + atrialhistorydate +
-        ", levvdate=" + levvdate +
-        ", ibddiagnosis=" + ibddiagnosis +
-        ", ibddate=" + ibddate +
-        ", sie=" + sie +
-        ", sjogrens=" + sjogrens +
-        ", ssclerosis=" + ssclerosis +
-        ", mctd=" + mctd +
-        ", rarthritis=" + rarthritis +
-        ", uctd=" + uctd +
-        ", octd=" + octd +
-        ", octdspecific=" + octdspecific +
-        ", hcylevel=" + hcylevel +
-        ", maximum=" + maximum +
-        ", at3=" + at3 +
-        ", otherriskjudge=" + otherriskjudge +
-        ", lhfailure=" + lhfailure +
-        ", lhfailurespecific=" + lhfailurespecific +
-        ", eosinophilia=" + eosinophilia +
-        ", othercomplicationss=" + othercomplicationss +
-        ", respiratory=" + respiratory +
-        ", vcmax=" + vcmax +
-        ", tlc=" + tlc +
-        ", rv=" + rv +
-        ", rvtlc=" + rvtlc +
-        ", fev1=" + fev1 +
-        ", fev1fvc=" + fev1fvc +
-        ", fef=" + fef +
-        ", tlcosb=" + tlcosb +
-        ", tlcova=" + tlcova +
-        ", cet=" + cet +
-        ", heartmri=" + heartmri +
-        ", ddimer=" + ddimer +
-        ", ast=" + ast +
-        ", alt=" + alt +
-        ", tbil=" + tbil +
-        ", dbil=" + dbil +
-        ", cr=" + cr +
-        ", abgt=" + abgt +
-        ", antiplatelet=" + antiplatelet +
-        ", drug5=" + drug5 +
-        ", otherdrug2=" + otherdrug2 +
-        ", exfoliationdate=" + exfoliationdate +
-        ", angioplastyfdate=" + angioplastyfdate +
         "}";
     }
 }
