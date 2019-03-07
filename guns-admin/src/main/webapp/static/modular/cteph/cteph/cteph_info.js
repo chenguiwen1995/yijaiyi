@@ -154,7 +154,7 @@ CtephInfoDlg.collectData = function() {
         .setByName('lgg')
         .setByName('lgm')
         .setByName('threeitems')
-        .set('ats')
+        .set('at')
         .set('proteins')
         .set('proteinc')
         .setByName('hat')
@@ -209,6 +209,7 @@ CtephInfoDlg.collectData = function() {
         .set('ibddiagnosis')
         .set('ibddate')
 
+        .setByName('sie')
         .setByName('sjogrens')
         .setByName('ssclerosis')
         .setByName('mctd')
@@ -226,10 +227,15 @@ CtephInfoDlg.collectData = function() {
         .setByName('otherriskjudge')
 
 
+        .set('hcylevel')
+        .set('maximum')
+
 
         .set('vcmax')
         .set('tlc')
         .setByName('antiplatelet')
+
+        .setByName('respiratory')
 
         .setByName('abgt')
         .setByName('cet')
@@ -251,6 +257,7 @@ CtephInfoDlg.collectData = function() {
         .set('tbil')
         .set('dbil')
         .set('cr')
+        .set('tapse')
 
         .setByName('drug5')
         .set('otherdrug2')

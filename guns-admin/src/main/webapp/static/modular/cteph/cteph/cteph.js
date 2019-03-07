@@ -136,6 +136,7 @@ Cteph.initColumn = function () {
         {title: '', field: 'comethod', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'ci', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'pvr', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {title: '', field: 'svo2', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'lvedd', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'lvef', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '', field: 'pasp', visible: false, align: 'center', valign: 'middle', sortable: true},

@@ -2,24 +2,22 @@
 <div class="ibox float-e-margins">
     <div class="ibox-content" style="padding: 5px 20px 5px 20px;">
 
-
-        <!--患者基本信息-->
         <div class="ibox-content">
             <form class="form-inline" role="form">
                 <div class="form-group" style="font-weight: bold; font-size: 15px; word-spacing: 20px">
                     参加中心
-                    <#input id="department" name="" value="${departmentName}"/>
+                    <#input id="department" name="" value="${departmentName}" disabled="disabled"/>
                     <!--<#input id="fl_follow_h.patientName" name="姓名:" />-->
                     填表人
-                    <#input id="fillingperson" name="" value="${fillingpersonName}"/>
+                    <#input id="fillingperson" name="" value="${fillingpersonName}" disabled="disabled"/>
                     <!--<#input id="fl_follow_event.hospitalizationdate1" name="" type="datetime-local" />-->
                     <!--填表时间自动填入-->
                 </div>
             </form>
         </div>
 
-        <!--<form class="form-inline" role="form">-->
-        <div class="ibox-title" >
+        <!--患者基本信息-->
+        <div class="ibox-title" style="color: #1E0FBE">
             <h2>基本信息<sup>*</sup></h2>
         </div>
         <!--</form>-->
@@ -35,7 +33,8 @@
                     <div class="col-sm-6">
                         <label class="col-sm-3" style="font-weight: 600">性别</label>
                         <div class="col-sm-9">
-                            <#select id="patientSex" name="" value="${sexName}">
+                            <input type="hidden" id="sexValue" value="${item.patientSex}">
+                            <#select id="patientSex" name="">
                                 <option value="1">男</option>
                                 <option value="2">女</option>
                             </#select>
@@ -44,48 +43,38 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label class="col-sm-3 control-label" style="font-weight: 600">年龄</label>
-                        <div class="col-sm-9">
-                            <#input id="patientAge" name="" value="${item.patientAge}"/>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">居住地(省份)</label>
                         <div class="col-sm-8">
                             <#input id="patientAddress" name="" value="${item.patientAddress}"/>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">出生日期</label>
                         <div class="col-sm-8">
                             <#input id="birthday" name="" value="${item.birthday}"/>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">身高(cm)</label>
                         <div class="col-sm-9">
                             <#input id="height" name="" value="${item.height}"/>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-sm-6">
                         <label class="col-sm-3 control-label" style="font-weight: 600">体重(kg)</label>
                         <div class="col-sm-9">
                             <#input id="weight" name="" value="${item.weight}"/>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-
-                    </div>
                 </div>
             </form>
         </div>
 
+
         <!-- 临床症状-->
-        <div class="ibox-title" >
+        <div class="ibox-title" style="color: #1E0FBE">
             <h2>临床症状<sup>*</sup></h2>
         </div>
         <!--</form>-->
@@ -106,14 +95,17 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>晕厥
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="specialsigns" value="0"
+                            <input type="radio" name="specialsigns" value="2"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>咯血
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="specialsigns" value="3"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>两者均无
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
-
                         <label><h3><span class="glyphicon glyphicon-check"
                                          style="font-weight: 600">既往静脉血栓栓塞症(VET)病史</span></h3>
                         </label>
@@ -179,205 +171,461 @@
         </div>
 
         <!-- 危险因素和合并疾病 -->
-        <div class="ibox-title" >
+        <div class="ibox-title" style="color: #1E0FBE">
             <h2>危险因素和合并疾病<sup>*</sup></h2>
         </div>
         <!--</form>-->
         <div class="ibox-content">
-            <form class="form-horizontal" role="form" style="padding-left: 20px;">
-                <!-- 每个form-group是一行 -->
+            <div class="form-horizontal" role="form" style="padding-left: 20px;">
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
-                        <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">危险因素</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-check"
+                                         style="font-weight: 600">可能导致CTEPH的疾病状态</span></h3>
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">恶性肿瘤</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">恶性肿瘤</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="malignanttumor" value="1"
+                            <input onclick="displayElement('hidden-malignanttumor')" type="radio" name="malignanttumor"
+                                   value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="malignanttumor" value="0"
+                            <input onclick="hiddenElement('hidden-malignanttumor')" type="radio" name="malignanttumor"
+                                   value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
+                <div id="hidden-malignanttumor" class="form-group" hidden="hidden" style="padding-left: 20px">
                     <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">脾切除</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="splenectomy" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="splenectomy" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">起搏器植入</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="pacemaker" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="pacemaker" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">脑室心房分流手术病史</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="atrialhistory" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="atrialhistory" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">抗磷脂抗体综合征</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="aas" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="aas" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">高同型半胱氨酸血症</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="hps" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="hps" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">蛋白C缺乏</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="cdeficiency" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="cdeficiency" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">蛋白S缺乏</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sdeficiency" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sdeficiency" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">ATIII缺乏</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="atdeficiency" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="atdeficiency" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">下肢静脉曲张</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="levv" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="levv" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">炎症性肠病</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input onclick='displayElement("hidden-ibdspecific")' type="radio" name="ibd" value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label id="hidden-ibdspecific" hidden="hidden">
+                        <label>
                             <form></form>
                             <form class="form-inline" role="form">
-                                请具体：
-                                <#input id="ibdspecific" name="" value="${item.ibdspecific}"/>
+                                <span>具体肿瘤诊断</span>
+                                <#input id="specifictumor" name="" value="${item.specifictumor}"/>
                             </form>
                         </label>
-                        <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-ibdspecific")' type="radio" name="ibd" value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        <label>
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span>诊断时间(年)</span>
+                                <#input id="malignanttumordate" name="" value="${item.malignanttumordate}"/>
+                            </form>
                         </label>
-
                     </div>
                 </div>
                 <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">脾切除</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-splenectomydate')" type="radio" name="splenectomy"
+                                   value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-splenectomydate')" type="radio" name="splenectomy"
+                                   value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-splenectomydate" hidden="hidden">
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span>脾切除手术时间(年)</span>
+                                <#input id="splenectormydate" name="" value="${item.splenectormydate}"/>
+                            </form>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">起搏器植入</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-pacemakerdate')" type="radio" name="pacemaker"
+                                   value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-pacemakerdate')" type="radio" name="pacemaker"
+                                   value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-pacemakerdate" hidden="hidden">
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span>起搏器植入时间(年)</span>
+                                <#input id="pacemakerdate" name="" value="${item.pacemakerdate}"/>
+                            </form>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">脑室心房分流手术</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-atrialhistorydate')" type="radio"
+                                   name="atrialhistory" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-atrialhistorydate')" type="radio" name="atrialhistory"
+                                   value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-atrialhistorydate" hidden="hidden">
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span>手术时间(年)</span>
+                                <#input id="atrialhistorydate" name="" value="${item.atrialhistorydate}"/>
+                            </form>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">下肢静脉曲张</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-levvdate')" type="radio" name="levv" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-levvdate')" type="radio" name="levv" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label id="hidden-levvdate" hidden="hidden">
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span>诊断时间(年)</span>
+                                <#input id="levvdate" name="" value="${item.levvdate}"/>
+                            </form>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">炎症性肠病</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick='displayElement("hidden-ibd")' type="radio" name="ibd" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick='hiddenElement("hidden-ibd")' type="radio" name="ibd" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+                <div id="hidden-ibd" class="form-group" style="padding-left: 20px;" hidden="hidden">
+                    <label>
+                        <form></form>
+                        <form class="form-inline" role="form">
+                            <span>请具体：</span>
+                            <#input id="ibddiagnosis" name="" value="${item.ibddiagnosis}"/>
+                        </form>
+                    </label>
+                    <label>
+                        <form></form>
+                        <form class="form-inline" role="form">
+                            <span style="padding-left: 40px; padding-right: 20px;">诊断时间(年)</span>
+                            <#input id="ibddate" name="" value="${item.ibddate}"/>
+                        </form>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">结缔组织病</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick='displayElement("hidden-connectivetissue")' type="radio"
+                                   name="connectivetissue" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick='hiddenElement("hidden-connectivetissue")' type="radio"
+                                   name="connectivetissue" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+
+                <div id="hidden-connectivetissue" style="padding-left: 25px" class="form-group" hidden="hidden">
+                    <div class="checkbox" style="word-spacing: 40px; line-height: 200%;">
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input onclick="checkboxHidden('aas','hidden-aas')" name="aas" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>抗磷脂抗体综合征
+                        </label><br>
+                        <div id="hidden-aas" style="padding-left: 30px" hidden="hidden">
+                            <!--<div class="form-group" id="hidden-la" >-->
+                            <div style="word-spacing: 20px">
+                                <label><h3><span class="glyphicon glyphicon-stop"
+                                                 style="font-weight: 600">狼疮抗凝物（LA）</span>
+                                </h3>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="la" value="1"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="la" value="0"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                </label>
+                            </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-acllgg" >-->
+                            <div style="word-spacing: 20px;">
+                                <label><h3><span class="glyphicon glyphicon-stop"
+                                                 style="font-weight: 600">ACL IgG</span>
+                                </h3>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="acllgg" value="1"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="acllgg" value="0"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                </label>
+                            </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-acllgm" >-->
+                            <div style="word-spacing: 20px;">
+                                <label><h3><span class="glyphicon glyphicon-stop"
+                                                 style="font-weight: 600">ACL IgM</span>
+                                </h3>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="acllgm" value="1"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="acllgm" value="0"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                </label>
+                            </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-lgg" >-->
+                            <div style="word-spacing: 20px;">
+                                <label><h3><span class="glyphicon glyphicon-stop"
+                                                 style="font-weight: 600">β2GP1 IgG</span>
+                                </h3>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="lgg" value="1"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="lgg" value="0"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                </label>
+                            </div>
+                            <!--</div>-->
+                            <!--<div class="form-group" id="hidden-lgm" >-->
+                            <div style="word-spacing: 20px;">
+                                <label><h3><span class="glyphicon glyphicon-stop"
+                                                 style="font-weight: 600">β2GP1 IgM</span>
+                                </h3>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="lgm" value="1"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阳性
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="lgm" value="0"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>阴性
+                                </label>
+                            </div>
+                            <!--</div>-->
+                        </div>
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input name="sie" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>系统性红斑狼疮
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input name="sjogrens" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>干燥综合征
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input name="ssclerosis" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>系统性硬化症
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input name="mctd" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>混合性结缔组织病
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input name="rarthritis" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>类风湿性关节炎
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input name="uctd" type="checkbox" value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>未分化结缔组织病
+                        </label><br>
+                        <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
+                            <input onclick="checkboxHidden('octd','hidden-octdspecific')" name="octd" type="checkbox"
+                                   value="1"
+                                   style="margin-top: 6px; height: 13px; width: 13px"/>其他结缔组织病
+                        </label>
+                        <label id="hidden-octdspecific" hidden="hidden">
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span>具体诊断</span>
+                                <#input id="octdspecific" name="" value="${item.octdspecific}"/>
+                            </form>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+                        <label><h3><span class="glyphicon glyphicon-check"
+                                         style="font-weight: 600">高同型半胱氨酸(HCY)血症</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-hps')" type="radio" name="hps" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-hps')" type="radio" name="hps" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-hps')" type="radio" name="hps" value="2"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>未测
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="hidden-hps" style="word-spacing: 20px;" hidden="hidden">
+                        <label>
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">HCY水平</span>
+                                <#input id="hcylevel" name="" value="${item.hcylevel}"/>
+                            </form>
+                        </label>
+                        <label>
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span style="font-weight: 600; padding-left: 10px;">参考值上限</span>
+                                <#input id="maximum" name="" value="${item.maximum}"/>
+                            </form>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+                        <label><h3><span class="glyphicon glyphicon-check"
+                                         style="font-weight: 600"><sup>*</sup>易栓三项</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-threeitems','hidden-hat')" type="radio"
+                                   name="threeitems" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat')" type="radio"
+                                   name="threeitems" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat')" type="radio"
+                                   name="threeitems" value="2"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>未测
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" id="hidden-threeitems" hidden="hidden">
+                    <div style="word-spacing: 20px;">
+                        <label>
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">ATIII(%)</span>
+                                <#input id="at" name="" value="${item.at}"/>
+                            </form>
+                        </label>
+                        <label>
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span class="glyphicon glyphicon-stop"
+                                      style="font-weight: 600; padding-left: 10px;">蛋白S</span>
+                                <#input id="proteins" name="" value="${item.proteins}"/>
+                            </form>
+                        </label>
+                        <label>
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                <span class="glyphicon glyphicon-stop"
+                                      style="font-weight: 600; padding-left: 10px;">蛋白C</span>
+                                <#input id="proteinc" name="" value="${item.proteinc}"/>
+                            </form>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" id="hidden-hat" hidden="hidden">
+                    <div style="word-spacing: 20px;">
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">检测时或之前7日是否接受华发林抗凝治疗</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hat" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hat" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hat" value="2"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>不详
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+                        <label><h3><span class="glyphicon glyphicon-check"
+                                         style="font-weight: 600">其他危险因素</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-otherrisk')" type="radio" name="otherriskjudge"
+                                   value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-otherrisk')" type="radio" name="otherriskjudge"
+                                   value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+                <div id="hidden-otherrisk" class="form-group" hidden="hidden">
                     <div style="word-spacing: 20px;">
                         <form></form>
                         <form class="form-inline" role="form">
-                            <lable style="font-weight: 600; font-size: 14px; padding-left: 5px;">其他危险因素：</lable>
+                            <span class="glyphicon glyphicon-stop"
+                                  style="font-weight: 600; padding-left: 10px;">具体危险因素：</span>
                             <#input id="otherrisk" name="" value="${item.otherrisk}"/>
                         </form>
                     </div>
                 </div>
-                <!--</form>-->
-                <!--</div>-->
-
                 <!-- 合并疾病 -->
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
@@ -388,7 +636,8 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">高血压</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">高血压</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="hypertension" value="1"
@@ -400,11 +649,11 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">冠心病</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">冠心病</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input onclick='displayElement("hidden-revascularization")' type="radio"
@@ -421,7 +670,7 @@
                 <div id="hidden-revascularization" class="form-group" hidden="hidden">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">是否已行血运重建</span></h3>
+                        <label><h3><span style="font-weight: 600; padding-left: 30px;">是否已行血运重建</span></h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="revascularization" value="1"
@@ -436,7 +685,8 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">糖尿病</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">糖尿病</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="diabetes" value="1"
@@ -451,7 +701,41 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">肾功能不全</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">左心衰竭</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="displayElement('hidden-lhfailurespecific')" type="radio" name="lhfailure"
+                                   value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input onclick="hiddenElement('hidden-lhfailurespecific')" type="radio" name="lhfailure"
+                                   value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+                <div id="hidden-lhfailurespecific" class="form-group" hidden="hidden">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span style="font-weight: 600; padding-left: 30px;">具体</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="lhfailurespecific" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>HFrEF
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="lhfailurespecific" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>HFpEF
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">慢性肾功能不全</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="renalinsufficiency" value="1"
@@ -463,11 +747,11 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">脑梗塞</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">脑梗塞</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="cerebralinfarction" value="1"
@@ -479,11 +763,11 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">慢性阻塞性肺疾病</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">慢性阻塞性肺疾病</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="copd" value="1"
@@ -495,11 +779,11 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">先天性心脏病</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">先天性心脏病</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input onclick='displayElement("hidden-chdspecific")' type="radio" name="congenitalheart"
@@ -523,32 +807,8 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">结缔组织病</span></h3>
-                        </label>
-                        <label class="radio-inline">
-                            <input onclick="displayElement('hidden-ctdspecific')" type="radio" name="connectivetissue"
-                                   value="1"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
-                        </label>
-                        <label id="hidden-ctdspecific" hidden="hidden">
-                            <form></form>
-                            <form class="form-inline" role="form">
-                                请具体：
-                                <#input id="ctdspecific" name="" value="${item.ctdspecific}"/>
-                            </form>
-                        </label>
-                        <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-ctdspecific')" type="radio" name="connectivetissue"
-                                   value="0"
-                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div style="word-spacing: 20px;">
-
-                        <label><h3><span style="font-weight: 600">甲状腺功能减低</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">甲状腺功能减低</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="hypothyroidism" value="1"
@@ -563,7 +823,8 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">甲状腺功能亢进</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">甲状腺功能亢进</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="hyperthyroidism" value="1"
@@ -575,11 +836,11 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">贫血</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">贫血</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="anemia" value="1"
@@ -594,7 +855,8 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">红细胞增多症</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">红细胞增多症</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="polycythemia" value="1"
@@ -609,7 +871,24 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">血小板减低</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">嗜酸粒细胞增多增多症</span>
+                        </h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="eosinophilia" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="eosinophilia" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="word-spacing: 20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">血小板减低</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="plateletlower" value="1"
@@ -624,7 +903,8 @@
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">血小板增多</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">血小板增多</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="plateletup" value="1"
@@ -636,37 +916,45 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div style="word-spacing: 20px;">
 
-                        <label><h3><span style="font-weight: 600">其他重要合并疾病</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">其他重要合并疾病</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="othercomplications" value="1"
+                            <input onclick="displayElement('hidden-othercomplicationss')" type="radio"
+                                   name="othercomplications" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
+                        <label id="hidden-othercomplicationss" hidden="hidden">
+                            <form></form>
+                            <form class="form-inline" role="form">
+                                具体疾病
+                                <#input id="othercomplicationss" name="" value="${item.othercomplicationss}"/>
+                            </form>
+                        </label>
                         <label class="radio-inline">
-                            <input type="radio" name="othercomplications" value="0"
+                            <input onclick="hiddenElement('hidden-othercomplicationss')" type="radio"
+                                   name="othercomplications" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
 
         <!--*WHO心功能分级-->
-        <div class="ibox-title" >
+        <div class="ibox-title" style="color: #1E0FBE">
             <h2>WHO心功能分级<sup>*</sup></h2>
         </div>
         <!--</form>-->
         <div class="ibox-content">
             <form class="form-horizontal" role="form">
-
                 <div class="form-group">
                     <div style="word-spacing: 20px;padding-left:20px;">
-
-                        <label><h3><span style="font-weight: 600">确诊CTEPH时心功能分级</span></h3>
+                        <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">确诊CTEPH时心功能分级</span>
+                        </h3>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="cteph" value="1"
@@ -691,7 +979,7 @@
         </div>
 
         <!--*6MWD-->
-        <div class="ibox-title" >
+        <div class="ibox-title" style="color: #1E0FBE">
             <h2>6MWD<sup>*</sup></h2>
         </div>
         <!--</form>-->
@@ -720,7 +1008,7 @@
                         <div style="word-spacing: 20px;">
                             <form></form>
                             <form class="form-inline" role="form">
-                                <label class="glyphicon glyphicon-stop" style="font-weight: 600">步行距离（m）</label>
+                                <label class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 10px;">步行距离（m）</label>
                                 <#input id="walking" name="" value="${item.walking}"/>
                             </form>
                         </div>
@@ -730,7 +1018,7 @@
                         <div style="word-spacing: 20px;">
 
                             <label><h3><span class="glyphicon glyphicon-stop"
-                                             style="font-weight: 600">未进行原因(VET)病史</span></h3>
+                                             style="font-weight: 600; padding-left: 10px;">未进行原因(VET)病史</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="noreason1" value="1"
@@ -750,8 +1038,190 @@
             </form>
         </div>
 
+        <!--呼吸功能-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>呼吸功能<sup>*</sup></h2>
+        </div>
+        <!--</form>-->
+        <div class="ibox-content">
+            <form class="form-horizontal" role="form">
+                <div style="word-spacing: 0px;padding-left:20px;">
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否进行</span>
+                            </h3>
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="displayElement('hidden-respiratory')"
+                                       type="radio" name="respiratory" value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-respiratory')"
+                                       type="radio" name="respiratory" value="0"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                            </label>
+                        </div>
+                    </div>
+                    <div id="hidden-respiratory" hidden="hidden">
+                        <label><h3>肺通气功能</h3></label>
+                        <div style="padding-left: 30px;">
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600">VC MAX (%)</span>
+                                        <#input id="vcmax" name="" value="${item.vcmax}"/>
+                                    </form>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">TLC (%)</span>
+                                        <#input id="tlc" name="" value="${item.tlc}"/>
+                                    </form>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">RV (%)</span>
+                                        <#input id="rv" name="" value="${item.rv}"/>
+                                    </form>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600">RV/TLC (%)</span>
+                                        <#input id="rvtlc" name="" value="${item.rvtlc}"/>
+                                    </form>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600">FEV1 (%)实/预</span>
+                                        <#input id="fev1" name="" value="${item.fev1}"/>
+                                    </form>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600">FEV1/FVC (%)实测</span>
+                                        <#input id="fev1fvc" name="" value="${item.fev1fvc}"/>
+                                    </form>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600">FEF25-75 (%)</span>
+                                        <#input id="fef" name="" value="${item.fef}" />
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                        <label><h3>弥散功能</h3></label>
+                        <div style="padding-left: 30px;">
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600">TLCO SB (%)</span>
+                                        <#input id="tlcosb" name="" value="${item.tlcosb}"/>
+                                    </form>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600">TLCO/VA (%)</span>
+                                        <#input id="tlcova" name="" value="${item.tlcova}"/>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--*WHO心功能分级-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>心肺运动试验<sup>*</sup></h2>
+        </div>
+        <!--</form>-->
+        <div class="ibox-content">
+            <form class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <div style="word-spacing: 20px;padding-left:20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否进行</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="cet" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="cet" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <!--*WHO心功能分级-->
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>心脏MRI<sup>*</sup></h2>
+        </div>
+        <!--</form>-->
+        <div class="ibox-content">
+            <form class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <div style="word-spacing: 20px;padding-left:20px;">
+
+                        <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否进行</span></h3>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="heartmri" value="1"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="heartmri" value="0"
+                                   style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        </label>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
         <!-- 诊断方法-->
-        <div class="ibox-title" >
+        <div class="ibox-title">
             <h2>诊断方法<sup>*</sup></h2>
         </div>
         <!--</form>-->
@@ -762,7 +1232,8 @@
                     <div class="form-group">
                         <!--单选-->
                         <div style="word-spacing: 20px;">
-                            <label><h3><span style="font-weight: 600">肺灌注显像</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">肺灌注显像</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="ppi" value="1"
@@ -777,7 +1248,8 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
 
-                            <label><h3><span style="font-weight: 600">CT肺动脉增强</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">CT肺动脉增强</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="ctpat" value="1"
@@ -792,7 +1264,8 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
 
-                            <label><h3><span style="font-weight: 600">MRI肺动脉增强</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">MRI肺动脉增强</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="mripae" value="1"
@@ -808,7 +1281,8 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
 
-                            <label><h3><span style="font-weight: 600">心脏MRI</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">心脏MRI</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="cmri" value="1"
@@ -824,7 +1298,7 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
 
-                            <label><h3><span style="font-weight: 600">右心导管</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">右心导管</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="rhc" value="1"
@@ -838,8 +1312,8 @@
                     </div>
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-
-                            <label><h3><span style="font-weight: 600">未做原因</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-stop"
+                                             style="font-weight: 600; padding-left: 20px;">未做原因</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input onclick='hiddenElement("hidden-otherreason")' type="radio" name="noreason2"
@@ -868,7 +1342,8 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
 
-                            <label><h3><span style="font-weight: 600">肺动脉造影</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">肺动脉造影</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="pa" value="1"
@@ -885,7 +1360,7 @@
         </div>
 
         <!-- 右心导管 -->
-        <div class="ibox-title" >
+        <div class="ibox-title">
             <h2>右心导管<sup>*</sup></h2>
         </div>
         <!--</form>-->
@@ -939,7 +1414,8 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <div style="word-spacing: 20px;">
-                                <label><h3><span style="font-weight: 600">RAP,<span style="word-spacing:0px">mm Hg</span><sup>*</sup></span></h3>
+                                <label><h3><span style="font-weight: 600">RAP,<span
+                                        style="word-spacing:0px">mm Hg</span><sup>*</sup></span></h3>
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick='displayElement("hidden-rap")' type="radio" name="rap" value="1"
@@ -972,7 +1448,8 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <div style="word-spacing: 20px;">
-                                <label><h3><span style="font-weight: 600">PAP,<span style="word-spacing:0px">mm Hg</span><sup>*</sup></span></h3>
+                                <label><h3><span style="font-weight: 600">PAP,<span
+                                        style="word-spacing:0px">mm Hg</span><sup>*</sup></span></h3>
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick='displayElement("hidden-pap")' type="radio" name="pap" value="1"
@@ -1006,7 +1483,8 @@
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <div style="word-spacing: 20px;">
-                                <label><h3><span style="font-weight: 600">PAWP,<span style="word-spacing:0px">mm Hg</span><sup>*</sup></span></h3>
+                                <label><h3><span style="font-weight: 600">PAWP,<span
+                                        style="word-spacing:0px">mm Hg</span><sup>*</sup></span></h3>
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick="displayElement('hidden-pawp')" type="radio" name="pawp" value="1"
@@ -1103,39 +1581,56 @@
         </div>
 
         <!-- 超声心动图 -->
-        <div class="ibox-title" >
+        <div class="ibox-title">
             <h2>超声心动图<sup>*</sup></h2>
         </div>
         <!--</form>-->
-
         <div class="ibox-content">
             <form class="form-horizontal" role="form">
                 <div style="word-spacing: 20px;">
-                    <!-- 每个form-group是一行 -->
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
-                            <lable style="font-weight: 600;word-spacing: 0px">左室舒张末内径LVEDD (mm)</lable>
+                            <lable class="glyphicon glyphicon-check"
+                                   style="font-weight: 600; letter-spacing: 2px; font-size: 14px;">左室舒张末内径LVEDD(<span
+                                    style="letter-spacing: 0px">mm</span>)
+                            </lable>
                             <#input id="lvedd" name="" value="${item.lvedd}"/>
                         </form>
                     </div>
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
-                            <lable style="font-weight: 600;word-spacing: 0px">左室射血分数LVEF (%)</lable>
+                            <lable class="glyphicon glyphicon-check"
+                                   style="font-weight: 600; letter-spacing: 2px; font-size: 14px;">左室射血分数LVEF(%)
+                            </lable>
                             <#input id="lvef" name="" value="${item.lvef}"/>
                         </form>
                     </div>
                     <div>
                         <form></form>
                         <form class="form-inline" role="form" style="margin-bottom: 8px;">
-                            <lable style="font-weight: 600;word-spacing: 0px">超声估测肺动脉收缩压PASP(<span style="word-spacing:0px">mm Hg</span>)</lable>
+                            <lable class="glyphicon glyphicon-check"
+                                   style="font-weight: 600; word-spacing: 0px; letter-spacing: 2px; font-size: 14px;">
+                                超声估测肺动脉收缩压PASP(<span style="letter-spacing: 0px">mm </span><span
+                                    style="letter-spacing: 0px">Hg</span>)
+                            </lable>
                             <#input id="pasp" name="" value="${item.pasp}"/>
                         </form>
                     </div>
+                    <div>
+                        <form></form>
+                        <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                            <lable class="glyphicon glyphicon-check"
+                                   style="font-weight: 600; letter-spacing: 2px; font-size: 14px;">三尖瓣环收缩期位移TAPSE(<span
+                                    style="letter-spacing: 0px">mm</span>)
+                            </lable>
+                            <#input id="pasp" name="" value="${item.tapse}"/>
+                        </form>
+                    </div>
                     <div class="form-group">
-                        <div style="word-spacing: 20px; padding-left: 20px;">
-                            <label><h3><span style="font-weight: 600">心包积液</span></h3>
+                        <div style="word-spacing: 20px; padding-left: 15px;">
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">心包积液</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="pe" value="1"
@@ -1152,10 +1647,11 @@
         </div>
 
         <!-- 血液学检查 -->
-        <div class="ibox-title" >
-            <h2>血液学检查<sup>*</sup></h2>
+        <div class="ibox-title" style="color: #1E0FBE">
+            <h2>血液学检查（初次导管检查住院期间检查结果）<sup>*</sup></h2>
         </div>
         <!--</form>-->
+
         <div class="ibox-content">
             <form class="form-horizontal" role="form">
                 <div style="word-spacing: 20px;padding-left:20px;">
@@ -1164,7 +1660,7 @@
                         <div style="word-spacing: 20px;">
 
                             <label><h3><span class="glyphicon glyphicon-check"
-                                             style="font-weight: 600">血型</span><sup>*</sup></h3>
+                                             style="font-weight: 600">血型</span></h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="bloodgroup" value="1"
@@ -1182,271 +1678,202 @@
                                 <input type="radio" name="bloodgroup" value="4"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>AB
                             </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="bloodgroup" value="5"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>未做
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <form></form>
+                            <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                <label><h3><span class="glyphicon glyphicon-check"
+                                                 style="font-weight: 600">D-二聚体(μg/mL)</span>
+                                </h3></label>
+                                <#input id="ddimer" name="" value="${item.ddimer}"/>
+                            </form>
                         </div>
                     </div>
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-check"
-                                             style="font-weight: 600">HCY</span><sup>*</sup></h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick="displayElement('hidden-hcynumber')" type="radio" name="hcy" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label id="hidden-hcynumber" hidden="hidden">
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    请填具体数值(umol/L)：
-                                    <#input id="hcynumber" name="" value="${item.hcynumber}"/>
-                                </form>
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-hcynumber')" type="radio" name="hcy" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">NT-proBNP</span><sup>*</sup>
+                                             style="font-weight: 600">NT-proBNP</span>
                             </h3>
                             </label>
                             <label class="radio-inline">
                                 <input onclick="displayElement('hidden-ntnumber')" type="radio" name="nt" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
-                            <label id="hidden-ntnumber" hidden="hidden">
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    请填具体数值(pg/ml)：
-                                    <#input id="ntnumber" name="" value="${item.ntnumber}"/>
-                                </form>
-                            </label>
                             <label class="radio-inline">
                                 <input onclick="hiddenElement('hidden-ntnumber')" type="radio" name="nt" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-ntnumber')" type="radio" name="nt" value="2"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>未做
+                            </label>
+                        </div>
+                        <label id="hidden-ntnumber" hidden="hidden" style="padding-left: 20px;">
+                            <form></form>
+                            <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                请填具体数值(pg/ml)：
+                                <#input id="ntnumber" name="" value="${item.ntnumber}"/>
+                            </form>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <label><h3><span class="glyphicon glyphicon-check"
+                                             style="font-weight: 600">肝功能</span>
+                            </h3></label>
+                        </div>
+                    </div>
+                    <div style="padding-left: 20px;">
+                        <div class="form-group">
+                            <div style="word-spacing: 20px;">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span style="font-weight: 600;word-spacing: 0px">AST(IU/ml)</span>
+                                        <#input id="ast" name="" value="${item.ast}"/>
+                                    </form>
+                                </label>
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span style="font-weight: 600;word-spacing: 0px">ALT(IU/ml)</span>
+                                        <#input id="alt" name="" value="${item.alt}"/>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="word-spacing: 20px;">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span style="font-weight: 600;word-spacing: 0px">Tbil(μmol/L)</span>
+                                        <#input id="tbil" name="" value="${item.tbil}"/>
+                                    </form>
+                                </label>
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span style="font-weight: 600;word-spacing: 0px">Dbil(μmol/L)</span>
+                                        <#input id="dbil" name="" value="${item.dbil}"/>
+                                    </form>
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-check"
-                                             style="font-weight: 600">抗磷脂抗体</span><sup>*</sup></h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick="displayElement('hidden-la','hidden-acllgg','hidden-acllgm');displayElement('hidden-lgg','hidden-lgm')"
-                                       type="radio" name="aa" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-la','hidden-acllgg','hidden-acllgm');hiddenElement('hidden-lgg','hidden-lgm')"
-                                       type="radio" name="aa" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-la" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">狼疮抗凝物（LA）</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="la" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="la" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-acllgg" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">ACL IgG</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgg" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgg" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-acllgm" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">ACL IgM</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgm" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="acllgm" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-lgg" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">β2GP1 IgG</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgg" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgg" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-lgm" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">β2GP1 IgM</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgm" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阳性
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="lgm" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>阴性
-                            </label>
+                                             style="font-weight: 600">肾功能</span>
+                            </h3></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">易栓三项</span><sup>*</sup>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick='displayElement("hidden-threeitems","hidden-hat")' type="radio"
-                                       name="threeitems" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label class="radio-inline">
-                                <input onclick='hiddenElement("hidden-threeitems","hidden-hat")' type="radio"
-                                       name="threeitems" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                        <div style="word-spacing: 20px; padding-left: 20px;">
+                            <label>
+                                <form></form>
+                                <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                    <span style="font-weight: 600;word-spacing: 0px">血Cr(μmol/L)</span>
+                                    <#input id="cr" name="" value="${item.cr}"/>
+                                </form>
                             </label>
                         </div>
                     </div>
-                    <div class="form-group" id="hidden-threeitems" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <!--<span class="glyphicon glyphicon-stop" ></span>-->
 
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600">ATIII(%)</lable>
-                                    <#input id="ats" name="" value="${item.ats}"/>
-                                </form>
-                            </label>
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白S</lable>
-                                    <#input id="proteins" name="" value="${item.proteins}"/>
-                                </form>
-                            </label>
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600">蛋白C</lable>
-                                    <#input id="proteinc" name="" value="${item.proteinc}"/>
-                                </form>
-                            </label>
-
-                        </div>
-                    </div>
-                    <div class="form-group" id="hidden-hat" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">易栓三项检测时或之前7日是否接受华发林抗凝治疗</span>
-                            </h3>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="hat" value="1"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="hat" value="0"
-                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
-                            </label>
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-check"
-                                             style="font-weight: 600">血气</span><sup>*</sup></h3>
+                                             style="font-weight: 600">动脉血气</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-ph-pco','hidden-po-sao','hidden-paa')"
+                                <input onclick="displayElement('hidden-bloodgas')"
                                        type="radio" name="bloodgas" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-ph-pco','hidden-po-sao','hidden-paa')"
+                                <input onclick="hiddenElement('hidden-bloodgas')"
                                        type="radio" name="bloodgas" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-bloodgas')"
+                                       type="radio" name="bloodgas" value="2"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>未做
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group" id="hidden-ph-pco" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600">PH</lable>
-                                    <#input id="ph" name="" value="${item.ph}"/>
-                                </form>
-                            </label>
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PCO2(mm Hg)</lable>
-                                    <#input id="pco" name="" value="${item.pco}"/>
-                                </form>
-                            </label>
+                    <div id="hidden-bloodgas" hidden="hidden">
+                        <div class="form-group">
+                            <div style="word-spacing: 20px; padding-left: 10px;">
+                                <label><span class="glyphicon glyphicon-stop"
+                                             style="font-weight: 600;word-spacing: 0px"></span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="abgt" value="1"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>非吸氧状态测定
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="abgt" value="2"
+                                           style="margin-top: 4px; height: 13px; width: 13px"/>吸氧状态测定
+                                </label>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group" id="hidden-po-sao" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">PO2(mm Hg)</lable>
-                                    <#input id="po" name="" value="${item.po}"/>
-                                </form>
-                            </label>
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600">SaO2(%)</lable>
-                                    <#input id="sao" name="" value="${item.sao}"/>
-                                </form>
-                            </label>
+                        <div class="form-group">
+                            <div style="word-spacing: 20px;padding-left: 10px;">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600;word-spacing: 0px">PCO2(mm Hg)</span>
+                                        <#input id="pco" name="" value="${item.pco}"/>
+                                    </form>
+                                </label>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group" id="hidden-paa" hidden="hidden">
-                        <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label>
-                                <form></form>
-                                <form class="form-inline" role="form">
-                                    <lable class="glyphicon glyphicon-stop" style="font-weight: 600;word-spacing: 0px">P(A-a)(mm Hg)
-                                    </lable>
-                                    <#input id="paa" name="" value="${item.paa}"/>
-                                </form>
-                            </label>
-
+                        <div class="form-group">
+                            <div style="word-spacing: 20px;padding-left: 10px;">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600;word-spacing: 0px">PO2(mm Hg)</span>
+                                        <#input id="po" name="" value="${item.po}"/>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="word-spacing: 20px;padding-left: 10px;">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span class="glyphicon glyphicon-stop" style="font-weight: 600">SaO2(%)</span>
+                                        <#input id="sao" name="" value="${item.sao}"/>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="word-spacing: 20px;padding-left: 10px;">
+                                <label>
+                                    <form></form>
+                                    <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                        <span class="glyphicon glyphicon-stop"
+                                              style="font-weight: 600;word-spacing: 0px">P(A-a)(mm Hg)</span>
+                                        <#input id="paa" name="" value="${item.paa}"/>
+                                    </form>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1454,7 +1881,7 @@
         </div>
 
         <!-- 治疗策略 -->
-        <div class="ibox-title" >
+        <div class="ibox-title" style="color: #1E0FBE">
             <h2>治疗策略<sup>*</sup></h2>
         </div>
         <!--</form>-->
@@ -1464,7 +1891,8 @@
                     <!-- 每个form-group是一行 -->
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">抗凝治疗</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">抗凝治疗</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input onclick="displayElement('hidden-drug1')" type="radio" name="anticoagulant"
@@ -1480,27 +1908,32 @@
                     </div>
                     <div class="form-group" id="hidden-drug1" hidden="hidden">
                         <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span style="font-weight: 600;padding-left:20px">药物</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">药物</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1" value="1"
+                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1"
+                                       value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>华法林
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1" value="2"
+                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1"
+                                       value="2"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>利伐沙班
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1" value="3"
+                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1"
+                                       value="3"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>达比加群酯
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-otherdrug')" type="radio" name="drug1" value="4"
+                                <input onclick="displayElement('hidden-otherdrug')" type="radio" name="drug1"
+                                       value="4"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>其他药物
                             </label>
                             <label id="hidden-otherdrug" hidden="hidden">
                                 <form></form>
-                                <form class="form-inline" role="form">
+                                <form class="form-inline" role="form" style="margin-bottom: 8px;">
                                     药物具体名称：
                                     <#input id="otherdrug" name="" value="${item.otherdrug}"/>
                                 </form>
@@ -1510,15 +1943,67 @@
 
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">靶向治疗</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">抗凝治疗</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-laxg','hidden-fivepi');displayElement('hidden-era','hidden-prostacyclin');"
+                                <input onclick="displayElement('hidden-drug5')" type="radio" name="antiplatelet"
+                                       value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>是
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-drug5')" type="radio" name="antiplatelet"
+                                       value="0"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="hidden-drug5" hidden="hidden">
+                        <div style="word-spacing: 20px;padding-left: 10px;">
+                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">药物</span>
+                            </h3>
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5"
+                                       value="1"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>阿司匹林
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5"
+                                       value="2"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>氯吡格雷
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5"
+                                       value="3"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>替格瑞洛
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="displayElement('hidden-otherdrug2')" type="radio" name="drug5"
+                                       value="4"
+                                       style="margin-top: 4px; height: 13px; width: 13px"/>其他药物
+                            </label>
+                            <label id="hidden-otherdrug2" hidden="hidden">
+                                <form></form>
+                                <form class="form-inline" role="form" style="margin-bottom: 8px;">
+                                    药物具体名称：
+                                    <#input id="otherdrug2" name="" value="${item.otherdrug2}"/>
+                                </form>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div style="word-spacing: 20px;">
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">靶向治疗</span>
+                            </h3>
+                            </label>
+                            <label class="radio-inline">
+                                <input onclick="displayElement('hidden-laxg','hidden-fivepi');displayElement('hidden-era','hidden-prostacyclin')"
                                        type="radio" name="targeting" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-laxg','hidden-fivepi');hiddenElement('hidden-era','hidden-prostacyclin');"
+                                <input onclick="hiddenElement('hidden-laxg','hidden-fivepi');hiddenElement('hidden-era','hidden-prostacyclin')"
                                        type="radio" name="targeting" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -1526,7 +2011,8 @@
                     </div>
                     <div class="form-group" id="hidden-laxg" hidden="hidden">
                         <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">利奥西呱</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">利奥西呱</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="laxg" value="1"
@@ -1540,7 +2026,8 @@
                     </div>
                     <div class="form-group" hidden="hidden" id="hidden-fivepi">
                         <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">5型磷酸二酯酶抑制剂</span>
+                            <label><h3><span class="glyphicon glyphicon-stop"
+                                             style="font-weight: 600">5型磷酸二酯酶抑制剂</span>
                             </h3>
                             </label>
                             <label class="radio-inline">
@@ -1574,7 +2061,8 @@
                     </div>
                     <div class="form-group" id="hidden-era" hidden="hidden">
                         <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">内皮素受体拮抗剂</span>
+                            <label><h3><span class="glyphicon glyphicon-stop"
+                                             style="font-weight: 600">内皮素受体拮抗剂</span>
                             </h3>
                             </label>
                             <label class="radio-inline">
@@ -1607,14 +2095,17 @@
                     </div>
                     <div class="form-group" hidden="hidden" id="hidden-prostacyclin">
                         <div style="word-spacing: 20px;padding-left: 10px;">
-                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">前列环素</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600">前列环素</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-drug4')" type="radio" name="prostacyclin" value="1"
+                                <input onclick="displayElement('hidden-drug4')" type="radio" name="prostacyclin"
+                                       value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-drug4')" type="radio" name="prostacyclin" value="0"
+                                <input onclick="hiddenElement('hidden-drug4')" type="radio" name="prostacyclin"
+                                       value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
@@ -1640,42 +2131,62 @@
 
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">肺动脉内膜剥脱术</span>
+                            <label><h3><span class="glyphicon glyphicon-check"
+                                             style="font-weight: 600">肺动脉内膜剥脱术</span>
                             </h3>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="exfoliation" value="1"
+                                <input onclick="displayElement('hidden-exfoliationdate')" type="radio"
+                                       name="exfoliation" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="exfoliation" value="0"
+                                <input onclick="hiddenElement('hidden-exfoliationdate')" type="radio" name="exfoliation"
+                                       value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
-
                         </div>
                     </div>
+                    <div id="hidden-exfoliationdate" class="form-group" hidden="hidden">
+                        <form></form>
+                        <form class="form-inline" role="form" style="margin-bottom: 10px;">
+                            <label style="padding-left: 20px; font-weight: 600; font-size: 13px;">手术日期</label>
+                            <input type="text" id="exfoliationdate"/>
+                        </form>
+                    </div>
+
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">球囊肺动脉成形术</span>
+                            <label><h3><span class="glyphicon glyphicon-check"
+                                             style="font-weight: 600">球囊肺动脉成形术</span>
                             </h3>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="angioplasty" value="1"
+                                <input onclick="displayElement('hidden-angioplastyfdate')" type="radio"
+                                       name="angioplasty" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="angioplasty" value="0"
+                                <input onclick="hiddenElement('hidden-angioplastyfdate')" type="radio"
+                                       name="angioplasty" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
-
                         </div>
                     </div>
+                    <div id="hidden-angioplastyfdate" class="form-group" hidden="hidden">
+                        <form></form>
+                        <form class="form-inline" role="form" style="margin-bottom: 10px;">
+                            <label style="padding-left: 20px; font-weight: 600; font-size: 13px;">首次手术日期</label>
+                            <input type="text" id="angioplastyfdate"/>
+                        </form>
+                    </div>
+
                 </div>
             </form>
         </div>
 
         <!-- 住院期间转归 -->
-        <div class="ibox-title" >
+        <div class="ibox-title" style="color: #1E0FBE">
             <h2>住院期间转归<sup>*</sup></h2>
         </div>
         <!--</form>-->
@@ -1685,7 +2196,8 @@
                     <!-- 每个form-group是一行 -->
                     <div class="form-group">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否死亡</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否死亡</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input onclick="displayElement('hidden-deathreason')" type="radio" name="death"
@@ -1693,14 +2205,16 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-deathreason')" type="radio" name="death" value="0"
+                                <input onclick="hiddenElement('hidden-deathreason')" type="radio" name="death"
+                                       value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
                     </div>
                     <div class="form-group" id="hidden-deathreason" hidden="hidden">
                         <div style="word-spacing: 20px;">
-                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">死亡原因</span></h3>
+                            <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">死亡原因</span>
+                            </h3>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="deathreason" value="1"
@@ -1730,154 +2244,194 @@
                                 <input type="radio" name="deathreason" value="7"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>其他
                             </label>
+
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+
     </div>
 
+    <!--从后端获取值到前端-->
     <div style="display:none;">
-        <#input id="id" name="" value="${item.id}" underline="true"/>
-        <#input id="code" name="" value="${item.code}" underline="true"/>
-        <#input id="department" name="" value="${item.department}" underline="true"/>
-        <#input id="fillingperson" name="" value="${item.fillingperson}" underline="true"/>
-        <#input id="patientName" name="" value="${item.patientName}" underline="true"/>
-        <#input id="patientSex" name="" value="${item.patientSex}" underline="true"/>
-        <#input id="patientAge" name="" value="${item.patientAge}" underline="true"/>
-        <#input id="patientAddress" name="" value="${item.patientAddress}" underline="true"/>
-        <#input id="birthday" name="" value="${item.birthday}" underline="true"/>
-        <#input id="height" name="" value="${item.height}" underline="true"/>
-        <#input id="weight" name="" value="${item.weight}" underline="true"/>
-        <#input id="firsttime" name="" value="${item.firsttime}" underline="true"/>
-        <#input id="specialsigns" name="" value="${item.specialsigns}" underline="true"/>
-        <#input id="vtehistory" name="" value="${item.vtehistory}" underline="true"/>
-        <#input id="ape" name="" value="${item.ape}" underline="true"/>
-        <#input id="ledvt" name="" value="${item.ledvt}" underline="true"/>
-        <#input id="otherthrombus" name="" value="${item.otherthrombus}" underline="true"/>
-        <#input id="firstvtetime" name="" value="${item.firstvtetime}" underline="true"/>
-        <#input id="vterelapse" name="" value="${item.vterelapse}" underline="true"/>
-        <#input id="malignanttumor" name="" value="${item.malignanttumor}" underline="true"/>
-        <#input id="splenectomy" name="" value="${item.splenectomy}" underline="true"/>
-        <#input id="pacemaker" name="" value="${item.pacemaker}" underline="true"/>
-        <#input id="atrialhistory" name="" value="${item.atrialhistory}" underline="true"/>
-        <#input id="aas" name="" value="${item.aas}" underline="true"/>
-        <#input id="hps" name="" value="${item.hps}" underline="true"/>
-        <#input id="cdeficiency" name="" value="${item.cdeficiency}" underline="true"/>
-        <#input id="sdeficiency" name="" value="${item.sdeficiency}" underline="true"/>
-        <#input id="atdeficiency" name="" value="${item.atdeficiency}" underline="true"/>
-        <#input id="levv" name="" value="${item.levv}" underline="true"/>
-        <#input id="ibd" name="" value="${item.ibd}" underline="true"/>
-        <#input id="ibdspecific" name="" value="${item.ibdspecific}" underline="true"/>
-        <#input id="otherrisk" name="" value="${item.otherrisk}" underline="true"/>
-        <#input id="hypertension" name="" value="${item.hypertension}" underline="true"/>
-        <#input id="coronaryheart" name="" value="${item.coronaryheart}" underline="true"/>
-        <#input id="revascularization" name="" value="${item.revascularization}" underline="true"/>
-        <#input id="diabetes" name="" value="${item.diabetes}" underline="true"/>
-        <#input id="renalinsufficiency" name="" value="${item.renalinsufficiency}" underline="true"/>
-        <#input id="cerebralinfarction" name="" value="${item.cerebralinfarction}" underline="true"/>
-        <#input id="copd" name="" value="${item.copd}" underline="true"/>
-        <#input id="congenitalheart" name="" value="${item.congenitalheart}" underline="true"/>
-        <#input id="chdspecific" name="" value="${item.chdspecific}" underline="true"/>
-        <#input id="connectivetissue" name="" value="${item.connectivetissue}" underline="true"/>
-        <#input id="ctdspecific" name="" value="${item.ctdspecific}" underline="true"/>
-        <#input id="hypothyroidism" name="" value="${item.hypothyroidism}" underline="true"/>
-        <#input id="hyperthyroidism" name="" value="${item.hyperthyroidism}" underline="true"/>
-        <#input id="anemia" name="" value="${item.anemia}" underline="true"/>
-        <#input id="polycythemia" name="" value="${item.polycythemia}" underline="true"/>
-        <#input id="plateletlower" name="" value="${item.plateletlower}" underline="true"/>
-        <#input id="plateletup" name="" value="${item.plateletup}" underline="true"/>
-        <#input id="othercomplications" name="" value="${item.othercomplications}" underline="true"/>
-        <#input id="cteph" name="" value="${item.cteph}" underline="true"/>
-        <#input id="sixmwd" name="" value="${item.sixmwd}" underline="true"/>
-        <#input id="noreason1" name="" value="${item.noreason1}" underline="true"/>
-        <#input id="walking" name="" value="${item.walking}" underline="true"/>
-        <#input id="ppi" name="" value="${item.ppi}" underline="true"/>
-        <#input id="ctpat" name="" value="${item.ctpat}" underline="true"/>
-        <#input id="mripae" name="" value="${item.mripae}" underline="true"/>
-        <#input id="cmri" name="" value="${item.cmri}" underline="true"/>
-        <#input id="rhc" name="" value="${item.rhc}" underline="true"/>
-        <#input id="noreason2" name="" value="${item.noreason2}" underline="true"/>
-        <#input id="otherreason" name="" value="${item.otherreason}" underline="true"/>
-        <#input id="pa" name="" value="${item.pa}" underline="true"/>
-        <#input id="firstcatheter" name="" value="${item.firstcatheter}" underline="true"/>
-        <#input id="hr" name="" value="${item.hr}" underline="true"/>
-        <#input id="bpshrink" name="" value="${item.bpshrink}" underline="true"/>
-        <#input id="bprelaxation" name="" value="${item.bprelaxation}" underline="true"/>
-        <#input id="bpave" name="" value="${item.bpave}" underline="true"/>
-        <#input id="rap" name="" value="${item.rap}" underline="true"/>
-        <#input id="rapshrink" name="" value="${item.rapshrink}" underline="true"/>
-        <#input id="raprelaxation1" name="" value="${item.raprelaxation1}" underline="true"/>
-        <#input id="rapave" name="" value="${item.rapave}" />
-        <#input id="pap" name="" value="${item.pap}" underline="true"/>
-        <#input id="papshrink" name="" value="${item.papshrink}" underline="true"/>
-        <#input id="raprelaxation2" name="" value="${item.raprelaxation2}" underline="true"/>
-        <#input id="papave" name="" value="${item.papave}" underline="true"/>
-        <#input id="pawp" name="" value="${item.pawp}" underline="true"/>
-        <#input id="pawpshrink" name="" value="${item.pawpshrink}" underline="true"/>
-        <#input id="pawprelaxation" name="" value="${item.pawprelaxation}" underline="true"/>
-        <#input id="pawpave" name="" value="${item.pawpave}" underline="true"/>
-        <#input id="co" name="" value="${item.co}" underline="true"/>
-        <#input id="comethod" name="" value="${item.comethod}" underline="true"/>
-        <#input id="ci" name="" value="${item.ci}" underline="true"/>
-        <#input id="pvr" name="" value="${item.pvr}" underline="true"/>
-        <#input id="svo2" name="" value="${item.svo2}" underline="true"/>
-        <#input id="lvedd" name="" value="${item.lvedd}" underline="true"/>
-        <#input id="lvef" name="" value="${item.lvef}" underline="true"/>
-        <#input id="pasp" name="" value="${item.pasp}" underline="true"/>
-        <#input id="pe" name="" value="${item.pe}" underline="true"/>
-        <#input id="bloodgroup" name="" value="${item.bloodgroup}" underline="true"/>
-        <#input id="hcy" name="" value="${item.hcy}" underline="true"/>
-        <#input id="hcynumber" name="" value="${item.hcynumber}" underline="true"/>
-        <#input id="nt" name="" value="${item.nt}" underline="true"/>
-        <#input id="ntnumber" name="" value="${item.ntnumber}" underline="true"/>
-        <#input id="aa" name="" value="${item.aa}" underline="true"/>
-        <#input id="la" name="" value="${item.la}" underline="true"/>
-        <#input id="acllgg" name="" value="${item.acllgg}" underline="true"/>
-        <#input id="acllgm" name="" value="${item.acllgm}" underline="true"/>
-        <#input id="lgg" name="" value="${item.lgg}" underline="true"/>
-        <#input id="lgm" name="" value="${item.lgm}" underline="true"/>
-        <#input id="threeitems" name="" value="${item.threeitems}" underline="true"/>
-        <#input id="ats" name="" value="${item.ats}" underline="true"/>
-        <#input id="proteins" name="" value="${item.proteins}" underline="true"/>
-        <#input id="proteinc" name="" value="${item.proteinc}" underline="true"/>
-        <#input id="hat" name="" value="${item.hat}" underline="true"/>
-        <#input id="bloodgas" name="" value="${item.bloodgas}" underline="true"/>
-        <#input id="ph" name="" value="${item.ph}" underline="true"/>
-        <#input id="pco" name="" value="${item.pco}" underline="true"/>
-        <#input id="po" name="" value="${item.po}" underline="true"/>
-        <#input id="sao" name="" value="${item.sao}" underline="true"/>
-        <#input id="paa" name="" value="${item.paa}" underline="true"/>
-        <#input id="anticoagulant" name="" value="${item.anticoagulant}" underline="true"/>
-        <#input id="drug1" name="" value="${item.drug1}" underline="true"/>
-        <#input id="otherdrug" name="" value="${item.otherdrug}" underline="true"/>
-        <#input id="targeting" name="" value="${item.targeting}" underline="true"/>
-        <#input id="laxg" name="" value="${item.laxg}" underline="true"/>
-        <#input id="fivepi" name="" value="${item.fivepi}" underline="true"/>
-        <#input id="drug2" name="" value="${item.drug2}" underline="true"/>
-        <#input id="era" name="" value="${item.era}" underline="true"/>
-        <#input id="drug3" name="" value="${item.drug3}" underline="true"/>
-        <#input id="prostacyclin" name="" value="${item.prostacyclin}" underline="true"/>
-        <#input id="drug4" name="" value="${item.drug4}" underline="true"/>
-        <#input id="exfoliation" name="" value="${item.exfoliation}" underline="true"/>
-        <#input id="angioplasty" name="" value="${item.angioplasty}" underline="true"/>
-        <#input id="death" name="" value="${item.death}" underline="true"/>
-        <#input id="deathreason" name="" value="${item.deathreason}" underline="true"/>
-        <#input id="addition1" name="" value="${item.addition1}" underline="true"/>
-        <#input id="addition2" name="" value="${item.addition2}" underline="true"/>
-        <#input id="addition3" name="" value="${item.addition3}" underline="true"/>
-        <#input id="addition4" name="" value="${item.addition4}" underline="true"/>
-        <#input id="addition5" name="" value="${item.addition5}" underline="true"/>
-        <#input id="addition6" name="" value="${item.addition6}" underline="true"/>
-        <#input id="addition7" name="" value="${item.addition7}" underline="true"/>
-        <#input id="addition8" name="" value="${item.addition8}" underline="true"/>
-        <#input id="addition9" name="" value="${item.addition9}" underline="true"/>
-        <#input id="addition10" name="" value="${item.addition10}" underline="true"/>
-        <#input id="creator" name="" value="${item.creator}" underline="true"/>
-        <#input id="creationtime" name="" value="${item.creationtime}" underline="true"/>
-        <#input id="modifier" name="" value="${item.modifier}" underline="true"/>
-        <#input id="modifiedtime" name="" value="${item.modifiedtime}" underline="true"/>
-        <#input id="ts" name="" value="${item.ts}" underline="true"/>
+        <#input id="id" name="" value="${item.id}"/>
+        <#input id="code" name="" value="${item.code}"/>
+        <#input id="department" name="" value="${item.department}"/>
+        <#input id="fillingperson" name="" value="${item.fillingperson}"/>
+        <#input id="patientName" name="" value="${item.patientName}"/>
+        <#input id="patientSex" name="" value="${item.patientSex}"/>
+        <#input id="patientAddress" name="" value="${item.patientAddress}"/>
+        <#input id="birthday" name="" value="${item.birthday}"/>
+        <#input id="height" name="" value="${item.height}"/>
+        <#input id="weight" name="" value="${item.weight}"/>
+        <#input id="firsttime" name="" value="${item.firsttime}"/>
+        <#input id="specialsigns" name="" value="${item.specialsigns}"/>
+        <#input id="vtehistory" name="" value="${item.vtehistory}"/>
+        <#input id="ape" name="" value="${item.ape}"/>
+        <#input id="ledvt" name="" value="${item.ledvt}"/>
+        <#input id="otherthrombus" name="" value="${item.otherthrombus}"/>
+        <#input id="firstvtetime" name="" value="${item.firstvtetime}"/>
+        <#input id="vterelapse" name="" value="${item.vterelapse}"/>
+        <#input id="malignanttumor" name="" value="${item.malignanttumor}"/>
+        <#input id="specifictumor" name="" value="${item.specifictumor}"/>
+        <#input id="malignanttumordate" name="" value="${item.malignanttumordate}"/>
+        <#input id="splenectomy" name="" value="${item.splenectomy}"/>
+        <#input id="splenectormydate" name="" value="${item.splenectormydate}"/>
+        <#input id="pacemaker" name="" value="${item.pacemaker}"/>
+        <#input id="pacemakerdate" name="" value="${item.pacemakerdate}"/>
+        <#input id="atrialhistory" name="" value="${item.atrialhistory}"/>
+        <#input id="atrialhistorydate" name="" value="${item.atrialhistorydate}"/>
+        <#input id="levv" name="" value="${item.levv}"/>
+        <#input id="levvdate" name="" value="${item.levvdate}"/>
+        <#input id="ibd" name="" value="${item.ibd}"/>
+        <#input id="ibddiagnosis" name="" value="${item.ibddiagnosis}"/>
+        <#input id="ibddate" name="" value="${item.ibddate}"/>
+        <#input id="connectivetissue" name="" value="${item.connectivetissue}"/>
+        <#input id="aas" name="" value="${item.aas}"/>
+        <#input id="la" name="" value="${item.la}"/>
+        <#input id="acllgg" name="" value="${item.acllgg}"/>
+        <#input id="acllgm" name="" value="${item.acllgm}"/>
+        <#input id="lgg" name="" value="${item.lgg}"/>
+        <#input id="lgm" name="" value="${item.lgm}"/>
+        <#input id="sie" name="" value="${item.sie}"/>
+        <#input id="sjogrens" name="" value="${item.sjogrens}"/>
+        <#input id="ssclerosis" name="" value="${item.ssclerosis}"/>
+        <#input id="mctd" name="" value="${item.mctd}"/>
+        <#input id="rarthritis" name="" value="${item.rarthritis}"/>
+        <#input id="uctd" name="" value="${item.uctd}"/>
+        <#input id="octd" name="" value="${item.octd}"/>
+        <#input id="octdspecific" name="" value="${item.octdspecific}"/>
+        <#input id="hps" name="" value="${item.hps}"/>
+        <#input id="hcylevel" name="" value="${item.hcylevel}"/>
+        <#input id="maximum" name="" value="${item.maximum}"/>
+        <#input id="threeitems" name="" value="${item.threeitems}"/>
+        <#input id="at" name="" value="${item.at}"/>
+        <#input id="proteins" name="" value="${item.proteins}"/>
+        <#input id="proteinc" name="" value="${item.proteinc}"/>
+        <#input id="hat" name="" value="${item.hat}"/>
+        <#input id="otherriskjudge" name="" value="${item.otherriskjudge}"/>
+        <#input id="otherrisk" name="" value="${item.otherrisk}"/>
+        <#input id="hypertension" name="" value="${item.hypertension}"/>
+        <#input id="coronaryheart" name="" value="${item.coronaryheart}"/>
+        <#input id="revascularization" name="" value="${item.revascularization}"/>
+        <#input id="diabetes" name="" value="${item.diabetes}"/>
+        <#input id="lhfailure" name="" value="${item.lhfailure}"/>
+        <#input id="lhfailurespecific" name="" value="${item.lhfailurespecific}"/>
+        <#input id="renalinsufficiency" name="" value="${item.renalinsufficiency}"/>
+        <#input id="cerebralinfarction" name="" value="${item.cerebralinfarction}"/>
+        <#input id="copd" name="" value="${item.copd}"/>
+        <#input id="congenitalheart" name="" value="${item.congenitalheart}"/>
+        <#input id="chdspecific" name="" value="${item.chdspecific}"/>
+        <#input id="hypothyroidism" name="" value="${item.hypothyroidism}"/>
+        <#input id="hyperthyroidism" name="" value="${item.hyperthyroidism}"/>
+        <#input id="anemia" name="" value="${item.anemia}"/>
+        <#input id="polycythemia" name="" value="${item.polycythemia}"/>
+        <#input id="eosinophilia" name="" value="${item.eosinophilia}"/>
+        <#input id="plateletlower" name="" value="${item.plateletlower}"/>
+        <#input id="plateletup" name="" value="${item.plateletup}"/>
+        <#input id="othercomplications" name="" value="${item.othercomplications}"/>
+        <#input id="othercomplicationss" name="" value="${item.othercomplicationss}"/>
+        <#input id="cteph" name="" value="${item.cteph}"/>
+        <#input id="sixmwd" name="" value="${item.sixmwd}"/>
+        <#input id="noreason1" name="" value="${item.noreason1}"/>
+        <#input id="walking" name="" value="${item.walking}"/>
+        <#input id="respiratory" name="" value="${item.respiratory}"/>
+        <#input id="vcmax" name="" value="${item.vcmax}"/>
+        <#input id="tlc" name="" value="${item.tlc}"/>
+        <#input id="rv" name="" value="${item.rv}"/>
+        <#input id="rvtlc" name="" value="${item.rvtlc}"/>
+        <#input id="fev1" name="" value="${item.fev1}"/>
+        <#input id="fev1fvc" name="" value="${item.fev1fvc}"/>
+        <#input id="fef" name="" value="${item.fef}" />
+        <#input id="tlcosb" name="" value="${item.tlcosb}"/>
+        <#input id="tlcova" name="" value="${item.tlcova}"/>
+        <#input id="cet" name="" value="${item.cet}"/>
+        <#input id="heartmri" name="" value="${item.heartmri}"/>
+        <#input id="ppi" name="" value="${item.ppi}"/>
+        <#input id="ctpat" name="" value="${item.ctpat}"/>
+        <#input id="mripae" name="" value="${item.mripae}"/>
+        <#input id="cmri" name="" value="${item.cmri}"/>
+        <#input id="rhc" name="" value="${item.rhc}"/>
+        <#input id="noreason2" name="" value="${item.noreason2}"/>
+        <#input id="otherreason" name="" value="${item.otherreason}"/>
+        <#input id="pa" name="" value="${item.pa}"/>
+        <#input id="firstcatheter" name="" value="${item.firstcatheter}"/>
+        <#input id="hr" name="" value="${item.hr}"/>
+        <#input id="bpshrink" name="" value="${item.bpshrink}"/>
+        <#input id="bprelaxation" name="" value="${item.bprelaxation}"/>
+        <#input id="bpave" name="" value="${item.bpave}"/>
+        <#input id="rap" name="" value="${item.rap}"/>
+        <#input id="rapshrink" name="" value="${item.rapshrink}"/>
+        <#input id="raprelaxation1" name="" value="${item.raprelaxation1}"/>
+        <#input id="rapave" name="" value="${item.rapave}"/>
+        <#input id="pap" name="" value="${item.pap}"/>
+        <#input id="papshrink" name="" value="${item.papshrink}"/>
+        <#input id="raprelaxation2" name="" value="${item.raprelaxation2}"/>
+        <#input id="papave" name="" value="${item.papave}"/>
+        <#input id="pawp" name="" value="${item.pawp}"/>
+        <#input id="pawpshrink" name="" value="${item.pawpshrink}"/>
+        <#input id="pawprelaxation" name="" value="${item.pawprelaxation}"/>
+        <#input id="pawpave" name="" value="${item.pawpave}"/>
+        <#input id="co" name="" value="${item.co}"/>
+        <#input id="comethod" name="" value="${item.comethod}"/>
+        <#input id="ci" name="" value="${item.ci}"/>
+        <#input id="pvr" name="" value="${item.pvr}"/>
+        <#input id="lvedd" name="" value="${item.lvedd}"/>
+        <#input id="lvef" name="" value="${item.lvef}"/>
+        <#input id="pasp" name="" value="${item.pasp}"/>
+        <#input id="tapse" name="" value="${item.tapse}"/>
+        <#input id="pe" name="" value="${item.pe}"/>
+        <#input id="bloodgroup" name="" value="${item.bloodgroup}"/>
+        <#input id="ddimer" name="" value="${item.ddimer}"/>
+        <#input id="nt" name="" value="${item.nt}"/>
+        <#input id="ntnumber" name="" value="${item.ntnumber}"/>
+        <#input id="ast" name="" value="${item.ast}"/>
+        <#input id="alt" name="" value="${item.alt}"/>
+        <#input id="tbil" name="" value="${item.tbil}"/>
+        <#input id="dbil" name="" value="${item.dbil}"/>
+        <#input id="cr" name="" value="${item.cr}"/>
+        <#input id="bloodgas" name="" value="${item.bloodgas}"/>
+        <#input id="abgt" name="" value="${item.abgt}"/>
+        <#input id="pco" name="" value="${item.pco}"/>
+        <#input id="po" name="" value="${item.po}"/>
+        <#input id="sao" name="" value="${item.sao}"/>
+        <#input id="paa" name="" value="${item.paa}"/>
+        <#input id="anticoagulant" name="" value="${item.anticoagulant}"/>
+        <#input id="drug1" name="" value="${item.drug1}"/>
+        <#input id="otherdrug" name="" value="${item.otherdrug}"/>
+        <#input id="antiplatelet" name="" value="${item.antiplatelet}"/>
+        <#input id="drug5" name="" value="${item.drug5}"/>
+        <#input id="otherdrug2" name="" value="${item.otherdrug2}"/>
+        <#input id="targeting" name="" value="${item.targeting}"/>
+        <#input id="laxg" name="" value="${item.laxg}"/>
+        <#input id="fivepi" name="" value="${item.fivepi}"/>
+        <#input id="drug2" name="" value="${item.drug2}"/>
+        <#input id="era" name="" value="${item.era}"/>
+        <#input id="drug3" name="" value="${item.drug3}"/>
+        <#input id="prostacyclin" name="" value="${item.prostacyclin}"/>
+        <#input id="drug4" name="" value="${item.drug4}"/>
+        <#input id="exfoliation" name="" value="${item.exfoliation}"/>
+        <#input id="exfoliationdate" name="" value="${item.exfoliationdate}"/>
+        <#input id="angioplasty" name="" value="${item.angioplasty}"/>
+        <#input id="angioplastyfdate" name="" value="${item.angioplastyfdate}"/>
+        <#input id="death" name="" value="${item.death}"/>
+        <#input id="deathreason" name="" value="${item.deathreason}"/>
+        <#input id="addition1" name="" value="${item.addition1}"/>
+        <#input id="addition2" name="" value="${item.addition2}"/>
+        <#input id="addition3" name="" value="${item.addition3}"/>
+        <#input id="addition4" name="" value="${item.addition4}"/>
+        <#input id="addition5" name="" value="${item.addition5}"/>
+        <#input id="addition6" name="" value="${item.addition6}"/>
+        <#input id="addition7" name="" value="${item.addition7}"/>
+        <#input id="addition8" name="" value="${item.addition8}"/>
+        <#input id="addition9" name="" value="${item.addition9}"/>
+        <#input id="addition10" name="" value="${item.addition10}"/>
+        <#input id="creator" name="" value="${item.creator}"/>
+        <#input id="creationtime" name="" value="${item.creationtime}"/>
+        <#input id="modifier" name="" value="${item.modifier}"/>
+        <#input id="modifiedtime" name="" value="${item.modifiedtime}"/>
+        <#input id="ts" name="" value="${item.ts}"/>
         <#input id="dr" name="" value="${item.dr}" />
     </div>
 
@@ -1893,6 +2447,59 @@
 </div>
 
 <script src="${ctxPath}/static/modular/cteph/cteph/cteph_info.js"></script>
+
+<script type="text/javascript">
+
+    //用于动态展示和隐藏部分节点
+    function hiddenElement(id1, id2, id3) {
+        document.getElementById(id1).hidden = true;
+        if (typeof id2 != "undefined") {
+            document.getElementById(id2).hidden = true;
+        }
+        if (typeof id3 != "undefined") {
+            document.getElementById(id3).hidden = true;
+        }
+    }
+    function displayElement(id1, id2, id3) {
+        document.getElementById(id1).hidden = false;
+        if (typeof id2 != "undefined") {
+            document.getElementById(id2).hidden = false;
+        }
+        if (typeof id3 != "undefined") {
+            document.getElementById(id3).hidden = false;
+        }
+    }
+
+    function checkboxHidden(id1, id2) {//id1为复选框的name,id2为隐藏元素的id
+        obj = document.getElementsByName(id1);
+        if (obj[0].checked) {
+            displayElement(id2);
+        } else {
+            hiddenElement(id2);
+        }
+    }
+
+
+    laydate.render({
+        elem: '#birthday'
+    });
+    laydate.render({
+        elem: '#firsttime'
+    });
+    laydate.render({
+        elem: '#firstvtetime'
+    });
+    laydate.render({
+        elem: '#firstcatheter'
+    });
+    laydate.render({
+        elem: '#exfoliationdate'
+    });
+    laydate.render({
+        elem: '#angioplastyfdate'
+    });
+
+</script>
 
 <!--单选框被后台数据赋值选中-->
 <script>
@@ -1920,25 +2527,64 @@
     $("input[name=atrialhistory][value=${item.atrialhistory}]").prop("checked", true);
 </script>
 <script>
+    $("input[name=levv][value=${item.levv}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=ibd][value=${item.ibd}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=connectivetissue][value=${item.connectivetissue}]").prop("checked", true);
+</script>
+<script>
     $("input[name=aas][value=${item.aas}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=la][value=${item.la}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=acllgg][value=${item.acllgg}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=acllgm][value=${item.acllgm}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=lgg][value=${item.lgg}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=lgm][value=${item.lgm}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=sie][value=${item.sie}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=sjogrens][value=${item.sjogrens}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=ssclerosis][value=${item.ssclerosis}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=mctd][value=${item.mctd}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=rarthritis][value=${item.rarthritis}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=uctd][value=${item.uctd}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=octd][value=${item.octd}]").prop("checked", true);
 </script>
 <script>
     $("input[name=hps][value=${item.hps}]").prop("checked", true);
 </script>
 <script>
-    $("input[name=cdeficiency][value=${item.cdeficiency}]").prop("checked", true);
+    $("input[name=threeitems][value=${item.threeitems}]").prop("checked", true);
 </script>
 <script>
-    $("input[name=sdeficiency][value=${item.sdeficiency}]").prop("checked", true);
+    $("input[name=hat][value=${item.hat}]").prop("checked", true);
 </script>
 <script>
-    $("input[name=atdeficiency][value=${item.atdeficiency}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=levv][value=${item.levv}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=ibd][value=${item.ibd}]").prop("checked", true);
+    $("input[name=otherriskjudge][value=${item.otherriskjudge}]").prop("checked", true);
 </script>
 <script>
     $("input[name=hypertension][value=${item.hypertension}]").prop("checked", true);
@@ -1953,6 +2599,12 @@
     $("input[name=diabetes][value=${item.diabetes}]").prop("checked", true);
 </script>
 <script>
+    $("input[name=lhfailure][value=${item.lhfailure}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=lhfailurespecific][value=${item.lhfailurespecific}]").prop("checked", true);
+</script>
+<script>
     $("input[name=renalinsufficiency][value=${item.renalinsufficiency}]").prop("checked", true);
 </script>
 <script>
@@ -1965,9 +2617,6 @@
     $("input[name=congenitalheart][value=${item.congenitalheart}]").prop("checked", true);
 </script>
 <script>
-    $("input[name=connectivetissue][value=${item.connectivetissue}]").prop("checked", true);
-</script>
-<script>
     $("input[name=hypothyroidism][value=${item.hypothyroidism}]").prop("checked", true);
 </script>
 <script>
@@ -1978,6 +2627,9 @@
 </script>
 <script>
     $("input[name=polycythemia][value=${item.polycythemia}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=eosinophilia][value=${item.eosinophilia}]").prop("checked", true);
 </script>
 <script>
     $("input[name=plateletlower][value=${item.plateletlower}]").prop("checked", true);
@@ -1996,6 +2648,15 @@
 </script>
 <script>
     $("input[name=noreason1][value=${item.noreason1}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=respiratory][value=${item.respiratory}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=cet][value=${item.cet}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=heartmri][value=${item.heartmri}]").prop("checked", true);
 </script>
 <script>
     $("input[name=ppi][value=${item.ppi}]").prop("checked", true);
@@ -2037,43 +2698,25 @@
     $("input[name=bloodgroup][value=${item.bloodgroup}]").prop("checked", true);
 </script>
 <script>
-    $("input[name=hcy][value=${item.hcy}]").prop("checked", true);
-</script>
-<script>
     $("input[name=nt][value=${item.nt}]").prop("checked", true);
 </script>
 <script>
-    $("input[name=aa][value=${item.aa}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=la][value=${item.la}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=acllgg][value=${item.acllgg}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=acllgm][value=${item.acllgm}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=lgg][value=${item.lgg}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=lgm][value=${item.lgm}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=threeitems][value=${item.threeitems}]").prop("checked", true);
-</script>
-<script>
-    $("input[name=hat][value=${item.hat}]").prop("checked", true);
-</script>
-<script>
     $("input[name=bloodgas][value=${item.bloodgas}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=abgt][value=${item.abgt}]").prop("checked", true);
 </script>
 <script>
     $("input[name=anticoagulant][value=${item.anticoagulant}]").prop("checked", true);
 </script>
 <script>
     $("input[name=drug1][value=${item.drug1}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=antiplatelet][value=${item.antiplatelet}]").prop("checked", true);
+</script>
+<script>
+    $("input[name=drug5][value=${item.drug5}]").prop("checked", true);
 </script>
 <script>
     $("input[name=targeting][value=${item.targeting}]").prop("checked", true);
@@ -2112,43 +2755,6 @@
     $("input[name=deathreason][value=${item.deathreason}]").prop("checked", true);
 </script>
 
-<script type="text/javascript">
-
-    //用于动态展示和隐藏部分节点
-    function hiddenElement(id1, id2, id3) {
-        document.getElementById(id1).hidden = true;
-        if (typeof id2 != "undefined") {
-            document.getElementById(id2).hidden = true;
-        }
-        if (typeof id3 != "undefined") {
-            document.getElementById(id3).hidden = true;
-        }
-    }
-    function displayElement(id1, id2, id3) {
-        document.getElementById(id1).hidden = false;
-        if (typeof id2 != "undefined") {
-            document.getElementById(id2).hidden = false;
-        }
-        if (typeof id3 != "undefined") {
-            document.getElementById(id3).hidden = false;
-        }
-    }
-
-    laydate.render({
-        elem: '#birthday'
-    });
-    laydate.render({
-        elem: '#firsttime'
-    });
-    laydate.render({
-        elem: '#firstvtetime'
-    });
-    laydate.render({
-        elem: '#firstcatheter'
-    });
-
-</script>
-
 <!--js函数自动执行-->
 <script type="text/javascript">
     var value1 = ${item.vtehistory}
@@ -2166,140 +2772,119 @@
     window.onload = MyAutoRun1();
 </script>
 <script type="text/javascript">
-    var value2 = ${item.ibd}
+    var value2 = ${item.malignanttumor}
         function MyAutoRun2() {
             if (value2 == 1) {
-                document.getElementById("hidden-ibdspecific").hidden = false;
+                document.getElementById("hidden-malignanttumor").hidden = false;
             } else {
-                document.getElementById("hidden-ibdspecific").hidden = true;
+                document.getElementById("hidden-malignanttumor").hidden = true;
             }
         }
     window.onload = MyAutoRun2();
 </script>
 <script type="text/javascript">
-    var value3 = ${item.coronaryheart}
+    var value3 = ${item.splenectomy}
         function MyAutoRun3() {
             if (value3 == 1) {
-                document.getElementById("hidden-revascularization").hidden = false;
+                document.getElementById("hidden-splenectomydate").hidden = false;
             } else {
-                document.getElementById("hidden-revascularization").hidden = true;
+                document.getElementById("hidden-splenectomydate").hidden = true;
             }
         }
     window.onload = MyAutoRun3();
 </script>
 <script type="text/javascript">
-    var value4 = ${item.congenitalheart}
+    var value4 = ${item.pacemaker}
         function MyAutoRun4() {
             if (value4 == 1) {
-                document.getElementById("hidden-chdspecific").hidden = false;
+                document.getElementById("hidden-pacemakerdate").hidden = false;
             } else {
-                document.getElementById("hidden-chdspecific").hidden = true;
+                document.getElementById("hidden-pacemakerdate").hidden = true;
             }
         }
     window.onload = MyAutoRun4();
 </script>
 <script type="text/javascript">
-    var value5 = ${item.connectivetissue}
+    var value5 = ${item.atrialhistory}
         function MyAutoRun5() {
             if (value5 == 1) {
-                document.getElementById("hidden-ctdspecific").hidden = false;
+                document.getElementById("hidden-atrialhistorydate").hidden = false;
             } else {
-                document.getElementById("hidden-ctdspecific").hidden = true;
+                document.getElementById("hidden-atrialhistorydate").hidden = true;
             }
         }
     window.onload = MyAutoRun5();
 </script>
 <script type="text/javascript">
-    var value6 = ${item.sixmwd}
+    var value6 = ${item.atrialhistory}
         function MyAutoRun6() {
             if (value6 == 1) {
-                document.getElementById("hidden-walking").hidden = false;
-                document.getElementById("hidden-noreason1").hidden = true;
+                document.getElementById("hidden-levvdate").hidden = false;
             } else {
-                document.getElementById("hidden-walking").hidden = true;
-                document.getElementById("hidden-noreason1").hidden = false;
+                document.getElementById("hidden-levvdate").hidden = true;
             }
         }
     window.onload = MyAutoRun6();
 </script>
 <script type="text/javascript">
-    var value7 = ${item.rap}
+    var value7 = ${item.atrialhistory}
         function MyAutoRun7() {
             if (value7 == 1) {
-                document.getElementById("hidden-rap").hidden = false;
+                document.getElementById("hidden-ibd").hidden = false;
             } else {
-                document.getElementById("hidden-rap").hidden = true;
+                document.getElementById("hidden-ibd").hidden = true;
             }
         }
     window.onload = MyAutoRun7();
 </script>
 <script type="text/javascript">
-    var value8 = ${item.pap}
+    var value8 = ${item.atrialhistory}
         function MyAutoRun8() {
             if (value8 == 1) {
-                document.getElementById("hidden-pap").hidden = false;
+                document.getElementById("hidden-connectivetissue").hidden = false;
             } else {
-                document.getElementById("hidden-pap").hidden = true;
+                document.getElementById("hidden-connectivetissue").hidden = true;
             }
         }
     window.onload = MyAutoRun8();
 </script>
 <script type="text/javascript">
-    var value9 = ${item.pawp}
+    var value9 = ${item.aas}
         function MyAutoRun9() {
             if (value9 == 1) {
-                document.getElementById("hidden-pawp").hidden = false;
+                document.getElementById("hidden-aas").hidden = false;
             } else {
-                document.getElementById("hidden-pawp").hidden = true;
+                document.getElementById("hidden-aas").hidden = true;
             }
         }
     window.onload = MyAutoRun9();
 </script>
 <script type="text/javascript">
-    var value10 = ${item.hcy}
+    var value10 = ${item.octd}
         function MyAutoRun10() {
             if (value10 == 1) {
-                document.getElementById("hidden-hcynumber").hidden = false;
+                document.getElementById("hidden-octdspecific").hidden = false;
             } else {
-                document.getElementById("hidden-hcynumber").hidden = true;
+                document.getElementById("hidden-octdspecific").hidden = true;
             }
         }
     window.onload = MyAutoRun10();
 </script>
 <script type="text/javascript">
-    var value11 = ${item.nt}
+    var value11 = ${item.hps}
         function MyAutoRun11() {
             if (value11 == 1) {
-                document.getElementById("hidden-ntnumber").hidden = false;
+                document.getElementById("hidden-hps").hidden = false;
             } else {
-                document.getElementById("hidden-ntnumber").hidden = true;
+                document.getElementById("hidden-hps").hidden = true;
             }
         }
     window.onload = MyAutoRun11();
 </script>
 <script type="text/javascript">
-    var value12 = ${item.aa}
+    var value12 = ${item.hps}
         function MyAutoRun12() {
             if (value12 == 1) {
-                document.getElementById("hidden-la").hidden = false;
-                document.getElementById("hidden-acllgg").hidden = false;
-                document.getElementById("hidden-acllgm").hidden = false;
-                document.getElementById("hidden-lgg").hidden = false;
-                document.getElementById("hidden-lgm").hidden = false;
-            } else {
-                document.getElementById("hidden-la").hidden = true;
-                document.getElementById("hidden-acllgg").hidden = true;
-                document.getElementById("hidden-acllgm").hidden = true;
-                document.getElementById("hidden-lgg").hidden = true;
-                document.getElementById("hidden-lgm").hidden = true;
-            }
-        }
-    window.onload = MyAutoRun12();
-</script>
-<script type="text/javascript">
-    var value13 = ${item.threeitems}
-        function MyAutoRun13() {
-            if (value13 == 1) {
                 document.getElementById("hidden-threeitems").hidden = false;
                 document.getElementById("hidden-hat").hidden = false;
             } else {
@@ -2307,49 +2892,190 @@
                 document.getElementById("hidden-hat").hidden = true;
             }
         }
+    window.onload = MyAutoRun12();
+</script>
+<script type="text/javascript">
+    var value13 = ${item.otherriskjudge}
+        function MyAutoRun13() {
+            if (value13 == 1) {
+                document.getElementById("hidden-otherrisk").hidden = false;
+            } else {
+                document.getElementById("hidden-otherrisk").hidden = true;
+            }
+        }
     window.onload = MyAutoRun13();
 </script>
 <script type="text/javascript">
-    var value14 = ${item.bloodgas}
+    var value14 = ${item.coronaryheart}
         function MyAutoRun14() {
             if (value14 == 1) {
-                document.getElementById("hidden-ph-pco").hidden = false;
-                document.getElementById("hidden-po-sao").hidden = false;
-                document.getElementById("hidden-paa").hidden = false;
+                document.getElementById("hidden-revascularization").hidden = false;
             } else {
-                document.getElementById("hidden-ph-pco").hidden = true;
-                document.getElementById("hidden-po-sao").hidden = true;
-                document.getElementById("hidden-paa").hidden = true;
+                document.getElementById("hidden-revascularization").hidden = true;
             }
         }
     window.onload = MyAutoRun14();
 </script>
 <script type="text/javascript">
-    var value15 = ${item.anticoagulant}
+    var value15 = ${item.lhfailure}
         function MyAutoRun15() {
             if (value15 == 1) {
-                document.getElementById("hidden-drug1").hidden = false;
+                document.getElementById("hidden-lhfailurespecific").hidden = false;
             } else {
-                document.getElementById("hidden-drug1").hidden = true;
+                document.getElementById("hidden-lhfailurespecific").hidden = true;
             }
         }
     window.onload = MyAutoRun15();
 </script>
 <script type="text/javascript">
-    var value16 = ${item.drug1}
+    var value16 = ${item.congenitalheart}
         function MyAutoRun16() {
-            if (value16 == 4) {
-                document.getElementById("hidden-otherdrug").hidden = false;
+            if (value16 == 1) {
+                document.getElementById("hidden-chdspecific").hidden = false;
             } else {
-                document.getElementById("hidden-otherdrug").hidden = true;
+                document.getElementById("hidden-chdspecific").hidden = true;
             }
         }
     window.onload = MyAutoRun16();
 </script>
 <script type="text/javascript">
-    var value17 = ${item.targeting}
+    var value17 = ${item.othercomplications}
         function MyAutoRun17() {
             if (value17 == 1) {
+                document.getElementById("hidden-othercomplicationss").hidden = false;
+            } else {
+                document.getElementById("hidden-othercomplicationss").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun17();
+</script>
+<script type="text/javascript">
+    var value18 = ${item.sixmwd}
+        function MyAutoRun18() {
+            if (value18 == 1) {
+                document.getElementById("hidden-walking").hidden = false;
+                document.getElementById("hidden-noreason1").hidden = true;
+            } else {
+                document.getElementById("hidden-walking").hidden = true;
+                document.getElementById("hidden-noreason1").hidden = false;
+            }
+        }
+    window.onload = MyAutoRun18();
+</script>
+<script type="text/javascript">
+    var value19 = ${item.respiratory}
+        function MyAutoRun19() {
+            if (value19 == 1) {
+                document.getElementById("hidden-respiratory").hidden = false;
+            } else {
+                document.getElementById("hidden-respiratory").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun19();
+</script>
+<script type="text/javascript">
+    var value20 = ${item.rap}
+        function MyAutoRun20() {
+            if (value20 == 1) {
+                document.getElementById("hidden-rap").hidden = false;
+            } else {
+                document.getElementById("hidden-rap").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun20();
+</script>
+<script type="text/javascript">
+    var value21 = ${item.pap}
+        function MyAutoRun21() {
+            if (value21 == 1) {
+                document.getElementById("hidden-pap").hidden = false;
+            } else {
+                document.getElementById("hidden-pap").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun21();
+</script>
+<script type="text/javascript">
+    var value22 = ${item.pawp}
+        function MyAutoRun22() {
+            if (value22 == 1) {
+                document.getElementById("hidden-pawp").hidden = false;
+            } else {
+                document.getElementById("hidden-pawp").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun22();
+</script>
+<script type="text/javascript">
+    var value23 = ${item.nt}
+        function MyAutoRun23() {
+            if (value23 == 1) {
+                document.getElementById("hidden-ntnumber").hidden = false;
+            } else {
+                document.getElementById("hidden-ntnumber").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun23();
+</script>
+<script type="text/javascript">
+    var value24 = ${item.bloodgas}
+        function MyAutoRun24() {
+            if (value24 == 1) {
+                document.getElementById("hidden-bloodgas").hidden = false;
+            } else {
+                document.getElementById("hidden-bloodgas").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun24();
+</script>
+<script type="text/javascript">
+    var value25 = ${item.anticoagulant}
+        function MyAutoRun25() {
+            if (value25 == 1) {
+                document.getElementById("hidden-drug1").hidden = false;
+            } else {
+                document.getElementById("hidden-drug1").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun25();
+</script>
+<script type="text/javascript">
+    var value26 = ${item.drug1}
+        function MyAutoRun26() {
+            if (value26 == 4) {
+                document.getElementById("hidden-otherdrug").hidden = false;
+            } else {
+                document.getElementById("hidden-otherdrug").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun26();
+</script>
+<script type="text/javascript">
+    var value27 = ${item.antiplatelet}
+        function MyAutoRun27() {
+            if (value27 == 4) {
+                document.getElementById("hidden-drug5").hidden = false;
+            } else {
+                document.getElementById("hidden-drug5").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun27();
+</script>
+<script type="text/javascript">
+    var value28 = ${item.drug5}
+        function MyAutoRun28() {
+            if (value28 == 4) {
+                document.getElementById("hidden-otherdrug2").hidden = false;
+            } else {
+                document.getElementById("hidden-otherdrug2").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun28();
+</script>
+<script type="text/javascript">
+    var value29 = ${item.targeting}
+        function MyAutoRun29() {
+            if (value29 == 1) {
                 document.getElementById("hidden-laxg").hidden = false;
                 document.getElementById("hidden-fivepi").hidden = false;
                 document.getElementById("hidden-era").hidden = false;
@@ -2361,62 +3087,73 @@
                 document.getElementById("hidden-prostacyclin").hidden = true;
             }
         }
-    window.onload = MyAutoRun17();
+    window.onload = MyAutoRun29();
 </script>
 <script type="text/javascript">
-    var value18 = ${item.death}
-        function MyAutoRun18() {
-            if (value18 == 1) {
-                document.getElementById("hidden-deathreason").hidden = false;
-            } else {
-                document.getElementById("hidden-deathreason").hidden = true;
-            }
-        }
-    window.onload = MyAutoRun18();
-</script>
-<script type="text/javascript">
-    var value19 = ${item.ape}
-        function MyAutoRun19() {
-            if (value19 == 3) {
-                document.getElementById("hidden-otherthrombus").hidden = false;
-            } else {
-                document.getElementById("hidden-otherthrombus").hidden = true;
-            }
-        }
-    window.onload = MyAutoRun19();
-</script>
-<script type="text/javascript">
-    var value20 = ${item.fivepi}
-        function MyAutoRun20() {
-            if (value20 == 1) {
+    var value30 = ${item.fivepi}
+        function MyAutoRun30() {
+            if (value30 == 1) {
                 document.getElementById("hidden-drug2").hidden = false;
             } else {
                 document.getElementById("hidden-drug2").hidden = true;
             }
         }
-    window.onload = MyAutoRun20();
+    window.onload = MyAutoRun30();
 </script>
 <script type="text/javascript">
-    var value21 = ${item.era}
-        function MyAutoRun21() {
-            if (value21 == 1) {
+    var value31 = ${item.era}
+        function MyAutoRun31() {
+            if (value31 == 1) {
                 document.getElementById("hidden-drug3").hidden = false;
             } else {
                 document.getElementById("hidden-drug3").hidden = true;
             }
         }
-    window.onload = MyAutoRun21();
+    window.onload = MyAutoRun31();
 </script>
 <script type="text/javascript">
-    var value22 = ${item.prostacyclin}
-        function MyAutoRun22() {
-            if (value22 == 1) {
+    var value32 = ${item.prostacyclin}
+        function MyAutoRun32() {
+            if (value32 == 1) {
                 document.getElementById("hidden-drug4").hidden = false;
             } else {
                 document.getElementById("hidden-drug4").hidden = true;
             }
         }
-    window.onload = MyAutoRun22();
+    window.onload = MyAutoRun32();
+</script>
+<script type="text/javascript">
+    var value33 = ${item.exfoliation}
+        function MyAutoRun33() {
+            if (value33 == 1) {
+                document.getElementById("hidden-exfoliationdate").hidden = false;
+            } else {
+                document.getElementById("hidden-exfoliationdate").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun33();
+</script>
+<script type="text/javascript">
+    var value34 = ${item.angioplasty}
+        function MyAutoRun34() {
+            if (value34 == 1) {
+                document.getElementById("hidden-angioplastyfdate").hidden = false;
+            } else {
+                document.getElementById("hidden-angioplastyfdate").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun34();
+</script>
+<script type="text/javascript">
+    var value35 = ${item.death}
+        function MyAutoRun35() {
+            if (value35 == 1) {
+                document.getElementById("hidden-deathreason").hidden = false;
+            } else {
+                document.getElementById("hidden-deathreason").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun35();
 </script>
 
 <style type="text/css">
