@@ -1,5 +1,6 @@
 package com.stylefeng.guns.modular.system.model;
 
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -15,6 +16,7 @@ import java.io.Serializable;
  * @author stylefeng
  * @since 2019-03-05
  */
+@TableName("cteph")
 public class Cteph extends Model<Cteph> {
 
     private static final long serialVersionUID = 1L;
