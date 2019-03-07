@@ -203,6 +203,7 @@ public class Cteph extends Model<Cteph> {
     private Date modifiedtime;
     private Date ts;
     private Integer dr;
+    private Float svo2;
 
 
     public Integer getId() {
@@ -1816,5 +1817,13 @@ public class Cteph extends Model<Cteph> {
         ", ts=" + ts +
         ", dr=" + dr +
         "}";
+    }
+
+    public Float getSvo2() {
+        return svo2;
+    }
+
+    public void setSvo2(Float svo2) {
+        this.svo2 = svo2;
     }
 }
