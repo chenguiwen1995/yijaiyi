@@ -45,18 +45,18 @@ public class Cteph extends Model<Cteph> {
     private Integer vterelapse;
     private Integer malignanttumor;
     private String specifictumor;
-    private Date malignanttumordate;
+    private Integer malignanttumordate;
     private Integer splenectomy;
-    private Date splenectormydate;
+    private Integer splenectormydate;
     private Integer pacemaker;
-    private Date pacemakerdate;
+    private Integer pacemakerdate;
     private Integer atrialhistory;
-    private Date atrialhistorydate;
+    private Integer atrialhistorydate;
     private Integer levv;
-    private Date levvdate;
+    private Integer levvdate;
     private Integer ibd;
     private String ibddiagnosis;
-    private Date ibddate;
+    private Integer ibddate;
     private Integer connectivetissue;
     private Integer aas;
     private Integer la;
@@ -204,7 +204,6 @@ public class Cteph extends Model<Cteph> {
     private Date ts;
     private Integer dr;
     private Float svo2;
-
 
     public Integer getId() {
         return id;
@@ -366,11 +365,11 @@ public class Cteph extends Model<Cteph> {
         this.specifictumor = specifictumor;
     }
 
-    public Date getMalignanttumordate() {
+    public Integer getMalignanttumordate() {
         return malignanttumordate;
     }
 
-    public void setMalignanttumordate(Date malignanttumordate) {
+    public void setMalignanttumordate(Integer malignanttumordate) {
         this.malignanttumordate = malignanttumordate;
     }
 
@@ -382,11 +381,11 @@ public class Cteph extends Model<Cteph> {
         this.splenectomy = splenectomy;
     }
 
-    public Date getSplenectormydate() {
+    public Integer getSplenectormydate() {
         return splenectormydate;
     }
 
-    public void setSplenectormydate(Date splenectormydate) {
+    public void setSplenectormydate(Integer splenectormydate) {
         this.splenectormydate = splenectormydate;
     }
 
@@ -398,11 +397,11 @@ public class Cteph extends Model<Cteph> {
         this.pacemaker = pacemaker;
     }
 
-    public Date getPacemakerdate() {
+    public Integer getPacemakerdate() {
         return pacemakerdate;
     }
 
-    public void setPacemakerdate(Date pacemakerdate) {
+    public void setPacemakerdate(Integer pacemakerdate) {
         this.pacemakerdate = pacemakerdate;
     }
 
@@ -414,11 +413,11 @@ public class Cteph extends Model<Cteph> {
         this.atrialhistory = atrialhistory;
     }
 
-    public Date getAtrialhistorydate() {
+    public Integer getAtrialhistorydate() {
         return atrialhistorydate;
     }
 
-    public void setAtrialhistorydate(Date atrialhistorydate) {
+    public void setAtrialhistorydate(Integer atrialhistorydate) {
         this.atrialhistorydate = atrialhistorydate;
     }
 
@@ -430,11 +429,11 @@ public class Cteph extends Model<Cteph> {
         this.levv = levv;
     }
 
-    public Date getLevvdate() {
+    public Integer getLevvdate() {
         return levvdate;
     }
 
-    public void setLevvdate(Date levvdate) {
+    public void setLevvdate(Integer levvdate) {
         this.levvdate = levvdate;
     }
 
@@ -454,11 +453,11 @@ public class Cteph extends Model<Cteph> {
         this.ibddiagnosis = ibddiagnosis;
     }
 
-    public Date getIbddate() {
+    public Integer getIbddate() {
         return ibddate;
     }
 
-    public void setIbddate(Date ibddate) {
+    public void setIbddate(Integer ibddate) {
         this.ibddate = ibddate;
     }
 

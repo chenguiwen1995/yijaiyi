@@ -77,6 +77,7 @@ CtephInfoDlg.collectData = function() {
         .setByName('splenectomy')
         .setByName('pacemaker')
         .setByName('atrialhistory')
+        .set('pacemakerdate')
         .setByName('aas')
         .setByName('hps')
         .setByName('cdeficiency')
@@ -198,7 +199,7 @@ CtephInfoDlg.collectData = function() {
         //添加
         .set('specifictumor')
         .set('malignanttumordate')
-        .set('splenectomydate')
+        .set('splenectormydate')
         .setByName('atrialhistory')
         .set('atrialhistorydate')
         .set('levvdate')
