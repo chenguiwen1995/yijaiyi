@@ -235,20 +235,31 @@ Cteph.openAddCteph = function () {
  */
 Cteph.openCtephDetail = function () {
     if (this.check()) {
-        if (window.innerHeight)
-            var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
-        else if ((document.body) && (document.body.clientHeight))
-            var winHeight = document.body.clientHeight;
-        var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
-        var index = layer.open({
-            type: 2,
-            title: 'CTEPH调查表详情',
-            area: ['800px', layheight], //宽高
-            fix: false, //不固定
-            maxmin: true,
-            content: Feng.ctxPath + '/cteph/cteph_update/' + Cteph.seItem.id
+        var user = 0;
+        var ajax = new $ax(Feng.ctxPath + "/mgr/currentuserid", function (data) {
+            user = data;
         });
-        this.layerIndex = index;
+        ajax.start();
+        var selected = $('#' + this.id).bootstrapTable('getSelections');
+        Cteph.seItem = selected[0];
+        if (user != Cteph.seItem.fillingperson){
+            Feng.error("没有权限修改其他用户创建的数据！")
+        }else{
+            if (window.innerHeight)
+                var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
+            else if ((document.body) && (document.body.clientHeight))
+                var winHeight = document.body.clientHeight;
+            var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
+            var index = layer.open({
+                type: 2,
+                title: 'CTEPH调查表详情',
+                area: ['800px', layheight], //宽高
+                fix: false, //不固定
+                maxmin: true,
+                content: Feng.ctxPath + '/cteph/cteph_update/' + Cteph.seItem.id
+            });
+            this.layerIndex = index;
+        }
     }
 };
 

@@ -356,6 +356,15 @@ public class UserMgrController extends BaseController {
     /**
      * 判断当前登录的用户是否有操作这个用户的权限
      */
+    @RequestMapping(method = RequestMethod.POST, path = "/currentuserid")
+    @ResponseBody
+    public Integer getCurrentUserId(){
+        ShiroUser user = this.userService.getCurrentUser();
+        return user.getId();
+    }
+    /**
+     * 判断当前登录的用户是否有操作这个用户的权限
+     */
     private void assertAuth(Integer userId) {
         if (ShiroKit.isAdmin()) {
             return;
