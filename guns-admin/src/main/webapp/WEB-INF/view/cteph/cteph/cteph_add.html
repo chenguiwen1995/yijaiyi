@@ -167,7 +167,7 @@
                         </label>
                         <label id="hidden-otherthrombus" hidden="hidden" style="padding-left: 20px">
                             请具体：
-                            <input type="text" id="otherthrombus"/>3
+                            <input type="text" id="otherthrombus"/>
                         </label>
                     </div>
                 </div>
@@ -1284,16 +1284,16 @@
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">右心导管</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="rhc" value="1"
+                                <input onclick='hiddenElement("hidden-noreason2")' type="radio" name="rhc" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="rhc" value="0"
+                                <input onclick='displayElement("hidden-noreason2")' type="radio" name="rhc" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div id="hidden-noreason2" class="form-group" hidden="hidden">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-stop"
                                              style="font-weight: 600; padding-left: 20px;">未做原因</span></h3>
@@ -1313,7 +1313,7 @@
                                        value="3"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>其他原因
                             </label>
-                            <label id="hidden-otherreason" hidden="hidden">
+                            <label id="hidden-otherreason" hidden="hidden" style="padding-left: 40px;">
                                 请具体描述
                                 <input type="text" id="otherreason"/>
                             </label>

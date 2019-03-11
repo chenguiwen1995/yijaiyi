@@ -1297,16 +1297,16 @@
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">右心导管</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="rhc" value="1"
+                                <input onclick='hiddenElement("hidden-noreason2")' type="radio" name="rhc" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="rhc" value="0"
+                                <input onclick='displayElement("hidden-noreason2")' type="radio" name="rhc" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div id="hidden-noreason2" class="form-group" hidden="hidden">
                         <div style="word-spacing: 20px;">
                             <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 20px;">未做原因</span></h3>
                             </label>
@@ -1327,7 +1327,7 @@
                             </label>
                             <label id="hidden-otherreason" hidden="hidden">
                                 <form></form>
-                                <form class="form-inline" role="form">
+                                <form class="form-inline" role="form" style="padding-left: 40px;">
                                     请具体描述：
                                     <#input id="otherreason" name="" value="${item.otherreason}"/>
                                 </form>
@@ -3129,6 +3129,17 @@
             }
         }
     window.onload = MyAutoRun35();
+</script>
+<script type="text/javascript">
+    var value36 = ${item.rhc}
+        function MyAutoRun36() {
+            if (value36 == 1) {
+                document.getElementById("hidden-noreason2").hidden = true;
+            } else {
+                document.getElementById("hidden-noreason2").hidden = false;
+            }
+        }
+    window.onload = MyAutoRun36();
 </script>
 
 <style type="text/css">
