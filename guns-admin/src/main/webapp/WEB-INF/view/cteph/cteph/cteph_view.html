@@ -223,16 +223,16 @@
                         </h3>
                         </label>
                         <label class="radio-inline">
-                            <input onclick="displayElement('hidden-splenectomydate')" type="radio" disabled="disabled" name="splenectomy"
+                            <input onclick="displayElement('hidden-splenectormydate')" type="radio" disabled="disabled" name="splenectomy"
                                    value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-splenectomydate')" type="radio" disabled="disabled" name="splenectomy"
+                            <input onclick="hiddenElement('hidden-splenectormydate')" type="radio" disabled="disabled" name="splenectomy"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
-                        <label id="hidden-splenectomydate" hidden="hidden">
+                        <label id="hidden-splenectormydate" hidden="hidden">
                             <form></form>
                             <form class="form-inline" role="form">
                                 <span>脾切除手术时间(年)</span>
@@ -2568,9 +2568,9 @@
     var value3 = ${item.splenectomy}
         function MyAutoRun3() {
             if (value3 == 1) {
-                document.getElementById("hidden-splenectomydate").hidden = false;
+                document.getElementById("hidden-splenectormydate").hidden = false;
             } else {
-                document.getElementById("hidden-splenectomydate").hidden = true;
+                document.getElementById("hidden-splenectormydate").hidden = true;
             }
         }
     window.onload = MyAutoRun3();

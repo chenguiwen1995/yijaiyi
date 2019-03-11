@@ -251,18 +251,18 @@
                         </h3>
                         </label>
                         <label class="radio-inline">
-                            <input onclick="displayElement('hidden-splenectomydate')" type="radio" name="splenectomy"
+                            <input onclick="displayElement('hidden-splenectormydate')" type="radio" name="splenectomy"
                                    value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-splenectomydate')" type="radio" name="splenectomy"
+                            <input onclick="hiddenElement('hidden-splenectormydate')" type="radio" name="splenectomy"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
-                        <label id="hidden-splenectomydate" hidden="hidden">
+                        <label id="hidden-splenectormydate" hidden="hidden">
                             <span>脾切除手术时间(年)</span>
-                            <input id="splenectomydate" type="number"/>
+                            <input id="splenectormydate" type="number"/>
                         </label>
                     </div>
                 </div>
@@ -284,7 +284,7 @@
                         </label>
                         <label id="hidden-pacemakerdate" hidden="hidden">
                             <span>起搏器植入时间(年)</span>
-                            <input id="pacemakerdate" type="text"/>
+                            <input id="pacemakerdate" type="number"/>
                         </label>
                     </div>
                 </div>
@@ -296,7 +296,7 @@
                         </label>
                         <label class="radio-inline">
                             <input onclick="displayElement('hidden-atrialhistorydate')" type="radio"
-                                   nateme="atrialhistory" value="1"
+                                   name="atrialhistory" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
@@ -306,7 +306,7 @@
                         </label>
                         <label id="hidden-atrialhistorydate" hidden="hidden">
                             <span>手术时间(年)</span>
-                            <input id="atrialhistorydate" type="text"/>
+                            <input id="atrialhistorydate" type="number"/>
                         </label>
                     </div>
                 </div>
@@ -327,7 +327,7 @@
                         </label>
                         <label id="hidden-levvdate" hidden="hidden">
                             <span>诊断时间(年)</span>
-                            <input id="levvdate" type="text"/>
+                            <input id="levvdate" type="number"/>
                         </label>
                     </div>
                 </div>
@@ -356,7 +356,7 @@
                     </label>
                     <label>
                         诊断时间(年)：
-                        <input type="text" id="ibddate"/>
+                        <input id="ibddate" type="number"/>
                     </label>
                 </div>
 

@@ -214,7 +214,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <span>诊断时间(年)</span>
-                                <#input id="malignanttumordate" name="" value="${item.malignanttumordate}"/>
+                                <#input id="malignanttumordate" type="number" name="" value="${item.malignanttumordate}"/>
                             </form>
                         </label>
                     </div>
@@ -226,20 +226,20 @@
                         </h3>
                         </label>
                         <label class="radio-inline">
-                            <input onclick="displayElement('hidden-splenectomydate')" type="radio" name="splenectomy"
+                            <input onclick="displayElement('hidden-splenectormydate')" type="radio" name="splenectomy"
                                    value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-splenectomydate')" type="radio" name="splenectomy"
+                            <input onclick="hiddenElement('hidden-splenectormydate')" type="radio" name="splenectomy"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
-                        <label id="hidden-splenectomydate" hidden="hidden">
+                        <label id="hidden-splenectormydate" hidden="hidden">
                             <form></form>
                             <form class="form-inline" role="form">
                                 <span>脾切除手术时间(年)</span>
-                                <#input id="splenectormydate" name="" value="${item.splenectormydate}"/>
+                                <#input id="splenectormydate" type="number" name="" value="${item.splenectormydate}"/>
                             </form>
                         </label>
                     </div>
@@ -264,7 +264,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <span>起搏器植入时间(年)</span>
-                                <#input id="pacemakerdate" name="" value="${item.pacemakerdate}"/>
+                                <#input id="pacemakerdate" type="number" name="" value="${item.pacemakerdate}"/>
                             </form>
                         </label>
                     </div>
@@ -289,7 +289,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <span>手术时间(年)</span>
-                                <#input id="atrialhistorydate" name="" value="${item.atrialhistorydate}"/>
+                                <#input id="atrialhistorydate" type="number" name="" value="${item.atrialhistorydate}"/>
                             </form>
                         </label>
                     </div>
@@ -312,7 +312,7 @@
                             <form></form>
                             <form class="form-inline" role="form">
                                 <span>诊断时间(年)</span>
-                                <#input id="levvdate" name="" value="${item.levvdate}"/>
+                                <#input id="levvdate" type="number" name="" value="${item.levvdate}"/>
                             </form>
                         </label>
                     </div>
@@ -345,7 +345,7 @@
                         <form></form>
                         <form class="form-inline" role="form">
                             <span style="padding-left: 40px; padding-right: 20px;">诊断时间(年)</span>
-                            <#input id="ibddate" name="" value="${item.ibddate}"/>
+                            <#input id="ibddate" type="number" name="" value="${item.ibddate}"/>
                         </form>
                     </label>
                 </div>
@@ -2761,9 +2761,9 @@
     var value3 = ${item.splenectomy}
         function MyAutoRun3() {
             if (value3 == 1) {
-                document.getElementById("hidden-splenectomydate").hidden = false;
+                document.getElementById("hidden-splenectormydate").hidden = false;
             } else {
-                document.getElementById("hidden-splenectomydate").hidden = true;
+                document.getElementById("hidden-splenectormydate").hidden = true;
             }
         }
     window.onload = MyAutoRun3();
