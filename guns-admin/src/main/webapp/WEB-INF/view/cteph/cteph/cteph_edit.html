@@ -1329,7 +1329,7 @@
                                 <form></form>
                                 <form class="form-inline" role="form" style="padding-left: 40px;">
                                     请具体描述：
-                                    <#input id="otherreason" name="" value="${item.otherreason}"/>
+                                    <input id="otherreason" name="" value="${item.otherreason}"/>
                                 </form>
                             </label>
                         </div>
@@ -2791,7 +2791,7 @@
     window.onload = MyAutoRun5();
 </script>
 <script type="text/javascript">
-    var value6 = ${item.atrialhistory}
+    var value6 = ${item.levv}
         function MyAutoRun6() {
             if (value6 == 1) {
                 document.getElementById("hidden-levvdate").hidden = false;
@@ -2802,7 +2802,7 @@
     window.onload = MyAutoRun6();
 </script>
 <script type="text/javascript">
-    var value7 = ${item.atrialhistory}
+    var value7 = ${item.ibd}
         function MyAutoRun7() {
             if (value7 == 1) {
                 document.getElementById("hidden-ibd").hidden = false;
@@ -2813,7 +2813,7 @@
     window.onload = MyAutoRun7();
 </script>
 <script type="text/javascript">
-    var value8 = ${item.atrialhistory}
+    var value8 = ${item.connectivetissue}
         function MyAutoRun8() {
             if (value8 == 1) {
                 document.getElementById("hidden-connectivetissue").hidden = false;
@@ -2857,7 +2857,7 @@
     window.onload = MyAutoRun11();
 </script>
 <script type="text/javascript">
-    var value12 = ${item.hps}
+    var value12 = ${item.threeitems}
         function MyAutoRun12() {
             if (value12 == 1) {
                 document.getElementById("hidden-threeitems").hidden = false;
@@ -3140,6 +3140,17 @@
             }
         }
     window.onload = MyAutoRun36();
+</script>
+<script type="text/javascript">
+    var value37 = ${item.noreason2}
+        function MyAutoRun37() {
+            if (value37 == 3) {
+                document.getElementById("hidden-otherreason").hidden = false;
+            } else {
+                document.getElementById("hidden-otherreason").hidden = true;
+            }
+        }
+    window.onload = MyAutoRun37();
 </script>
 
 <style type="text/css">
