@@ -292,19 +292,28 @@ Cteph.viewCtephDetail = function () {
  */
 Cteph.delete = function () {
     if (this.check()) {
-
-        var operation = function () {
-            var ajax = new $ax(Feng.ctxPath + "/cteph/delete", function (data) {
-                Feng.success("删除成功!");
-                Cteph.table.refresh();
-            }, function (data) {
-                Feng.error("删除失败!" + data.responseJSON.message + "!");
-            });
-            ajax.set("ctephId", Cteph.seItem.id);     //将this.seItem.id改为Cteph.seItem.id
-            ajax.start();
-        };
-
-        Feng.confirm("是否刪除该CTEPH调查表?", operation);
+        var user = 0;
+        var ajax = new $ax(Feng.ctxPath + "/mgr/currentuserid", function (data) {
+            user = data;
+        });
+        ajax.start();
+        var selected = $('#' + this.id).bootstrapTable('getSelections');
+        Cteph.seItem = selected[0];
+        if (user != Cteph.seItem.fillingperson) {
+            Feng.error("没有权限删除其他用户创建的数据！")
+        } else {
+            var operation = function () {
+                var ajax = new $ax(Feng.ctxPath + "/cteph/delete", function (data) {
+                    Feng.success("删除成功!");
+                    Cteph.table.refresh();
+                }, function (data) {
+                    Feng.error("删除失败!" + data.responseJSON.message + "!");
+                });
+                ajax.set("ctephId", Cteph.seItem.id);     //将this.seItem.id改为Cteph.seItem.id
+                ajax.start();
+            };
+            Feng.confirm("是否刪除该CTEPH调查表?", operation);
+        }
     }
 };
 
