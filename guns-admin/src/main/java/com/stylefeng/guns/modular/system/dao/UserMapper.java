@@ -42,4 +42,9 @@ public interface UserMapper extends BaseMapper<User> {
      * 通过账号获取用户
      */
     User getByAccount(@Param("account") String account);
+
+    /**
+     * 获取上级用户
+     * */
+    User getUpUser(@Param("userId") Integer upId);
 }

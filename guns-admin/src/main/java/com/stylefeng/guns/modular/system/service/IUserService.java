@@ -49,4 +49,9 @@ public interface IUserService extends IService<User> {
      * 获取当前用户名
      * */
     ShiroUser getCurrentUser();
+
+    /**
+     * 获取上级用户
+     * */
+    User getUpUser(@Param("userId") Integer upId);
 }

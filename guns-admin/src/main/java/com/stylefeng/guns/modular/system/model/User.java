@@ -82,7 +82,10 @@ public class User extends Model<User> {
      * 保留字段
      */
 	private Integer version;
-
+	/**
+	 * 上级用户
+	 * */
+	private Integer upUserId;
 
 	public Integer getId() {
 		return id;
@@ -204,6 +207,13 @@ public class User extends Model<User> {
 		this.version = version;
 	}
 
+	public Integer getUpUserId() {
+		return upUserId;
+	}
+
+	public void setUpUserId(Integer upUserId) {
+		this.upUserId = upUserId;
+	}
 	@Override
 	protected Serializable pkVal() {
 		return this.id;
@@ -227,6 +237,7 @@ public class User extends Model<User> {
 			", status=" + status +
 			", createtime=" + createtime +
 			", version=" + version +
+			", upUserId=" + upUserId +
 			"}";
 	}
 }

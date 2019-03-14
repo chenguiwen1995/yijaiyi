@@ -61,4 +61,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return principal;
     }
 
+    @Override
+    public User getUpUser(Integer upId) {
+        return this.baseMapper.getUpUser(upId);
+    }
+
 }
