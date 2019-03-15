@@ -14,6 +14,7 @@ import com.stylefeng.guns.core.datascope.DataScope;
 import com.stylefeng.guns.core.db.Db;
 import com.stylefeng.guns.core.exception.GunsException;
 import com.stylefeng.guns.core.log.LogObjectHolder;
+import com.stylefeng.guns.core.node.ZTreeNode;
 import com.stylefeng.guns.core.shiro.ShiroKit;
 import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.core.util.ToolUtil;
@@ -379,4 +380,17 @@ public class UserMgrController extends BaseController {
         }
 
     }
+
+    /**
+     * 获取部门的tree列表
+     */
+    @RequestMapping(value = "/tree")
+    @ResponseBody
+    public List<ZTreeNode> tree() {
+        List<ZTreeNode> tree = this.userService.tree();
+        tree.add(ZTreeNode.createParent());
+        return tree;
+    }
+
+
 }

@@ -81,4 +81,16 @@
 		from sys_user where id = #{upId} and status != 3
 	</select>
 
+	<select id="tree" resultType="com.stylefeng.guns.core.node.ZTreeNode">
+		select id,upUserId,name as name,
+		(
+		CASE
+		WHEN (upUserId = 0 OR upUserId IS NULL) THEN
+		'true'
+		ELSE
+		'false'
+		END
+		) as isOpen from sys_user
+	</select>
+
 </mapper>

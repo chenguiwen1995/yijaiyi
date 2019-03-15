@@ -6,6 +6,7 @@ var MgrUser = {
     seItem: null,		//选中的条目
     table: null,
     layerIndex: -1,
+    userid: 0,
     deptid:0
 };
 
@@ -23,6 +24,7 @@ MgrUser.initColumn = function () {
         {title: '部门', field: 'deptName', align: 'center', valign: 'middle', sortable: true},
         {title: '邮箱', field: 'email', align: 'center', valign: 'middle', sortable: true},
         {title: '电话', field: 'phone', align: 'center', valign: 'middle', sortable: true},
+        {title: '上级', field: 'upUserName', align: 'center', valign: 'middle', sortable: true},
         {title: '创建时间', field: 'createtime', align: 'center', valign: 'middle', sortable: true},
         {title: '状态', field: 'statusName', align: 'center', valign: 'middle', sortable: true}];
     return columns;
@@ -178,22 +180,34 @@ MgrUser.resetSearch = function () {
     $("#endTime").val("");
 
     MgrUser.search();
-}
+};
 
-MgrUser.search = function () {
+MgrUser.searchDept = function () {
     var queryData = {};
-
     queryData['deptid'] = MgrUser.deptid;
     queryData['name'] = $("#name").val();
     queryData['beginTime'] = $("#beginTime").val();
     queryData['endTime'] = $("#endTime").val();
-
     MgrUser.table.refresh({query: queryData});
-}
+};
+
+MgrUser.searchUpUser = function () {
+    var queryData = {};
+    queryData['userid'] = MgrUser.userid;
+    queryData['name'] = $("#name").val();
+    queryData['beginTime'] = $("#beginTime").val();
+    queryData['endTime'] = $("#endTime").val();
+    MgrUser.table.refresh({query: queryData});
+};
 
 MgrUser.onClickDept = function (e, treeId, treeNode) {
     MgrUser.deptid = treeNode.id;
-    MgrUser.search();
+    MgrUser.searchDept();
+};
+
+MgrUser.onClickUpUser = function (e, treeId, treeNode) {
+    MgrUser.userid = treeNode.id;
+    MgrUser.searchUpUser();
 };
 
 $(function () {
@@ -202,6 +216,9 @@ $(function () {
     table.setPaginationType("client");
     MgrUser.table = table.init();
     var ztree = new $ZTree("deptTree", "/dept/tree");
+    var upUserTree = new $ZTree("upUserTree", "/mgr/tree");
     ztree.bindOnClick(MgrUser.onClickDept);
     ztree.init();
+    upUserTree.bindOnClick(MgrUser.onClickUpUser);
+    upUserTree.init();
 });
