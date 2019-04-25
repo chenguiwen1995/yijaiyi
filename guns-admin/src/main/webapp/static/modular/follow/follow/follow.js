@@ -235,4 +235,5 @@ $(function () {
     var table = new BSTable(Follow.id, "/follow/list", defaultColunms);
     table.setPaginationType("client");
     Follow.table = table.init();
+    
 });
