@@ -174,21 +174,6 @@ Follow.openFollowDetail = function () {
         this.layerIndex = index;
     }
 };
-
-
-// Follow.delete = function () {
-//
-//     if (this.check()) {
-//         var ajax = new $ax(Feng.ctxPath + "/follow/delete", function (data) {
-//             Feng.success("删除成功!");
-//             Follow.table.refresh();
-//         }, function (data) {
-//             Feng.error("删除失败!" + data.responseJSON.message + "!");
-//         });
-//         ajax.set("followId",this.seItem.id);
-//         ajax.start();
-//     }
-// };
 /**
  * 删除follow
  */
@@ -220,6 +205,19 @@ Follow.delete = function () {
     }
 };
 
+// Follow.delete = function () {
+//
+//     if (this.check()) {
+//         var ajax = new $ax(Feng.ctxPath + "/follow/delete", function (data) {
+//             Feng.success("删除成功!");
+//             Follow.table.refresh();
+//         }, function (data) {
+//             Feng.error("删除失败!" + data.responseJSON.message + "!");
+//         });
+//         ajax.set("followId",this.seItem.id);
+//         ajax.start();
+//     }
+// };
 
 /**
  * 查询follow列表
