@@ -28,6 +28,7 @@ public class UserDto{
 	private Integer status;
 	private Date createtime;
 	private Integer version;
+	private Integer upUserId;
 	private String avatar;
 
 
@@ -143,6 +144,14 @@ public class UserDto{
 		this.version = version;
 	}
 
+	public Integer getUpUserId() {
+		return upUserId;
+	}
+
+	public void setUpUserId(Integer upUserId) {
+		this.upUserId = upUserId;
+	}
+
 	public String getAvatar() {
 		return avatar;
 	}
@@ -150,4 +159,5 @@ public class UserDto{
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+
 }

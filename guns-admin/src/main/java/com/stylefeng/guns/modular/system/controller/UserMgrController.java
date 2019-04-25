@@ -14,6 +14,7 @@ import com.stylefeng.guns.core.datascope.DataScope;
 import com.stylefeng.guns.core.db.Db;
 import com.stylefeng.guns.core.exception.GunsException;
 import com.stylefeng.guns.core.log.LogObjectHolder;
+import com.stylefeng.guns.core.node.ZTreeNode;
 import com.stylefeng.guns.core.shiro.ShiroKit;
 import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.core.util.ToolUtil;
@@ -356,6 +357,15 @@ public class UserMgrController extends BaseController {
     /**
      * 判断当前登录的用户是否有操作这个用户的权限
      */
+    @RequestMapping(method = RequestMethod.POST, path = "/currentuserid")
+    @ResponseBody
+    public Integer getCurrentUserId(){
+        ShiroUser user = this.userService.getCurrentUser();
+        return user.getId();
+    }
+    /**
+     * 判断当前登录的用户是否有操作这个用户的权限
+     */
     private void assertAuth(Integer userId) {
         if (ShiroKit.isAdmin()) {
             return;
@@ -370,4 +380,17 @@ public class UserMgrController extends BaseController {
         }
 
     }
+
+    /**
+     * 获取部门的tree列表
+     */
+    @RequestMapping(value = "/tree")
+    @ResponseBody
+    public List<ZTreeNode> tree() {
+        List<ZTreeNode> tree = this.userService.tree();
+        tree.add(ZTreeNode.createParent());
+        return tree;
+    }
+
+
 }

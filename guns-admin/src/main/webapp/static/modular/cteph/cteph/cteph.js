@@ -26,7 +26,14 @@ Cteph.initColumn = function () {
         {title: '体重(kg)', field: 'weight', visible: true, align: 'center', valign: 'middle', sortable: true},
         {title: '首发症状时间', field: 'firsttime', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '特殊临床症状体征', field: 'specialsigns', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '既往静脉血栓栓塞症（VTE）病史', field: 'vtehistory', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: '既往静脉血栓栓塞症（VTE）病史',
+            field: 'vtehistory',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: '急性肺栓塞', field: 'ape', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '下肢深静脉血栓', field: 'ledvt', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '其他部位深静脉血栓', field: 'otherthrombus', visible: false, align: 'center', valign: 'middle', sortable: true},
@@ -36,7 +43,14 @@ Cteph.initColumn = function () {
         {title: '具体肿瘤诊断', field: 'specifictumor', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '诊断时间', field: 'malignanttumordate', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '脾切除', field: 'splenectomy', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '脾切除手术时间', field: 'splenectormydate', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: '脾切除手术时间',
+            field: 'splenectormydate',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: '起搏器植入', field: 'pacemaker', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '起搏器植入时间', field: 'pacemakerdate', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '脑室心房分流手术', field: 'atrialhistory', visible: false, align: 'center', valign: 'middle', sortable: true},
@@ -73,11 +87,32 @@ Cteph.initColumn = function () {
         {title: '具体危险因素', field: 'otherrisk', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '高血压', field: 'hypertension', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '冠心病', field: 'coronaryheart', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '冠心病是否已行血运重建', field: 'revascularization', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: '冠心病是否已行血运重建',
+            field: 'revascularization',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: '糖尿病', field: 'diabetes', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '左心衰竭', field: 'lhfailure', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '左心衰竭具体', field: 'lhfailurespecific', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '慢性肾功能不全', field: 'renalinsufficiency', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: '左心衰竭具体',
+            field: 'lhfailurespecific',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
+        {
+            title: '慢性肾功能不全',
+            field: 'renalinsufficiency',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: '脑梗塞', field: 'cerebralinfarction', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '慢性阻塞性肺疾病', field: 'copd', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '先天性心脏病', field: 'congenitalheart', visible: false, align: 'center', valign: 'middle', sortable: true},
@@ -89,8 +124,22 @@ Cteph.initColumn = function () {
         {title: '嗜酸粒细胞增多增多症', field: 'eosinophilia', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '血小板减低', field: 'plateletlower', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '血小板增多', field: 'plateletup', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '其他重要合并疾病', field: 'othercomplications', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '具体疾病', field: 'othercomplicationss', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: '其他重要合并疾病',
+            field: 'othercomplications',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
+        {
+            title: '具体疾病',
+            field: 'othercomplicationss',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: '确诊CTEPH时心功能分级', field: 'cteph', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '6MWD是否进行', field: 'sixmwd', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '未进行原因', field: 'noreason1', visible: false, align: 'center', valign: 'middle', sortable: true},
@@ -118,19 +167,54 @@ Cteph.initColumn = function () {
         {title: '首次导管时间', field: 'firstcatheter', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'HR, bpm', field: 'hr', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'BP收缩(mm Hg)', field: 'bpshrink', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: 'BP舒张(mm Hg)', field: 'bprelaxation', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: 'BP舒张(mm Hg)',
+            field: 'bprelaxation',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: 'BP平均(mm Hg)', field: 'bpave', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'RAP', field: 'rap', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'RAP收缩(mm Hg)', field: 'rapshrink', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: 'RAP舒张(mm Hg)', field: 'raprelaxation1', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: 'RAP舒张(mm Hg)',
+            field: 'raprelaxation1',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: 'RAP平均(mm Hg)', field: 'rapave', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'PAP', field: 'pap', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'PAP收缩(mm Hg)', field: 'papshrink', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: 'PAP舒张(mm Hg)', field: 'raprelaxation2', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: 'PAP舒张(mm Hg)',
+            field: 'raprelaxation2',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: 'PAP平均(mm Hg)', field: 'papave', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'PAWP', field: 'pawp', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: 'PAWP收缩(mm Hg)', field: 'pawpshrink', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: 'PAWP舒张(mm Hg)', field: 'pawprelaxation', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: 'PAWP收缩(mm Hg)',
+            field: 'pawpshrink',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
+        {
+            title: 'PAWP舒张(mm Hg)',
+            field: 'pawprelaxation',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: 'PAWP平均(mm Hg)', field: 'pawpave', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'CO (Qp), L/min', field: 'co', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'CO测定方法', field: 'comethod', visible: false, align: 'center', valign: 'middle', sortable: true},
@@ -139,13 +223,34 @@ Cteph.initColumn = function () {
         {title: 'SvO2 (肺动脉氧饱和度), %', field: 'svo2', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '左室舒张末内径LVEDD (mm)', field: 'lvedd', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '左室射血分数LVEF (%)', field: 'lvef', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '超声估测肺动脉收缩压PASP(mm Hg)', field: 'pasp', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: '三尖瓣环收缩期位移 TAPSE（mm）', field: 'tapse', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: '超声估测肺动脉收缩压PASP(mm Hg)',
+            field: 'pasp',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
+        {
+            title: '三尖瓣环收缩期位移 TAPSE（mm）',
+            field: 'tapse',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: '心包积液', field: 'pe', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: '血型', field: 'bloodgroup', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'D-二聚体(μg/mL)', field: 'ddimer', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'NT-proBNP', field: 'nt', visible: false, align: 'center', valign: 'middle', sortable: true},
-        {title: 'NT-proBNP pg/ml', field: 'ntnumber', visible: false, align: 'center', valign: 'middle', sortable: true},
+        {
+            title: 'NT-proBNP pg/ml',
+            field: 'ntnumber',
+            visible: false,
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },
         {title: 'AST（IU/ml）', field: 'ast', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'ALT（IU/ml）', field: 'alt', visible: false, align: 'center', valign: 'middle', sortable: true},
         {title: 'Tbil（μmol/L）', field: 'tbil', visible: false, align: 'center', valign: 'middle', sortable: true},
@@ -201,10 +306,10 @@ Cteph.initColumn = function () {
  */
 Cteph.check = function () {
     var selected = $('#' + this.id).bootstrapTable('getSelections');
-    if(selected.length == 0){
+    if (selected.length == 0) {
         Feng.info("请先选中表格中的某一记录！");
         return false;
-    }else{
+    } else {
         Cteph.seItem = selected[0];
         return true;
     }
@@ -235,20 +340,31 @@ Cteph.openAddCteph = function () {
  */
 Cteph.openCtephDetail = function () {
     if (this.check()) {
-        if (window.innerHeight)
-            var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
-        else if ((document.body) && (document.body.clientHeight))
-            var winHeight = document.body.clientHeight;
-        var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
-        var index = layer.open({
-            type: 2,
-            title: 'CTEPH调查表详情',
-            area: ['800px', layheight], //宽高
-            fix: false, //不固定
-            maxmin: true,
-            content: Feng.ctxPath + '/cteph/cteph_update/' + Cteph.seItem.id
+        var user = 0;
+        var ajax = new $ax(Feng.ctxPath + "/mgr/currentuserid", function (data) {
+            user = data;
         });
-        this.layerIndex = index;
+        ajax.start();
+        var selected = $('#' + this.id).bootstrapTable('getSelections');
+        Cteph.seItem = selected[0];
+        if (user != Cteph.seItem.fillingperson) {
+            Feng.error("没有权限修改其他用户创建的数据！")
+        } else {
+            if (window.innerHeight)
+                var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
+            else if ((document.body) && (document.body.clientHeight))
+                var winHeight = document.body.clientHeight;
+            var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
+            var index = layer.open({
+                type: 2,
+                title: 'CTEPH调查表详情',
+                area: ['800px', layheight], //宽高
+                fix: false, //不固定
+                maxmin: true,
+                content: Feng.ctxPath + '/cteph/cteph_update/' + Cteph.seItem.id
+            });
+            this.layerIndex = index;
+        }
     }
 };
 
@@ -279,24 +395,48 @@ Cteph.viewCtephDetail = function () {
 /**
  * 删除CTEPH调查表
  */
+// Cteph.delete = function () {
+//     if (this.check()) {
+//         var operation = function () {
+//             var ajax = new $ax(Feng.ctxPath + "/cteph/delete", function (data) {
+//                 Feng.success("删除成功!");
+//                 Cteph.table.refresh();
+//             }, function (data) {
+//                 Feng.error("删除失败!" + data.responseJSON.message + "!");
+//             });
+//             ajax.set("ctephId", Cteph.seItem.id);     //将this.seItem.id改为Cteph.seItem.id
+//             ajax.start();
+//         };
+//
+//         Feng.confirm("是否刪除该CTEPH调查表?", operation);
+//     }
+// };
 Cteph.delete = function () {
     if (this.check()) {
-
-        var operation = function () {
-            var ajax = new $ax(Feng.ctxPath + "/cteph/delete", function (data) {
-                Feng.success("删除成功!");
-                Cteph.table.refresh();
-            }, function (data) {
-                Feng.error("删除失败!" + data.responseJSON.message + "!");
-            });
-            ajax.set("ctephId", Cteph.seItem.id);     //将this.seItem.id改为Cteph.seItem.id
-            ajax.start();
-        };
-
-        Feng.confirm("是否刪除该CTEPH调查表?", operation);
+        var user = 0;
+        var ajax = new $ax(Feng.ctxPath + "/mgr/currentuserid", function (data) {
+            user = data;
+        });
+        ajax.start();
+        var selected = $('#' + this.id).bootstrapTable('getSelections');
+        Cteph.seItem = selected[0];
+        if (user != Cteph.seItem.fillingperson) {
+            Feng.error("没有权限删除其他用户创建的数据！")
+        } else {
+            var operation = function () {
+                var ajax = new $ax(Feng.ctxPath + "/cteph/delete", function (data) {
+                    Feng.success("删除成功!");
+                    Cteph.table.refresh();
+                }, function (data) {
+                    Feng.error("删除失败!" + data.responseJSON.message + "!");
+                });
+                ajax.set("ctephId", Cteph.seItem.id);     //将this.seItem.id改为Cteph.seItem.id
+                ajax.start();
+            };
+            Feng.confirm("是否刪除该CTEPH调查表?", operation);
+          }
     }
 };
-
 /**
  * 查询CTEPH调查表列表
  */

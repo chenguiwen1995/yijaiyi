@@ -2,6 +2,7 @@ package com.stylefeng.guns.modular.system.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.stylefeng.guns.core.datascope.DataScope;
+import com.stylefeng.guns.core.node.ZTreeNode;
 import com.stylefeng.guns.modular.system.model.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -42,4 +43,14 @@ public interface UserMapper extends BaseMapper<User> {
      * 通过账号获取用户
      */
     User getByAccount(@Param("account") String account);
+
+    /**
+     * 获取上级用户
+     * */
+    User getUpUser(@Param("userId") Integer upId);
+
+    /**
+     * 获取ztree的节点列表
+     */
+    List<ZTreeNode> tree();
 }

@@ -2,6 +2,7 @@ package com.stylefeng.guns.modular.system.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.stylefeng.guns.core.datascope.DataScope;
+import com.stylefeng.guns.core.node.ZTreeNode;
 import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.modular.system.dao.UserMapper;
 import com.stylefeng.guns.modular.system.model.User;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
@@ -29,9 +31,12 @@ import java.util.Map;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
+    @Resource
+    private UserMapper userMapper;
+
     @Override
     public int setStatus(Integer userId, int status) {
-        return this.baseMapper.setStatus(userId, status);
+        return this.userMapper.setStatus(userId, status);
     }
 
     @Override
@@ -60,5 +65,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         ShiroUser principal = (ShiroUser) subject.getPrincipal();
         return principal;
     }
+
+    @Override
+    public User getUpUser(Integer upId) {
+        return this.userMapper.getUpUser(upId);
+    }
+
+    public List<ZTreeNode> tree(){
+        List<ZTreeNode> zTreeNodereturnList = this.userMapper.tree();
+        return zTreeNodereturnList;
+    };
 
 }

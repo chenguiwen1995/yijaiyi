@@ -263,7 +263,6 @@ CtephInfoDlg.addSubmit = function() {
         // "fillingperson":"填表人",
         "patientName" : "患者姓名",
         "patientSex":"患者性别",
-      //  "patientAge":"患者年龄",
         "birthday":"患者出生日期",
         "height":"患者身高",
         "weight":"患者体重"

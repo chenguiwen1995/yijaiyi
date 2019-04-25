@@ -364,6 +364,7 @@ CREATE TABLE `sys_user` (
   `status` int(11) DEFAULT NULL COMMENT '状态(1：启用  2：冻结  3：删除）',
   `createtime` datetime DEFAULT NULL COMMENT '创建时间',
   `version` int(11) DEFAULT NULL COMMENT '保留字段',
+  `upUserId` int(11) DEFAULT NULL COMMENT '上级用户',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COMMENT='管理员表';
 

@@ -18,9 +18,12 @@
 
 					<#input id="roleid" name="角色" underline="true" disabled="disabled"/>
 
-					<#input id="email" name="邮箱" type="email"/>
+					<#input id="email" name="邮箱" underline="true" type="email"/>
 
-				</div>
+					<#input id="upUserName" name="上级" readonly="readonly" hidden="upUserId"
+					clickFun="UserInfoDlg.showUserSelectTree(); return false;"
+					style="background-color: #ffffff !important;"/>
+			</div>
 				<div class="col-sm-6">
 					<div id="driverInfoContent">
 						<#input id="name" name="姓名" underline="true"/>
@@ -38,13 +41,19 @@
 				</div>
 			</div>
 
-			<!-- 这是部门选择的下拉框 -->
-			<div id="menuContent" class="menuContent"
-				 style="display: none; position: absolute; z-index: 200;">
-				<ul id="treeDemo" class="ztree tree-box" style="width: 249px !important;"></ul>
-			</div>
+		<!-- 这是部门选择的下拉框 -->
+		<div id="menuContent" class="menuContent"
+			 style="display: none; position: absolute; z-index: 200;">
+			<ul id="treeDemo" class="ztree tree-box" style="width: 249px !important;"></ul>
+		</div>
 
-			<div class="row btn-group-m-t">
+		<!-- 这是上级用户选择的下拉框 -->
+		<div id="upUserContent" class="menuContent"
+			 style="display: none; position: absolute; z-index: 200;">
+			<ul id="userTreeDemo" class="ztree tree-box" style="width: 249px !important;"></ul>
+		</div>
+
+		<div class="row btn-group-m-t">
 				<div class="col-sm-10">
 					<#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="UserInfoDlg.addSubmit()"/>
 					<#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="UserInfoDlg.close()"/>

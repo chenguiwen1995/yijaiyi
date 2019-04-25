@@ -124,6 +124,19 @@ UserInfoDlg.onClickDept = function (e, treeId, treeNode) {
 };
 
 /**
+ * 点击上级用户input框时
+ *
+ * @param e
+ * @param treeId
+ * @param treeNode
+ * @returns
+ */
+UserInfoDlg.onClickUpUser = function (e, treeId, treeNode) {
+    $("#upUserName").attr("value", instance.getSelectedVal());
+    $("#upUserId").attr("value", treeNode.id);
+};
+
+/**
  * 显示部门选择的树
  *
  * @returns
@@ -137,6 +150,22 @@ UserInfoDlg.showDeptSelectTree = function () {
     }).slideDown("fast");
 
     $("body").bind("mousedown", onBodyDown);
+};
+
+/**
+ * 显示用户选择的树
+ *
+ * @returns
+ */
+UserInfoDlg.showUserSelectTree = function () {
+    var upUserObj = $("#upUserName");
+    var upUserOffset = $("#upUserName").offset();
+    $("#upUserContent").css({
+        left: upUserOffset.left + "px",
+        top: upUserOffset.top + upUserObj.outerHeight() + "px"
+    }).slideDown("fast");
+
+    $("body").bind("mousedown", onUserBodyDown);
 };
 
 /**
@@ -161,6 +190,14 @@ UserInfoDlg.showInfoDeptSelectTree = function () {
 UserInfoDlg.hideDeptSelectTree = function () {
     $("#menuContent").fadeOut("fast");
     $("body").unbind("mousedown", onBodyDown);// mousedown当鼠标按下就可以触发，不用弹起
+};
+
+/**
+ * 隐藏用户选择的树
+ */
+UserInfoDlg.hideUserSelectTree = function () {
+    $("#upUserContent").fadeOut("fast");
+    $("body").unbind("mousedown", onUserBodyDown);// mousedown当鼠标按下就可以触发，不用弹起
 };
 
 /**
@@ -268,6 +305,12 @@ function onBodyDown(event) {
     if (!(event.target.id == "menuBtn" || event.target.id == "menuContent" || $(
             event.target).parents("#menuContent").length > 0)) {
         UserInfoDlg.hideDeptSelectTree();
+    }
+}
+function onUserBodyDown(event) {
+    if (!(event.target.id == "menuBtn" || event.target.id == "upUserContent" || $(
+            event.target).parents("#upUserContent").length > 0)) {
+        UserInfoDlg.hideUserSelectTree();
     }
 }
 

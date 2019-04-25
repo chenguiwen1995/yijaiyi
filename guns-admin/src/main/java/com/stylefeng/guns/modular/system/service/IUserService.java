@@ -2,6 +2,7 @@ package com.stylefeng.guns.modular.system.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.stylefeng.guns.core.datascope.DataScope;
+import com.stylefeng.guns.core.node.ZTreeNode;
 import com.stylefeng.guns.core.shiro.ShiroUser;
 import com.stylefeng.guns.modular.system.model.User;
 import org.apache.ibatis.annotations.Param;
@@ -49,4 +50,16 @@ public interface IUserService extends IService<User> {
      * 获取当前用户名
      * */
     ShiroUser getCurrentUser();
+
+    /**
+     * 获取上级用户
+     * */
+    User getUpUser(@Param("userId") Integer upId);
+
+
+    /**
+     * 获取ztree的节点列表
+     */
+    List<ZTreeNode> tree();
+
 }

@@ -142,19 +142,19 @@ public class FollowHController extends BaseController {
         FlFollowMedicine flFollowMedicine = flFollowMedicineService.selectById(followId);
         FlFollowResult flFollowResult = flFollowResultService.selectById(followId);
         Follow follow = new Follow();
-        follow.setFollowH(followH);
-        if (null != followFeaturesList && 0 != followFeaturesList.size()){
-            follow.setFollowFeatures(followFeaturesList.get(0));
-        }
-        if (null != flFollowEvent ){
-            follow.setFlFollowEvent(flFollowEvent);
-        }
-        if (null != flFollowMedicine ){
-            follow.setFlFollowMedicine(flFollowMedicine);
-        }
-        if (null != flFollowResult ){
-            follow.setFlFollowResult(flFollowResult);
-        }
+//        follow.setFollowH(followH);
+//        if (null != followFeaturesList && 0 != followFeaturesList.size()){
+//            follow.setFollowFeatures(followFeaturesList.get(0));
+//        }
+//        if (null != flFollowEvent ){
+//            follow.setFlFollowEvent(flFollowEvent);
+//        }
+//        if (null != flFollowMedicine ){
+//            follow.setFlFollowMedicine(flFollowMedicine);
+//        }
+//        if (null != flFollowResult ){
+//            follow.setFlFollowResult(flFollowResult);
+//        }
         model.addAttribute("item",follow);
         LogObjectHolder.me().set(follow);
         return PREFIX + "followH_view.html";
@@ -172,19 +172,19 @@ public class FollowHController extends BaseController {
         FlFollowMedicine flFollowMedicine = flFollowMedicineService.selectById(followId);
         FlFollowResult flFollowResult = flFollowResultService.selectById(followId);
         Follow follow = new Follow();
-        follow.setFollowH(followH);
-        if (null != followFeaturesList && 0 != followFeaturesList.size()){
-            follow.setFollowFeatures(followFeaturesList.get(0));
-        }
-        if (null != flFollowEvent ){
-            follow.setFlFollowEvent(flFollowEvent);
-        }
-        if (null != flFollowMedicine ){
-            follow.setFlFollowMedicine(flFollowMedicine);
-        }
-        if (null != flFollowResult ){
-            follow.setFlFollowResult(flFollowResult);
-        }
+//        follow.setFollowH(followH);
+//        if (null != followFeaturesList && 0 != followFeaturesList.size()){
+//            follow.setFollowFeatures(followFeaturesList.get(0));
+//        }
+//        if (null != flFollowEvent ){
+//            follow.setFlFollowEvent(flFollowEvent);
+//        }
+//        if (null != flFollowMedicine ){
+//            follow.setFlFollowMedicine(flFollowMedicine);
+//        }
+//        if (null != flFollowResult ){
+//            follow.setFlFollowResult(flFollowResult);
+//        }
         model.addAttribute("item",follow);
         LogObjectHolder.me().set(follow);
         return PREFIX + "followH_edit.html";
