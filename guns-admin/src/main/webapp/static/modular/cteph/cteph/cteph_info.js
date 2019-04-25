@@ -306,7 +306,8 @@ CtephInfoDlg.editSubmit = function() {
 
     this.clearData();
     this.collectData();
-
+    console.log(this.ctephInfoData['aas']);//
+    console.log(this.ctephInfoData);//打印填入的数据
     //提交信息
     var ajax = new $ax(Feng.ctxPath + "/cteph/update", function(data){
         Feng.success("修改成功!");
