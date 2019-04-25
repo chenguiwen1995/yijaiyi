@@ -175,21 +175,51 @@ Follow.openFollowDetail = function () {
     }
 };
 
+
+// Follow.delete = function () {
+//
+//     if (this.check()) {
+//         var ajax = new $ax(Feng.ctxPath + "/follow/delete", function (data) {
+//             Feng.success("删除成功!");
+//             Follow.table.refresh();
+//         }, function (data) {
+//             Feng.error("删除失败!" + data.responseJSON.message + "!");
+//         });
+//         ajax.set("followId",this.seItem.id);
+//         ajax.start();
+//     }
+// };
 /**
  * 删除follow
  */
 Follow.delete = function () {
+
     if (this.check()) {
-        var ajax = new $ax(Feng.ctxPath + "/follow/delete", function (data) {
-            Feng.success("删除成功!");
-            Follow.table.refresh();
-        }, function (data) {
-            Feng.error("删除失败!" + data.responseJSON.message + "!");
+        var user = 0;
+        var ajax = new $ax(Feng.ctxPath + "/mgr/currentuserid", function (data) {
+            user = data;
         });
-        ajax.set("followId",this.seItem.id);
         ajax.start();
+        var selected = $('#' + this.id).bootstrapTable('getSelections');
+        Follow.seItem = selected[0];
+        if (user != Follow.seItem.fillingperson) {
+            Feng.error("没有权限删除其他用户创建的数据！")
+        } else {
+            var operation = function () {
+                var ajax = new $ax(Feng.ctxPath + "/follow/delete", function (data) {
+                    Feng.success("删除成功!");
+                    Cteph.table.refresh();
+                }, function (data) {
+                    Feng.error("删除失败!" + data.responseJSON.message + "!");
+                });
+                ajax.set("followId", Follow.seItem.id);     //将this.seItem.id改为Follow.seItem.id
+                ajax.start();
+            };
+            Feng.confirm("是否刪除该随访表?", operation);
+        }
     }
 };
+
 
 /**
  * 查询follow列表
