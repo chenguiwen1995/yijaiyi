@@ -163,22 +163,22 @@ public class CtephController extends BaseController {
     @ResponseBody
     public Object update(Cteph cteph) {
         //处理多选修改由1变为0的问题
-        if(cteph.getAas()==null)
-            cteph.setAas(0);
-        if(cteph.getSie()==null)
-            cteph.setSie(0);
-        if(cteph.getSjogrens()==null)
-            cteph.setSjogrens(0);
-        if(cteph.getSsclerosis()==null)
-            cteph.setSsclerosis(0);
-        if(cteph.getMctd()==null)
-            cteph.setMctd(0);
-        if(cteph.getRarthritis()==null)
-            cteph.setRarthritis(0);
-        if(cteph.getUctd()==null)
-            cteph.setUctd(0);
-        if(cteph.getOctd()==null)
-            cteph.setOctd(0);
+//        if(cteph.getAas()==null)
+//            cteph.setAas(0);
+//        if(cteph.getSie()==null)
+//            cteph.setSie(0);
+//        if(cteph.getSjogrens()==null)
+//            cteph.setSjogrens(0);
+//        if(cteph.getSsclerosis()==null)
+//            cteph.setSsclerosis(0);
+//        if(cteph.getMctd()==null)
+//            cteph.setMctd(0);
+//        if(cteph.getRarthritis()==null)
+//            cteph.setRarthritis(0);
+//        if(cteph.getUctd()==null)
+//            cteph.setUctd(0);
+//        if(cteph.getOctd()==null)
+//            cteph.setOctd(0);
         ctephService.updateById(cteph);
         return SUCCESS_TIP;
     }

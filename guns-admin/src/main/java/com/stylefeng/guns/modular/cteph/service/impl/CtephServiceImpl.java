@@ -36,11 +36,17 @@ public class CtephServiceImpl extends ServiceImpl<CtephMapper, Cteph> implements
     private IUserService userService;
 
     @Resource
-    private com.stylefeng.guns.modular.system.dao.CtephMapper CtephMapper;
+    private com.stylefeng.guns.modular.system.dao.CtephMapper ctephMapper;
 
     @Override
     public List<Map<String, Object>> selectCtephs(Integer ctephId , String name) {
         //System.out.println("ctephServiceImpl.java: ctepmId:"+ctephId);
-        return CtephMapper.selectCtephs(ctephId,name);
+        return ctephMapper.selectCtephs(ctephId,name);
+    }
+
+    @Override
+    public boolean updateById(Cteph cteph) {
+        ctephMapper.updateById(cteph);
+        return true;
     }
 }

@@ -115,7 +115,10 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>有
                         </label>
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-ape","hidden-firstvtetime","hidden-vterelapse")'
+                            <input onclick='hiddenElement("hidden-ape","hidden-firstvtetime","hidden-vterelapse");
+                                            hiddenElement("hidden-otherthrombus");
+                                            setNullValueByName("ape","vterelapse");
+                                            setNullValueById("otherthrombus","firstvtetime")'
                                    type="radio" name="vtehistory" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>无
                         </label>
@@ -126,11 +129,11 @@
 
                         <label><h3>首发VTE事件类型</h3></label>
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-otherthrombus")' type="radio" name="ape" value="1"
+                            <input onclick='hiddenElement("hidden-otherthrombus"); setNullValueById("otherthrombus")' type="radio" name="ape" value="1"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>急性肺栓塞
                         </label>
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-otherthrombus")' type="radio" name="ape" value="2"
+                            <input onclick='hiddenElement("hidden-otherthrombus"); setNullValueById("otherthrombus")' type="radio" name="ape" value="2"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>下肢深静脉血栓
                         </label>
                         <form></form>
@@ -195,7 +198,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-malignanttumor')" type="radio" name="malignanttumor"
+                            <input onclick="hiddenElement('hidden-malignanttumor');setNullValueById('specifictumor','malignanttumordate')" type="radio" name="malignanttumor"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -231,7 +234,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-splenectormydate')" type="radio" name="splenectomy"
+                            <input onclick="hiddenElement('hidden-splenectormydate');setNullValueById('splenectormydate')" type="radio" name="splenectomy"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -256,7 +259,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-pacemakerdate')" type="radio" name="pacemaker"
+                            <input onclick="hiddenElement('hidden-pacemakerdate');setNullValueById('pacemakerdate')" type="radio" name="pacemaker"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -281,7 +284,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-atrialhistorydate')" type="radio" name="atrialhistory"
+                            <input onclick="hiddenElement('hidden-atrialhistorydate');setNullValueById('atrialhistorydate')" type="radio" name="atrialhistory"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -305,7 +308,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-levvdate')" type="radio" name="levv" value="0"
+                            <input onclick="hiddenElement('hidden-levvdate');setNullValueById('levvdate')" type="radio" name="levv" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
                         <label id="hidden-levvdate" hidden="hidden">
@@ -328,7 +331,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-ibd")' type="radio" name="ibd" value="0"
+                            <input onclick='hiddenElement("hidden-ibd");setNullValueById("ibddiagnosis","ibddate")' type="radio" name="ibd" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
                     </div>
@@ -361,7 +364,13 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-connectivetissue")' type="radio"
+                            <input onclick='hiddenElement("hidden-connectivetissue");
+                                    setNullValueByName("aas","sie","sjogrens");
+                                    setNullValueByName("ssclerosis","mctd","rarthritis");
+                                    setNullValueByName("uctd","octd");
+                                    setNullValueByName("la","acllgg","acllgm");
+                                    setNullValueByName("lgg","lgm");
+                                    setNullValueById("octdspecific")' type="radio"
                                    name="connectivetissue" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -371,7 +380,7 @@
                 <div id="hidden-connectivetissue" style="padding-left: 25px" class="form-group" hidden="hidden">
                     <div class="checkbox" style="word-spacing: 40px; line-height: 200%;">
                         <label style="word-spacing: 20px;font-weight: 600; padding-left: 20px;">
-                            <input onclick="checkboxHidden('aas','hidden-aas')" name="aas" type="checkbox" value="1"
+                            <input onclick="checkboxHidden('aas','hidden-aas');" name="aas" type="checkbox" value="1"
                                    style="margin-top: 6px; height: 13px; width: 13px"/>抗磷脂抗体综合征
                         </label><br>
                         <div id="hidden-aas" style="padding-left: 30px" hidden="hidden">
@@ -505,11 +514,11 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-hps')" type="radio" name="hps" value="0"
+                            <input onclick="hiddenElement('hidden-hps');setNullValueById('hcylevel','maximum')" type="radio" name="hps" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-hps')" type="radio" name="hps" value="2"
+                            <input onclick="hiddenElement('hidden-hps');setNullValueById('hcylevel','maximum')" type="radio" name="hps" value="2"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>未测
                         </label>
                     </div>
@@ -543,12 +552,12 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat')" type="radio"
+                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat');setNullValueById('at','proteins','proteinc');setNullValueByName('hat')" type="radio"
                                    name="threeitems" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat')" type="radio"
+                            <input onclick="hiddenElement('hidden-threeitems','hidden-hat');setNullValueById('at','proteins','proteinc');setNullValueByName('hat')" type="radio"
                                    name="threeitems" value="2"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>未测
                         </label>
@@ -611,7 +620,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-otherrisk')" type="radio" name="otherriskjudge"
+                            <input onclick="hiddenElement('hidden-otherrisk');setNullValueById('otherrisk')" type="radio" name="otherriskjudge"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -662,7 +671,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-revascularization")' type="radio" name="coronaryheart"
+                            <input onclick='hiddenElement("hidden-revascularization");setNullValueByName("revascularization")' type="radio" name="coronaryheart"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -711,7 +720,7 @@
                                    style="margin-top: 4px; height: 13px; width: 13px"/>是
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-lhfailurespecific')" type="radio" name="lhfailure"
+                            <input onclick="hiddenElement('hidden-lhfailurespecific');setNullValueByName('lhfailurespecific')" type="radio" name="lhfailure"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -799,7 +808,7 @@
                             </form>
                         </label>
                         <label class="radio-inline">
-                            <input onclick='hiddenElement("hidden-chdspecific")' type="radio" name="congenitalheart"
+                            <input onclick='hiddenElement("hidden-chdspecific");setNullValueById("chdspecific")' type="radio" name="congenitalheart"
                                    value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -936,7 +945,7 @@
                             </form>
                         </label>
                         <label class="radio-inline">
-                            <input onclick="hiddenElement('hidden-othercomplicationss')" type="radio"
+                            <input onclick="hiddenElement('hidden-othercomplicationss');setNullValueById('othercomplicationss')" type="radio"
                                    name="othercomplications" value="0"
                                    style="margin-top: 4px; height: 13px; width: 13px"/>否
                         </label>
@@ -992,12 +1001,12 @@
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">是否进行</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-walking');hiddenElement('hidden-noreason1')"
+                                <input onclick="displayElement('hidden-walking');hiddenElement('hidden-noreason1');setNullValueByName('noreason1')"
                                        type="radio" name="sixmwd" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="displayElement('hidden-noreason1');hiddenElement('hidden-walking')"
+                                <input onclick="displayElement('hidden-noreason1');hiddenElement('hidden-walking');setNullValueById('walking')"
                                        type="radio" name="sixmwd" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -1058,7 +1067,10 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-respiratory')"
+                                <input onclick="hiddenElement('hidden-respiratory');
+                                                setNullValueById('vcmax','tlc','rv');
+                                                setNullValueById('rvtlc','fev1','fev1fvc');
+                                                setNullValueById('fef','tlcosb','tlcova')"
                                        type="radio" name="respiratory" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -1297,7 +1309,7 @@
                             <label><h3><span class="glyphicon glyphicon-check" style="font-weight: 600">右心导管</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick='hiddenElement("hidden-noreason2")' type="radio" name="rhc" value="1"
+                                <input onclick='hiddenElement("hidden-noreason2");setNullValueByName("noreason2");setNullValueById("otherreason")' type="radio" name="rhc" value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
@@ -1311,12 +1323,12 @@
                             <label><h3><span class="glyphicon glyphicon-stop" style="font-weight: 600; padding-left: 20px;">未做原因</span></h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick='hiddenElement("hidden-otherreason")' type="radio" name="noreason2"
+                                <input onclick='hiddenElement("hidden-otherreason");setNullValueById("otherreason")' type="radio" name="noreason2"
                                        value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>病情危重
                             </label>
                             <label class="radio-inline">
-                                <input onclick='hiddenElement("hidden-otherreason")' type="radio" name="noreason2"
+                                <input onclick='hiddenElement("hidden-otherreason");setNullValueById("otherreason")' type="radio" name="noreason2"
                                        value="2"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>患者拒绝
                             </label>
@@ -1415,7 +1427,7 @@
                                            style="margin-top: 4px; height: 13px; width: 13px"/>是
                                 </label>
                                 <label class="radio-inline">
-                                    <input onclick='hiddenElement("hidden-rap")' type="radio" name="rap" value="0"
+                                    <input onclick='hiddenElement("hidden-rap");setNullValueById("rapshrink","bprelaxation","bpave")' type="radio" name="rap" value="0"
                                            style="margin-top: 4px; height: 13px; width: 13px"/>否
                                 </label>
                             </div>
@@ -1448,7 +1460,7 @@
                                            style="margin-top: 4px; height: 13px; width: 13px"/>是
                                 </label>
                                 <label class="radio-inline">
-                                    <input onclick='hiddenElement("hidden-pap")' type="radio" name="pap" value="0"
+                                    <input onclick='hiddenElement("hidden-pap");setNullValueById("papshrink","raprelaxation2","papave")' type="radio" name="pap" value="0"
                                            style="margin-top: 4px; height: 13px; width: 13px"/>否
                                 </label>
                             </div>
@@ -1482,7 +1494,7 @@
                                            style="margin-top: 4px; height: 13px; width: 13px"/>是
                                 </label>
                                 <label class="radio-inline">
-                                    <input onclick="hiddenElement('hidden-pawp')" type="radio" name="pawp" value="0"
+                                    <input onclick="hiddenElement('hidden-pawp');setNullValueById('pawpshrink','pawprelaxation','pawpave')" type="radio" name="pawp" value="0"
                                            style="margin-top: 4px; height: 13px; width: 13px"/>否
                                 </label>
                             </div>
@@ -1686,11 +1698,11 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-ntnumber')" type="radio" name="nt" value="0"
+                                <input onclick="hiddenElement('hidden-ntnumber');setNullValueById('ntnumber')" type="radio" name="nt" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-ntnumber')" type="radio" name="nt" value="2"
+                                <input onclick="hiddenElement('hidden-ntnumber');setNullValueById('ntnumber')" type="radio" name="nt" value="2"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>未做
                             </label>
                         </div>
@@ -1703,7 +1715,7 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <div style="word-spacing: 20px;">
+                        <div style="word-spacing: 20px;">tia'ji
                             <label><h3><span class="glyphicon glyphicon-check"
                                              style="font-weight: 600">肝功能</span>
                             </h3></label>
@@ -1778,12 +1790,15 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-bloodgas')"
+                                <input onclick="hiddenElement('hidden-bloodgas');
+                                setNullValueByName('abgt');
+                                setNullValueById('pco','po','sao');setNullValueById('paa')"
                                        type="radio" name="bloodgas" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-bloodgas')"
+                                <input onclick="hiddenElement('hidden-bloodgas');setNullValueByName('abgt');
+                                setNullValueById('pco','po','sao');setNullValueById('paa')"
                                        type="radio" name="bloodgas" value="2"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>未做
                             </label>
@@ -1879,7 +1894,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-drug1')" type="radio" name="anticoagulant"
+                                <input onclick="hiddenElement('hidden-drug1');setNullValueById('otherdrug');setNullValueByName('drug1')" type="radio" name="anticoagulant"
                                        value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -1891,17 +1906,17 @@
                             </h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1"
+                                <input onclick="hiddenElement('hidden-otherdrug');setNullValueById('otherdrug')" type="radio" name="drug1"
                                        value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>华法林
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1"
+                                <input onclick="hiddenElement('hidden-otherdrug');setNullValueById('otherdrug')" type="radio" name="drug1"
                                        value="2"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>利伐沙班
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug')" type="radio" name="drug1"
+                                <input onclick="hiddenElement('hidden-otherdrug');setNullValueById('otherdrug')" type="radio" name="drug1"
                                        value="3"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>达比加群酯
                             </label>
@@ -1931,7 +1946,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-drug5')" type="radio" name="antiplatelet"
+                                <input onclick="hiddenElement('hidden-drug5');setNullValueById('otherdrug2');setNullValueByName('drug5')" type="radio" name="antiplatelet"
                                        value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -1943,17 +1958,17 @@
                             </h3>
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5"
+                                <input onclick="hiddenElement('hidden-otherdrug2');setNullValueById('otherdrug2')" type="radio" name="drug5"
                                        value="1"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>阿司匹林
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5"
+                                <input onclick="hiddenElement('hidden-otherdrug2');setNullValueById('otherdrug2')" type="radio" name="drug5"
                                        value="2"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>氯吡格雷
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-otherdrug2')" type="radio" name="drug5"
+                                <input onclick="hiddenElement('hidden-otherdrug2');setNullValueById('otherdrug2')" type="radio" name="drug5"
                                        value="3"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>替格瑞洛
                             </label>
@@ -1982,7 +1997,12 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-laxg','hidden-fivepi');hiddenElement('hidden-era','hidden-prostacyclin')"
+                                <input onclick="hiddenElement('hidden-laxg','hidden-fivepi');
+                                hiddenElement('hidden-era','hidden-prostacyclin');
+                                hiddenElement('hidden-drug2','hidden-drug3','hidden-drug4');
+                                setNullValueByName('laxg','fivepi','drug2');
+                                setNullValueByName('era','prostacyclin','drug3');
+                                setNullValueByName('drug4')"
                                        type="radio" name="targeting" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -2014,7 +2034,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-drug2')" type="radio" name="fivepi" value="0"
+                                <input onclick="hiddenElement('hidden-drug2');setNullValueByName('drug2')" type="radio" name="fivepi" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
@@ -2049,7 +2069,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-drug3')" type="radio" name="era" value="0"
+                                <input onclick="hiddenElement('hidden-drug3');setNullValueByName('drug3')" type="radio" name="era" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
@@ -2083,7 +2103,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-drug4')" type="radio" name="prostacyclin"
+                                <input onclick="hiddenElement('hidden-drug4');setNullValueByName('drug4')" type="radio" name="prostacyclin"
                                        value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -2119,7 +2139,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-exfoliationdate')" type="radio" name="exfoliation" value="0"
+                                <input onclick="hiddenElement('hidden-exfoliationdate');setNullValueById('exfoliationdate')" type="radio" name="exfoliation" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
@@ -2143,7 +2163,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-angioplastyfdate')" type="radio" name="angioplasty" value="0"
+                                <input onclick="hiddenElement('hidden-angioplastyfdate');setNullValueById('angioplastyfdate')" type="radio" name="angioplasty" value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
                         </div>
@@ -2180,7 +2200,7 @@
                                        style="margin-top: 4px; height: 13px; width: 13px"/>是
                             </label>
                             <label class="radio-inline">
-                                <input onclick="hiddenElement('hidden-deathreason')" type="radio" name="death"
+                                <input onclick="hiddenElement('hidden-deathreason');setNullValueByName('deathreason')" type="radio" name="death"
                                        value="0"
                                        style="margin-top: 4px; height: 13px; width: 13px"/>否
                             </label>
@@ -2451,9 +2471,54 @@
             displayElement(id2);
         } else {
             hiddenElement(id2);
+            //由于本表的多选较少，这里采用特判的方式，之后必须修改这种方式
+            if(id1 == 'aas'){
+                setNullValueByName("la","acllgg","acllgm");
+                setNullValueByName("lgg","lgm");
+            }else{
+                setNullValueById("octdspecific");
+            }
+
         }
     }
 
+    /*
+     通过name找的节点，比如单选多选
+     当选否时隐藏控件的值需要置为空置
+     */
+    function setNullValueByName(name1,name2,name3)
+    {
+        var checkedFromName1 = document.getElementsByName(name1);
+        for(var i = 0; i < checkedFromName1.length; i++ ) {
+            checkedFromName1[i].checked = false;
+        }
+        if (typeof name2 != "undefined") {
+            var checkedFromName2 = document.getElementsByName(name2);
+            for(var i = 0; i < checkedFromName2.length; i++ ) {
+                checkedFromName2[i].checked = false;
+            }
+        }
+        if (typeof name3 != "undefined") {
+            var checkedFromName3 = document.getElementsByName(name3);
+            for(var i = 0; i < checkedFromName3.length; i++ ) {
+                checkedFromName3[i].checked = false;
+            }
+        }
+    }
+
+    /*
+        通过id寻找节点，比如文本框
+        当选否时，隐藏控件的值需要置空，文本框可以置为空字符串，时间控件空字符串会报错，在cteph_info.js文件中的setByName函数中已经针对时间控件做了处理
+    */
+    function setNullValueById(id1,id2,id3) {
+        document.getElementById(id1).value='';
+        if (typeof id2 != "undefined") {
+            document.getElementById(id2).value='';
+        }
+        if (typeof id3 != "undefined") {
+            document.getElementById(id3).value='';
+        }
+    }
 
     laydate.render({
         elem: '#birthday'

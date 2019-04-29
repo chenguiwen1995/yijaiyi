@@ -20,4 +20,11 @@ public interface CtephMapper extends BaseMapper<Cteph> {
      * 根据条件查询用户列表
      */
     List<Map<String, Object>> selectCtephs(@Param("department") Integer department, @Param("patient_name") String patient_name);
+
+    /**
+     * 更新调查表
+     * @param cteph
+     * @return
+     */
+    Integer updateById(Cteph cteph);
 }

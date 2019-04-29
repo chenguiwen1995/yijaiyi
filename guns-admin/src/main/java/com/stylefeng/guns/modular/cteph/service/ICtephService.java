@@ -17,4 +17,5 @@ import java.util.Map;
  */
 public interface ICtephService extends IService<Cteph> {
     List<Map<String, Object>> selectCtephs(@Param("department") Integer department,@Param("patient_name") String patient_name);
+    boolean updateById(Cteph cteph);
 }
