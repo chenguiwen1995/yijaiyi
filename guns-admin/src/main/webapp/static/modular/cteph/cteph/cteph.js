@@ -368,7 +368,6 @@ Cteph.openCtephDetail = function () {
     }
 };
 
-
 /**
  * 打开查看CTEPH调查表详情
  */

@@ -257,6 +257,7 @@ Follow.search = function () {
     Follow.table.refresh({query: queryData});
 };
 
+
 $(function () {
     var defaultColunms = Follow.initColumn();
     var table = new BSTable(Follow.id, "/follow/list", defaultColunms);

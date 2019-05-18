@@ -177,7 +177,6 @@ FollowInfoDlg.addSubmit = function() {
     this.followInfoData['modifiedTime'] = this.followInfoData['creationTime']; //添加时修改时间与创建时间一致
     this.followInfoData['ts'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(); //时间戳
 
-
     console.log(this.followInfoData['creationTime']);//打印创建时间
     console.log(this.followInfoData['deathdate']);
     console.log(this.followInfoData['hemoptysisMax']);
