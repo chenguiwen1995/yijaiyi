@@ -167,6 +167,28 @@ FollowInfoDlg.addSubmit = function() {
     this.clearData();
     this.collectData();
 
+    this.followInfoData['creationTime'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(); //创建时间为当前时间,需要转化格式
+    this.followInfoData['deathdate'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds();
+    this.followInfoData['hemoptysisMax'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds();
+    this.followInfoData['hospitalizationdate1'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds();
+    this.followInfoData['hospitalizationdate2'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds();
+    this.followInfoData['hospitalizationdate3'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds();
+    this.followInfoData['syncopeTime'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds();
+    this.followInfoData['modifiedTime'] = this.followInfoData['creationTime']; //添加时修改时间与创建时间一致
+    this.followInfoData['ts'] = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(); //时间戳
+
+
+    console.log(this.followInfoData['creationTime']);//打印创建时间
+    console.log(this.followInfoData['deathdate']);
+    console.log(this.followInfoData['hemoptysisMax']);
+    console.log(this.followInfoData['hospitalizationdate1']);
+    console.log(this.followInfoData['hospitalizationdate2']);
+    console.log(this.followInfoData['hospitalizationdate3']);
+    console.log(this.followInfoData['syncopeTime']);
+    console.log(this.followInfoData['modifiedTime']);
+    console.log(this.followInfoData['ts']);
+    console.log(this.followInfoData);//打印填入的数据
+
     //提交信息
     var ajax = new $ax(Feng.ctxPath + "/follow/add", function(data){
         Feng.success("添加成功!");

@@ -357,7 +357,7 @@ Cteph.openCtephDetail = function () {
             var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
             var index = layer.open({
                 type: 2,
-                title: 'CTEPH调查表详情',
+                title: 'CTEPH调查表修改',
                 area: ['800px', layheight], //宽高
                 fix: false, //不固定
                 maxmin: true,
