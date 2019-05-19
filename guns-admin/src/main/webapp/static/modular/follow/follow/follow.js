@@ -194,7 +194,6 @@ Follow.openFollowDetail = function () {
     //         this.layerIndex = index;
     //     }
     // }
-
     if (window.innerHeight)
         var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
     else if ((document.body) && (document.body.clientHeight))

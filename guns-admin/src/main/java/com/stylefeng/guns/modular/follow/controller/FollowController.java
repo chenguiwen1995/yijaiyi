@@ -129,7 +129,7 @@ public class FollowController extends BaseController {
 
     /**
      * 跳转到详情页
-     * 添加详情页时，需要加这部分
+     * 前端添加详情页时，需要加这部分
      */
     @RequestMapping("/follow_view/{followId}")
     public String followView(@PathVariable Integer followId, Model model) {
