@@ -271,15 +271,15 @@
                     <div class="form-group" style="padding-top: -5px;">
                         <label><h3 style="padding-left: 20px; font-weight: 500">不规律原因:</h3></label>
                         <label>
-                            <input name="medicine_expenses" type="checkbox" value="1"
+                            <input name="fl_follow_medicine_expenses" type="checkbox" value="1"
                                    style="margin-top: 3px; height: 13px; width: 13px"/>费用
                         </label>
                         <label>
-                            <input name="medicine_untowardeffect" type="checkbox" value="1"
+                            <input name="fl_follow_medicine_untowardeffect" type="checkbox" value="1"
                                    style="margin-top: 3px; height: 13px; width: 13px"/>不良反应
                         </label>
                         <label>
-                            <input name="medicine_curativeeffect" type="checkbox" value="1"
+                            <input name="fl_follow_medicine_curativeeffect" type="checkbox" value="1"
                                    style="margin-top: 3px; height: 13px; width: 13px"/>疗效
                         </label>
                         其他原因:<textarea id="fl_follow_medicine_othersereason" class="form-control" rows="3" oninput="autoTextHeight(this)">
@@ -343,10 +343,10 @@
             <h4 style="margin-top: 10px; font-weight: 600">内皮素受体拮抗剂:</h4>
             <form class="form-inline" role="form">
                 <div class="form-group" style="padding-left: 15px; font-size: 14px; word-spacing: 20px;">
-                    波生坦剂量<#input id="bst_dosage" name="" value="${item.flFollowMedicine.bstDosage}" disabled="disabled"/>
-                    安立生坦剂量<#input id="alst_dosage" name="" value="${item.flFollowMedicine.alstDosage}" disabled="disabled"/>
+                    波生坦剂量<#input id="bst_dosage" name="" value="${item.bstDosage}" disabled="disabled"/>
+
                     <br>
-                    马昔腾坦剂量<#input id="mxtt_dosage" name="" value="${item.flFollowMedicine.mxttDosage}" disabled="disabled"/>
+                    马昔腾坦剂量<#input id="mxtt_dosage" name="" value="${item.mxttDosage}" disabled="disabled"/>
                 </div>
             </form>
             <div class="checkbox" style="word-spacing: 40px; line-height: 200%; margin-left:30px; padding-top: 5px; padding-bottom: 5px;">
@@ -729,9 +729,9 @@
     $("input[name=fl_follow_event_review][value=${item.review}]").prop("checked", true);
 </script>
 <script>
-    $("input[name=fl_follow_medicine_expenses][value=${item.expenses}]").prop("checked", true);
-    $("input[name=fl_follow_medicine_untowardeffect][value=${item.untowardeffect}]").prop("checked", true);
-    $("input[name=fl_follow_medicine_curativeeffect][value=${item.curativeeffect}]").prop("checked", true);
+    $("input[name=fl_follow_medicine_expenses][value=${item.medicineExpenses}]").prop("checked", true);
+    $("input[name=fl_follow_medicine_untowardeffect][value=${item.medicineUntowardeffect}]").prop("checked", true);
+    $("input[name=fl_follow_medicine_curativeeffect][value=${item.medicineCurativeeffect}]").prop("checked", true);
 </script>
 <script>
     $("input[name=facered1][value=${item.facered1}]").prop("checked", true);
@@ -843,6 +843,5 @@
         margin-left: 0px;
         padding-left: 0px;
     }
-
 </style>
 @}

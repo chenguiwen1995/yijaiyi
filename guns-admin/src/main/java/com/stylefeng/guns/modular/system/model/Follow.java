@@ -64,9 +64,12 @@ public class Follow extends Model<Follow> {
     private Date hospitalizationdate3;
     private String deterioratespecific;
     private Integer regulardose;
-    private Integer medicine_expenses;
-    private Integer medicine_untowardeffect;
-    private Integer medicine_curativeeffect;
+    @TableField("medicine_expenses")
+    private Integer medicineExpenses;
+    @TableField("medicine_untowardeffect")
+    private Integer medicineUntowardeffect;
+    @TableField("medicine_curativeeffect")
+    private Integer medicineCurativeeffect;
     private String othersereason;
     private Integer xdnf;
     @TableField("xdnf_dosage")
@@ -1179,27 +1182,27 @@ public class Follow extends Model<Follow> {
         "}";
     }
 
-    public Integer getMedicine_expenses() {
-        return medicine_expenses;
+    public Integer getMedicineExpenses() {
+        return medicineExpenses;
     }
 
-    public void setMedicine_expenses(Integer medicine_expenses) {
-        this.medicine_expenses = medicine_expenses;
+    public void setMedicineExpenses(Integer medicineExpenses) {
+        this.medicineExpenses = medicineExpenses;
     }
 
-    public Integer getMedicine_untowardeffect() {
-        return medicine_untowardeffect;
+    public Integer getMedicineUntowardeffect() {
+        return medicineUntowardeffect;
     }
 
-    public void setMedicine_untowardeffect(Integer medicine_untowardeffect) {
-        this.medicine_untowardeffect = medicine_untowardeffect;
+    public void setMedicineUntowardeffect(Integer medicineUntowardeffect) {
+        this.medicineUntowardeffect = medicineUntowardeffect;
     }
 
-    public Integer getMedicine_curativeeffect() {
-        return medicine_curativeeffect;
+    public Integer getMedicineCurativeeffect() {
+        return medicineCurativeeffect;
     }
 
-    public void setMedicine_curativeeffect(Integer medicine_curativeeffect) {
-        this.medicine_curativeeffect = medicine_curativeeffect;
+    public void setMedicineCurativeeffect(Integer medicineCurativeeffect) {
+        this.medicineCurativeeffect = medicineCurativeeffect;
     }
 }

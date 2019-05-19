@@ -39,6 +39,9 @@
         <result column="hospitalizationdate3" property="hospitalizationdate3" />
         <result column="deterioratespecific" property="deterioratespecific" />
         <result column="regulardose" property="regulardose" />
+        <result column="medicineExpenses" property="medicineExpenses" />
+        <result column="medicineUntowardeffect" property="medicineUntowardeffect" />
+        <result column="medicineCurativeeffect" property="medicineCurativeeffect" />
         <result column="othersereason" property="othersereason" />
         <result column="xdnf" property="xdnf" />
         <result column="xdnf_dosage" property="xdnfDosage" />
@@ -120,7 +123,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, code, name, department, doctor, patient_name, patient_sex, patient_age, patient_medno, patient_phone, patient_phone2, patient_wechat, patient_address, family_phone, pamily_phone2, deteriorate, hospitalization, number, pulmonary, rightheartfailure, hemoptysis1, other, pulmonaryembolism, lowervein, arrhythmia, death, deathdate, nonpertension, specific, review, hospitalizationdate1, hospitalizationdate2, hospitalizationdate3, deterioratespecific, regulardose, othersereason, xdnf, xdnf_dosage, tdnf, tdnf_dosage, facered1, headache1, stuffynose1, musclepain1, dizziness1, blurredvision1, hypotension1, menstrualdisorder1, other1, bst, bst_dosage, mxtt, mxtt_dosage, facered2, headache2, stuffynose2, musclepain2, dizziness2, transaminaseraise2, anemia2, peripheraledema2, hypotension2, menstrualdisorder2, other2, bqls, bqls_dosage, rmdl, rmdl_dosage, facered3, headache3, stuffynose3, musclepain3, diarrhea3, localpain3, hypotension3, other3, laxg, laxg_dosage, facered4, headache4, stuffynose4, dizziness4, diarrhea4, hypotension4, other4, routineblood, bloodbiochemistry, nt, ntnumber, sexhormone, ironmetabolism, walk, walkdistance, ct, cprt, mri, othercheck, breath_short, syncope, syncope_times, syncope_time, hemoptysis, hemoptysis_times, hemoptysis_max, swollen, others, creator, creation_time, modifier, modified_time, ts, dr
+        id, code, name, department, doctor, patient_name, patient_sex, patient_age, patient_medno, patient_phone, patient_phone2, patient_wechat, patient_address, family_phone, pamily_phone2, deteriorate, hospitalization, number, pulmonary, rightheartfailure, hemoptysis1, other, pulmonaryembolism, lowervein, arrhythmia, death, deathdate, nonpertension, specific, review, hospitalizationdate1, hospitalizationdate2, hospitalizationdate3, deterioratespecific, regulardose, medicineExpenses, medicineUntowardeffect, medicineCurativeeffect, othersereason, xdnf, xdnf_dosage, tdnf, tdnf_dosage, facered1, headache1, stuffynose1, musclepain1, dizziness1, blurredvision1, hypotension1, menstrualdisorder1, other1, bst, bst_dosage, mxtt, mxtt_dosage, facered2, headache2, stuffynose2, musclepain2, dizziness2, transaminaseraise2, anemia2, peripheraledema2, hypotension2, menstrualdisorder2, other2, bqls, bqls_dosage, rmdl, rmdl_dosage, facered3, headache3, stuffynose3, musclepain3, diarrhea3, localpain3, hypotension3, other3, laxg, laxg_dosage, facered4, headache4, stuffynose4, dizziness4, diarrhea4, hypotension4, other4, routineblood, bloodbiochemistry, nt, ntnumber, sexhormone, ironmetabolism, walk, walkdistance, ct, cprt, mri, othercheck, breath_short, syncope, syncope_times, syncope_time, hemoptysis, hemoptysis_times, hemoptysis_max, swollen, others, creator, creation_time, modifier, modified_time, ts, dr
     </sql>
 
 </mapper>
