@@ -64,6 +64,9 @@ public class Follow extends Model<Follow> {
     private Date hospitalizationdate3;
     private String deterioratespecific;
     private Integer regulardose;
+    private Integer medicine_expenses;
+    private Integer medicine_untowardeffect;
+    private Integer medicine_curativeeffect;
     private String othersereason;
     private Integer xdnf;
     @TableField("xdnf_dosage")
@@ -1174,5 +1177,29 @@ public class Follow extends Model<Follow> {
         ", ts=" + ts +
         ", dr=" + dr +
         "}";
+    }
+
+    public Integer getMedicine_expenses() {
+        return medicine_expenses;
+    }
+
+    public void setMedicine_expenses(Integer medicine_expenses) {
+        this.medicine_expenses = medicine_expenses;
+    }
+
+    public Integer getMedicine_untowardeffect() {
+        return medicine_untowardeffect;
+    }
+
+    public void setMedicine_untowardeffect(Integer medicine_untowardeffect) {
+        this.medicine_untowardeffect = medicine_untowardeffect;
+    }
+
+    public Integer getMedicine_curativeeffect() {
+        return medicine_curativeeffect;
+    }
+
+    public void setMedicine_curativeeffect(Integer medicine_curativeeffect) {
+        this.medicine_curativeeffect = medicine_curativeeffect;
     }
 }

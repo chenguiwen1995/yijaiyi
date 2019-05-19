@@ -49,6 +49,9 @@ Follow.initColumn = function () {
             // {title: '', field: 'hospitalizationdate3', visible: true, align: 'center', valign: 'middle'},
             // {title: '', field: 'deterioratespecific', visible: true, align: 'center', valign: 'middle'},
             // {title: '', field: 'regulardose', visible: true, align: 'center', valign: 'middle'},
+            // {title: '', field: 'medicine_expenses', visible: true, align: 'center', valign: 'middle'},
+            // {title: '', field: 'medicine_untowardeffect', visible: true, align: 'center', valign: 'middle'},
+            // {title: '', field: 'medicine_curativeeffect', visible: true, align: 'center', valign: 'middle'},
             // {title: '', field: 'othersereason', visible: true, align: 'center', valign: 'middle'},
             // {title: '', field: 'xdnf', visible: true, align: 'center', valign: 'middle'},
             // {title: '', field: 'xdnfDosage', visible: true, align: 'center', valign: 'middle'},
@@ -226,7 +229,7 @@ Follow.viewFollowDetail = function () {
             area: ['800px', layheight], //宽高
             fix: false, //不固定
             maxmin: true,
-            content: Feng.ctxPath + '/follow/follow_view/' + Follow.seItem.id
+            content: Feng.ctxPath + '/follow/follow_add/' + Follow.seItem.id
         });
         this.layerIndex = index;
     }
