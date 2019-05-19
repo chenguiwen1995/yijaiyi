@@ -18,6 +18,8 @@ import com.stylefeng.guns.modular.follow.service.IFollowService;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 
+import java.util.List;
+
 /**
  * follow控制器
  *
@@ -123,5 +125,17 @@ public class FollowController extends BaseController {
     @ResponseBody
     public Object detail(@PathVariable("followId") Integer followId) {
         return followService.selectById(followId);
+    }
+
+    /**
+     * 跳转到详情页
+     * 添加详情页时，需要加这部分
+     */
+    @RequestMapping("/follow_view/{followId}")
+    public String followView(@PathVariable Integer followId, Model model) {
+        Follow follow = followService.selectById(followId);
+        model.addAttribute("item",follow);
+        LogObjectHolder.me().set(follow);
+        return PREFIX + "follow_view.html";
     }
 }

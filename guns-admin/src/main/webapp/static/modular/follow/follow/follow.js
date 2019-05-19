@@ -164,42 +164,57 @@ Follow.openAddFollow = function () {
 };
 
 /**
- * 修改follow详情
+ * 修改follow
  */
 Follow.openFollowDetail = function () {
-    if (this.check()) {
-        var user = 0;
-        var ajax = new $ax(Feng.ctxPath + "/mgr/currentuserid", function (data) {
-            user = data;
-        });
-        ajax.start();
-        var selected = $('#' + this.id).bootstrapTable('getSelections');
-        Follow.seItem = selected[0];
-        if (user != Follow.seItem.fillingperson) {
-            Feng.error("没有权限修改其他用户创建的数据！")
-        } else {
-            if (window.innerHeight)
-                var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
-            else if ((document.body) && (document.body.clientHeight))
-                var winHeight = document.body.clientHeight;
-            var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
-            var index = layer.open({
-                type: 2,
-                title: '随访表详情',
-                area: ['800px', layheight], //宽高
-                fix: false, //不固定
-                maxmin: true,
-                content: Feng.ctxPath + '/follow/follow_update/' + Follow.seItem.id
-            });
-            this.layerIndex = index;
-        }
-    }
+    // if (this.check()) {
+    //     var user = 0;
+    //     var ajax = new $ax(Feng.ctxPath + "/mgr/currentuserid", function (data) {
+    //         user = data;
+    //     });
+    //     ajax.start();
+    //     var selected = $('#' + this.id).bootstrapTable('getSelections');
+    //     Follow.seItem = selected[0];
+    //     if (user != Follow.seItem.fillingperson) {
+    //         Feng.error("没有权限修改其他用户创建的数据！")
+    //     } else {
+    //         if (window.innerHeight)
+    //             var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
+    //         else if ((document.body) && (document.body.clientHeight))
+    //             var winHeight = document.body.clientHeight;
+    //         var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
+    //         var index = layer.open({
+    //             type: 2,
+    //             title: '随访表详情',
+    //             area: ['800px', layheight], //宽高
+    //             fix: false, //不固定
+    //             maxmin: true,
+    //             content: Feng.ctxPath + '/follow/follow_update/' + Follow.seItem.id
+    //         });
+    //         this.layerIndex = index;
+    //     }
+    // }
+
+    if (window.innerHeight)
+        var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
+    else if ((document.body) && (document.body.clientHeight))
+        var winHeight = document.body.clientHeight;
+    var layheight = String(parseInt(winHeight) - 30) + 'px';    //字符串转为数字进行计算，再通过String()转为字符串
+    var index = layer.open({
+        type: 2,
+        title: '随访表详情',
+        area: ['800px', layheight], //宽高
+        fix: false, //不固定
+        maxmin: true,
+        content: Feng.ctxPath + '/follow/follow_update/' + Follow.seItem.id
+    });
+    this.layerIndex = index;
 };
 
 /**
  * 查看随访表详情
  */
-Follow.viewCtephDetail = function () {
+Follow.viewFollowDetail = function () {
     if (this.check()) {
         if (window.innerHeight)
             var winHeight = window.innerHeight;         //此方式获取的是这个窗口的高度的字符串
