@@ -22,7 +22,7 @@ public class Follow extends Model<Follow> {
     private Integer id;
     private String code;
     private String name;
-    private String department;
+    private Integer department;
     private String doctor;
     @TableField("patient_name")
     private String patientName;
@@ -147,7 +147,7 @@ public class Follow extends Model<Follow> {
     private Date hemoptysisMax;
     private Integer swollen;
     private String others;
-    private String creator;
+    private Integer creator;
     @TableField("creation_time")
     private Date creationTime;
     private String modifier;
@@ -181,11 +181,11 @@ public class Follow extends Model<Follow> {
         this.name = name;
     }
 
-    public String getDepartment() {
+    public Integer getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Integer department) {
         this.department = department;
     }
 
@@ -1005,11 +1005,11 @@ public class Follow extends Model<Follow> {
         this.others = others;
     }
 
-    public String getCreator() {
+    public Integer getCreator() {
         return creator;
     }
 
-    public void setCreator(String creator) {
+    public void setCreator(Integer creator) {
         this.creator = creator;
     }
 

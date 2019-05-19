@@ -1,6 +1,9 @@
 package com.stylefeng.guns.modular.follow.controller;
 
 import com.stylefeng.guns.core.base.controller.BaseController;
+import com.stylefeng.guns.core.common.billcode.impl.FollowGeneratorImpl;
+import com.stylefeng.guns.core.shiro.ShiroUser;
+import com.stylefeng.guns.modular.system.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,6 +14,9 @@ import com.stylefeng.guns.core.log.LogObjectHolder;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.stylefeng.guns.modular.system.model.Follow;
 import com.stylefeng.guns.modular.follow.service.IFollowService;
+
+import java.time.format.DateTimeParseException;
+import java.util.Date;
 
 /**
  * follow控制器
@@ -26,6 +32,12 @@ public class FollowController extends BaseController {
 
     @Autowired
     private IFollowService followService;
+
+    @Autowired
+    private FollowGeneratorImpl followGenerator;
+
+    @Autowired
+    private IUserService iUserService;
 
     /**
      * 跳转到follow首页
@@ -69,6 +81,17 @@ public class FollowController extends BaseController {
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object add(Follow follow) {
+        Date date = new Date();
+        follow.setCreationTime(date);
+        follow.setTs(date);
+        if(null != follow){
+            String code = followGenerator.getCode();
+            follow.setCode(code);
+            ShiroUser user = iUserService.getCurrentUser();
+            follow.setDepartment(user.deptId);
+            follow.setCreator(user.id);
+        }
+
         followService.insert(follow);
         return SUCCESS_TIP;
     }
