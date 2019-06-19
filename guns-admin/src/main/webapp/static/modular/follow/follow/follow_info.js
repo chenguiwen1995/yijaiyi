@@ -159,7 +159,8 @@ FollowInfoDlg.collectData = function() {
     .set('modifier')
     .set('modifiedTime')
     .set('ts')
-    .set('dr');
+    .set('dr')
+    .set('alstdosage');
 }
 
 /**

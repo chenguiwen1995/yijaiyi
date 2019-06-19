@@ -128,7 +128,9 @@ Follow.initColumn = function () {
             // {title: '', field: 'modifier', visible: true, align: 'center', valign: 'middle'},
             // {title: '', field: 'modifiedTime', visible: true, align: 'center', valign: 'middle'},
             // {title: '', field: 'ts', visible: true, align: 'center', valign: 'middle'},
-            // {title: '', field: 'dr', visible: true, align: 'center', valign: 'middle'}
+        // {title: '', field: 'dr', visible: true, align: 'center', valign: 'middle'}
+        // {title: '', field: 'alstdosage', visible: true, align: 'center', valign: 'middle'}
+
     ];
 };
 

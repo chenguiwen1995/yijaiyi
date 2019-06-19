@@ -150,7 +150,7 @@ public class Follow extends Model<Follow> {
     @TableField("hemoptysis_times")
     private Integer hemoptysisTimes;
     @TableField("hemoptysis_max")
-    private Date hemoptysisMax;
+    private Double hemoptysisMax;
     private Integer swollen;
     private String others;
     private Integer creator;
@@ -161,6 +161,7 @@ public class Follow extends Model<Follow> {
     private Date modifiedTime;
     private Date ts;
     private Integer dr;
+    private Double alstdosage;
 
 
     public Integer getId() {
@@ -987,11 +988,11 @@ public class Follow extends Model<Follow> {
         this.hemoptysisTimes = hemoptysisTimes;
     }
 
-    public Date getHemoptysisMax() {
+    public Double getHemoptysisMax() {
         return hemoptysisMax;
     }
 
-    public void setHemoptysisMax(Date hemoptysisMax) {
+    public void setHemoptysisMax(Double hemoptysisMax) {
         this.hemoptysisMax = hemoptysisMax;
     }
 
@@ -1179,6 +1180,7 @@ public class Follow extends Model<Follow> {
         ", modifiedTime=" + modifiedTime +
         ", ts=" + ts +
         ", dr=" + dr +
+        ", alstdosage=" + alstdosage +
         "}";
     }
 
@@ -1204,5 +1206,13 @@ public class Follow extends Model<Follow> {
 
     public void setMedicineCurativeeffect(Integer medicineCurativeeffect) {
         this.medicineCurativeeffect = medicineCurativeeffect;
+    }
+
+    public Double getAlstdosage() {
+        return alstdosage;
+    }
+
+    public void setAlsddosage(Double alsddosage) {
+        this.alstdosage = alsddosage;
     }
 }
